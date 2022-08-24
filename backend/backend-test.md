@@ -37,7 +37,7 @@ Crie uma API REST, que responda os seguintes métodos:
 ## Critérios de avaliação
 
   - Seu código será avaliado por: semântica, organização, estrutura, legibilidade, tamanho, entre outros fatores.
-  - O histórico do ``git'' será avaliado.
+  - O histórico do `git` será avaliado.
 
 ## Considerações
 
