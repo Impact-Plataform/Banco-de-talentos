@@ -1,6 +1,6 @@
 # `Banco de Talentos Plataforma Impact`
 
-## Sobre os desafio
+## Sobre os desafios
   Nesse repositório você encontrará duas pastas com cada uma com um arquivo .md contendo a descrição do desafio.
   Leia atentamente a descrição e siga os passos descritos.
 ## Dúvidas?
