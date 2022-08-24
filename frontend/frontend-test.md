@@ -42,7 +42,7 @@ Funcionalidades que devem ser desenvolvidas:
 ## Critérios de avaliação
 
   - Seu código será avaliado por: semântica, organização, estrutura, legibilidade, tamanho, entre outros fatores.
-  - O histórico do ``git'' será avaliado.
+  - O histórico do `git` será avaliado.
   - Responsividade;
   - Reaproveitamento de código;
 
