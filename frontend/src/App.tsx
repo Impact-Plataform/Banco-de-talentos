@@ -1,5 +1,11 @@
+import { Outlet } from 'react-router-dom'
+import { Reset } from 'styled-reset'
+
 export const App = () => {
-  return (
-    <h1>App</h1>
-  )
+	return (
+		<>
+			<Reset />
+			<Outlet />
+		</>
+	)
 }
