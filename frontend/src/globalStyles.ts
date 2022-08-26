@@ -1,8 +1,11 @@
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
+	* {
+		box-sizing: border-box;
+	}
+
 	body {
 		background-color: #333;
 	}
 `
-export default GlobalStyle

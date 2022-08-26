@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Reset } from 'styled-reset'
 import { ACTIONS } from './contexts/charactersContext'
-import GlobalStyle from './globalStyles'
+import { GlobalStyle } from './globalStyles'
 import { useCharacters } from './hooks/useCharacters'
 import { swapi } from './services/swapi'
 

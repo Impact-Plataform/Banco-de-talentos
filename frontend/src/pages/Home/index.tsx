@@ -1,13 +1,16 @@
+import { images } from '../../assets/data/images'
+import { Character } from '../../components/Character'
 import { useCharacters } from '../../hooks/useCharacters'
+import { Grid } from './styles'
 
 export const Home = () => {
 	const { state } = useCharacters()
 
 	return (
-		<div>
-			{state.characters.map(({ name }, i) => (
-				<h1 key={i}>{name}</h1>
+		<Grid>
+			{state.characters.map((char, i) => (
+				<Character data={char} image={images.characters[char.name]} key={i}  />
 			))}
-		</div>
+		</Grid>
 	)
 }

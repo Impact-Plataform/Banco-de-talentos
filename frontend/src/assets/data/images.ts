@@ -1,4 +1,12 @@
-export const images = { 'count': 82,
+interface ImagesT {
+	count: number
+	characters: {
+		[key: string]: string
+	}
+}
+
+export const images: ImagesT = {
+	'count': 82,
 	'characters': {
 		'Luke Skywalker': 'https://upload.wikimedia.org/wikipedia/en/9/9b/Luke_Skywalker.png',
 		'C-3PO': 'https://upload.wikimedia.org/wikipedia/en/5/5c/C-3PO_droid.png',

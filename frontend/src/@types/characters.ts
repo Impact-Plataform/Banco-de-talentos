@@ -1,4 +1,4 @@
-export interface Character {
+export interface CharacterT {
 	name: string
 	birth_year: string
 	eye_color: string
@@ -23,7 +23,7 @@ export interface CharactersState {
 	name: string
 	page: number
 	open: string
-	characters: Character[]
+	characters: CharacterT[]
 }
 
 export interface CharactersAction {
