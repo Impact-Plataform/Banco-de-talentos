@@ -17,6 +17,7 @@ export const initialState: CharactersState = {
 
 export const ACTIONS = {
 	SET_COUNT: 'set_count',
+	SET_PAGE: 'set_page',
 	CLEAR_COUNT: 'clear_count',
 	SET_FILMS: 'set_films',
 	ADD_FILMS: 'add_films',
@@ -52,6 +53,8 @@ const reducer = (
 	switch (action.type) {
 	case ACTIONS.SET_COUNT:
 		return { ...state, count: action?.payload?.count ?? 0 }
+	case ACTIONS.SET_PAGE:
+		return { ...state, page: state.totalPages >= (action?.payload?.page || 0) ? action?.payload?.page ?? 0 : state.page}
 	case ACTIONS.SET_TOTAL_PAGES:
 		return { ...state, totalPages: action?.payload?.totalPages ?? 0 }
 	case ACTIONS.ADD_CHARACTERS:
@@ -103,7 +106,7 @@ const reducer = (
 	case ACTIONS.CLEAR_PAGE:
 		return { ...state, page: 1 }
 	case ACTIONS.NEXT_PAGE:
-		return { ...state, page: state.page + 1 }
+		return { ...state, page: state.totalPages > state.page ? state.page + 1 : state.page }
 	case ACTIONS.SET_ALL:
 		return { ...state, ...action?.payload }
 	case ACTIONS.SET_CHARACTERS:

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState, useTransition } from 'react'
 import { images } from '../../assets/data/images'
 import { Character } from '../../components/Character'
 import { useCharacters } from '../../hooks/useCharacters'
@@ -15,6 +15,8 @@ export const Home = () => {
 		setAllAction,
 		nextPageAction,
 		addCharactersAction,
+		setNameAction,
+		setPageAction,
 	} = useCharacters()
 	const characters = useMemo(
 		() =>
@@ -26,22 +28,40 @@ export const Home = () => {
 			),
 		[state.gender, state.film, state.specie, state.characters]
 	)
-	const hasEndingCards = state.page > state.totalPages
+	const [hasEndingCards, setHasEndingCards] = useState(false)
 	const loaderRef = useRef(null)
+	const [, startTransition] = useTransition()
 
 	useEffect(() => {
-		fetchCharacters()
+		fetchByPage()
 	}, [state.page])
 
-	const fetchCharacters = async () => {
+	useEffect(() => {
+		fetchByName()
+	}, [state.name])
+
+	const fetchByPage = async () => {
 		if (hasEndingCards) return
 
 		const { count, results: characters } = await swapi(state.page, state.name)
 		const totalPages = Math.ceil(count / characters.length)
 
-		if (state.page === 1) return dispatch(setAllAction({ count, characters, totalPages }))
+		if (state.page === 1) dispatch(setAllAction({ count, characters, totalPages }))
+		else dispatch(addCharactersAction({ characters }))
 
-		dispatch(addCharactersAction({ characters }))
+		state.page === state.totalPages && setHasEndingCards(true)
+	}
+
+	const fetchByName = () => {
+		setHasEndingCards(false)
+		dispatch(setPageAction({ page: 1, totalPages: 99 }))
+		startTransition(() => {
+			swapi(1, state.name).then(({ count, results: characters }) => {
+				const totalPages = Math.ceil(count / characters.length)
+				dispatch(setAllAction({ count, characters, totalPages }))
+				totalPages === 1 && setHasEndingCards(true)
+			})
+		})
 	}
 
 	useEffect(() => {
@@ -55,7 +75,6 @@ export const Home = () => {
 			const target = entities[0]
 
 			if (target.isIntersecting) {
-				console.log({ target })
 				dispatch(nextPageAction())
 			}
 		}, options)
@@ -73,6 +92,11 @@ export const Home = () => {
 
 	return (
 		<View>
+			<input
+				type='search'
+				value={state.name}
+				onChange={(e) => dispatch(setNameAction({ name: e.target.value }))}
+			/>
 			<Filters />
 			<Grid>
 				{characters.map((char, i) => (

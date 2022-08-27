@@ -9,6 +9,7 @@ export const useCharacters = () => {
 	const setNameAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_NAME, payload })
 	const setGenderAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_GENDER, payload })
 	const setFilmAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_FILM, payload })
+	const setPageAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_PAGE, payload })
 	const addCharactersAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.ADD_CHARACTERS, payload })
 	const setFilmsAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_FILMS, payload })
 	const addFilmsAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.ADD_FILMS, payload })
@@ -32,6 +33,7 @@ export const useCharacters = () => {
 		setFilmAction,
 		setSpeciesAction,
 		addSpeciesAction,
-		setSpecieAction
+		setSpecieAction,
+		setPageAction
 	}
 }
