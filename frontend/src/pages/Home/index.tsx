@@ -5,8 +5,8 @@ import { useCharacters } from '../../hooks/useCharacters'
 import { swapi } from '../../services/swapi'
 import { Grid, View } from './styles'
 import { ThreeDots } from 'react-loader-spinner'
-import { filterCharacters } from '../../utils/filtterCharacters'
-import { Filters } from './Filters'
+import { filterCharacters } from '../../utils/filterCharacters'
+import { Filters } from './components/Filters'
 
 export const Home = () => {
 	const {
@@ -22,11 +22,10 @@ export const Home = () => {
 				state.characters,
 				state.gender,
 				state.film,
-				state.species
+				state.specie
 			),
-		[state.gender, state.film, state.species, state.characters]
+		[state.gender, state.film, state.specie, state.characters]
 	)
-	// console.log({ characters })
 	const hasEndingCards = state.page > state.totalPages
 	const loaderRef = useRef(null)
 
@@ -56,6 +55,7 @@ export const Home = () => {
 			const target = entities[0]
 
 			if (target.isIntersecting) {
+				console.log({ target })
 				dispatch(nextPageAction())
 			}
 		}, options)

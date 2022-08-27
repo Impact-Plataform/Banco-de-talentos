@@ -1,22 +1,18 @@
 export const genders = [
 	{
-		label: 'Gênero',
-		value: ''
+		title: 'Macho',
+		url: 'male'
 	},
 	{
-		label: 'Macho',
-		value: 'male'
+		title: 'Fêmea',
+		url: 'female'
 	},
 	{
-		label: 'Fêmea',
-		value: 'female'
+		title: 'Deconhecido',
+		url: 'unknown'
 	},
 	{
-		label: 'Deconhecido',
-		value: 'unknown'
-	},
-	{
-		label: 'Não se aplica',
-		value: 'n/a'
+		title: 'Não se aplica',
+		url: 'n/a'
 	}
 ]

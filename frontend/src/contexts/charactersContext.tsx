@@ -3,7 +3,7 @@ import { CharactersAction, CharactersState } from '../@types/characters'
 
 export const initialState: CharactersState = {
 	gender: '',
-	species: '',
+	specie: '',
 	film: '',
 	count: 0,
 	name: '',
@@ -12,20 +12,22 @@ export const initialState: CharactersState = {
 	open: '',
 	characters: [],
 	films: [],
-	allSpecies: [],
+	species: [],
 }
 
 export const ACTIONS = {
 	SET_COUNT: 'set_count',
 	CLEAR_COUNT: 'clear_count',
 	SET_FILMS: 'set_films',
+	ADD_FILMS: 'add_films',
 	CLEAR_FILMS: 'clear_films',
-	SET_ALL_SPECIES: 'set_all_species',
-	CLEAR_ALL_SPECIES: 'clear_all_species',
+	SET_SPECIES: 'set_species',
+	ADD_SPECIES: 'add_species',
+	CLEAR_SPECIES: 'clear_species',
 	SET_GENDER: 'set_gender',
 	CLEAR_GENDER: 'clear_gender',
-	SET_SPECIES: 'set_species',
-	CLEAR_SPECIES: 'clear_species',
+	SET_SPECIE: 'set_specie',
+	CLEAR_SPECIE: 'clear_specie',
 	SET_FILM: 'set_film',
 	CLEAR_FILM: 'clear_film',
 	SET_TOTAL_PAGES: 'set_total_pages',
@@ -60,12 +62,32 @@ const reducer = (
 				...(action?.payload?.characters ?? []),
 			],
 		}
+	case ACTIONS.ADD_FILMS:
+		return {
+			...state,
+			films: [
+				...state.films,
+				...(action?.payload?.films ?? []),
+			],
+		}
+	case ACTIONS.ADD_SPECIES:
+		return {
+			...state,
+			species: [
+				...state.species,
+				...(action?.payload?.species ?? []),
+			],
+		}
 	case ACTIONS.CLEAR_CHARACTERS:
 		return { ...state, characters: [] }
+	case ACTIONS.CLEAR_FILMS:
+		return { ...state, films: [] }
+	case ACTIONS.CLEAR_SPECIES:
+		return { ...state, species: [] }
 	case ACTIONS.CLEAR_GENDER:
 		return { ...state, gender: '' }
-	case ACTIONS.CLEAR_SPECIES:
-		return { ...state, species: '' }
+	case ACTIONS.CLEAR_SPECIE:
+		return { ...state, specie: '' }
 	case ACTIONS.CLEAR_FILM:
 		return { ...state, film: '' }
 	case ACTIONS.CLEAR_NAME:
@@ -86,10 +108,14 @@ const reducer = (
 		return { ...state, ...action?.payload }
 	case ACTIONS.SET_CHARACTERS:
 		return { ...state, characters: action?.payload?.characters ?? [] }
+	case ACTIONS.SET_SPECIES:
+		return { ...state, species: action?.payload?.species ?? [] }
+	case ACTIONS.SET_FILMS:
+		return { ...state, films: action?.payload?.films ?? [] }
 	case ACTIONS.SET_GENDER:
 		return { ...state, gender: action?.payload?.gender ?? '' }
-	case ACTIONS.SET_SPECIES:
-		return { ...state, species: action?.payload?.species ?? '' }
+	case ACTIONS.SET_SPECIE:
+		return { ...state, specie: action?.payload?.specie ?? '' }
 	case ACTIONS.SET_FILM:
 		return { ...state, film: action?.payload?.film ?? '' }
 	case ACTIONS.SET_NAME:

@@ -54,7 +54,7 @@ export interface SpeciesT {
 
 export interface CharactersState {
 	gender: string
-	species: string
+	specie: string
 	film: string
 	count: number
 	name: string
@@ -63,10 +63,12 @@ export interface CharactersState {
 	open: string
 	characters: CharacterT[]
 	films: FilmT[]
-	allSpecies: SpeciesT[]
+	species: SpeciesT[]
 }
 
 export interface CharactersAction {
 	type: string
 	payload?: Partial<CharactersState>
 }
+
+export type CharactersActionFn = (payload: Partial<CharactersState>) => CharactersAction
