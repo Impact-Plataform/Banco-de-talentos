@@ -11,11 +11,17 @@ export const initialState: CharactersState = {
 	totalPages: 99,
 	open: '',
 	characters: [],
+	films: [],
+	allSpecies: [],
 }
 
 export const ACTIONS = {
 	SET_COUNT: 'set_count',
 	CLEAR_COUNT: 'clear_count',
+	SET_FILMS: 'set_films',
+	CLEAR_FILMS: 'clear_films',
+	SET_ALL_SPECIES: 'set_all_species',
+	CLEAR_ALL_SPECIES: 'clear_all_species',
 	SET_GENDER: 'set_gender',
 	CLEAR_GENDER: 'clear_gender',
 	SET_SPECIES: 'set_species',

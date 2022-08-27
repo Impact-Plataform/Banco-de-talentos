@@ -1,10 +1,12 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { images } from '../../assets/data/images'
 import { Character } from '../../components/Character'
 import { useCharacters } from '../../hooks/useCharacters'
 import { swapi } from '../../services/swapi'
 import { Grid, View } from './styles'
 import { ThreeDots } from 'react-loader-spinner'
+import { filterCharacters } from '../../utils/filtterCharacters'
+import { Filters } from './Filters'
 
 export const Home = () => {
 	const {
@@ -14,6 +16,17 @@ export const Home = () => {
 		nextPageAction,
 		addCharactersAction,
 	} = useCharacters()
+	const characters = useMemo(
+		() =>
+			filterCharacters(
+				state.characters,
+				state.gender,
+				state.film,
+				state.species
+			),
+		[state.gender, state.film, state.species, state.characters]
+	)
+	// console.log({ characters })
 	const hasEndingCards = state.page > state.totalPages
 	const loaderRef = useRef(null)
 
@@ -27,9 +40,9 @@ export const Home = () => {
 		const { count, results: characters } = await swapi(state.page, state.name)
 		const totalPages = Math.ceil(count / characters.length)
 
-		if (state.page === 1)
-			dispatch(setAllAction({ count, characters, totalPages }))
-		else dispatch(addCharactersAction({ characters }))
+		if (state.page === 1) return dispatch(setAllAction({ count, characters, totalPages }))
+
+		dispatch(addCharactersAction({ characters }))
 	}
 
 	useEffect(() => {
@@ -60,8 +73,9 @@ export const Home = () => {
 
 	return (
 		<View>
+			<Filters />
 			<Grid>
-				{state.characters.map((char, i) => (
+				{characters.map((char, i) => (
 					<Character data={char} image={images.characters[char.name]} key={i} />
 				))}
 			</Grid>
@@ -69,7 +83,9 @@ export const Home = () => {
 			<div
 				ref={loaderRef}
 				style={{
-					display: state.characters.length === 0 || hasEndingCards ? 'none' : 'inline-block',
+					display:
+            state.characters.length === 0
+						|| hasEndingCards ? 'none' : 'inline-block',
 				}}
 			>
 				<ThreeDots
