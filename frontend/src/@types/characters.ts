@@ -18,10 +18,13 @@ export interface CharacterT {
 }
 
 export interface CharactersState {
-	filter: string
+	gender: string
+	species: string
+	film: string
 	count: number
 	name: string
 	page: number
+	totalPages: number
 	open: string
 	characters: CharacterT[]
 }

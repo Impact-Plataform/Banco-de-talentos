@@ -1,11 +1,14 @@
 import { createContext, Dispatch, ReactElement, useReducer } from 'react'
 import { CharactersAction, CharactersState } from '../@types/characters'
 
-const initialState: CharactersState = {
-	filter: '',
+export const initialState: CharactersState = {
+	gender: '',
+	species: '',
+	film: '',
 	count: 0,
 	name: '',
 	page: 1,
+	totalPages: 99,
 	open: '',
 	characters: [],
 }
@@ -13,13 +16,18 @@ const initialState: CharactersState = {
 export const ACTIONS = {
 	SET_COUNT: 'set_count',
 	CLEAR_COUNT: 'clear_count',
+	SET_GENDER: 'set_gender',
+	CLEAR_GENDER: 'clear_gender',
+	SET_SPECIES: 'set_species',
+	CLEAR_SPECIES: 'clear_species',
+	SET_FILM: 'set_film',
+	CLEAR_FILM: 'clear_film',
+	SET_TOTAL_PAGES: 'set_total_pages',
+	CLEAR_TOTAL_PAGES: 'clear_total_pages',
 	CLEAR_PAGE: 'clear_page',
-	SET_FILTER: 'set_filter',
-	CLEAR_FILTER: 'clear_filter',
 	SET_NAME: 'set_name',
 	CLEAR_NAME: 'clear_name',
 	NEXT_PAGE: 'next_page',
-	PREV_PAGE: 'prev_page',
 	SET_OPEN: 'set_open',
 	CLEAR_OPEN: 'clear_open',
 	SET_CHARACTERS: 'set_characters',
@@ -36,6 +44,8 @@ const reducer = (
 	switch (action.type) {
 	case ACTIONS.SET_COUNT:
 		return { ...state, count: action?.payload?.count ?? 0 }
+	case ACTIONS.SET_TOTAL_PAGES:
+		return { ...state, totalPages: action?.payload?.totalPages ?? 0 }
 	case ACTIONS.ADD_CHARACTERS:
 		return {
 			...state,
@@ -46,8 +56,12 @@ const reducer = (
 		}
 	case ACTIONS.CLEAR_CHARACTERS:
 		return { ...state, characters: [] }
-	case ACTIONS.CLEAR_FILTER:
-		return { ...state, filter: '' }
+	case ACTIONS.CLEAR_GENDER:
+		return { ...state, gender: '' }
+	case ACTIONS.CLEAR_SPECIES:
+		return { ...state, species: '' }
+	case ACTIONS.CLEAR_FILM:
+		return { ...state, film: '' }
 	case ACTIONS.CLEAR_NAME:
 		return { ...state, name: '' }
 	case ACTIONS.CLEAR_ALL:
@@ -56,18 +70,22 @@ const reducer = (
 		return { ...state, open: '' }
 	case ACTIONS.CLEAR_COUNT:
 		return { ...state, count: 0 }
+	case ACTIONS.CLEAR_TOTAL_PAGES:
+		return { ...state, totalPages: 0 }
 	case ACTIONS.CLEAR_PAGE:
 		return { ...state, page: 1 }
 	case ACTIONS.NEXT_PAGE:
 		return { ...state, page: state.page + 1 }
-	case ACTIONS.PREV_PAGE:
-		return { ...state, page: state.page - 1 }
 	case ACTIONS.SET_ALL:
 		return { ...state, ...action?.payload }
 	case ACTIONS.SET_CHARACTERS:
 		return { ...state, characters: action?.payload?.characters ?? [] }
-	case ACTIONS.SET_FILTER:
-		return { ...state, filter: action?.payload?.filter ?? '' }
+	case ACTIONS.SET_GENDER:
+		return { ...state, gender: action?.payload?.gender ?? '' }
+	case ACTIONS.SET_SPECIES:
+		return { ...state, species: action?.payload?.species ?? '' }
+	case ACTIONS.SET_FILM:
+		return { ...state, film: action?.payload?.film ?? '' }
 	case ACTIONS.SET_NAME:
 		return { ...state, name: action?.payload?.name ?? '' }
 	case ACTIONS.SET_OPEN:
