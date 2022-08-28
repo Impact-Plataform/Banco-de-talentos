@@ -1,12 +1,12 @@
-import { useEffect, useMemo, useRef, useState, useTransition } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { images } from '../../assets/data/images'
 import { Character } from '../../components/Character'
 import { useCharacters } from '../../hooks/useCharacters'
 import { swapi } from '../../services/swapi'
 import { Grid, View } from './styles'
-import { ThreeDots } from 'react-loader-spinner'
 import { filterCharacters } from '../../utils/filterCharacters'
 import { Filters } from './components/Filters'
+import { Loader } from './components/Loader'
 
 export const Home = () => {
 	const {
@@ -30,13 +30,17 @@ export const Home = () => {
 	)
 	const [hasEndingCards, setHasEndingCards] = useState(false)
 	const loaderRef = useRef(null)
-	const [, startTransition] = useTransition()
+	const intervalId = useRef(0)
+	const search = useRef(state.name)
+	const loading = state.films.length === 0 || state.species.length === 0
 
 	useEffect(() => {
 		fetchByPage()
 	}, [state.page])
 
 	useEffect(() => {
+		search.current = state.name
+		dispatch(setPageAction({ page: 1, totalPages: 9999 }))
 		fetchByName()
 	}, [state.name])
 
@@ -52,16 +56,14 @@ export const Home = () => {
 		state.page === state.totalPages && setHasEndingCards(true)
 	}
 
-	const fetchByName = () => {
+	const fetchByName = async () => {
 		setHasEndingCards(false)
-		dispatch(setPageAction({ page: 1, totalPages: 99 }))
-		startTransition(() => {
-			swapi(1, state.name).then(({ count, results: characters }) => {
-				const totalPages = Math.ceil(count / characters.length)
-				dispatch(setAllAction({ count, characters, totalPages }))
-				totalPages === 1 && setHasEndingCards(true)
-			})
-		})
+
+		const { count, results: characters } = await swapi(1, state.name)
+		const totalPages = Math.ceil(count / characters.length)
+
+		state.name === search.current && dispatch(setAllAction({ count, characters, totalPages }))
+		totalPages === 1 && setHasEndingCards(true)
 	}
 
 	useEffect(() => {
@@ -75,7 +77,11 @@ export const Home = () => {
 			const target = entities[0]
 
 			if (target.isIntersecting) {
-				dispatch(nextPageAction())
+				intervalId.current = setInterval(() => dispatch(nextPageAction()), 500)
+			} else {
+				if (intervalId.current !== 0) {
+					clearInterval(intervalId.current)
+				}
 			}
 		}, options)
 
@@ -92,33 +98,38 @@ export const Home = () => {
 
 	return (
 		<View>
-			<input
-				type='search'
-				value={state.name}
-				onChange={(e) => dispatch(setNameAction({ name: e.target.value }))}
-			/>
-			<Filters />
-			<Grid>
-				{characters.map((char, i) => (
-					<Character data={char} image={images.characters[char.name]} key={i} />
-				))}
-			</Grid>
+			{loading ? (
+				<Loader />
+			) : (
+				<>
+					<input
+						type='search'
+						value={state.name}
+						onChange={(e) => dispatch(setNameAction({ name: e.target.value }))}
+					/>
+					<Filters />
+					<Grid>
+						{characters.map((char, i) => (
+							<Character
+								data={char}
+								image={images.characters[char.name]}
+								key={i}
+							/>
+						))}
+					</Grid>
+				</>
+			)}
 
 			<div
 				ref={loaderRef}
 				style={{
 					display:
             state.characters.length === 0
-						|| hasEndingCards ? 'none' : 'inline-block',
+						|| hasEndingCards
+						|| loading ? 'none' : 'inline-block',
 				}}
 			>
-				<ThreeDots
-					height='80'
-					width='80'
-					color='#666'
-					ariaLabel='three-dots-loading'
-					visible={true}
-				/>
+				<Loader />
 			</div>
 		</View>
 	)

@@ -15,7 +15,7 @@ export const Box = styled.div`
 	color: white;
 	text-align: center;
 
-	user-select: none;
+	cursor: pointer;
 `
 
 export const Image = styled.img`

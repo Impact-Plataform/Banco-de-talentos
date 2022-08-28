@@ -8,7 +8,7 @@ export const initialState: CharactersState = {
 	count: 0,
 	name: '',
 	page: 1,
-	totalPages: 99,
+	totalPages: 9999,
 	open: '',
 	characters: [],
 	films: [],
