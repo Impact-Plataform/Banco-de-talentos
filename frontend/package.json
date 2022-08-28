@@ -17,7 +17,8 @@
     "react-loader-spinner": "^5.2.1",
     "react-router-dom": "^6.3.0",
     "styled-components": "^5.3.5",
-    "styled-reset": "^4.4.2"
+    "styled-reset": "^4.4.2",
+    "vite": "^3.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
