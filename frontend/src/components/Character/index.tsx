@@ -1,5 +1,6 @@
 import React from 'react'
 import { CharacterT } from '../../@types/characters'
+import { useCharacters } from '../../hooks/useCharacters'
 import { Box, Image } from './styles'
 
 interface CharacterProps {
@@ -9,9 +10,12 @@ interface CharacterProps {
 
 export const Character = ({ data, image }: CharacterProps) => {
 	const { name } = data
+	const { dispatch, setOpenAction } = useCharacters()
+
+	const handleClick = () => dispatch(setOpenAction({ open: name }))
 
 	return (
-		<Box>
+		<Box onClick={handleClick}>
 			<Image src={image} alt={name} />
 			<p>{name}</p>
 		</Box>

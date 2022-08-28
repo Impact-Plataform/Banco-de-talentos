@@ -7,6 +7,7 @@ import { Grid, View } from './styles'
 import { filterCharacters } from '../../utils/filterCharacters'
 import { Filters } from './components/Filters'
 import { Loader } from './components/Loader'
+import { Modal } from '../../components/Modal'
 
 export const Homepage = () => {
 	const {
@@ -50,7 +51,8 @@ export const Homepage = () => {
 		const { count, results: characters } = await swapi(state.page, state.name)
 		const totalPages = Math.ceil(count / characters.length)
 
-		if (state.page === 1) dispatch(setAllAction({ count, characters, totalPages }))
+		if (state.page === 1)
+			dispatch(setAllAction({ count, characters, totalPages }))
 		else dispatch(addCharactersAction({ characters }))
 
 		state.page === state.totalPages && setHasEndingCards(true)
@@ -62,7 +64,8 @@ export const Homepage = () => {
 		const { count, results: characters } = await swapi(1, state.name)
 		const totalPages = Math.ceil(count / characters.length)
 
-		state.name === search.current && dispatch(setAllAction({ count, characters, totalPages }))
+		state.name === search.current &&
+      dispatch(setAllAction({ count, characters, totalPages }))
 		totalPages === 1 && setHasEndingCards(true)
 	}
 
@@ -98,6 +101,12 @@ export const Homepage = () => {
 
 	return (
 		<View>
+			{state.open && (
+				<Modal
+					data={characters.find((c) => c.name === state.open)}
+					image={images.characters[state.open]}
+				/>
+			)}
 			{loading ? (
 				<Loader />
 			) : (

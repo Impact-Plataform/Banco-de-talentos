@@ -5,19 +5,24 @@ import { ACTIONS, CharactersContext } from '../contexts/charactersContext'
 export const useCharacters = () => {
 	const { state, dispatch } = useContext(CharactersContext)
 
-	const setAllAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_ALL, payload })
-	const setNameAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_NAME, payload })
-	const setGenderAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_GENDER, payload })
-	const setFilmAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_FILM, payload })
-	const setPageAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_PAGE, payload })
-	const addCharactersAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.ADD_CHARACTERS, payload })
-	const setFilmsAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_FILMS, payload })
-	const addFilmsAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.ADD_FILMS, payload })
-	const setSpecieAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_SPECIE, payload })
-	const setSpeciesAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.SET_SPECIES, payload })
-	const addSpeciesAction = (payload: Partial<CharactersState>) => ({ type: ACTIONS.ADD_SPECIES, payload })
-	const clearAllAction = () => ({ type: ACTIONS.CLEAR_ALL })
-	const nextPageAction = () => ({ type: ACTIONS.NEXT_PAGE })
+	const genericPayloadAction = (type: string) => (payload: Partial<CharactersState>) => ({ type, payload })
+	const genericRawAction = (type: string) => () => ({ type })
+
+	const setAllAction = genericPayloadAction(ACTIONS.SET_ALL)
+	const setNameAction = genericPayloadAction(ACTIONS.SET_NAME)
+	const setGenderAction = genericPayloadAction(ACTIONS.SET_GENDER)
+	const setFilmAction = genericPayloadAction(ACTIONS.SET_FILM)
+	const setPageAction = genericPayloadAction(ACTIONS.SET_PAGE)
+	const addCharactersAction = genericPayloadAction(ACTIONS.ADD_CHARACTERS)
+	const setFilmsAction = genericPayloadAction(ACTIONS.SET_FILMS)
+	const addFilmsAction = genericPayloadAction(ACTIONS.ADD_FILMS)
+	const setSpecieAction = genericPayloadAction(ACTIONS.SET_SPECIE)
+	const setSpeciesAction = genericPayloadAction(ACTIONS.SET_SPECIES)
+	const addSpeciesAction = genericPayloadAction(ACTIONS.ADD_SPECIES)
+	const setOpenAction = genericPayloadAction(ACTIONS.SET_OPEN)
+	const clearAllAction = genericRawAction(ACTIONS.CLEAR_ALL)
+	const nextPageAction = genericRawAction(ACTIONS.NEXT_PAGE)
+	const clearOpenAction = genericRawAction(ACTIONS.CLEAR_OPEN)
 
 	return {
 		state,
@@ -34,6 +39,8 @@ export const useCharacters = () => {
 		setSpeciesAction,
 		addSpeciesAction,
 		setSpecieAction,
-		setPageAction
+		setPageAction,
+		setOpenAction,
+		clearOpenAction,
 	}
 }
