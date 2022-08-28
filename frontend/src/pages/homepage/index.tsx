@@ -8,7 +8,7 @@ import { filterCharacters } from '../../utils/filterCharacters'
 import { Filters } from './components/Filters'
 import { Loader } from './components/Loader'
 
-export const Home = () => {
+export const Homepage = () => {
 	const {
 		state,
 		dispatch,

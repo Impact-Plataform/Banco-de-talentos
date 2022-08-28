@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
-import { Home } from './pages/home'
+import { Homepage } from './pages/homepage'
 import {
 	BrowserRouter,
 	Routes,
@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<App />}>
-						<Route index element={<Home />} />
+						<Route index element={<Homepage />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>
