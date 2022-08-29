@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom'
 import { CharacterT } from '../../@types/characters'
 import { useCharacters } from '../../hooks/useCharacters'
 import { Bullet } from './Bullet'
-import { Background, Box, CloseBtn, Content, Image, Title } from './styles'
+import { Background, Box, CloseBtn, Content, Image, Title, AllInfo } from './styles'
 
 interface ModalProps {
   data?: CharacterT
@@ -13,29 +14,31 @@ export const Modal = ({ data, image }: ModalProps) => {
 
 	const closeModal = () => dispatch(clearOpenAction())
 
-	const showInfo: { [key: string]: string } = {
-		mass: 'Massa',
-		height: 'Altura',
-		gender: 'Gênero',
-		eye_color: 'Cor dos olhos',
-	}
+	const showInfo = [
+		'mass',
+		'height',
+		'gender',
+		'eye_color',
+	]
 
 	const info = Object.entries(data || showInfo)
-		.filter((e) => Object.keys(showInfo).includes(e[0]))
-		.map((item) => [showInfo[item[0]], item[1]])
+		.filter((e) => showInfo.includes(e[0]))
 
 	return (
 		<>
 			{data && (
-				<Background>
-					<Box>
-						<CloseBtn onClick={closeModal} />
+				<Background onClick={closeModal}>
+					<Box onClick={(e) => e.stopPropagation()}>
+						<CloseBtn onClick={closeModal}>&times;</CloseBtn>
 						<Title>{data.name}</Title>
 						<Content>
 							<Image src={image} />
-							{info.map((i) => (
-								<Bullet key={i[0]} info={i as [string, string]} />
-							))}
+							<ul>
+								{info.map((i) => (
+									<Bullet key={i[0]} info={i as [string, string]} />
+								))}
+								<Link to={`/characters/${data.name}`}><AllInfo>See More &#10150;</AllInfo></Link>
+							</ul>
 						</Content>
 					</Box>
 				</Background>

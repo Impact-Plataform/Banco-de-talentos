@@ -16,16 +16,16 @@ export const Background = styled.div`
 `
 
 export const Box = styled.div`
+	position: relative;
 	display: flex;
 	flex-flow: column nowrap;
+	justify-content: space-between;
 
 	padding: 15px;
 
 	width: 90vw;
 	max-width: 450px;
-	height: fit-content;
-	min-height: 40vh;
-	max-height: 70vh;
+	height: 50vh;
 
 	border-radius: 15px;
 
@@ -34,16 +34,57 @@ export const Box = styled.div`
 
 export const Content = styled.div`
 	display: flex;
+	align-items: flex-end;
 `
 
 export const CloseBtn = styled.button`
+	position: absolute;
+	right: 10px;
+	top: 10px;
 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 20px;
+	height: 20px;
+
+	border: none;
+	background-color: transparent;
+	color: #444;
+
+	font-size: 3rem;
+
+	cursor: pointer;
 `
 
 export const Title = styled.h2`
-
+	font-size: 2rem;
+	font-weight: 700;
+	color: #444;
 `
 
 export const Image = styled.img`
-	width: 30%;
+	width: 50%;
+	height: calc(calc(50vh - 45px) - 2rem);
+
+	object-fit: cover;
+	object-position: top;
+
+	border-radius: 15px;
+
+	margin-right: 15px;
+`
+
+export const AllInfo = styled.li`
+	display: inline-block;
+	height: fit-content;
+
+	color: #444;
+	font-weight: 700;
+	font-size: 1.25rem;
+
+	margin-top: 15px;
+
+	cursor: pointer;
 `

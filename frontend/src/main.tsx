@@ -8,6 +8,7 @@ import {
 	Route,
 } from 'react-router-dom'
 import { CharactersProvider } from './contexts/charactersContext'
+import { Characters } from './pages/characters'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 				<Routes>
 					<Route path="/" element={<App />}>
 						<Route index element={<Homepage />} />
+						<Route path='/characters/:name' element={<Characters />} />
 					</Route>
 				</Routes>
 			</BrowserRouter>

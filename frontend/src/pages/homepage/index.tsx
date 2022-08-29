@@ -8,6 +8,7 @@ import { filterCharacters } from '../../utils/filterCharacters'
 import { Filters } from './components/Filters'
 import { Loader } from './components/Loader'
 import { Modal } from '../../components/Modal'
+import { CharacterT } from '../../@types/characters'
 
 export const Homepage = () => {
 	const {
@@ -16,7 +17,6 @@ export const Homepage = () => {
 		setAllAction,
 		nextPageAction,
 		addCharactersAction,
-		setNameAction,
 		setPageAction,
 	} = useCharacters()
 	const characters = useMemo(
@@ -103,7 +103,7 @@ export const Homepage = () => {
 		<View>
 			{state.open && (
 				<Modal
-					data={characters.find((c) => c.name === state.open)}
+					data={characters.find((c) => c.name === state.open) || {} as CharacterT}
 					image={images.characters[state.open]}
 				/>
 			)}
@@ -111,11 +111,6 @@ export const Homepage = () => {
 				<Loader />
 			) : (
 				<>
-					<input
-						type='search'
-						value={state.name}
-						onChange={(e) => dispatch(setNameAction({ name: e.target.value }))}
-					/>
 					<Filters />
 					<Grid>
 						{characters.map((char, i) => (
