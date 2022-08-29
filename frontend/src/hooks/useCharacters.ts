@@ -18,6 +18,9 @@ export const useCharacters = () => {
 	const addFilmsAction = genericPayloadAction(ACTIONS.ADD_FILMS)
 	const setSpecieAction = genericPayloadAction(ACTIONS.SET_SPECIE)
 	const setSpeciesAction = genericPayloadAction(ACTIONS.SET_SPECIES)
+	const setPlanetsAction = genericPayloadAction(ACTIONS.SET_PLANETS)
+	const setStarshipsAction = genericPayloadAction(ACTIONS.SET_STARSHIPS)
+	const setVehiclesAction = genericPayloadAction(ACTIONS.SET_VEHICLES)
 	const addSpeciesAction = genericPayloadAction(ACTIONS.ADD_SPECIES)
 	const setOpenAction = genericPayloadAction(ACTIONS.SET_OPEN)
 	const clearAllAction = genericRawAction(ACTIONS.CLEAR_ALL)
@@ -42,5 +45,8 @@ export const useCharacters = () => {
 		setPageAction,
 		setOpenAction,
 		clearOpenAction,
+		setPlanetsAction,
+		setStarshipsAction,
+		setVehiclesAction,
 	}
 }

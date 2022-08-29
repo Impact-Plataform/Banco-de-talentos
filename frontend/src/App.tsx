@@ -7,7 +7,7 @@ import { useCharacters } from './hooks/useCharacters'
 import { swapi } from './services/swapi'
 
 export const App = () => {
-	const { dispatch, setFilmsAction, setSpeciesAction } = useCharacters()
+	const { dispatch, setFilmsAction, setSpeciesAction, setPlanetsAction, setStarshipsAction, setVehiclesAction } = useCharacters()
 
 	const fetchData = async (type: string, setFn: CharactersActionFn) => {
 		const data = []
@@ -34,6 +34,9 @@ export const App = () => {
 	useEffect(() => {
 		fetchData('films', setFilmsAction)
 		fetchData('species', setSpeciesAction)
+		fetchData('planets', setPlanetsAction)
+		fetchData('starships', setStarshipsAction)
+		fetchData('vehicles', setVehiclesAction)
 	}, [])
 
 	return (

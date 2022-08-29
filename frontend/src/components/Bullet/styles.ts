@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
-export const Text = styled.p`
-	color: #666;
+export const Text = styled.p<{color?: string}>`
+	color: ${({color}) => color || '#666'};
 	font-weight: 600;
 	font-size: 1.25rem;
 	margin-bottom: 0.5rem;

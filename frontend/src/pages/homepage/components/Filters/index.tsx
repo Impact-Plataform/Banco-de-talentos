@@ -2,7 +2,7 @@ import { genders } from '../../../../assets/data/genders'
 import { useCharacters } from '../../../../hooks/useCharacters'
 import { SelectProps } from '../../types'
 import { Select } from '../Select'
-import { Wrapper } from './styles'
+import { Container } from './styles'
 
 export const Filters = () => {
 	const { state, dispatch, setGenderAction, setFilmAction, setSpecieAction, setNameAction } =
@@ -33,7 +33,7 @@ export const Filters = () => {
 	]
 
 	return (
-		<Wrapper>
+		<Container>
 			<input
 				type='search'
 				placeholder='Search by name'
@@ -43,6 +43,6 @@ export const Filters = () => {
 			{selects.map((s) => (
 				<Select key={s.type} {...s} />
 			))}
-		</Wrapper>
+		</Container>
 	)
 }

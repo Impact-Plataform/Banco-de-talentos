@@ -13,6 +13,9 @@ export const initialState: CharactersState = {
 	characters: [],
 	films: [],
 	species: [],
+	planets: [],
+	starships: [],
+	vehicles: [],
 }
 
 export const ACTIONS = {
@@ -22,6 +25,15 @@ export const ACTIONS = {
 	SET_FILMS: 'set_films',
 	ADD_FILMS: 'add_films',
 	CLEAR_FILMS: 'clear_films',
+	SET_PLANETS: 'set_planets',
+	ADD_PLANETS: 'add_planets',
+	CLEAR_PLANETS: 'clear_planets',
+	SET_STARSHIPS: 'set_starships',
+	ADD_STARSHIPS: 'add_starships',
+	CLEAR_STARSHIPS: 'clear_starships',
+	SET_VEHICLES: 'set_vehicles',
+	ADD_VEHICLES: 'add_vehicles',
+	CLEAR_VEHICLES: 'clear_vehicles',
 	SET_SPECIES: 'set_species',
 	ADD_SPECIES: 'add_species',
 	CLEAR_SPECIES: 'clear_species',
@@ -73,6 +85,30 @@ const reducer = (
 				...(action?.payload?.films ?? []),
 			],
 		}
+	case ACTIONS.ADD_PLANETS:
+		return {
+			...state,
+			planets: [
+				...state.planets,
+				...(action?.payload?.planets ?? []),
+			],
+		}
+	case ACTIONS.ADD_STARSHIPS:
+		return {
+			...state,
+			starships: [
+				...state.starships,
+				...(action?.payload?.starships ?? []),
+			],
+		}
+	case ACTIONS.ADD_VEHICLES:
+		return {
+			...state,
+			vehicles: [
+				...state.vehicles,
+				...(action?.payload?.vehicles ?? []),
+			],
+		}
 	case ACTIONS.ADD_SPECIES:
 		return {
 			...state,
@@ -85,6 +121,12 @@ const reducer = (
 		return { ...state, characters: [] }
 	case ACTIONS.CLEAR_FILMS:
 		return { ...state, films: [] }
+	case ACTIONS.CLEAR_PLANETS:
+		return { ...state, planets: [] }
+	case ACTIONS.CLEAR_STARSHIPS:
+		return { ...state, starships: [] }
+	case ACTIONS.CLEAR_VEHICLES:
+		return { ...state, vehicles: [] }
 	case ACTIONS.CLEAR_SPECIES:
 		return { ...state, species: [] }
 	case ACTIONS.CLEAR_GENDER:
@@ -115,6 +157,12 @@ const reducer = (
 		return { ...state, species: action?.payload?.species ?? [] }
 	case ACTIONS.SET_FILMS:
 		return { ...state, films: action?.payload?.films ?? [] }
+	case ACTIONS.SET_VEHICLES:
+		return { ...state, vehicles: action?.payload?.vehicles ?? [] }
+	case ACTIONS.SET_PLANETS:
+		return { ...state, planets: action?.payload?.planets ?? [] }
+	case ACTIONS.SET_STARSHIPS:
+		return { ...state, starships: action?.payload?.starships ?? [] }
 	case ACTIONS.SET_GENDER:
 		return { ...state, gender: action?.payload?.gender ?? '' }
 	case ACTIONS.SET_SPECIE:
