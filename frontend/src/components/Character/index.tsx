@@ -1,7 +1,7 @@
 import React from 'react'
 import { CharacterT } from '../../@types/characters'
 import { useCharacters } from '../../hooks/useCharacters'
-import { Box, Image } from './styles'
+import { Box, Image, Text } from './styles'
 
 interface CharacterProps {
 	data: CharacterT
@@ -17,7 +17,7 @@ export const Character = ({ data, image }: CharacterProps) => {
 	return (
 		<Box onClick={handleClick}>
 			<Image src={image} alt={name} />
-			<p>{name}</p>
+			<Text>{name}</Text>
 		</Box>
 	)
 }

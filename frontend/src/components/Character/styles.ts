@@ -5,7 +5,6 @@ export const Box = styled.div`
 	flex-flow: column nowrap;
 	align-items: center;
 	justify-content: center;
-	width: 10rem;
 
 	padding: 1.25rem;
 	border-radius: 1rem;
@@ -19,7 +18,7 @@ export const Box = styled.div`
 `
 
 export const Image = styled.img`
-	width: 7.5rem;
+	width: 100%;
 	aspect-ratio: 4 / 5;
 
 	border-radius: 0.5rem;
@@ -27,4 +26,9 @@ export const Image = styled.img`
 	object-position: top;
 
 	margin: 0 0 0.75rem 0;
+`
+
+export const Text = styled.p`
+	font-weight: 600;
+	font-size: 1.1rem;
 `
