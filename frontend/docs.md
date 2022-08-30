@@ -1,4 +1,8 @@
-# Documentação - Desafio Star Wars
+# Desafio Star Wars - Plataforma Impact
+
+[Clique aqui para acessar o projeto](https://test-impact.vercel.app)
+
+![Print](./print.jpg)
 
 ## Tecnologias utilizadas
 
@@ -42,3 +46,24 @@
       Facilita a criação dos estilos para os componentes, permitindo a utilização de JavaScript para gerar CSS, além da utilização de props para personalizar os estilos dos componentes.
     </p>
   </details>
+
+## Como rodar o projeto
+
+### Requisitos:
+* Git
+* Node.js
+* npm / yarn
+
+### Passo a passo:
+* Clone o repositório na sua máquina:
+  * `git clone <url-do-repo>`
+* Acesse o repositório na pasta frontend:
+  * `cd frontend`
+* Instale as dependências:
+  * `npm install`
+* Execute o script de dev:
+  * `npm run dev`
+* Para acessar o projeto pela rede local, utilize a flag --host:
+  * `npm run dev --host`
+* Abra o navegador e acesse o ip do host com a porta indicada (5173 por padrão):
+  * [http://localhost:5173/](http://localhost:5173/)
