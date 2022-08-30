@@ -19,14 +19,13 @@ export const useCharacters = () => {
 	const setGenderAction = genericPayloadAction(ACTIONS.SET_GENDER)
 	const setSpecieAction = genericPayloadAction(ACTIONS.SET_SPECIE)
 	const setFilmAction = genericPayloadAction(ACTIONS.SET_FILM)
-
+	const clearPageAction = genericRawAction(ACTIONS.CLEAR_PAGE)
+	const setNameAction = genericPayloadAction(ACTIONS.SET_NAME)
+	const nextPageAction = genericRawAction(ACTIONS.NEXT_PAGE)
 	const setOpenAction = genericPayloadAction(ACTIONS.SET_OPEN)
 	const clearOpenAction = genericRawAction(ACTIONS.CLEAR_OPEN)
-	const setAllAction = genericPayloadAction(ACTIONS.SET_ALL)
-	const setNameAction = genericPayloadAction(ACTIONS.SET_NAME)
-	const clearPageAction = genericRawAction(ACTIONS.CLEAR_PAGE)
 	const addCharactersAction = genericPayloadAction(ACTIONS.ADD_CHARACTERS)
-	const nextPageAction = genericRawAction(ACTIONS.NEXT_PAGE)
+	const setAllAction = genericPayloadAction(ACTIONS.SET_ALL)
 
 	return {
 		state,
