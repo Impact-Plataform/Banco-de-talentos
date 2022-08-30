@@ -6,7 +6,7 @@ import { swapi } from '../../services/swapi'
 import { Grid, View } from './styles'
 import { filterCharacters } from '../../utils/filterCharacters'
 import { Filters } from './components/Filters'
-import { Loader } from './components/Loader'
+import { Loader } from '../../components/Loader'
 import { Modal } from '../../components/Modal'
 import { CharacterT } from '../../@types/characters'
 

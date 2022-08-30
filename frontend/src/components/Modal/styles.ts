@@ -59,6 +59,9 @@ export const CloseBtn = styled.button`
 `
 
 export const Title = styled.h2`
+	white-space: nowrap;
+	max-width: 85%;
+	overflow: hidden;
 	font-size: 2rem;
 	font-weight: 700;
 	color: #444;
@@ -82,9 +85,13 @@ export const AllInfo = styled.li`
 
 	color: #444;
 	font-weight: 700;
-	font-size: 1.25rem;
+	font-size: 1.1rem;
 
 	margin-top: 15px;
 
 	cursor: pointer;
+
+	@media (min-width: 360px) {
+		font-size: 1.25rem;
+	}
 `

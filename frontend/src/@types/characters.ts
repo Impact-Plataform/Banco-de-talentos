@@ -126,6 +126,8 @@ export interface CharactersState {
 	vehicles: VehicleT[],
 }
 
+export type ArrayPropT = 'films' | 'species' | 'starships' | 'vehicles'
+
 export interface CharactersAction {
 	type: string
 	payload?: Partial<CharactersState>
