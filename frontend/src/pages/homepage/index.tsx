@@ -17,7 +17,8 @@ export const Homepage = () => {
 		setAllAction,
 		nextPageAction,
 		addCharactersAction,
-		setPageAction,
+		setInitAction,
+		clearPageAction,
 	} = useCharacters()
 	const characters = useMemo(
 		() =>
@@ -29,20 +30,23 @@ export const Homepage = () => {
 			),
 		[state.gender, state.film, state.specie, state.characters]
 	)
-	const [hasEndingCards, setHasEndingCards] = useState(false)
+	const [hasEndingCards, setHasEndingCards] = useState(state.init ? false : state.page === state.totalPages)
 	const loaderRef = useRef(null)
 	const intervalId = useRef(0)
 	const search = useRef(state.name)
 	const loading = state.films.length === 0 || state.species.length === 0
 
 	useEffect(() => {
-		fetchByPage()
+		(state.init || state.page > state.prevPage) && fetchByPage()
+		state.init && dispatch(setInitAction({ init: false }))
 	}, [state.page])
 
 	useEffect(() => {
-		search.current = state.name
-		dispatch(setPageAction({ page: 1, totalPages: 9999 }))
-		fetchByName()
+		if (!state.init && state.name !== state.prevName) {
+			search.current = state.name
+			dispatch(clearPageAction())
+			fetchByName()
+		}
 	}, [state.name])
 
 	const fetchByPage = async () => {
@@ -103,7 +107,9 @@ export const Homepage = () => {
 		<View>
 			{state.open && (
 				<Modal
-					data={characters.find((c) => c.name === state.open) || {} as CharacterT}
+					data={
+						characters.find((c) => c.name === state.open) || ({} as CharacterT)
+					}
 					image={images.characters[state.open]}
 				/>
 			)}

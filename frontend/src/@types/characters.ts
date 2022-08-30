@@ -115,9 +115,12 @@ export interface CharactersState {
 	film: string
 	count: number
 	name: string
+	prevName: string
 	page: number
+	prevPage: number
 	totalPages: number
 	open: string
+	init: boolean
 	characters: CharacterT[]
 	films: FilmT[]
 	species: SpeciesT[],

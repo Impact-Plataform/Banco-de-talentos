@@ -7,9 +7,12 @@ export const initialState: CharactersState = {
 	film: '',
 	count: 0,
 	name: '',
+	prevName: '',
 	page: 1,
+	prevPage: 1,
 	totalPages: 9999,
 	open: '',
+	init: true,
 	characters: [],
 	films: [],
 	species: [],
@@ -20,7 +23,10 @@ export const initialState: CharactersState = {
 
 export const ACTIONS = {
 	SET_COUNT: 'set_count',
+	SET_PREV_PAGE: 'set_prev_page',
 	SET_PAGE: 'set_page',
+	SET_INIT: 'set_init',
+	SET_PREV_NAME: 'set_prev_name',
 	CLEAR_COUNT: 'clear_count',
 	SET_FILMS: 'set_films',
 	ADD_FILMS: 'add_films',
@@ -65,8 +71,8 @@ const reducer = (
 	switch (action.type) {
 	case ACTIONS.SET_COUNT:
 		return { ...state, count: action?.payload?.count ?? 0 }
-	case ACTIONS.SET_PAGE:
-		return { ...state, page: state.totalPages >= (action?.payload?.page || 0) ? action?.payload?.page ?? 0 : state.page}
+	case ACTIONS.SET_PREV_PAGE:
+		return { ...state, prevPage: action?.payload?.prevPage ?? 0 }
 	case ACTIONS.SET_TOTAL_PAGES:
 		return { ...state, totalPages: action?.payload?.totalPages ?? 0 }
 	case ACTIONS.ADD_CHARACTERS:
@@ -143,12 +149,14 @@ const reducer = (
 		return { ...state, open: '' }
 	case ACTIONS.CLEAR_COUNT:
 		return { ...state, count: 0 }
+	case ACTIONS.SET_INIT:
+		return { ...state, init: action?.payload?.init ?? true }
 	case ACTIONS.CLEAR_TOTAL_PAGES:
 		return { ...state, totalPages: 0 }
 	case ACTIONS.CLEAR_PAGE:
-		return { ...state, page: 1 }
+		return { ...state, prevPage: 1, page: 1 }
 	case ACTIONS.NEXT_PAGE:
-		return { ...state, page: state.totalPages > state.page ? state.page + 1 : state.page }
+		return { ...state, prevPage: state.page, page: state.totalPages > state.page ? state.page + 1 : state.page }
 	case ACTIONS.SET_ALL:
 		return { ...state, ...action?.payload }
 	case ACTIONS.SET_CHARACTERS:
@@ -170,7 +178,9 @@ const reducer = (
 	case ACTIONS.SET_FILM:
 		return { ...state, film: action?.payload?.film ?? '' }
 	case ACTIONS.SET_NAME:
-		return { ...state, name: action?.payload?.name ?? '' }
+		return { ...state, prevName: state.name, name: action?.payload?.name ?? '' }
+	case ACTIONS.SET_PREV_NAME:
+		return { ...state, prevName: action?.payload?.prevName ?? '' }
 	case ACTIONS.SET_OPEN:
 		return { ...state, open: action?.payload?.open ?? '' }
 	default:

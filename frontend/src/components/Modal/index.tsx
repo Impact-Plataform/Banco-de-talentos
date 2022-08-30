@@ -11,7 +11,7 @@ interface ModalProps {
 }
 
 export const Modal = ({ data, image }: ModalProps) => {
-	const { dispatch, clearOpenAction } = useCharacters()
+	const { dispatch, clearOpenAction, state, setPrevPageAction, setPrevNameAction } = useCharacters()
 	const navigate = useNavigate()
 
 	const closeModal = () => dispatch(clearOpenAction())
@@ -27,6 +27,8 @@ export const Modal = ({ data, image }: ModalProps) => {
 
 	const handleSeeMore = () => {
 		closeModal()
+		dispatch(setPrevPageAction({ prevPage: state.page }))
+		dispatch(setPrevNameAction({ prevName: state.name }))
 		navigate(`/characters/${data?.name}`)
 	}
 

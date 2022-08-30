@@ -9,10 +9,11 @@ export const useCharacters = () => {
 	const genericRawAction = (type: string) => () => ({ type })
 
 	const setAllAction = genericPayloadAction(ACTIONS.SET_ALL)
+	const setPrevPageAction = genericPayloadAction(ACTIONS.SET_PREV_PAGE)
 	const setNameAction = genericPayloadAction(ACTIONS.SET_NAME)
+	const setPrevNameAction = genericPayloadAction(ACTIONS.SET_PREV_NAME)
 	const setGenderAction = genericPayloadAction(ACTIONS.SET_GENDER)
 	const setFilmAction = genericPayloadAction(ACTIONS.SET_FILM)
-	const setPageAction = genericPayloadAction(ACTIONS.SET_PAGE)
 	const addCharactersAction = genericPayloadAction(ACTIONS.ADD_CHARACTERS)
 	const setFilmsAction = genericPayloadAction(ACTIONS.SET_FILMS)
 	const addFilmsAction = genericPayloadAction(ACTIONS.ADD_FILMS)
@@ -22,8 +23,10 @@ export const useCharacters = () => {
 	const setStarshipsAction = genericPayloadAction(ACTIONS.SET_STARSHIPS)
 	const setVehiclesAction = genericPayloadAction(ACTIONS.SET_VEHICLES)
 	const addSpeciesAction = genericPayloadAction(ACTIONS.ADD_SPECIES)
+	const setInitAction = genericPayloadAction(ACTIONS.SET_INIT)
 	const setOpenAction = genericPayloadAction(ACTIONS.SET_OPEN)
 	const clearAllAction = genericRawAction(ACTIONS.CLEAR_ALL)
+	const clearPageAction = genericRawAction(ACTIONS.CLEAR_PAGE)
 	const nextPageAction = genericRawAction(ACTIONS.NEXT_PAGE)
 	const clearOpenAction = genericRawAction(ACTIONS.CLEAR_OPEN)
 
@@ -42,11 +45,14 @@ export const useCharacters = () => {
 		setSpeciesAction,
 		addSpeciesAction,
 		setSpecieAction,
-		setPageAction,
+		clearPageAction,
 		setOpenAction,
 		clearOpenAction,
 		setPlanetsAction,
 		setStarshipsAction,
 		setVehiclesAction,
+		setInitAction,
+		setPrevPageAction,
+		setPrevNameAction
 	}
 }
