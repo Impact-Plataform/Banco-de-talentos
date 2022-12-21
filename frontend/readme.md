@@ -16,10 +16,10 @@ O que esperamos aprender com você com este desafio:
 ## Descrição do Desafio
   O objetivo desse desafio é construir catalogo com Cards de informações sobre personagens de Star Wars (Um card para cada personagem)
   Você deve buscar essas informações usando a Api publica [SWAPI](https://swapi.dev/)
-  
+
 ## Requisitos
-Funcionalidades que devem ser desenvolvidas: 
-  - O usuário deverá poder filtrar os personagens por: 
+Funcionalidades que devem ser desenvolvidas:
+  - O usuário deverá poder filtrar os personagens por:
     - Genero
     - Especie
     - Filme em que aparece
@@ -31,7 +31,7 @@ Funcionalidades que devem ser desenvolvidas:
 ## Diferencial
 
   - Utilizar alguma metodologia para a organização de seu CSS (BEMCSS, OOCSS, SMACSS... o que preferir :D);
-  - Escolha uma lib para criação de interfaces de usuário (React, Angular ou Vue); 
+  - Escolha uma lib para criação de interfaces de usuário (React, Angular ou Vue);
 
 ## Considerações
 
