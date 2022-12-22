@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Joao-P-G-Begiato/Banco-de-talentos/issues"
   },
-  "homepage": "https://github.com/Joao-P-G-Begiato/Banco-de-talentos#readme"
+  "homepage": "https://github.com/Joao-P-G-Begiato/Banco-de-talentos#readme",
+  "dependencies": {
+    "path": "^0.12.7",
+    "sqlite3": "^5.1.4",
+    "url": "^0.11.0"
+  }
 }
