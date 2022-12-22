@@ -17,9 +17,7 @@ O que esperamos aprender com você com este desafio:
 Crie uma API REST, que responda os seguintes métodos:
 
 [get] /Products (todos os produtos)
-[post] /Products (Para criar produtos)
-[get/put/delete] /Products/$ID (por ID)
-
+[get/post/put/delete] /Products/$ID (por ID)
 [get] /Currency/ (todas as cotações)
 [get] /Currency/$symbol (exemplo: BRL, USD, EUR)
    
@@ -30,13 +28,12 @@ Crie uma API REST, que responda os seguintes métodos:
    - Ou, se preferir você pode buscar todas as moedas e encontrar as cotações usando o identificador, através do endpoint:
    - https://economia.awesomeapi.com.br/all
    - Armazene os dados da cotação em cache para evitar atingir o limite de requests da api; 
-   - Ao buscar o produto ele deverá vir com o valor cadastrador em Real e o valor equivalente em mais duas outras moedas da sua escolha (Ex: Dolar e EUR)
   
 ## Requisitos
 
   - A api rest deverá está devidamente documentada (swagger)
   - Escrever testes unitarios para o sistema
- 
+  - 
 ## Critérios de avaliação
 
   - Seu código será avaliado por: semântica, organização, estrutura, legibilidade, tamanho, entre outros fatores.
