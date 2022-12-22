@@ -1,0 +1,18 @@
+{
+
+  "compilerOptions": {
+    "outDir": "build",
+  "declaration": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "typeRoots": [
+      "./src/@types",
+      "./custom_typings",
+      "./@types",
+      "./node_modules/@types"
+    ],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+  }
+}

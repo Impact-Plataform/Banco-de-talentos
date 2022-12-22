@@ -1,0 +1,7 @@
+NODE_ENV=development
+DB_DIALECT=#Dialeto da base de dados
+DB_HOST=#Host da base de dados
+DB_USER=#Usuário da base de dados
+DB_PORT=#Porta da base de dados
+DB_PASS=#Senha da base de dados
+DB_NAME=#Nome da base de dados
