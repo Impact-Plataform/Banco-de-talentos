@@ -1,0 +1,19 @@
+{
+  "name": "banco-de-talentos",
+  "version": "1.0.0",
+  "description": "Back-end para o programa Jedi da Impact",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joao-P-G-Begiato/Banco-de-talentos.git"
+  },
+  "author": "João Paulo Gotardi Begiato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Joao-P-G-Begiato/Banco-de-talentos/issues"
+  },
+  "homepage": "https://github.com/Joao-P-G-Begiato/Banco-de-talentos#readme"
+}
