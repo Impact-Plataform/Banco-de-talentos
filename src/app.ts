@@ -2,10 +2,11 @@ require("dotenv").config({
   path: process.env.NODE_ENV === "test" ? ".env.test" : ".env",
 });
 import express, { Express } from "express";
-import routes from "./routes";
+import productRoutes from "./routes/Product.routes";
 import db from "./database/index";
 import swaggerUi from "swagger-ui-express";
 const cors = require("cors");
+import swaggerConfig from "./docs";
 
 class App {
   declare server: Express;
@@ -21,12 +22,15 @@ class App {
     this.server.use(cors());
   }
   routes() {
-    this.server.use(routes);
+    this.server.use(productRoutes);
   }
   document() {
-    this.server.use("/docs", swaggerUi.serve);
+    this.server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerConfig));
   }
   async initializeDB() {
+    if (process.env.NODE_ENV === "test") {
+      return;
+    }
     try {
       await db.authenticate();
       console.log("Conexão com o banco de dados realizada com sucesso");
