@@ -1,0 +1,32 @@
+{"properties": [
+  {
+    "name": "spring.jpa.cache",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.cache'"
+  },
+  {
+    "name": "spring.jpa.currency.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.currency.url'"
+  },
+  {
+    "name": "spring.jpa.api",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.api'"
+  },
+  {
+    "name": "spring.datasource.currency.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.currency.url'"
+  },
+  {
+    "name": "spring.api.currency.url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.api.currency.url'"
+  },
+  {
+    "name": "api.currency.url",
+    "type": "java.lang.String",
+    "description": "A description for 'api.currency.url'"
+  }
+]}

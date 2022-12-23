@@ -1,5 +1,7 @@
 package br.com.desafio.models.entities;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,30 +10,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "product")
-public class Products {
+@Table(name = "products")
+public class Product {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Column(nullable = false, length = 80)
-	private String name;
-	
-	@Column(nullable = false)
-	private Double price;
-	
-	@Column(nullable = true, length = 255)
-	private String description;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	public Products() {}
+    @Column(nullable = false)
+    private String name;
 
+    @Column(nullable = false)
+    private String description;
 
-	public long getId() {
+    @Column(nullable = false)
+    private BigDecimal price;
+
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -43,14 +42,6 @@ public class Products {
 		this.name = name;
 	}
 
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -59,12 +50,20 @@ public class Products {
 		this.description = description;
 	}
 
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((price == null) ? 0 : price.hashCode());
 		return result;
@@ -78,13 +77,16 @@ public class Products {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Products other = (Products) obj;
+		Product other = (Product) obj;
 		if (description == null) {
 			if (other.description != null)
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -98,7 +100,7 @@ public class Products {
 			return false;
 		return true;
 	}
-
-	
+    
+    
 
 }
