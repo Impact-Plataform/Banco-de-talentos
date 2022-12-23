@@ -18,6 +18,10 @@ class ProductRepository {
 
     return data;
   }
+  async create(product: { name: string; price: number }) {
+    const prod: Product = await Product.create<Product>(product);
+    return prod;
+  }
 }
 
 export default ProductRepository;

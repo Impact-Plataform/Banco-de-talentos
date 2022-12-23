@@ -5,9 +5,9 @@ const ProductMock = DBConnectionMock.define(
   "Product",
   {
     name: "Product 001",
-    price: "500.10",
-    priceEUR: "900",
-    priceUSD: "800",
+    price: 500.1,
+    priceEUR: null,
+    priceUSD: null,
   },
   {
     instanceMethods: {

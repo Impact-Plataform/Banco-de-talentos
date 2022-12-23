@@ -1,9 +1,9 @@
 import { Op, Order, OrderItem } from "sequelize";
 import { parseISO } from "date-fns";
-import ListProductRepository from "../../repositories/Product/ProductRepository";
+import ProductRepository from "../../repositories/Product/ProductRepository";
 import Product from "../../models/Product.model";
 
-const productRepository = new ListProductRepository();
+const productRepository = new ProductRepository();
 
 class ListProductService {
   async list(

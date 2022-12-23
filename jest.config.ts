@@ -4,5 +4,10 @@ const config: Config.InitialOptions = {
   transform: {
     "^.+\\.tsx?$": "ts-jest",
   },
+  collectCoverageFrom: ["src/**/*.{ts, js}"],
+  collectCoverage: true,
+  coverageReporters: ["json", "html"],
+  coveragePathIgnorePatterns: ["server.ts"],
 };
+
 export default config;

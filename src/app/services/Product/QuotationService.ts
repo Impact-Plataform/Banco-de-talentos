@@ -5,13 +5,13 @@ import Product from "../../models/Product.model";
 const NodeCache = require("node-cache");
 const cache = new NodeCache();
 class QuotationService {
-  async getQuotation(items: string[] = []) {
+  async getQuotation(items: string[] = []): Promise<Iquotation[]> {
     let quotations: Iquotation[] = cache.get("quotations");
 
     if (!quotations) {
       //Se deseja efetuar vários testes cujo reinicio da api é necessário comente a linha abaixo e descomente a linha do result
       const { data } = await api.get<Iquotation[]>("/all");
-      //const data = result;
+      // const data = result;
       quotations = [];
       for (let item in data) {
         quotations.push(data[item]);
@@ -32,7 +32,7 @@ class QuotationService {
     );
     return filteredQuotations;
   }
-  async transformQuotation(products: Product[]) {
+  async transformQuotation(products: Product[]): Promise<Product[]> {
     const quotations: Iquotation[] = await this.getQuotation(["USD", "EUR"]);
 
     for (let product of products) {
