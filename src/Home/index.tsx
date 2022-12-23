@@ -11,7 +11,7 @@ function Home() {
 
     console.log(charactersList);
 
-    if(charactersList === undefined){
+    if(!charactersList){
        return (
         <div>
             Loading...
