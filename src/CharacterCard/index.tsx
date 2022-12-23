@@ -1,16 +1,10 @@
 import React from 'react';
-import { CharacterListPropTYPE, CharacterTYPE } from '../Types';
+import { Character, CharacterTYPE } from '../Types';
 
-function CharacterCard({charactersList} : CharacterListPropTYPE) {
+function CharacterCard({character} : Character) {
     return(
         <div>
-         {charactersList.map((item : CharacterTYPE) => {
-            return(
-                <div>
-                    <h3>{item.name}</h3>
-                 </div>
-            )
-         })}
+            <h3>{character.name}</h3>
         </div>
     )
 }

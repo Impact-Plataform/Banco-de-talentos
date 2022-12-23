@@ -3,8 +3,9 @@ export interface CharacterTYPE  {
     height: number;
     mass: number;
     setCharactersList: React.Dispatch<React.SetStateAction<string>>;
+    character: object;
 }
 
-export interface CharacterListPropTYPE {
-    charactersList: Array<CharacterTYPE>;
+export interface Character {
+   character: CharacterTYPE;
 }

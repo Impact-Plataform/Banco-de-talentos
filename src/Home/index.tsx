@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import CharacterCard from '../CharacterCard';
 import { getCharacters } from '../Services';
 import { CharacterTYPE } from '../Types';
 
@@ -9,8 +10,7 @@ function Home() {
         getCharacters(1, setCharactersList);
     },[])
 
-    console.log(charactersList);
-
+    
     if(!charactersList){
        return (
         <div>
@@ -23,9 +23,7 @@ function Home() {
         <div>
             {charactersList.map((item) => {
                 return(
-                <div> 
-                    <h3>{item.name}</h3>
-                </div>
+                <CharacterCard character={item}/>
                 )
             })}
         </div>
