@@ -1,12 +1,13 @@
 import api from "../../../libs/awesomeApi/api";
 import { Iquotation } from "../../../libs/awesomeApi/quotation.interface";
 const result = require("../../../libs/awesomeApi/result");
+import CheckTime from "../../../utils/CheckTime";
 import Product from "../../models/Product.model";
 const NodeCache = require("node-cache");
 const cache = new NodeCache();
 class QuotationService {
   async getQuotation(items: string[] = []): Promise<Iquotation[]> {
-    let quotations: Iquotation[] = cache.get("quotations");
+    let quotations: Iquotation[] | undefined = this.checkCacheQuotation();
 
     if (!quotations) {
       //Se deseja efetuar vários testes cujo reinicio da api é necessário comente a linha abaixo e descomente a linha do result
@@ -54,6 +55,22 @@ class QuotationService {
       );
     });
     return product;
+  }
+
+  checkCacheQuotation(): Iquotation[] | undefined {
+    let quotations: Iquotation[] | undefined = cache.get("quotations");
+    let savedDate: number | undefined = cache.get("date");
+
+    if (!savedDate) {
+      savedDate = new Date().getTime();
+      cache.set("date", savedDate);
+    }
+    const dayPassed = CheckTime.dayPassed(savedDate);
+    if (dayPassed) {
+      quotations = undefined;
+      cache.set("date", new Date().getTime());
+    }
+    return quotations;
   }
 }
 

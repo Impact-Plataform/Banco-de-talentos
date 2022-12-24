@@ -1,4 +1,4 @@
-import { productParamsSchema } from "./../schemas/product-params-schema";
+import { productParamsSchema } from "../../schemas/product-params-schema";
 export const productPath = {
   get: {
     tags: ["Product"],

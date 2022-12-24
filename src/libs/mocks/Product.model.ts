@@ -11,11 +11,7 @@ const ProductMock = DBConnectionMock.define(
     priceUSD: null,
   },
   {
-    instanceMethods: {
-      myTestFunc: function () {
-        return "Test User";
-      },
-    },
+    instanceMethods: {},
     // autoQueryFallback: false,
   }
 );

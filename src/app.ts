@@ -3,6 +3,7 @@ require("dotenv").config({
 });
 import express, { Express } from "express";
 import productRoutes from "./routes/Product.routes";
+import currencyRoutes from "./routes/Currency.routes";
 import db from "./database/index";
 import swaggerUi from "swagger-ui-express";
 const cors = require("cors");
@@ -22,6 +23,7 @@ class App {
     this.server.use(cors());
   }
   routes() {
+    this.server.use(currencyRoutes);
     this.server.use(productRoutes);
   }
   document() {

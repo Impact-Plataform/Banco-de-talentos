@@ -1,5 +1,5 @@
 export const productSchema = {
-  type: "string",
+  type: "object",
   properties: {
     id: {
       type: "string",
