@@ -10,10 +10,17 @@ const createProductController = new CreateProductController();
 import UpdateProductController from "../app/controllers/Product/UpdateProductController";
 const updateProductController = new UpdateProductController();
 
+import DeleteProductController from "../app/controllers/Product/DeleteProductController";
+const deleteProductController = new DeleteProductController();
+
 import productValidator from "../middlewares/productValidator";
 
 productRoutes.get("/products", (req: Request, res: Response) => {
   listProductController.list(req, res);
+});
+
+productRoutes.delete("/products/:id", (req: Request, res: Response) => {
+  deleteProductController.delete(req, res);
 });
 
 productRoutes.use((req: Request, res: Response, next: NextFunction) =>

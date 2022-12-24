@@ -131,3 +131,18 @@ describe("Update Product", () => {
     expect(price).not.toEqual(updatedProduct.price);
   });
 });
+describe("Delete Product", () => {
+  let id = 42;
+  it("Should delete a product with valid id", async () => {
+    const response = await server.delete(`/products/${id}`).expect(200);
+    const { body } = response;
+    const { sucesso } = body;
+    expect(sucesso).not.toBe(undefined);
+  });
+  it("Not should able to delete a product unregistered", async () => {
+    const response = await server.delete(`/products/0`).expect(404);
+    const { body } = response;
+    const { sucesso } = body;
+    expect(sucesso).toBe(undefined);
+  });
+});

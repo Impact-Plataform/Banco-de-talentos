@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import Product from "../../models/Product.model";
 import ListProductService from "../../services/Product/ListProductService";
-import QuotationService from "../../services/Product/QuotationService";
+import QuotationService from "../../services/Quotation/QuotationService";
 const productService = new ListProductService();
 class ListProductController {
   async list(req: Request, res: Response) {

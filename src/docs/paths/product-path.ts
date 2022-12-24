@@ -24,6 +24,10 @@ export const productPath = {
           },
         },
       },
+      401: {
+        description:
+          "Requisição inválida, se a requisição estiver com query é necessário verificar se estão corretamente preenchidas",
+      },
     },
   },
   post: {
@@ -59,6 +63,10 @@ export const productPath = {
             },
           },
         },
+      },
+      400: {
+        description:
+          "Requisição inválida, nome e preço do produto são obrigátorios",
       },
     },
   },

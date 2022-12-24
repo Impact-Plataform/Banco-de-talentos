@@ -18,13 +18,22 @@ class ProductRepository {
 
     return data;
   }
-  async create(product: { name: string; price: number }) {
+  async create(product: { name: string; price: number }): Promise<Product> {
     const prod: Product = await Product.create<Product>(product);
     return prod;
   }
 
-  async update(product: Product, name: string, price: number) {
+  async update(
+    product: Product,
+    name: string,
+    price: number
+  ): Promise<Product> {
     return await product.update({ name, price });
+  }
+
+  async delete(product: Product): Promise<{}> {
+    await product.destroy();
+    return { sucesso: "O produto foi excluído" };
   }
 }
 

@@ -47,6 +47,54 @@ export const productIdPath = {
       },
       404: {
         description: "Produto não encontrado",
+        content: {
+          "application/json": {
+            example: { error: "O produto não foi encontrado" },
+          },
+        },
+      },
+      400: {
+        description:
+          "Requisição inválida, nome e preço do produto são obrigátorios",
+      },
+    },
+  },
+  delete: {
+    tags: ["Product"],
+    summary: "Deleta um produto",
+    parameters: [
+      {
+        name: "id",
+        in: "path",
+        description: "",
+        required: true,
+        style: "simple",
+        schema: {
+          type: "string",
+        },
+      },
+    ],
+    responses: {
+      200: {
+        description: "Sucesso",
+        content: {
+          "application/json": {
+            schema: {
+              $ref: "#/schemas/product",
+            },
+            example: {
+              sucesso: "o produto foi excluído",
+            },
+          },
+        },
+      },
+      404: {
+        description: "Produto não encontrado",
+        content: {
+          "application/json": {
+            example: { error: "O produto não foi encontrado" },
+          },
+        },
       },
     },
   },
