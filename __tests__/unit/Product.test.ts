@@ -6,6 +6,10 @@ jest.mock("../../src/app/models/Product.model.ts", () => {
 });
 
 const server = supertest(app);
+const data = {
+  name: "Produto 2",
+  price: "554.99",
+};
 
 describe("Get Products", () => {
   it("Should  get the list of products", async () => {
@@ -43,11 +47,6 @@ describe("Get Products", () => {
 });
 
 describe("Create Product", () => {
-  const data = {
-    name: "Produto 2",
-    price: "554.99",
-  };
-
   it("Should create a product with valid info", async () => {
     const response = await server.post("/products").send(data).expect(201);
     const { body } = response;
@@ -77,5 +76,58 @@ describe("Create Product", () => {
     expect(body).not.toHaveProperty("id");
     expect(name).not.toEqual(data.name);
     expect(price).not.toEqual(data.price);
+  });
+});
+
+describe("Update Product", () => {
+  let id = 42;
+  const updatedProduct = {
+    name: "Produto Atualizado",
+    price: 14.99,
+  };
+
+  it("Should update a product with valid info", async () => {
+    const response = await server
+      .put(`/products/${id}`)
+      .send(updatedProduct)
+      .expect(200);
+    const { body } = response;
+    const { name, price } = body;
+    expect(body).toHaveProperty("id");
+    expect(name).toEqual(updatedProduct.name);
+    expect(price).toEqual(updatedProduct.price);
+  });
+  it("Not should able to update a product with invalid name", async () => {
+    const response = await server
+      .put(`/products/${id}`)
+      .send({ price: 5 })
+      .expect(400);
+    const { body } = response;
+    const { name, price } = body;
+    expect(body).not.toHaveProperty("id");
+    expect(name).not.toEqual(updatedProduct.name);
+    expect(price).not.toEqual(updatedProduct.price);
+  });
+  it("Not should able to update a product with invalid price", async () => {
+    const response = await server
+      .put(`/products/${id}`)
+      .send({ name: "Produto 005" })
+      .expect(400);
+    const { body } = response;
+    const { name, price } = body;
+    expect(body).not.toHaveProperty("id");
+    expect(name).not.toEqual(updatedProduct.name);
+    expect(price).not.toEqual(updatedProduct.price);
+  });
+  it("Not should able to update a product unregistered", async () => {
+    const response = await server
+      .put(`/products/0`)
+      .send(updatedProduct)
+      .expect(404);
+    const { body } = response;
+    const { name, price } = body;
+    expect(body).not.toHaveProperty("id");
+    expect(name).not.toEqual(updatedProduct.name);
+    expect(price).not.toEqual(updatedProduct.price);
   });
 });

@@ -22,6 +22,10 @@ class ProductRepository {
     const prod: Product = await Product.create<Product>(product);
     return prod;
   }
+
+  async update(product: Product, name: string, price: number) {
+    return await product.update({ name, price });
+  }
 }
 
 export default ProductRepository;

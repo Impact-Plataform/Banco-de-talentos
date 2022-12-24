@@ -1,4 +1,5 @@
 import { productPath } from "./paths/product-path";
+import { productIdPath } from "./paths/product-id-path";
 import { productSchema } from "./schemas/product-schema";
 
 export default {
@@ -20,6 +21,7 @@ export default {
   ],
   paths: {
     "/products": productPath,
+    "/products/{id}": productIdPath,
   },
   schemas: {
     product: productSchema,
