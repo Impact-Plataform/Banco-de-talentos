@@ -30,10 +30,6 @@ productRoutes.delete("/products/:id", (req: Request, res: Response) => {
   deleteProductController.delete(req, res);
 });
 
-// productRoutes.use((req: Request, res: Response, next: NextFunction) =>
-//   productValidator(req, res, next)
-// );
-
 productRoutes.post(
   "/products",
   (req: Request, res: Response, next: NextFunction) => {
