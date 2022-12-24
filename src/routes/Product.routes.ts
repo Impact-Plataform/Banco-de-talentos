@@ -30,16 +30,28 @@ productRoutes.delete("/products/:id", (req: Request, res: Response) => {
   deleteProductController.delete(req, res);
 });
 
-productRoutes.use((req: Request, res: Response, next: NextFunction) =>
-  productValidator(req, res, next)
+// productRoutes.use((req: Request, res: Response, next: NextFunction) =>
+//   productValidator(req, res, next)
+// );
+
+productRoutes.post(
+  "/products",
+  (req: Request, res: Response, next: NextFunction) => {
+    productValidator(req, res, next);
+  },
+  (req: Request, res: Response, next: NextFunction) => {
+    createProductController.create(req, res);
+  }
 );
 
-productRoutes.post("/products", (req: Request, res: Response) => {
-  createProductController.create(req, res);
-});
-
-productRoutes.put("/products/:id", (req: Request, res: Response) => {
-  updateProductController.update(req, res);
-});
+productRoutes.put(
+  "/products/:id",
+  (req: Request, res: Response, next: NextFunction) => {
+    productValidator(req, res, next);
+  },
+  (req: Request, res: Response, next: NextFunction) => {
+    updateProductController.update(req, res);
+  }
+);
 
 export default productRoutes;

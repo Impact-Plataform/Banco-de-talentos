@@ -1,60 +1,38 @@
-# Desafio para integrar o banco de talentos como Desenvolvedor Back-end
+# Products-Api
 
-Este desafio tem como objetivo te avaliar como desenvolvedor Back-end;
+## Índice
 
-## Sobre o desafio
-Este é um desafio, não um teste de faculdade, então há várias respostas corretas.
+- [Sobre o Projeto](#sobre-o-projeto)
+- [Documentação](#documentação-e-uso-da-api)
+- [Instalação](#instalação)
 
-Daremos a você alguns requisitos que devem ser cumpridos e pelos quais você será avaliado, mas você é livre para escolher um método de solução.
+## Sobre o projeto
 
-O que esperamos aprender com você com este desafio:
+Esta API tem como objetivo atender a requisições em um sistema que necessita fazer o gerencimanto de produtos e obter o preço dos mesmos cotados.
 
-- Seu estilo de trabalho.
-- Como você pensa e resolve problemas.
-- Como você se comunica.
+## Documentação e uso da API
 
-## Descrição do Desafio
-Crie uma API REST, que responda os seguintes métodos:
+### Acesse o link abaixo
 
-[get] /Products (todos os produtos)
-[post] /Products (Para criar produtos)
-[get/put/delete] /Products/$ID (por ID)
+- [Products-Api](https://products-api.cyclic.app/docs)
 
-[get] /Currency/ (todas as cotações)
-[get] /Currency/$symbol (exemplo: BRL, USD, EUR)
-   
-   - Os produtos devem ser cadastrados em BRL, usando a API Rest
-   - A cotação das outras moedas deve vir da API:
-     - https://economia.awesomeapi.com.br/all/USD-BRL para USD 
-     - https://economia.awesomeapi.com.br/all/EUR-BRL para EUR
-   - Ou, se preferir você pode buscar todas as moedas e encontrar as cotações usando o identificador, através do endpoint:
-   - https://economia.awesomeapi.com.br/all
-   - Armazene os dados da cotação em cache para evitar atingir o limite de requests da api; 
-   - Ao buscar o produto ele deverá vir com o valor cadastrador em Real e o valor equivalente em mais duas outras moedas da sua escolha (Ex: Dolar e EUR)
-  
-## Requisitos
+## Instalação
 
-  - A api rest deverá está devidamente documentada (swagger)
-  - Escrever testes unitarios para o sistema
- 
-## Critérios de avaliação
+### Pré-requisitos
 
-  - Seu código será avaliado por: semântica, organização, estrutura, legibilidade, tamanho, entre outros fatores.
-  - O histórico do `git` será avaliado.
+- Uma base de dados para armazenar as informações.
+- IDEA com console/terminal para executar comandos e rodar a api.
+- Node Package Manager ou outro gerenciador de pacotes compatível.
 
-## Considerações
+Utilize o _products-api_ localmente com o npm.
 
-- Não limitaremos sua escolha de ferramentas ou bibliotecas. Mas faça escolhas que atendam às suas necessidades. Não há necessidade de usar uma bazuca para matar uma formiga, mas o objetivo do desafio é avaliar suas habilidades.
-- Tente escrever o melhor código possível. Vai facilitar nossa vida na hora de avaliar sua solução.
-- Não se esqueça de documentar o processo necessário para buildar e executar seu aplicativo. Ou então como vamos avaliar seu trabalho se não podemos iniciar o projeto em nossas máquinas?
-
-## Como submeter seu projeto
-  1. Efetue o fork deste repositório e crie um branch com o seu nome, sobrenome e qual teste você está submetendo. (exemplo: fulano-dasilva-backend);
-  2. Após finalizar o desafio, crie um Pull Request;
-  3. Aguarde algum contribuidor realizar o code review;
-
-## Dúvidas?
-Tem alguma dúvida relacionada ao processo? Abra um [issue](https://github.com/Impact-Plataform/Banco-de-talentos/issues) e teremos prazer em ajudar.
-
-## Obrigado!
-Agradecemos sua participação no desafio. Boa sorte! 😄
+```bash
+  git clone git@github.com:getwlad/wladmir-rodrigues-backend.git
+  cd wladmir-rodrigues-backend
+  git checkout wladmir
+  npm i
+  # instalar dependências
+  cp .env.example .env
+  # modificar variáveis de ambiente no .env
+  npm start
+```

@@ -7,7 +7,7 @@ const config: Config.InitialOptions = {
   collectCoverageFrom: ["src/**/*.{ts, js}"],
   collectCoverage: true,
   coverageReporters: ["json", "html"],
-  coveragePathIgnorePatterns: ["server.ts"],
+  coveragePathIgnorePatterns: ["server.ts", "config.ts", "config.js"],
 };
 
 export default config;

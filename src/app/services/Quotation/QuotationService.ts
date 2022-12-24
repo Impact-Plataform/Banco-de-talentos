@@ -1,6 +1,6 @@
 import api from "../../../libs/awesomeApi/api";
 import { Iquotation } from "../../../libs/awesomeApi/quotation.interface";
-const result = require("../../../libs/awesomeApi/result");
+// const result = require("../../../libs/awesomeApi/result");
 import CheckTime from "../../../utils/CheckTime";
 import Product from "../../models/Product.model";
 const NodeCache = require("node-cache");
@@ -10,7 +10,7 @@ class QuotationService {
     let quotations: Iquotation[] | undefined = this.checkCacheQuotation();
 
     if (!quotations) {
-      //Se deseja efetuar vários testes cujo reinicio da api é necessário comente a linha abaixo e descomente a linha do result
+      //Se deseja efetuar vários testes cujo reinicio da api é necessário comente a linha abaixo e descomente a linha do result e o seu import
       const { data } = await api.get<Iquotation[]>("/all");
       // const data = result;
       quotations = [];

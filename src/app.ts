@@ -8,6 +8,7 @@ import db from "./database/index";
 import swaggerUi from "swagger-ui-express";
 const cors = require("cors");
 import swaggerConfig from "./docs";
+import notFound from "./routes/Notfound.routes";
 
 class App {
   declare server: Express;
@@ -25,6 +26,7 @@ class App {
   routes() {
     this.server.use(currencyRoutes);
     this.server.use(productRoutes);
+    this.server.use(notFound);
   }
   document() {
     this.server.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerConfig));
