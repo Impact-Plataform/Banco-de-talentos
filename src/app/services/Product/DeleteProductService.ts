@@ -3,11 +3,7 @@ import ProductRepository from "../../repositories/Product/ProductRepository";
 const productRepository = new ProductRepository();
 class DeleteProductService {
   async delete(id: string): Promise<{} | string> {
-    const product: Product | null = await Product.findOne({
-      where: {
-        id: id,
-      },
-    });
+    const product: Product | null = await productRepository.show(id);
     if (!product) return "Produto não encontrado";
     return await productRepository.delete(product);
   }

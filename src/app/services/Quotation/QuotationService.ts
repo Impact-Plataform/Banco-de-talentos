@@ -45,6 +45,16 @@ class QuotationService {
     }
     return products;
   }
+  async transformQuotationSingle(product: Product): Promise<Product> {
+    const quotations: Iquotation[] = await this.getQuotation(["USD", "EUR"]);
+    quotations.map((quotation) => {
+      //As cotações são dinâmicamente associadas ao produto, mas se desejar incluir uma cotação diferente, também é necessário adiciona-la ao ProductModel
+      product[`price${quotation.code}`] = Number(
+        (product.price / quotation.bid).toFixed(2)
+      );
+    });
+    return product;
+  }
 }
 
 export default new QuotationService();

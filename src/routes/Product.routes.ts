@@ -13,10 +13,17 @@ const updateProductController = new UpdateProductController();
 import DeleteProductController from "../app/controllers/Product/DeleteProductController";
 const deleteProductController = new DeleteProductController();
 
+import ShowProductController from "../app/controllers/Product/ShowProductController";
+const showProductController = new ShowProductController();
+
 import productValidator from "../middlewares/productValidator";
 
 productRoutes.get("/products", (req: Request, res: Response) => {
   listProductController.list(req, res);
+});
+
+productRoutes.get("/products/:id", (req: Request, res: Response) => {
+  showProductController.show(req, res);
 });
 
 productRoutes.delete("/products/:id", (req: Request, res: Response) => {

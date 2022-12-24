@@ -79,6 +79,22 @@ describe("Create Product", () => {
   });
 });
 
+describe("Show Product", () => {
+  let id = 42;
+  it("Should show a product with valid id and quotation", async () => {
+    const response = await server.get(`/products/${id}`).expect(200);
+    const { body } = response;
+    expect(body).toHaveProperty("id");
+    expect(body).toHaveProperty("priceUSD");
+    expect(body).toHaveProperty("priceEUR");
+  });
+  it("Not should able to show a product unregistered", async () => {
+    const response = await server.get(`/products/0`).expect(404);
+    const { body } = response;
+    expect(body).not.toHaveProperty("id");
+  });
+});
+
 describe("Update Product", () => {
   let id = 42;
   const updatedProduct = {

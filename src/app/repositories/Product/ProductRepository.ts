@@ -35,6 +35,15 @@ class ProductRepository {
     await product.destroy();
     return { sucesso: "O produto foi excluído" };
   }
+
+  async show(id: string): Promise<Product | null> {
+    const product: Product | null = await Product.findOne({
+      where: {
+        id: id,
+      },
+    });
+    return product;
+  }
 }
 
 export default ProductRepository;
