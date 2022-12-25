@@ -22,11 +22,22 @@ export async function getCharacters(pagNumber : number, setCharactersList: React
             const filmsResponses = await Promise.all(filmsPromises);
             character.films = filmsResponses.map((response) => response.data.title);
 
+            const speciesPromises = character.species.map((film: any) => axios.get(film));
+            let speciesResponses:any = await Promise.all(speciesPromises);
+            if (speciesResponses.length > 0)
+            {
+                character.species = speciesResponses.map((response:any) => response.data.name);    
+            }
+            else
+            {
+                character.species = ['Human']
+            }
+            
+
             processedItems += 1;
 
             if (processedItems === array.length)
             {
-               
                 setCharactersList(response.data.results)
             }
 
