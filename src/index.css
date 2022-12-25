@@ -1,3 +1,45 @@
+@font-face {
+  font-family: StarJedi;
+  src: url("./assets/Fonts/Starjedi.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: StarJediHollow;
+  src: url("./assets/Fonts/Starjhol.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Bruce;
+  src: url("./assets/Fonts/BruceForeverRegular-X3jd2.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: SpaceTravel;
+  src: url("./assets/Fonts/SpaceMission-rgyw9.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: BigSpace;
+  src: url("./assets/Fonts/BigSpace-rPKx.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
