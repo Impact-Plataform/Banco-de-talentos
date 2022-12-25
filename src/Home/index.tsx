@@ -5,6 +5,8 @@ import { CharacterTYPE } from '../Types';
 import loadingGif from '../assets/loading.gif';
 import videoBackground from '../assets/background.mp4';
 import './index.css';
+import Sidebar from '../SideBar';
+import { getData } from '../Services/fetchSpecies';
 
 function Home() {
     const [charactersList, setCharactersList] = useState<any>([]);
@@ -14,6 +16,10 @@ function Home() {
     const [page, setPage] = useState<number>(1);
 
     const [isPageLoaded, setPageLoaded] = useState<boolean>(false)
+
+    const [speciesList, setSpeciesList] = useState<any>([]);
+
+    const [filmsList, setFilmsList] = useState<any>([]);
 
     const shouldLog = useRef(true)
 
@@ -27,17 +33,26 @@ function Home() {
             const pages = await getTotalPages(setTotalPages, totalPages);
         }
 
+        const fetchSpecies = async () => {
+            const species = await getData(setSpeciesList, 'https://swapi.dev/api/species/');
+        }
+
+        const fetchFilms = async () => {
+            const films = await getData(setFilmsList, 'https://swapi.dev/api/films/')
+        }
+
         if (shouldLog.current)
         {
             shouldLog.current = false;
             fetchCharacters();
             fetchPages();
+            fetchSpecies();
+            fetchFilms();
         }
     },[])
 
     useEffect(() => {
 
-        console.log(page)
         const fetchCharacters = async () => {
             const characters = await getCharacters(page, setCharactersList);
         }
@@ -66,39 +81,19 @@ function Home() {
      
     function renderKey(event: any)
     {
-        console.log(event.target.getAttribute('page-key'));
         setPageLoaded(true)
         setPage(parseInt(event.target.getAttribute('page-key')))
-        // shouldLog.current = true
-
-        // const fetchCharacters = async () => {
-        //     const characters = await getCharacters(page, setCharactersList);
-        // }
-
-        // if (shouldLog.current)
-        // {
-        //     shouldLog.current = false;
-        //     fetchCharacters();
-        //     fetchPages();
-        // }
-
     }
-
-
-    
-
-
-
 
     if(totalPages <= 0){
 
        return (
-        <div className='main__content'>
-            <div className="main__video">
+        <div className='loading__content'>
+            <div className="loading__video">
                 <video autoPlay={true} loop={true} muted={true} src={videoBackground}></video>
             </div>
-            <div className="main__overlay"></div>
-            <div className="main__loading main__loading-column">
+            <div className="loading__overlay"></div>
+            <div className="loading__loading loading__loading-column">
                 <img src={loadingGif} alt="" />
                 <h2 className='blink'>Loading...</h2>
             </div>
@@ -106,7 +101,7 @@ function Home() {
        )
       }
 
-    //   console.log(charactersList)
+      console.log(charactersList)
 
     return(
         <div className="main__content">
@@ -114,13 +109,50 @@ function Home() {
                 <video autoPlay={true} loop={true} muted={true} src={videoBackground}></video>
             </div>
             <div className="main__overlay"></div>
-            <div className="main__loading">
-                {charactersList
+
+            <div className='main__cards'>
+                <Sidebar
+                    speciesList={speciesList}
+                    filmsList={filmsList}
+                />
+                <div className="card__content">
+                    <div className="search__card">
+                        <input className='input__search' type="text" placeholder='Search for a character' />
+                    </div>
+                    <div className="card__grid">
+                        <div className="card">
+                            <img src="https://vignette.wikia.nocookie.net/starwars/images/2/20/LukeTLJ.jpg" className='character__img' alt="" />
+
+                            <div className="character__info">
+                                <h3>NAME</h3>
+                                <h3>Luke Skywalker</h3>
+                            </div>
+                            <div className="character__info">
+                                <h3>PLANET</h3>
+                                <h3>Tattoine</h3>
+                            </div>
+                        </div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                        <div className="card"></div>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div>
+                {/* {charactersList
                     .map((item:any) => {
                         return(
                         <CharacterCard character={item}/>
                         )
-                })}
+                })} */}
             </div>
         </div>
         // <div>
