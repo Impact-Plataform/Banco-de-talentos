@@ -1,5 +1,6 @@
 import express from "express";
 import * as dotenv from "dotenv"
+import cors from "cors"
 import Product from "./src/Controller/product-controller.js"
 
 dotenv.config()
@@ -14,7 +15,7 @@ app.listen(port, ()=>{
         console.log(port)
     }
 })
-
+app.use(cors())
 app.use(express.json())
 
 Product.route(app)
