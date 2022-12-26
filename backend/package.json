@@ -1,0 +1,33 @@
+{
+  "name": "banco-de-talentos",
+  "version": "1.0.0",
+  "description": "Back-end para o programa Jedi da Impact",
+  "main": "app.js",
+  "scripts": {
+    "test": "test",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Joao-P-G-Begiato/Banco-de-talentos.git"
+  },
+  "author": "João Paulo Gotardi Begiato",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Joao-P-G-Begiato/Banco-de-talentos/issues"
+  },
+  "homepage": "https://github.com/Joao-P-G-Begiato/Banco-de-talentos#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "path": "^0.12.7",
+    "sqlite3": "^5.1.4",
+    "url": "^0.11.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
