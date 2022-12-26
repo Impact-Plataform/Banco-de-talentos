@@ -1,6 +1,9 @@
 .page__box {
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .page__container {
@@ -10,11 +13,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: .3s;
 }
 
 .page__container:hover {
     cursor: pointer;
-    background-color: black;
+    background-color: blue;
+    color: white;
 }
 
 /* LOADING PAGE */
@@ -236,16 +241,16 @@
     padding: 0.4em;
     box-shadow: 0 0 .1rem #fff,
                 0 0 .1rem #fff,
-                0 0 1rem #fade4b,
-                0 0 0.8rem #fade4b,
-                0 0 0.8rem #fade4b,
-                inset 0 0 1.3rem #fade4b;
+                0 0 1rem #090a4d,
+                0 0 0.8rem #090a4d,
+                0 0 0.8rem #090a4d,
+                inset 0 0 1.3rem #090a4d;
   }
 
   .card img {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
+    border-radius: 6px;
   }
 
   .character__info {
@@ -253,4 +258,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: white;
+    letter-spacing: 5px;
+  }
+
+  .character__info > h2 {
+    font-family: SpaceTravel;
+
   }
