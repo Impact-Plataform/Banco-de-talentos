@@ -28,5 +28,75 @@
     "name": "api.currency.url",
     "type": "java.lang.String",
     "description": "A description for 'api.currency.url'"
+  },
+  {
+    "name": "spring.rest.cache",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.rest.cache'"
+  },
+  {
+    "name": "spring.rest.store-by-default",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.rest.store-by-default'"
+  },
+  {
+    "name": "spring.webflux.cliente",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.cliente'"
+  },
+  {
+    "name": "spring.webflux.registration",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.registration'"
+  },
+  {
+    "name": "spring.webflux.myCliente",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.myCliente'"
+  },
+  {
+    "name": "spring.webflux.baseURL",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.baseURL'"
+  },
+  {
+    "name": "spring.webflux.client.base-url",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.base-url'"
+  },
+  {
+    "name": "spring.webflux.client.defaultHeaders",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.defaultHeaders'"
+  },
+  {
+    "name": "spring.webflux.client.Accept",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.Accept'"
+  },
+  {
+    "name": "spring.webflux.client.Authorization",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.Authorization'"
+  },
+  {
+    "name": "spring.cache.ehcache.config",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.cache.ehcache.config'"
+  },
+  {
+    "name": "spring.cache.host",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.cache.host'"
+  },
+  {
+    "name": "spring.cache.localhost",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.cache.localhost'"
+  },
+  {
+    "name": "spring.cache.port",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.cache.port'"
   }
 ]}

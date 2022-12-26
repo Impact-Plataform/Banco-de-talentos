@@ -1,84 +1,108 @@
 package br.com.desafio.models.entities;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.io.Serializable;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-@Entity
-@Table(name = "currencies")
-public class Currency {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	@Column(nullable = false)
-	private String symbol;
-
-	@Column(nullable = false)
-	private BigDecimal rate;
-
-	@Column(nullable = false)
-	private LocalDateTime date;
+public class Currency implements Serializable {
 	
-
-	public Currency(String symbol, BigDecimal rate, LocalDateTime date) {
-		super();
-
-		this.symbol = symbol;
-		this.rate = rate;
-		this.date = date;
+	private static final long serialVersionUID = 1L;
+	
+	private String code;
+	private String codein;
+	private String name;
+	private String high;
+	private String low;
+	private String varBid;
+	private String pctChange;
+	private String bid;
+	private String ask;
+	private String timestamp;
+	private String create_date;
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getCodein() {
+		return codein;
+	}
+	public void setCodein(String codein) {
+		this.codein = codein;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Long getId() {
-		return id;
+	public String getHigh() {
+		return high;
+	}
+	public void setHigh(String high) {
+		this.high = high;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	
+	public String getLow() {
+		return low;
 	}
-
-	public String getSymbol() {
-		return symbol;
+	public void setLow(String low) {
+		this.low = low;
 	}
-
-	public void setSymbol(String symbol) {
-		this.symbol = symbol;
+	public String getVarBid() {
+		return varBid;
 	}
-
-	public BigDecimal getRate() {
-		return rate;
+	public void setVarBid(String varBid) {
+		this.varBid = varBid;
 	}
-
-	public void setRate(BigDecimal rate) {
-		this.rate = rate;
+	public String getPctChange() {
+		return pctChange;
 	}
-
-	public LocalDateTime getDate() {
-		return date;
+	public void setPctChange(String pctChange) {
+		this.pctChange = pctChange;
 	}
-
-	public void setDate(LocalDateTime date) {
-		this.date = date;
+	public String getBid() {
+		return bid;
 	}
-
+	public void setBid(String bid) {
+		this.bid = bid;
+	}
+	public String getAsk() {
+		return ask;
+	}
+	public void setAsk(String ask) {
+		this.ask = ask;
+	}
+	public String getTimestamp() {
+		return timestamp;
+	}
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
+	}
+	public String getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(String create_date) {
+		this.create_date = create_date;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((rate == null) ? 0 : rate.hashCode());
-		result = prime * result + ((symbol == null) ? 0 : symbol.hashCode());
+		result = prime * result + ((ask == null) ? 0 : ask.hashCode());
+		result = prime * result + ((bid == null) ? 0 : bid.hashCode());
+		result = prime * result + ((code == null) ? 0 : code.hashCode());
+		result = prime * result + ((codein == null) ? 0 : codein.hashCode());
+		result = prime * result + ((create_date == null) ? 0 : create_date.hashCode());
+		result = prime * result + ((high == null) ? 0 : high.hashCode());
+		result = prime * result + ((low == null) ? 0 : low.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((pctChange == null) ? 0 : pctChange.hashCode());
+		result = prime * result + ((timestamp == null) ? 0 : timestamp.hashCode());
+		result = prime * result + ((varBid == null) ? 0 : varBid.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -88,27 +112,65 @@ public class Currency {
 		if (getClass() != obj.getClass())
 			return false;
 		Currency other = (Currency) obj;
-		if (date == null) {
-			if (other.date != null)
+		if (ask == null) {
+			if (other.ask != null)
 				return false;
-		} else if (!date.equals(other.date))
+		} else if (!ask.equals(other.ask))
 			return false;
-		if (id == null) {
-			if (other.id != null)
+		if (bid == null) {
+			if (other.bid != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!bid.equals(other.bid))
 			return false;
-		if (rate == null) {
-			if (other.rate != null)
+		if (code == null) {
+			if (other.code != null)
 				return false;
-		} else if (!rate.equals(other.rate))
+		} else if (!code.equals(other.code))
 			return false;
-		if (symbol == null) {
-			if (other.symbol != null)
+		if (codein == null) {
+			if (other.codein != null)
 				return false;
-		} else if (!symbol.equals(other.symbol))
+		} else if (!codein.equals(other.codein))
+			return false;
+		if (create_date == null) {
+			if (other.create_date != null)
+				return false;
+		} else if (!create_date.equals(other.create_date))
+			return false;
+		if (high == null) {
+			if (other.high != null)
+				return false;
+		} else if (!high.equals(other.high))
+			return false;
+		if (low == null) {
+			if (other.low != null)
+				return false;
+		} else if (!low.equals(other.low))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (pctChange == null) {
+			if (other.pctChange != null)
+				return false;
+		} else if (!pctChange.equals(other.pctChange))
+			return false;
+		if (timestamp == null) {
+			if (other.timestamp != null)
+				return false;
+		} else if (!timestamp.equals(other.timestamp))
+			return false;
+		if (varBid == null) {
+			if (other.varBid != null)
+				return false;
+		} else if (!varBid.equals(other.varBid))
 			return false;
 		return true;
 	}
-
+	
+	
+    
 }
+

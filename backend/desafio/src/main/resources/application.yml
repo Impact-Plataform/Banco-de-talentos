@@ -11,8 +11,26 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: false
-    cache: simple
+  rest:
+     cache: true
+     store-by-default: true
+  webflux:
+    client:
+      baseUrl: https://economia.awesomeapi.com.br
+      defaultHeaders:
+      Accept: application/json
+  cache:
+    cache-names:
+    - currencyValues
+    type: redis
+    host:
+    localhost:
+    port: 6379
+       
 
-api:
-  currency:
-    url: https://economia.awesomeapi.com.br/all/
+
+
+    
+
+  
+
