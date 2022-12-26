@@ -1,7 +1,14 @@
 import axios from 'axios';
 import { useState } from 'react';
+import photos from '../assets/Photos/photos.json'
 
 export async function getCharacters(pagNumber : number, setCharactersList: React.Dispatch<React.SetStateAction<any>>) {
+
+    const options: any = { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
+
 
     axios.get(`https://swapi.dev/api/people/?page=${pagNumber}`)
     .then(async (response) => {
@@ -24,6 +31,8 @@ export async function getCharacters(pagNumber : number, setCharactersList: React
 
             const speciesPromises = character.species.map((film: any) => axios.get(film));
             let speciesResponses:any = await Promise.all(speciesPromises);
+
+            //a espécie human não está presente na API, fiz essa verificação para adiciona-lá e poder tratar com filtros.
             if (speciesResponses.length > 0)
             {
                 character.species = speciesResponses.map((response:any) => response.data.name);    
@@ -32,7 +41,10 @@ export async function getCharacters(pagNumber : number, setCharactersList: React
             {
                 character.species = ['Human']
             }
-            
+
+            let characterImage = photos.find((item:any) => item.name === character.name)
+
+            character.image = characterImage?.image
 
             processedItems += 1;
 
@@ -45,8 +57,7 @@ export async function getCharacters(pagNumber : number, setCharactersList: React
     });
 }
 
-
-export async function getTotalPages(setTotalPages: React.Dispatch<React.SetStateAction<any>>, totalPages : any)
+export async function getTotalPages(setTotalPages: React.Dispatch<React.SetStateAction<any>>, totalPages : number)
 {
     let nextPage:any = 'https://swapi.dev/api/people/';
 
