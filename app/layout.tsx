@@ -1,4 +1,4 @@
-import AppProvider from "../contexts/contextProvider";
+import AppProvider from '../contexts/contextProvider';
 
 
 export default function RootLayout({
