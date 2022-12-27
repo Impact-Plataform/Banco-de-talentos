@@ -2,10 +2,14 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: Poppins, sans-serif;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  color: rgb(245, 245, 245);
+  background-color: rgb(27, 26, 23);
+  -webkit-font-smoothing: antialiased !important;
 }
