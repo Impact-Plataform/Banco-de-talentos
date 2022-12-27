@@ -1,35 +1,5 @@
 {"properties": [
   {
-    "name": "spring.jpa.cache",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.jpa.cache'"
-  },
-  {
-    "name": "spring.jpa.currency.url",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.jpa.currency.url'"
-  },
-  {
-    "name": "spring.jpa.api",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.jpa.api'"
-  },
-  {
-    "name": "spring.datasource.currency.url",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.datasource.currency.url'"
-  },
-  {
-    "name": "spring.api.currency.url",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.api.currency.url'"
-  },
-  {
-    "name": "api.currency.url",
-    "type": "java.lang.String",
-    "description": "A description for 'api.currency.url'"
-  },
-  {
     "name": "spring.rest.cache",
     "type": "java.lang.String",
     "description": "A description for 'spring.rest.cache'"
@@ -38,26 +8,6 @@
     "name": "spring.rest.store-by-default",
     "type": "java.lang.String",
     "description": "A description for 'spring.rest.store-by-default'"
-  },
-  {
-    "name": "spring.webflux.cliente",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.webflux.cliente'"
-  },
-  {
-    "name": "spring.webflux.registration",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.webflux.registration'"
-  },
-  {
-    "name": "spring.webflux.myCliente",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.webflux.myCliente'"
-  },
-  {
-    "name": "spring.webflux.baseURL",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.webflux.baseURL'"
   },
   {
     "name": "spring.webflux.client.base-url",
@@ -75,16 +25,6 @@
     "description": "A description for 'spring.webflux.client.Accept'"
   },
   {
-    "name": "spring.webflux.client.Authorization",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.webflux.client.Authorization'"
-  },
-  {
-    "name": "spring.cache.ehcache.config",
-    "type": "java.lang.String",
-    "description": "A description for 'spring.cache.ehcache.config'"
-  },
-  {
     "name": "spring.cache.host",
     "type": "java.lang.String",
     "description": "A description for 'spring.cache.host'"
@@ -98,5 +38,70 @@
     "name": "spring.cache.port",
     "type": "java.lang.String",
     "description": "A description for 'spring.cache.port'"
+  },
+  {
+    "name": "spring.security.ignored",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.ignored'"
+  },
+  {
+    "name": "spring.webflux.client.defaultHeaders",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.defaultHeaders'"
+  },
+  {
+    "name": "spring.webflux.client.defaultHeaders",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.defaultHeaders'"
+  },
+  {
+    "name": "spring.webflux.client.defaultHeaders",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.defaultHeaders'"
+  },
+  {
+    "name": "spring.webflux.client.defaultHeaders",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.defaultHeaders'"
+  },
+  {
+    "name": "spring.webflux.client.defaultHeaders",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.defaultHeaders'"
+  },
+  {
+    "name": "spring.webflux.client.defaultHeaders",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.webflux.client.defaultHeaders'"
+  },
+  {
+    "name": "springdoc.api-docs.path",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.api-docs.path'"
+  },
+  {
+    "name": "springdoc.swagger-ui.operations-sorter",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.swagger-ui.operations-sorter'"
+  },
+  {
+    "name": "springdoc.swagger-ui.path",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.swagger-ui.path'"
+  },
+  {
+    "name": "springdoc.swagger-ui.disable-swagger-default-url",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.swagger-ui.disable-swagger-default-url'"
+  },
+  {
+    "name": "springdoc.swagger-ui.use-root-path",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.swagger-ui.use-root-path'"
+  },
+  {
+    "name": "springdoc.packages-to-scan",
+    "type": "java.lang.String",
+    "description": "A description for 'springdoc.packages-to-scan'"
   }
 ]}

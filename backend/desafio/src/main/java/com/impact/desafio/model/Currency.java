@@ -1,4 +1,4 @@
-package br.com.desafio.models.entities;
+package com.impact.desafio.model;
 
 import java.io.Serializable;
 

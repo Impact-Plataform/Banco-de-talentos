@@ -1,7 +1,7 @@
-package br.com.desafio.models.repositories;
+package com.impact.desafio.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.desafio.models.entities.Product;
+import com.impact.desafio.model.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Long> { }

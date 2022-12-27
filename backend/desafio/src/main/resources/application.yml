@@ -26,7 +26,21 @@ spring:
     host:
     localhost:
     port: 6379
-       
+    
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher     
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    disable-swagger-default-url: true
+    use-root-path: true
+  packages-to-scan:
+   com.impact.desafio.controller
+        
 
 
 

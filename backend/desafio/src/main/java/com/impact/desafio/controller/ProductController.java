@@ -1,4 +1,4 @@
-package br.com.desafio.controllers;
+package com.impact.desafio.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.desafio.models.entities.Product;
-import br.com.desafio.services.ProductService;
+import com.impact.desafio.model.Product;
+import com.impact.desafio.service.ProductService;
 
 @RestController
-@RequestMapping("/Products")
+@RequestMapping(value = "/Products")
 public class ProductController {
 
 	@Autowired

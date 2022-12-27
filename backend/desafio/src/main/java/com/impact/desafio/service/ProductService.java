@@ -1,4 +1,4 @@
-package br.com.desafio.services;
+package com.impact.desafio.service;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import br.com.desafio.exceptions.ResourceNotFoundException;
-import br.com.desafio.models.entities.Product;
-import br.com.desafio.models.repositories.ProductRepository;
+import com.impact.desafio.exception.ResourceNotFoundException;
+import com.impact.desafio.model.Product;
+import com.impact.desafio.repository.ProductRepository;
 
 @Service
 public class ProductService {

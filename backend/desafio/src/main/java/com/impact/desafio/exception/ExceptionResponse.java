@@ -1,4 +1,4 @@
-package br.com.desafio.exceptions;
+package com.impact.desafio.exception;
 
 import java.io.Serializable;
 import java.util.Date;

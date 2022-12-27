@@ -1,4 +1,4 @@
-package br.com.desafio.services;
+package com.impact.desafio.service;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -22,6 +22,7 @@ public class CurrencyService {
 				.bodyToMono(String.class)
 				.map(response -> new JSONObject(response).getJSONObject(currency).getBigDecimal("ask")).block();
 	}
+	
 	
 	public Map<String, BigDecimal> getCurrencyValue(String currency) {
 		return webClient.get().uri("https://economia.awesomeapi.com.br/all/{currency}-BRL", currency).retrieve()
