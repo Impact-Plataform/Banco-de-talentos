@@ -13,6 +13,7 @@ export default function Header() {
       <Image
         src={logo}
         alt="star wars logo"
+        width={100}
       />
       <input
         type="text"
