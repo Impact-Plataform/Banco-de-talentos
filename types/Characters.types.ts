@@ -1,4 +1,5 @@
 export interface ICharacter {
+  id: number,
   name: string;
   height: string;
   mass: string;
@@ -20,5 +21,5 @@ export interface ICharacterProps {
   img: string,
   name: string,
   height: string,
-  homeworld: string
+  homeworld: string | Promise<any>,
 }
