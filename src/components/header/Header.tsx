@@ -1,7 +1,7 @@
 'use client'
 import { HeaderContainer } from './header.style';
 import Image from 'next/image';
-import logo from '../../public/starwars.png';
+import logo from '../../../public/starwars.png';
 import { useState } from 'react';
 
 
