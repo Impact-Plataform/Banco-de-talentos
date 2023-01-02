@@ -8,7 +8,7 @@ export default function Home() {
   <>
     <Header/>
     {/* @ts-expect-error Server Component */}
-    <Characters />
+    {/* <Characters /> */}
     <Link href="/detailsCaracter">detailsCaracter</Link>
   </>
   );
