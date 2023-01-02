@@ -1,4 +1,5 @@
 import { getNamePlanet } from '../services/services';
+import { ICharacter } from '../types/Characters.types';
 
 
 export const createdId = (url: string) => {
@@ -17,4 +18,12 @@ export const createdId = (url: string) => {
 export const handleGetPlanet = async (planet: string) => {
   const planetName = await getNamePlanet(planet);
   return planetName;
+};
+
+
+export const handlePage = (page: number,  character: ICharacter[]) => {
+  if (page === 0) {
+    return character.slice(0, 10)
+  }
+  return character.slice(page * 10, (page * 2) * 10)
 };
