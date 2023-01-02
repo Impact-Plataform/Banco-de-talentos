@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { CharactersContainer } from './characters.style';
 import CharacterCard from './CharacterCard';
 import { getCharacters, getPlanet } from '../../services/services';
