@@ -7,7 +7,6 @@ export default function Home() {
   return(
   <>
     <Header/>
-    {/* @ts-expect-error Server Component */}
     <Characters />
     <Link href="/detailsCaracter">detailsCaracter</Link>
   </>

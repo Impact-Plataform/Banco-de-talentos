@@ -1,13 +1,24 @@
+'use client'
 import { CharactersContainer } from './characters.style';
-import CharacterCard from './CharacterCard';
 import { ICharacter } from '../../types/Characters.types';
 import { getAllCharacters } from '../../services/services';
 import CharactersList from './CharactersList';
+import { useEffect, useState } from 'react';
 
 
-export default async function Characters() {
-  const allCharacter: ICharacter[] = await getAllCharacters();
+export default function Characters() {
+  const [allCharacter, setAllCharacter] = useState<ICharacter[]>([]);
+  
+  
 
+  const handlePromiseAllCharacter = async () => {
+    const alCharacter: ICharacter[] = await getAllCharacters();
+    setAllCharacter(alCharacter)
+  }
+
+  useEffect(() => {
+    handlePromiseAllCharacter()
+  }, [])
 
   return(
     <CharactersContainer>
