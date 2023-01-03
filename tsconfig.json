@@ -17,8 +17,5 @@
 		"typeRoots": ["./src/@types"]
 	},
 	"include": ["src/**/*"],
-	"exclude": ["node_modules", "dist"],
-	"ts-node": {
-		"files": true
-	}
+	"exclude": ["node_modules", "dist"]
 }
