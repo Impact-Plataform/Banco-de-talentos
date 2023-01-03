@@ -16,7 +16,8 @@ export const AppContext = createContext<AppContextInterface>({} as AppContextInt
 // Provider in your app
 
 const AppProvider = ({ children }: Props) => {
-  const [page, setPage] = useState(8);
+  const [page, setPage] = useState(0);
+  
   
 
   const context = {
@@ -25,7 +26,7 @@ const AppProvider = ({ children }: Props) => {
   }
 
   return (
-    <AppContext.Provider value={ {page, setPage} }>{children}</AppContext.Provider>
+    <AppContext.Provider value={context}>{children}</AppContext.Provider>
   )
 };
 

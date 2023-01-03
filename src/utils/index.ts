@@ -25,5 +25,5 @@ export const handlePage = (page: number,  character: ICharacter[]) => {
   if (page === 0) {
     return character.slice(0, 10)
   }
-  return character.slice(page * 10, (page * 2) * 10)
+  return character.slice((page * 10), (page * 10) + 10)
 };
