@@ -1,10 +1,11 @@
+import cx from 'classnames';
 import { createContext, ReactNode, useState } from 'react';
 
 interface DarkModeProps {
   children: ReactNode;
 }
 
-interface DarkModeContextData {
+export interface DarkModeContextData {
   darkMode: boolean;
   toggleDarkMode: () => void;
 }
@@ -17,7 +18,14 @@ export function DarkModeProvider({ children }: DarkModeProps) {
 
   return (
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
-      <div className="">{children}</div>
+      <div
+        className={cx('h-screen w-screen', {
+          'bg-gray-900 text-gray-100': darkMode,
+          'bg-gray-100 text-gray-900': !darkMode,
+        })}
+      >
+        {children}
+      </div>
     </DarkModeContext.Provider>
   );
 }
