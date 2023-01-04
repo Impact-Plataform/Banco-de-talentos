@@ -7,6 +7,8 @@ interface AppContextInterface {
   setPage: React.Dispatch<React.SetStateAction<number>>,
   gender: string | undefined,
   setGender: React.Dispatch<React.SetStateAction<any>>,
+  isLoading: boolean,
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
 interface Props {
@@ -20,13 +22,15 @@ export const AppContext = createContext<AppContextInterface>({} as AppContextInt
 const AppProvider = ({ children }: Props) => {
   const [page, setPage] = useState(0);
   const [gender, setGender] = useState();
-
+  const [isLoading, setIsLoading] = useState(true);
 
   const context = {
     page,
     setPage,
     gender,
-    setGender
+    setGender,
+    isLoading,
+    setIsLoading
   }
 
   return (
