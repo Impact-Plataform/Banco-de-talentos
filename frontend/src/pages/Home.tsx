@@ -11,8 +11,12 @@ export function Home() {
   return (
     <div>
       <Header />
-      {characters &&
-        characters.map((character, index) => <Card key={index} character={character} />)}
+      <div className="flex flex-col items-center mt-16">
+        {characters &&
+          characters.map((character, index) => (
+            <Card key={index} character={character} />
+          ))}
+      </div>
       <Footer />
     </div>
   );
