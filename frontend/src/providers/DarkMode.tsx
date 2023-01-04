@@ -20,10 +20,16 @@ export function DarkModeProvider({ children }: DarkModeProps) {
     <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
       <div
         className={cx('h-screen w-screen', {
-          'bg-gray-900 text-gray-100': darkMode,
-          'bg-gray-100 text-gray-900': !darkMode,
+          'text-gray-100': darkMode,
+          'text-gray-900': !darkMode,
         })}
       >
+        <div
+          className={cx('h-full w-full fixed -z-10', {
+            'bg-gray-900': darkMode,
+            'bg-gray-100': !darkMode,
+          })}
+        />
         {children}
       </div>
     </DarkModeContext.Provider>

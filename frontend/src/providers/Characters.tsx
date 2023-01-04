@@ -27,19 +27,28 @@ export interface Character {
 
 export interface CharactersContextData {
   characters: Array<Character> | null;
+  currentPage: number;
+  addPage: () => void;
 }
 
 export const CharactersContext = createContext<CharactersContextData | null>(null);
 
 export function CharactersProvider({ children }: CharactersProps) {
   const [characters, setCharacters] = useState<Array<Character> | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(0);
+
+  const addPage = () => setCurrentPage((prev) => prev + 1);
 
   useEffect(() => {
-    getAllPeople().then((response) => setCharacters(response.results));
-  }, []);
+    getAllPeople(currentPage || 1).then((response) => {
+      if (typeof response == 'object') {
+        setCharacters((prev) => (prev ? [...prev, ...response] : response));
+      }
+    });
+  }, [currentPage]);
 
   return (
-    <CharactersContext.Provider value={{ characters }}>
+    <CharactersContext.Provider value={{ characters, currentPage, addPage }}>
       {children}
     </CharactersContext.Provider>
   );
