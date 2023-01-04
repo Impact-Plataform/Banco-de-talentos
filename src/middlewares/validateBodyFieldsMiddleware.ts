@@ -3,8 +3,8 @@ import { NextFunction, Request, Response } from 'express';
 import { prismaClient } from '../database/PrismaClient';
 import { validateBody } from '../yupschemas/productSchema';
 
-export class CreateProductMiddleware {
-	async validateBodyFields(req: Request<unknown, unknown, Omit<Product, 'id'>>, res: Response, next: NextFunction) {
+export class ValidateBodyFields {
+	async execute(req: Request<unknown, unknown, Omit<Product, 'id'>>, res: Response, next: NextFunction) {
 		await validateBody.validate(req.body);
 
 		const existsProduct = await prismaClient.product.findUnique({
