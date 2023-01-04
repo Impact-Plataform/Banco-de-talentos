@@ -4,7 +4,9 @@ import React, { createContext, useState } from 'react';
 
 interface AppContextInterface {
   page: number,
-  setPage: React.Dispatch<React.SetStateAction<number>>;
+  setPage: React.Dispatch<React.SetStateAction<number>>,
+  gender: string | undefined,
+  setGender: React.Dispatch<React.SetStateAction<any>>,
 }
 
 interface Props {
@@ -17,12 +19,14 @@ export const AppContext = createContext<AppContextInterface>({} as AppContextInt
 
 const AppProvider = ({ children }: Props) => {
   const [page, setPage] = useState(0);
-  
-  
+  const [gender, setGender] = useState();
+
 
   const context = {
     page,
     setPage,
+    gender,
+    setGender
   }
 
   return (

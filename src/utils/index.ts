@@ -1,5 +1,13 @@
-import { getNamePlanet } from '../services/services';
+import { getNamePlanet } from '../services/characters.services';
 import { ICharacter } from '../types/Characters.types';
+
+
+export const handleCharactersFilter = (listCharacters: ICharacter[], gender: string) => {
+  if (gender) {
+    return listCharacters.filter((character) => character.gender === gender);
+  }
+  return listCharacters;
+}
 
 
 export const createdId = (url: string) => {
@@ -21,9 +29,10 @@ export const handleGetPlanet = async (planet: string) => {
 };
 
 
-export const handlePage = (page: number,  character: ICharacter[]) => {
+export const handlePage = (page: number,  character: ICharacter[], gender: string) => {
+  const arrayFilter = handleCharactersFilter(character, gender)
   if (page === 0) {
-    return character.slice(0, 10)
+    return arrayFilter.slice(0, 10)
   }
-  return character.slice((page * 10), (page * 10) + 10)
+  return arrayFilter.slice((page * 10), (page * 10) + 10)
 };

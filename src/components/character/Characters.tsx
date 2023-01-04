@@ -1,7 +1,7 @@
 'use client'
 import { CharactersContainer } from './characters.style';
 import { ICharacter } from '../../types/Characters.types';
-import { getAllCharacters } from '../../services/services';
+import { getAllCharacters } from '../../services/characters.services';
 import CharactersList from './CharactersList';
 import { useEffect, useState } from 'react';
 

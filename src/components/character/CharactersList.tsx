@@ -16,6 +16,7 @@ export default function CharactersList({ characters }: Props) {
   const [isDisabledBack, setIsDisabledBack] = useState(true);
   const { page, setPage } = useContext(AppContext);
   
+  const gender = "";
 
   const handlePerPage = (page: number, target: any) => {
     if (page >= 9) {
@@ -51,7 +52,7 @@ export default function CharactersList({ characters }: Props) {
 
   return(
     <CharactersListDiv>
-       { handlePage(page, characters)?.map((character) => (
+       { handlePage(page, characters, gender)?.map((character) => (
         <CharacterCard
           key={character.id}
           img={`https://starwars-visualguide.com/assets/img/characters/${character.id}.jpg`}
