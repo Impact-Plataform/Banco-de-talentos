@@ -2,7 +2,7 @@ import { getNamePlanet } from '../services/characters.services';
 import { ICharacter } from '../types/Characters.types';
 
 
-export const handleCharactersFilter = (listCharacters: ICharacter[], gender: string) => {
+export const handleCharactersFilter = (listCharacters: ICharacter[], gender: string | undefined) => {
   if (gender) {
     return listCharacters.filter((character) => character.gender === gender);
   }
@@ -29,7 +29,7 @@ export const handleGetPlanet = async (planet: string) => {
 };
 
 
-export const handlePage = (page: number,  character: ICharacter[], gender: string) => {
+export const handlePage = (page: number,  character: ICharacter[], gender: string | undefined) => {
   const arrayFilter = handleCharactersFilter(character, gender)
   if (page === 0) {
     return arrayFilter.slice(0, 10)

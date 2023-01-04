@@ -16,8 +16,8 @@ export default function Aside() {
       <GenderContainer>
         <h3>Gênero</h3>
         <ul>
-          <li value="Male" onClick={ (e) => handleGender(e.target) }>masculino</li>
-          <li value="Female" onClick={ (e) => handleGender(e.target) }>feminino</li>
+          <li value="male" onClick={ (e) => handleGender(e.target) }>masculino</li>
+          <li value="female" onClick={ (e) => handleGender(e.target) }>feminino</li>
           <li value="unknown" onClick={ (e) => handleGender(e.target) }>desconhecido</li>
           <li value="n/a" onClick={ (e) => handleGender(e.target) }>não tem gênero</li>
         </ul>

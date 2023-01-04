@@ -14,9 +14,8 @@ interface Props {
 export default function CharactersList({ characters }: Props) {
   const [isDisabledNext, setIsDisabledNext] = useState(false);
   const [isDisabledBack, setIsDisabledBack] = useState(true);
-  const { page, setPage } = useContext(AppContext);
-  
-  const gender = "";
+  const { page, setPage, gender } = useContext(AppContext);
+
 
   const handlePerPage = (page: number, target: any) => {
     if (page >= 9) {
