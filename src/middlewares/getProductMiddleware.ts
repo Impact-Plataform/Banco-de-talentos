@@ -1,9 +1,10 @@
+import { Product } from '@prisma/client';
 import { NextFunction, Request, Response } from 'express';
 import { prismaClient } from '../database/PrismaClient';
 import { validateIdtype } from '../yupschemas/validateIdSchema';
 
 export class GetProductMiddleware {
-	async execute (req: Request<{id: number}>, res: Response, next: NextFunction) {
+	async execute (req: Request<Pick<Product, 'id'>>, res: Response, next: NextFunction) {
 		const { id } = req.params;
 
 		await validateIdtype.validate({ id });
