@@ -2,6 +2,7 @@ import express from 'express';
 import 'express-async-errors';
 
 import { errorMiddleware } from './middlewares/errorMiddleware';
+import { pageNotFoundMiddleware } from './middlewares/pageNotFoundMiddleware';
 import { productRouter } from './router/productRouter';
 
 const app = express();
@@ -9,6 +10,8 @@ const app = express();
 app.use(express.json());
 
 app.use('/Products', productRouter);
+
+app.use(pageNotFoundMiddleware);
 
 app.use(errorMiddleware);
 
