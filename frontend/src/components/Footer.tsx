@@ -1,3 +1,3 @@
 export function Footer() {
-  return <div>SWAPI Client</div>;
+  return <footer>SWAPI Client</footer>;
 }
