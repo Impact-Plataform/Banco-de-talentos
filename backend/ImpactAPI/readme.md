@@ -1,7 +1,7 @@
 # Desafio BackEnd Impact
 
 ## Descrição
-Esse Projeto busca cadastrar Produtos e converter seu Valor para Dolares.
+Esse Projeto busca cadastrar Produtos e converter seu Valor para dolares e Euros.
 
 ## Tecnologias Usadas
 
