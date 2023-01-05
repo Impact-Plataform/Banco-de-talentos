@@ -18,7 +18,7 @@ export function Cards() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center pt-16">
+    <div className="flex flex-col items-center pt-28">
       {characters?.map((character, index) => (
         <Card key={index} character={character} />
       ))}
