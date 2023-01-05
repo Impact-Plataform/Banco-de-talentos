@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import Home from './Home';
+import Background from './Components/Background';
+import Home from './Pages/Home';
+import MainRoutes from './Routes';
 
 function App() {
   return (
     <main className='main'>
-      <Home/>
+      <MainRoutes/>
     </main>
   );
 }
