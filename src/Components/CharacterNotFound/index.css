@@ -1,0 +1,65 @@
+.characterNotFound__container {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    position: relative; 
+    z-index: 4;
+    font-family: SpaceTravel;
+    letter-spacing: 10px;
+    font-size: 25px;
+    text-align: center;
+    flex-direction: column;
+}
+
+.characterNotFound__container > img {
+    max-width: 1000px;
+    width: 500px;
+    object-fit: cover;
+}
+
+
+.characterNotFound__text {
+  animation: pulsate 1.5s infinite alternate;  
+  border: 0.2rem solid #fff;
+  border-radius: 2rem;
+  padding: 0.8em;
+  box-shadow: 0 0 .2rem #fff,
+            0 0 .1rem #fff,
+            0 0 1rem #bc13fe,
+            0 0 0.8rem #bc13fe,
+            0 0 2.1rem #bc13fe,
+            inset 0 0 1.3rem #bc13fe; 
+}
+
+@keyframes pulsate {
+    
+    100% {
+  
+        text-shadow:
+        0 0 0px #fff,
+        0 0 0px #fff,
+        0 0 0px #fff,
+        0 0 4px #bc13fe,
+        0 0 5px #bc13fe,
+        0 0 6px #bc13fe,
+        0 0 7px #bc13fe,
+        0 0 8px #bc13fe;
+    
+    }
+    
+    0% {
+  
+      text-shadow:
+      0 0 0px #fff,
+      0 0 0px #fff,
+      0 0 0px #fff,
+      0 0 1px #bc13fe,
+      0 0 2px #bc13fe,
+      0 0 3px #bc13fe,
+      0 0 4px #bc13fe,
+      0 0 5px #bc13fe;
+  
+  }
+}
