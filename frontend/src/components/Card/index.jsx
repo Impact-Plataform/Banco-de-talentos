@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import { changeSlug } from "../../helpers/slug";
 import { useCharactersContext } from "../../contexts";
 import { Heading } from "../Heading";
 import P from "prop-types";
@@ -13,6 +14,7 @@ import {
   SeeMoreButton,
 } from "./styles";
 import Info from "./Info";
+import { Link } from "react-router-dom";
 
 const filmColor = (episode) => {
   if (episode === 1) return "#91d6a59c";
@@ -25,6 +27,19 @@ const filmColor = (episode) => {
 };
 
 export const Card = ({ character }) => {
+  const {
+    name,
+    gender,
+    birth_year,
+    mass,
+    height,
+    species,
+    skin_color,
+    hair_color,
+    eye_color,
+    films,
+  } = character;
+
   const { filmsData, speciesData } = useCharactersContext();
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
@@ -40,21 +55,17 @@ export const Card = ({ character }) => {
     <CardBox onClick={handleClick}>
       <header>
         <Heading level={2} align="center" color="yellowColor" weight="700">
-          {character.name}
+          {name}
         </Heading>
         <CharactersInfo open={true}>
-          <Info title="Gender" data={character.gender} />
-          <Info title="Birthyear" data={character.birth_year} />
+          <Info title="Gender" data={gender} />
+          <Info title="Birthyear" data={birth_year} />
           <Info
             title="Species"
             data={
-              character.species.length > 0
+              species.length > 0
                 ? speciesData.map((specie) =>
-                    character.species.includes(specie.url) ? (
-                      <p key={specie.url}>{specie.name}</p>
-                    ) : (
-                      ""
-                    ),
+                    species.includes(specie.url) ? specie.name : "",
                   )
                 : "-"
             }
@@ -64,17 +75,17 @@ export const Card = ({ character }) => {
 
       <InfoDetailsWrapper>
         <InfoDetails>
-          <Info title="Height" data={character.height} />
+          <Info title="Height" data={height} />
         </InfoDetails>
         <InfoDetails>
-          <Info title="Mass" data={character.mass} />
+          <Info title="Mass" data={mass} />
         </InfoDetails>
       </InfoDetailsWrapper>
 
       <CharactersInfo open={showMoreInfo}>
-        <Info title="Skin" data={character.skin_color} />
-        <Info title="Hair" data={character.hair_color} />
-        <Info title="Eye" data={character.eye_color} />
+        <Info title="Skin" data={skin_color} />
+        <Info title="Hair" data={hair_color} />
+        <Info title="Eye" data={eye_color} />
       </CharactersInfo>
 
       <FilmsWrapper>
@@ -90,7 +101,7 @@ export const Card = ({ character }) => {
         <ListFilms>
           {filmsData.map(
             (film) =>
-              character.films.includes(film.url) && (
+              films.includes(film.url) && (
                 <Films key={film.episode_id} cor={filmColor(film.episode_id)}>
                   {film.title}
                 </Films>
@@ -98,7 +109,9 @@ export const Card = ({ character }) => {
           )}
         </ListFilms>
       </FilmsWrapper>
-      <SeeMoreButton>More Info ►</SeeMoreButton>
+      <Link to={`${changeSlug(name)}`}>
+        <SeeMoreButton>More Info ►</SeeMoreButton>
+      </Link>
     </CardBox>
   );
 };

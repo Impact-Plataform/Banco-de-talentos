@@ -14,14 +14,15 @@ const Info = ({ title, data }) => {
       >
         {title}
       </Heading>
-      <Heading
-        level={3}
-        fontSize="small"
-        textTransform="capitalize"
-        align="center"
+      <p
+        style={{
+          textTransform: "capitalize",
+          fontSize: ".75rem",
+          textAlign: "center",
+        }}
       >
         {data}
-      </Heading>
+      </p>
     </div>
   );
 };
