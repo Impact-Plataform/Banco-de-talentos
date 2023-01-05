@@ -1,3 +1,4 @@
+using ImpactAPI.Filter;
 using ImpactAPI.Repository;
 using ImpactAPI.Service;
 using ImpactAPI.Swagger;
@@ -8,13 +9,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ImpactContext>();
 builder.Services.AddHttpClient<ICurrencyService, CurrencyService>();
+builder.Services.AddMemoryCache();
+builder.Services.AddControllers(options =>
+options.Filters.Add<CacheFilter>()
+);
 
 builder.Services.AddSwaggerGen(options =>
 {
