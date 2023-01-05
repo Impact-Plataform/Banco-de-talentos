@@ -1,9 +1,5 @@
-﻿using ImpactAPI.Models;
-using ImpactAPI.Service;
-using Microsoft.AspNetCore.Http;
+﻿using ImpactAPI.Service;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
 
 namespace ImpactAPI.Controllers
 {
@@ -31,7 +27,7 @@ namespace ImpactAPI.Controllers
             {
                 return NotFound();
             }
-            return currency;
+            return Ok(currency);
         }
 
         /// <summary>
@@ -48,7 +44,7 @@ namespace ImpactAPI.Controllers
             {
                 return NotFound();
             }
-            return currency;
+            return Ok(currency);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace ImpactAPI.Controllers
             decimal EUR = currency.EUR.Ask;
             List<Product> products = await _context.Products.ToListAsync();
             products.ForEach(p => p.ConverteValue(USD, EUR));
-            return products;
+            return Ok(products);
         }
 
 
@@ -56,7 +56,7 @@ namespace ImpactAPI.Controllers
                 return NotFound();
             }
 
-            return product;
+            return Ok(product);
         }
 
         /// <summary>
