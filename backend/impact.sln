@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImpactAPI", "ImpactAPI\ImpactAPI.csproj", "{2E4643F3-5B1E-46FD-9341-47630E3BFF65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImpactAPI", "ImpactAPI\ImpactAPI.csproj", "{2E4643F3-5B1E-46FD-9341-47630E3BFF65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{B3F9A9CA-C6AF-41F7-AC76-45FDBD54BA28}"
 	ProjectSection(SolutionItems) = preProject
