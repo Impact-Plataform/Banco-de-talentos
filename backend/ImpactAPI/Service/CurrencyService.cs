@@ -24,5 +24,29 @@ namespace ImpactAPI.Service
             var result = await response.Content.ReadFromJsonAsync<AllCurrency>();
             return result;
         }
+
+        public async Task<object?> GetAllCurrencyJson()
+        {
+            var response = await _client.GetAsync(_baseUrl);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var result = await response.Content.ReadFromJsonAsync<object>();
+            return result;
+        }
+
+        public async Task<object?> GetCurrencyJson(string code)
+        {
+            var response = await _client.GetAsync($"{_baseUrl}/{code}-BRL");
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var result = await response.Content.ReadFromJsonAsync<object>();
+            return result;
+        }
     }
 }
