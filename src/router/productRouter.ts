@@ -9,7 +9,15 @@ import { ValidateBodyFields } from '../middlewares/validateBodyFieldsMiddleware'
 
 export const productRouter = Router();
 
-productRouter.get('/', new GetProductsController().execute);
-productRouter.post('/', new ValidateBodyFields().execute , new createProductController().execute);
-productRouter.get('/:id', new GetProductMiddleware().execute , new getProductByIdController().execute);
-productRouter.put('/:id', new GetProductMiddleware().execute,  new ValidateBodyFields().execute, new UpdateProductController().execute);
+const getProducts = new GetProductsController();
+const registerProduct = new createProductController();
+const getProduct = new getProductByIdController();
+const updateProduct = new UpdateProductController();
+
+const validateBodyFields = new ValidateBodyFields();
+const validateProductId = new GetProductMiddleware();
+
+productRouter.get('/', getProducts.execute);
+productRouter.post('/', validateBodyFields.execute , registerProduct.execute);
+productRouter.get('/:id', validateProductId.execute , getProduct.execute);
+productRouter.put('/:id', validateProductId.execute,  validateBodyFields.execute, updateProduct.execute);
