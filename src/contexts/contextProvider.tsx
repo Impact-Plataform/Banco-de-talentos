@@ -9,6 +9,9 @@ interface AppContextInterface {
   setGender: React.Dispatch<React.SetStateAction<any>>,
   isLoading: boolean,
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
+  speciesFilter: string | undefined,
+  setSpeciesFilter: React.Dispatch<React.SetStateAction<any>>,
+  handleSpecies: any, 
 }
 
 interface Props {
@@ -22,7 +25,14 @@ export const AppContext = createContext<AppContextInterface>({} as AppContextInt
 const AppProvider = ({ children }: Props) => {
   const [page, setPage] = useState(0);
   const [gender, setGender] = useState();
+  const [speciesFilter, setSpeciesFilter] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+
+  const handleSpecies = (target: any) => {
+    return setSpeciesFilter(target.getAttribute("value"))
+  }
+
 
   const context = {
     page,
@@ -30,8 +40,12 @@ const AppProvider = ({ children }: Props) => {
     gender,
     setGender,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    speciesFilter,
+    setSpeciesFilter,
+    handleSpecies,
   }
+  
 
   return (
     <AppContext.Provider value={context}>{children}</AppContext.Provider>

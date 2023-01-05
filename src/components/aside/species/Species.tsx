@@ -6,12 +6,15 @@ import { getAllSpecies } from '../../../services/aside.service';
 import { AppContext } from '../../../contexts/contextProvider';
 import { ISpecie } from '../../../types/Species.types';
 import { storeAllSpecies } from '../../../store/store';
+import { createdIdSpecies } from '../../../utils';
+import ModalContainer from './Modal';
 
 
 export default function Species() {
-  const { isLoading } = useContext(AppContext);
+  const { isLoading, handleSpecies } = useContext(AppContext);
   const [species, setSpecies] = useState<ISpecie[]>([]);
-  const [limit, setLimit] = useState(10)
+
+  
 
   useEffect(() => {
     storeAllSpecies(getAllSpecies, setSpecies)
@@ -21,11 +24,17 @@ export default function Species() {
     <SpeciesContainer>
       <h3>Espécies</h3>
       <ul>
-        { species.slice(0, limit).map((specie) => (
-          <li key={ uuidv4() }>{specie.name}</li>
+        { species.slice(0, 10).map((specie) => (
+          <li
+            key={ uuidv4() }
+            value={createdIdSpecies(specie.url)}
+            onClick={(e) => handleSpecies(e.target)}
+            >
+              {specie.name}
+          </li>
         )) }
       </ul>
-      <p>Mostrar mais</p>
+      <ModalContainer species={species} />
     </SpeciesContainer>
   );
 };
