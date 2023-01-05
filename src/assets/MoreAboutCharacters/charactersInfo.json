@@ -1,0 +1,452 @@
+[
+  {
+    "name": "Luke Skywalker",
+    "quote": "May the Force be with you.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058359634672492604/image.png"
+  }, 
+  {
+    "name": "C-3PO",
+    "quote": "We seem to be made to suffer. It's our lot in life.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058891920568500266/image-PhotoRoom.png-PhotoRoom_21.png"
+  },
+  {
+    "name": "R2-D2",
+    "quote": "Beep! Boop! Meesa R2-D2!",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/ArtooTFA2-Fathead.png"
+  },
+  {
+    "name": "Darth Vader",
+    "quote": "I find your lack of faith disturbing.",
+    "image": "https://vignette.wikia.nocookie.net/fr.starwars/images/3/32/Dark_Vador.jpg"
+  },
+  {
+    "name": "Leia Organa",
+    "quote": "Help Me Obi-Wan Kenobi, You’re My Only Hope",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058355417522122792/image-PhotoRoom.png-PhotoRoom_1.png"
+  },
+  {
+    "name": "Owen Lars",
+    "quote": "You can waste time with your friends when your chores are done",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/OwenCardTrader.png"
+  },
+  {
+    "name": "Beru Whitesun lars",
+    "quote": "I'm not putting anyone else in danger, Owen. We're enough. You and me",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/cc/BeruCardTrader.png"
+  },
+  {
+    "name": "R5-D4",
+    "quote": "It's my mission to serve you.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/cb/R5-D4_Sideshow.png"
+  },
+  {
+    "name": "Biggs Darklighter",
+    "quote": "I've got a really good feeling about this.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/0/00/BiggsHS-ANH.png"
+  },
+
+
+
+
+
+
+  {
+    "name": "Obi-Wan Kenobi",
+    "quote": "The Force will be with you always.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4e/ObiWanHS-SWE.jpg"
+  },
+  {
+    "name": "Anakin Skywalker",
+    "quote": "Beware the power of the Dark Side.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/6/6f/Anakin_Skywalker_RotS.png"
+  },
+  {
+    "name": "Wilhuff Tarkin",
+    "quote": "Fear will keep the local systems in line. Fear of this battle station.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/c1/Tarkininfobox.jpg"
+  },
+  {
+    "name": "Chewbacca",
+    "quote": "RRRRWAAARWWWRRR!",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/48/Chewbacca_TLJ.png"
+  },
+  {
+    "name": "Han Solo",
+    "quote": "Great, kid! Don't get cocky!",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/e2/TFAHanSolo.png"
+  },
+  {
+    "name": "Greedo",
+    "quote": "Going somewhere, Solo?",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/c6/Greedo.jpg"
+  },
+  {
+    "name": "Jabba Desilijic Tiure",
+    "quote": "I will not give up my favorite decoration. I like Captain Solo where he is.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/7f/Jabba_SWSB.png"
+  },
+  {
+    "name": "Wedge Antilles",
+    "quote": "Stay on target!",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058071870022356993/latest.png"
+  },
+  {
+    "name": "Jek Tono Porkins",
+    "quote": "I'm going in full throttle!",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/JekPorkins-DB.png"
+  },
+  {
+    "name": "Yoda",
+    "quote": "Do or do not. There is no try.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png"
+  },
+  {
+    "name": "Palpatine",
+    "quote": "The dark side of the Force is a pathway to many abilities some consider to be unnatural.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d8/Emperor_Sidious.png"
+  },
+  {
+    "name": "Boba Fett",
+    "quote": "He's no good to me dead.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/79/Boba_Fett_HS_Fathead.png"
+  },
+  {
+    "name": "IG-88",
+    "quote": "I think, therefore I am. I destroy, therefore I endure.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f2/IG-88.png"
+  },
+  {
+    "name": "Bossk",
+    "quote": "Thinking takes too long. Action gets things done",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/1d/Bossk.png"
+  },
+  {
+    "name": "Lando Calrissian",
+    "quote": "I don't like it. I don't agree with it. But I accept it.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/8/8f/Lando_ROTJ.png"
+  },
+  {
+    "name": "Lobot",
+    "quote": "No problem",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058080607416102922/latest.png"
+  },
+  {
+    "name": "Ackbar",
+    "quote": "It's a trap!",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/2/29/Admiral_Ackbar_RH.png"
+  },
+  {
+    "name": "Mon Mothma",
+    "quote": "If Luke is lost…it may be over for the Rebel Alliance…and the galaxy",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058081588962926763/mon.png"
+  },
+  {
+    "name": "Arvel Crynyd",
+    "quote": "A star pilot's courage lies in facing the unknown.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058083290508177458/arven.png"
+  },
+  {
+    "name": "Wicket Systri Warrick",
+    "quote": "Yub nub!",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4f/Wicket_RotJ.png"
+  },
+  {
+    "name": "Nien Nunb",
+    "quote": "In the face of danger, we do not retreat, but move forward!",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058074351532003428/re2-removebg-preview.png"
+  },
+
+
+
+
+  {
+    "name": "Qui-Gon Jinn",
+    "quote": "The ability to speak does not make you wise.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f6/Qui-Gon_Jinn_Headshot_TPM.jpg"
+  },
+  {
+    "name": "Nute Gunray",
+    "quote": "All I know is I never risk my own skin if I don't have to.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/fd/Nute_Gunray_SWE.png"
+  },
+  {
+    "name": "Finis Valorum",
+    "quote": "It's been a long time, my friend",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/51/ValorumPortrait-SWE.png"
+  },
+  {
+    "name": "Padmé Amidala",
+    "quote": "Courage can come from surprising places.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/b2/Padmegreenscrshot.jpg"
+  },  
+  {
+    "name": "Jar Jar Binks",
+    "quote": "Monsters out dere, leakin in here, all sinkin an no power? When are yousa tinkin' wesa in trouble?!",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d2/Jar_Jar_aotc.jpg"
+  },
+  {
+    "name": "Roos Tarpals",
+    "quote": "No giben up, General Jar Jar. Mesa tink of something!",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058366976323485757/image-PhotoRoom.png-PhotoRoom_19.png"
+  },
+  {
+    "name": "Rugor Nass",
+    "quote": "Yousa no thinken yousa greater than the Gungans? Mesa lika this. Maybe wesa being friends",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361766607851541/image-PhotoRoom.png-PhotoRoom_8.png"
+  },
+  {
+    "name": "Ric Olié",
+    "quote": "Courage is nothing without skill.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361561225383966/image-PhotoRoom.png-PhotoRoom_7.png"
+  },
+  {
+    "name": "Watto",
+    "quote": "Yousa think yousa clan da bargin wit me? You not know who yousa mess wit!",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058366447509843969/image-PhotoRoom.png-PhotoRoom_18.png"
+  },
+  {
+    "name": "Sebulba",
+    "quote": "You won't walk away from this one, you slave scum",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/14/Sebulba_Headshot_Closeup.png"
+  },
+  {
+    "name": "Quarsh Panaka",
+    "quote": "My duty is to protect the Queen at all costs.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/72/PanakaHS-TPM.png"
+  },
+  {
+    "name": "Shmi Skywalker",
+    "quote": "I'm so proud of you, Ani… so proud… I missed you so much… now I am complete…",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363943288061992/image-PhotoRoom.png-PhotoRoom_16.png"
+  },
+  {
+    "name": "Darth Maul",
+    "quote": "You may think I am evil. I am not. I am efficient.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/50/Darth_Maul_profile.png"
+  },
+  {
+    "name": "Ayla Secura",
+    "quote": "A strong belief can be more powerful than any army.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f9/Aayla.jpg"
+  },
+  {
+    "name": "Ratts Tyerel",
+    "quote": "Victory requires sacrifice and courage.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058364145759686746/image-PhotoRoom.png-PhotoRoom_17.png"
+  },
+  {
+    "name": "Dud Bolt",
+    "quote": "Respect, huh? What do you want, Sebulba?.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058075497520713859/dudbolt.jpeg"
+  },
+  {
+    "name": "Gasgano",
+    "quote": "…eh Gasgano doowa newpa Ord Petrovia!",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058102279640715275/gasgano.png"
+  },
+  {
+    "name": "Ben Quadinaros",
+    "quote": "Cheespa wata",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058097375949889586/ben.png"
+  },
+  {
+    "name": "Mace Windu",
+    "quote": "This party's over",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/58/Mace_ROTS.png"
+  },
+  {
+    "name": "Ki-Adi-Mundi",
+    "quote": "The Force will be with you, always",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/9/9e/KiAdiMundi.jpg"
+  },
+  {
+    "name": "Kit Fisto",
+    "quote": "Strong am I with the Force, but not that strong.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058367292817297518/image-PhotoRoom.png-PhotoRoom_20.png"
+  },
+  {
+    "name": "Eeth Koth",
+    "quote": "The dark side clouds everything. Impossible to see the future is.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4e/EethKothCardTrader.png"
+  },
+  {
+    "name": "Adi Gallia",
+    "quote": "Truly wonderful, the mind of a child is.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058103100981911552/adi.png"
+  },
+
+
+
+
+
+  {
+    "name": "Saesee Tiin",
+    "quote": "Feel the force!",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058104224577241159/Saesee.png"
+  },
+  {
+    "name": "Yarael Poof",
+    "quote": "Peace without justice is flawed, hollow at its core.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058105240521551975/yarael.png"
+  },
+  {
+    "name": "Plo Koon",
+    "quote": "For my ally is the Force, and a powerful ally it is",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/bf/PloKoonCardTrader.png"
+  },
+  {
+    "name": "Mas Amedda",
+    "quote": "Peace is a lie, there is only passion",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/37/Mas_Amedda_SWCT.png"
+  },
+  {
+    "name": "Gregar Typho",
+    "quote": "It would be an honour to serve you, Your Highness.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/52/Gregar_Typho.jpg"
+  },
+  {
+    "name": "Cordé",
+    "quote": "You all saw what happened. The Skywalker boy saved us.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058105996293181450/corde.png"
+  },
+  {
+    "name": "Cliegg Lars",
+    "quote": "What good is courage without hope?",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/36/ClieggLarsHS-SWE.jpg"
+  },
+  {
+    "name": "Poggle the Lesser",
+    "quote": "We must do as Count Dooku tells us or our people... suffer great losses.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/9/93/Poggle_the_lesser_-_sw_card_trader.png"
+  },
+  {
+    "name": "Luminara Unduli",
+    "quote": "My allegiance is to the Republic, to democracy!",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058106742493421578/Luminara.png"
+  },
+  {
+    "name": "Barriss Offee",
+    "quote": "There is no emotion; there is peace",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/37/Barrisprofile2.jpg"
+  },
+  {
+    "name": "Dormé",
+    "quote": "He truly loves you Senator, beyond a doubt.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058111782872416256/image.png"
+  },
+  {
+    "name": "Dooku",
+    "quote": "If you are not with me, then you are my enemy",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/b8/Dooku_Headshot.jpg"
+  },
+  {
+    "name": "Bail Prestor Organa",
+    "quote": "Hope is not lost today, it is found.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/50/Bail_Organa_Mug.jpg"
+  },
+  {
+    "name": "Jango Fett",
+    "quote": "I'm just a simple man trying to make my way in the universe",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/56/JangoInfobox.png"
+  },
+  {
+    "name": "Zam Wesell",
+    "quote": "Getting away from Coruscant? No problem",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/7d/Clawdite.jpg"
+  },
+  {
+    "name": "Dexter Jettster",
+    "quote": "Good food is like good friends, hard to find and blessin’ to have.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363716837576745/image-PhotoRoom.png-PhotoRoom_15.png"
+  },
+  {
+    "name": "Lama Su",
+    "quote": "I'm old, not obsolete.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361019015118918/image-PhotoRoom.png-PhotoRoom_5.png"
+  },
+  {
+    "name": "Taun We",
+    "quote": "I will take you to meet she who is most wise, Mother Taun We.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361302214512690/image-PhotoRoom.png-PhotoRoom_6.png"
+  },
+  {
+    "name": "Jocasta Nu",
+    "quote": "The ability to make a decision does not mean you should.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/15/Jocasta_Nu_SWE.png"
+  },
+  {
+    "name": "R4-P17",
+    "quote": "I'm here to help.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363439698935869/image-PhotoRoom.png-PhotoRoom_14.png"
+  },
+  {
+    "name": "Wat Tambor",
+    "quote": "Power is the only currency worth trading in.",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/a/a5/Wat_Tambor.png"
+  },
+  {
+    "name": "San Hill",
+    "quote": "Money makes the Galaxy go round.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058354752846573608/san-PhotoRoom.png-PhotoRoom.png"
+  },
+  {
+    "name": "Shaak Ti",
+    "quote": "Unity wins war, gentlemen",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/2/20/Shaak_Ti_closeup-SWE.png"
+  },
+  {
+    "name": "Grievous",
+    "quote": "I will crush the Republic and its generals.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058360054811734036/image-PhotoRoom.png-PhotoRoom_3.png"
+  },
+  {
+    "name": "Tarfful",
+    "quote": "Wookiees are loyal and brave.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362042857291797/image-PhotoRoom.png-PhotoRoom_9.png"
+  },
+  {
+    "name": "Raymus Antilles",
+    "quote": "Loyalty is essential.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363175508119562/image-PhotoRoom.png-PhotoRoom_13.png"
+  },
+  {
+    "name": "Sly Moore",
+    "quote": "Though I have power, I serve at the pleasure of the Senate.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058355174520934400/image-PhotoRoom.png-PhotoRoom.png"
+  },
+  {
+    "name": "Tion Medon",
+    "quote": "There's no war here, unless you brought it with you",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058360577099059300/image-PhotoRoom.png-PhotoRoom_4.png"
+  },
+  {
+    "name": "Finn",
+    "quote": "Let the past die, kill it if you have to.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362695939784734/image-PhotoRoom.png-PhotoRoom_11.png"
+  },
+  {
+    "name": "Rey",
+    "quote": "Don't be afraid of who you are.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362949825220648/image-PhotoRoom.png-PhotoRoom_12.png"
+  },
+  {
+    "name": "Poe Dameron",
+    "quote": "The spark that ignites the fire.",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362372709945344/image-PhotoRoom.png-PhotoRoom_10.png"
+  },
+  {
+    "name": "BB8",
+    "quote": "Beep Boop!",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/6/68/BB8-Fathead.png"
+  },
+  {
+    "name": "Captain Phasma",
+    "quote": "Respect your superiors, or you will learn to respect your inferiors",
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/0/02/Phasma.png"
+  },
+  {
+    "name": "Bib Fortuna",
+    "quote": "Bargain rather than fight? He's no Jedi",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058085872387498054/bib.png"
+  }  
+]
