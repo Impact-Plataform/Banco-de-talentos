@@ -1,7 +1,15 @@
 import { Heading } from "../Heading";
 import { Illustrations } from "../../assets";
+import Card from "../../components/Card";
+import { useCharactersContext } from "../../contexts";
 
 const Home = () => {
+  const { loading } = useCharactersContext();
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <>
       <img src={Illustrations.StarWars} alt="Star Wars" />
@@ -16,6 +24,8 @@ const Home = () => {
       >
         Characters
       </Heading>
+
+      <Card />
     </>
   );
 };
