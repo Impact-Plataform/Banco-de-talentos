@@ -21,6 +21,10 @@ namespace ImpactAPI.Controllers
         }
 
 
+        /// <summary>
+        /// Mostra todos os produtos.
+        /// </summary>
+        /// <returns>Retorna todos os produtos e sua cotação em Dolar e Euro</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -38,6 +42,10 @@ namespace ImpactAPI.Controllers
         }
 
 
+        /// <summary>
+        /// Mostra o produto de acordo com o ID.
+        /// </summary>
+        /// <returns>Retorna o produto especificado pelo ID e sua cotação em Dolar e Euro</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -51,6 +59,10 @@ namespace ImpactAPI.Controllers
             return product;
         }
 
+        /// <summary>
+        /// Permite Atualizar o Produto.
+        /// </summary>
+        /// <param name="id">Busca o produto por seu ID</param>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
@@ -59,7 +71,6 @@ namespace ImpactAPI.Controllers
             {
                 return NotFound();
             }
-            Console.WriteLine(product.Price);
 
             try
             {
@@ -82,6 +93,10 @@ namespace ImpactAPI.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Cria um novo Produto
+        /// </summary>
+        /// <returns>Retorna o novo produto Criado</returns>
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
@@ -100,6 +115,11 @@ namespace ImpactAPI.Controllers
             return CreatedAtAction("GetProduct", new { id = product.Id }, product);
         }
 
+        /// <summary>
+        /// Deleta um produto.
+        /// </summary>
+        /// <param name="id">Busca o produto por seu ID</param>
+        /// <returns>Retorna todos os produtos e sua cotação em Dolar e Euro</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
