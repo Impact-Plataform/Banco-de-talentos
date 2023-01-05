@@ -1,5 +1,5 @@
 import { useEffect, useReducer, useRef, useContext } from "react";
-import { loadCharacters } from "./actions";
+import { loadCharacters, loadFilms, loadSpecies } from "./actions";
 import { CharactersContext } from "./context";
 import { data } from "./data";
 import { reducer } from "./reducer";
@@ -16,6 +16,30 @@ export const CharactersProvider = ({ children }) => {
         dispatch();
       }
     });
+    return () => {
+      isMounted.current = false;
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    loadFilms(dispatch).then((dispatch) => {
+      if (isMounted.current) {
+        dispatch();
+      }
+    });
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    loadSpecies(dispatch).then((dispatch) => {
+      if (isMounted.current) {
+        dispatch();
+      }
+    });
+
     return () => {
       isMounted.current = false;
     };

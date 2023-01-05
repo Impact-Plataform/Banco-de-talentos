@@ -42,3 +42,31 @@ export const loadCharacters = async (dispatch) => {
     dispatch({ type: types.CHARACTERS_ERROR });
   }
 };
+
+const APIfilms = API + "films";
+
+export const loadFilms = async (dispatch) => {
+  dispatch({ type: types.FILMS_LOADING });
+  try {
+    const response = await axios.get(APIfilms);
+    const films = await response.data;
+    dispatch({ type: types.FILMS_SUCCESS, payload: films.results });
+  } catch (error) {
+    dispatch({ type: types.FILMS_ERROR });
+  }
+};
+
+const APISpecies = API + "species";
+
+export const loadSpecies = async (dispatch) => {
+  dispatch({ type: types.SPECIES_LOADING });
+  try {
+    const response = await axios.get(APISpecies);
+    const species = await response.data.results;
+    const count = response.data.count;
+
+    loadAllData(APISpecies, count, species, dispatch, "SPECIES_SUCCESS");
+  } catch (error) {
+    dispatch({ type: types.SPECIES_ERROR });
+  }
+};

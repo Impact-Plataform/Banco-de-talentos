@@ -1,10 +1,11 @@
-import { Heading } from "../Heading";
+import { Heading } from "../../components/Heading";
 import { Illustrations } from "../../assets";
 import Card from "../../components/Card";
 import { useCharactersContext } from "../../contexts";
+import { CardsWrapper } from "./styles";
 
 const Home = () => {
-  const { loading } = useCharactersContext();
+  const { characters, loading } = useCharactersContext();
 
   if (loading) {
     return <p>Loading...</p>;
@@ -25,7 +26,11 @@ const Home = () => {
         Characters
       </Heading>
 
-      <Card />
+      <CardsWrapper>
+        {characters.map((character) => (
+          <Card key={character.url} character={character} />
+        ))}
+      </CardsWrapper>
     </>
   );
 };

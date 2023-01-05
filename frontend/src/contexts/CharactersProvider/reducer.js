@@ -9,7 +9,25 @@ export const reducer = (state, action) => {
       return { ...state, loading: true };
     }
     case types.CHARACTERS_ERROR: {
-      return { ...state, loading: false, error: true };
+      return { ...state, error: true, loading: false };
+    }
+    case types.FILMS_SUCCESS: {
+      return { ...state, filmsData: action.payload, loading: false };
+    }
+    case types.FILMS_LOADING: {
+      return { ...state, loading: true };
+    }
+    case types.FILMS_ERROR: {
+      return { ...state, error: true, loading: false };
+    }
+    case types.SPECIES_SUCCESS: {
+      return { ...state, speciesData: action.payload, loading: false };
+    }
+    case types.SPECIES_LOADING: {
+      return { ...state, loading: true };
+    }
+    case types.SPECIES_ERROR: {
+      return { ...state, error: true, loading: false };
     }
     default:
       return { ...state };
