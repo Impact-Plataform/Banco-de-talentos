@@ -1,4 +1,5 @@
 import AppProvider from '../contexts/contextProvider';
+import CustomChakraProvider from '../components/providers/CustomChakraUi';
 
 
 export default function RootLayout({
@@ -14,9 +15,11 @@ export default function RootLayout({
         */}
         <head />
         <body>
-          <AppProvider>
-            {children}
-          </AppProvider>
+          <CustomChakraProvider>
+            <AppProvider>
+              {children}
+            </AppProvider>
+          </CustomChakraProvider>
         </body>
       </html>
     );
