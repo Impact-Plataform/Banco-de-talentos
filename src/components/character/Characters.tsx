@@ -3,22 +3,22 @@ import { CharactersContainer } from './characters.style';
 import { ICharacter } from '../../types/Characters.types';
 import { getAllCharacters } from '../../services/characters.services';
 import CharactersList from './CharactersList';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AppContext } from '../../contexts/contextProvider';
+import { storeAllCharacter } from '../../store/store';
 
 
 export default function Characters() {
   const [allCharacter, setAllCharacter] = useState<ICharacter[]>([]);
-  
+  const { setIsLoading, isLoading } = useContext(AppContext);
   
 
-  const handlePromiseAllCharacter = async () => {
-    const alCharacter: ICharacter[] = await getAllCharacters();
-    setAllCharacter(alCharacter)
-  }
 
   useEffect(() => {
-    handlePromiseAllCharacter()
-  }, [])
+    storeAllCharacter(getAllCharacters, setAllCharacter, setIsLoading)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading])
+
 
   return(
     <CharactersContainer>
