@@ -1,0 +1,15 @@
+.searchWrapper {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #C4C8CA;
+  width: 1rem;
+  height: 1rem;
+}

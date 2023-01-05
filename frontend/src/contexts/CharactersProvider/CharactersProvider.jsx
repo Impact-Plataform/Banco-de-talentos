@@ -3,10 +3,19 @@ import { loadCharacters, loadFilms, loadSpecies } from "./actions";
 import { CharactersContext } from "./context";
 import { data } from "./data";
 import { reducer } from "./reducer";
+import * as types from "./types";
 import P from "prop-types";
 
 export const CharactersProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, data);
+
+  const searchCharacters = (text) => {
+    dispatch({ type: types.SEARCH_CHARACTERS, payload: text });
+  };
+
+  const clearSearch = () => {
+    dispatch({ type: types.CLEAR_SEARCH });
+  };
 
   const isMounted = useRef(true);
 
@@ -49,6 +58,8 @@ export const CharactersProvider = ({ children }) => {
     <CharactersContext.Provider
       value={{
         ...state,
+        searchCharacters,
+        clearSearch,
       }}
     >
       {children}

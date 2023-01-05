@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import { theme, typeScale } from "../../styles";
+import { Link } from "react-router-dom";
 
-export const SeeMoreButton = styled.button`
+export const SeeMoreLink = styled(Link)`
   font-family: inherit;
   font-weight: 700;
   font-size: ${typeScale.small};
   text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
   cursor: pointer;
   transform: translate(-50%, 125%);
   width: 40%;
@@ -21,33 +24,6 @@ export const SeeMoreButton = styled.button`
   transition: 0.3s ease-out;
 `;
 
-export const CardBox = styled.div`
-    display: grid;
-
-    width: 20em;
-    min-height: 24em;
-    padding: 1em 1.5em;
-    background-color: ${theme.colors.primaryDarkColor};
-    border: 2px solid ${theme.colors.secondaryLightColor};
-    border-radius: .7rem;
-    cursor: pointer;
-
-    position: relative;
-    transition:  0.5s ease-out;
-    overflow: visible;
-
-    &:hover {
-      border-color: ${theme.colors.yellowColor};
-      -webkit-box-shadow: 0px 0px 20px 1px #ffbb763f;
-      box-shadow: 0px 0px 20px 1px #ffbb763f;
-    }
-
-    &:hover ${SeeMoreButton} {
-      transform: translate(-50%, 50%);
-      opacity: 1;
-    }
-`;
-
 export const CharactersInfo = styled.div`
   display: flex;
   gap: 1em;
@@ -56,6 +32,45 @@ export const CharactersInfo = styled.div`
   margin-top: 1em;
   opacity: ${(props) => (props.open ? 1 : 0)};
   transition: all .5s ease-in-out;
+`;
+
+export const CardBox = styled.div`
+  display: grid;
+  width: 20em;
+  min-height: 24em;
+  padding: 1em 1.5em;
+  background-color: ${theme.colors.primaryDarkColor};
+  border: 2px solid ${theme.colors.secondaryLightColor};
+  border-radius: .7rem;
+  cursor: pointer;
+  position: relative;
+  transition:  0.5s ease-out;
+  overflow: visible;
+
+  &:hover {
+    border-color: ${theme.colors.yellowColor};
+    -webkit-box-shadow: 0px 0px 20px 1px #ffbb763f;
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+
+    ${SeeMoreLink} {
+      transform: translate(-50%, 50%);
+      opacity: 1;
+    }
+  }
+
+  &:focus-within {
+    border-color: ${theme.colors.yellowColor};
+    -webkit-box-shadow: 0px 0px 20px 1px #ffbb763f;
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+    ${SeeMoreLink} {
+      transform: translate(-50%, 50%);
+      opacity: 1;
+    }
+
+    ${CharactersInfo} {
+      opacity: 1;
+    }
+  }
 `;
 
 export const InfoDetailsWrapper = styled.div`

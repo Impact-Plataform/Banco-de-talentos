@@ -11,10 +11,9 @@ import {
   FilmsWrapper,
   ListFilms,
   Films,
-  SeeMoreButton,
+  SeeMoreLink,
 } from "./styles";
 import Info from "./Info";
-import { Link } from "react-router-dom";
 
 const filmColor = (episode) => {
   if (episode === 1) return "#91d6a59c";
@@ -109,9 +108,7 @@ export const Card = ({ character }) => {
           )}
         </ListFilms>
       </FilmsWrapper>
-      <Link to={`${changeSlug(name)}`}>
-        <SeeMoreButton>More Info ►</SeeMoreButton>
-      </Link>
+      <SeeMoreLink to={`${changeSlug(name)}`}>More Info ►</SeeMoreLink>
     </CardBox>
   );
 };

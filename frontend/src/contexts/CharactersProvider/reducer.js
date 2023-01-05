@@ -29,6 +29,21 @@ export const reducer = (state, action) => {
     case types.SPECIES_ERROR: {
       return { ...state, error: true, loading: false };
     }
+    // SEARCH ACTIONS
+    case types.SEARCH_CHARACTERS: {
+      return {
+        ...state,
+        search: state.characters.filter((item) => {
+          const regex = new RegExp(`${action.payload}`, "ig");
+          return item.name.match(regex);
+        }),
+      };
+    }
+    case types.CLEAR_SEARCH:
+      return {
+        ...state,
+        search: null,
+      };
     default:
       return { ...state };
   }

@@ -4,4 +4,5 @@ export const data = {
   speciesData: [],
   loading: false,
   error: false,
+  search: null,
 };

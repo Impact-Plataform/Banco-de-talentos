@@ -1,11 +1,32 @@
+import { useState, useCallback } from "react";
 import { Heading } from "../../components/Heading";
 import { Illustrations } from "../../assets";
-import Card from "../../components/Card";
+import { Card, Search } from "../../components";
 import { useCharactersContext } from "../../contexts";
 import { CardsWrapper } from "./styles";
 
 const Home = () => {
   const { characters, loading } = useCharactersContext();
+
+  const { searchCharacters, clearSearch } = useCharactersContext();
+
+  const [query, setQuery] = useState("");
+
+  const handleChange = useCallback((e) => {
+    const { value } = e.target;
+    setQuery(value);
+    if (query !== "") {
+      searchCharacters(query);
+    } else {
+      clearSearch();
+    }
+  }, []);
+
+  const filtered = query
+    ? characters.filter((item) => {
+        return item.name.toLowerCase().includes(query.toLowerCase());
+      })
+    : characters;
 
   if (loading) {
     return <p>Loading...</p>;
@@ -26,8 +47,10 @@ const Home = () => {
         Characters
       </Heading>
 
+      <Search handleChange={handleChange} query={query} />
+
       <CardsWrapper>
-        {characters.map((character) => (
+        {filtered.map((character) => (
           <Card key={character.url} character={character} />
         ))}
       </CardsWrapper>
