@@ -1,11 +1,12 @@
 # Desafio BackEnd Impact
 
 ## Descrição
-Esse Projeto busca cadastrar Produtos e converter seu Valor
+Esse Projeto busca cadastrar Produtos e converter seu Valor para Dolares.
 
 ## Tecnologias Usadas
 
-> Desenvolvida utilizando: C#, .Net 6, Entity Framework Core, Docker, Docker-Compose, SQLServer, API Rest.
+> Desenvolvida utilizando: C#, .Net 6, Entity Framework Core, Docker, Docker-Compose, SQLServer, API Rest e Consumo de API.
+> API Utilizada: https://economia.awesomeapi.com.br/all
 
 # Como Utilizar
 
