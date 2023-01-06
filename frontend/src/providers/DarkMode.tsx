@@ -1,13 +1,10 @@
 import cx from 'classnames';
 import { createContext, ReactNode, useState } from 'react';
 
+import { DarkModeContextData } from '../interfaces/darkMode.interface';
+
 interface DarkModeProps {
   children: ReactNode;
-}
-
-export interface DarkModeContextData {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
 }
 
 export const DarkModeContext = createContext<DarkModeContextData | null>(null);

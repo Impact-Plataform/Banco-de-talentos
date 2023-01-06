@@ -1,34 +1,10 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
 import { getAllPeople } from '../api/SWAPI';
+import { Character, CharactersContextData } from '../interfaces/character.interface';
 
 interface CharactersProps {
   children: ReactNode;
-}
-
-export interface Character {
-  name: string;
-  height: string;
-  mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
-  gender: string;
-  homeworld: string;
-  films: Array<string>;
-  species: Array<string>;
-  vehicles: Array<string>;
-  starships: Array<string>;
-  created: string;
-  edited: string;
-  url: string;
-}
-
-export interface CharactersContextData {
-  characters: Array<Character> | null;
-  currentPage: number;
-  addPage: () => void;
 }
 
 export const CharactersContext = createContext<CharactersContextData | null>(null);
@@ -36,6 +12,7 @@ export const CharactersContext = createContext<CharactersContextData | null>(nul
 export function CharactersProvider({ children }: CharactersProps) {
   const [characters, setCharacters] = useState<Array<Character> | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
+  const [search, setSearch] = useState<string>('');
 
   const addPage = () => setCurrentPage((prev) => prev + 1);
 
@@ -48,7 +25,9 @@ export function CharactersProvider({ children }: CharactersProps) {
   }, [currentPage]);
 
   return (
-    <CharactersContext.Provider value={{ characters, currentPage, addPage }}>
+    <CharactersContext.Provider
+      value={{ characters, currentPage, addPage, search, setSearch }}
+    >
       {children}
     </CharactersContext.Provider>
   );
