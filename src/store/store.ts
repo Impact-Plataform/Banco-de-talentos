@@ -23,7 +23,7 @@ export const storeAllCharacter = async (serviceSpecies: any, setState: any, setI
     data = promiseData
     setIsLoading(false)
   }
-  if (data.length > 5) {
+  if (data.length > 80) {
     localStorage.setItem('characters', JSON.stringify(data));  
   }
   if (storeCharacter !== null) 
