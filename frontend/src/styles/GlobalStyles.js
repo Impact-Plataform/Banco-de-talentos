@@ -19,9 +19,10 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     ${({ theme }) => css`
-      background: ${theme.colors.secondaryDarkColor};
+      background: ${(props) => props.backgroundColor};
       color: ${theme.colors.lightColor};
       font-family: ${theme.fonts.primaryFont};
+      min-height: 100vh;
       max-width: 1120px;
       margin: 0 auto;
       padding: 2em;

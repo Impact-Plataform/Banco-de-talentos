@@ -14,6 +14,7 @@ import {
 import "./styles.css";
 import { ScrollUp } from "../../components/ScrollUp";
 import { Loading } from "../../components";
+import { GlobalStyles } from "../../styles";
 
 const Home = () => {
   const { loading, searchCharacters, clearSearch, filmsData, speciesData } =
@@ -127,6 +128,7 @@ const Home = () => {
         )}
       </CardsWrapper>
       <ScrollUp />
+      <GlobalStyles backgroundColor="#303236" />
     </>
   );
 };

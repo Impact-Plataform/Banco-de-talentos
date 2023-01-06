@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useCharactersContext } from "../../contexts";
 import { changeSlug } from "../../helpers/slug";
+import { GlobalStyles } from "../../styles";
 
 const Detail = () => {
   const { characters } = useCharactersContext();
@@ -20,6 +21,7 @@ const Detail = () => {
           <h1>{name}</h1>
         </div>
       ))}
+      <GlobalStyles backgroundColor="#303236" />
     </div>
   );
 };
