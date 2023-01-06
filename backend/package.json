@@ -19,6 +19,7 @@
     "node-schedule": "^2.1.0",
     "nodemon": "^2.0.20",
     "redis": "^4.5.1",
+    "redis-server": "^1.2.2",
     "sqlite": "^4.1.2",
     "sqlite3": "^5.1.4"
   },

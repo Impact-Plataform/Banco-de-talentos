@@ -4,6 +4,9 @@ import https from 'https';
 import cors from 'cors';
 import router from './controller/Routes.js';
 import currencyRoutes from './quotes/routes/CurrencyRoutes.js'
+import * as scheduler from "./quotes/service/CacheScheduler.js";
+
+
 
 const PORT = process.env.PORT || 3000;
 
@@ -12,6 +15,7 @@ app.use(express.json());
 app.use(cors());
 app.use(router);
 app.use(currencyRoutes)
+scheduler.removeExpiredKeys();
 
 
 app.listen(PORT, () => console.log(`Api rodando rodando na porta ${PORT}`));
