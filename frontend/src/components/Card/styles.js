@@ -36,7 +36,6 @@ export const CharactersInfo = styled.div`
 
 export const CardBox = styled.div`
   display: grid;
-  width: 20em;
   min-height: 24em;
   padding: 1em 1.5em;
   background-color: ${theme.colors.primaryDarkColor};
@@ -99,6 +98,7 @@ export const FilmsWrapper = styled.div`
 
 export const ListFilms = styled.ul`
   display: flex;
+  place-content: center;
   flex-wrap: wrap;
   gap: .3em;
   list-style: none;
