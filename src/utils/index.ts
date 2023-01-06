@@ -6,7 +6,8 @@ export const handleCharactersFilter = (
   listCharacters: ICharacter[],
   gender: string | undefined,
   speciesFilter: string | undefined,
-  filmFilter: string | undefined
+  filmFilter: string | undefined,
+  charactersSearch: string | undefined
   ) => {
 
     if (gender) {
@@ -27,6 +28,10 @@ export const handleCharactersFilter = (
         return character.films.find((film) => film === filmFilter)
       })
       return data
+    }
+
+    if (charactersSearch) {
+      return listCharacters.filter((character) =>  new RegExp(charactersSearch, 'i').test(character.name.toLowerCase()))
     }
 
     return listCharacters;
@@ -57,9 +62,10 @@ export const handlePage = (
   character: ICharacter[],
   gender: string | undefined,
   speciesFilter: string | undefined,
-  filmFilter: string | undefined
+  filmFilter: string | undefined,
+  charactersSearch: string | undefined
   ) => {
-    const arrayFilter = handleCharactersFilter(character, gender, speciesFilter, filmFilter)
+    const arrayFilter = handleCharactersFilter(character, gender, speciesFilter, filmFilter, charactersSearch)
     if (page === 0) {
       return arrayFilter.slice(0, 10)
     }

@@ -14,7 +14,8 @@ interface AppContextInterface {
   handleSpecies: any,
   filmFilter: string | undefined,
   setFilmFilter: React.Dispatch<React.SetStateAction<any>>,
-
+  charactersSearch: string | undefined,
+  setCharactersSearch: React.Dispatch<React.SetStateAction<any>>, 
 }
 
 interface Props {
@@ -31,6 +32,7 @@ const AppProvider = ({ children }: Props) => {
   const [speciesFilter, setSpeciesFilter] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [filmFilter, setFilmFilter] = useState();
+  const [charactersSearch, setCharactersSearch] = useState();
 
 
   const handleSpecies = (target: any) => {
@@ -50,6 +52,8 @@ const AppProvider = ({ children }: Props) => {
     handleSpecies,
     filmFilter,
     setFilmFilter,
+    charactersSearch,
+    setCharactersSearch
   }
   
 
