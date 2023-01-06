@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef } from 'react';
 
-import { CharactersContext, CharactersContextData } from '../../providers/Characters';
+import { CharactersContextData } from '../../interfaces/character.interface';
+import { CharactersContext } from '../../providers/Characters';
 import { Card } from './Card';
 
 export function Cards() {

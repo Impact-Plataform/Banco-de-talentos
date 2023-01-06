@@ -2,7 +2,8 @@ import cx from 'classnames';
 import { Moon, Sun } from 'phosphor-react';
 import { useContext } from 'react';
 
-import { DarkModeContext, DarkModeContextData } from '../../providers/DarkMode';
+import { DarkModeContextData } from '../../interfaces/darkMode.interface';
+import { DarkModeContext } from '../../providers/DarkMode';
 
 export function DarkModeToggle() {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext) as DarkModeContextData;
@@ -26,13 +27,13 @@ export function DarkModeToggle() {
             },
           )}
         >
-          <Moon size={20} weight="bold" />
-          <Sun size={20} weight="bold" />
+          <Moon size={20} weight="bold" className="text-gray-900" />
+          <Sun size={20} weight="bold" className="text-sw-yellow" />
         </div>
         <div
           className={cx('absolute top-[2px]  w-6 h-6 rounded-full transition', {
-            'transform translate-x-full right-[26px] bg-gray-900': darkMode,
-            'left-[2px] bg-gray-100': !darkMode,
+            'transform translate-x-full right-[26px] bg-sw-yellow': darkMode,
+            'left-[2px] bg-gray-900': !darkMode,
           })}
         />
       </div>
