@@ -10,7 +10,6 @@ class viaCurrencyClient{
    await axios.get(VIA_CURRENCY_URL(currency))
    .then((res) => {
      let apiResponse = res.data;
-     
      console.log(`Retornando dados da API referentes a ${currency}: ${JSON.stringify(apiResponse)}`)
    })
    .catch((err) => {

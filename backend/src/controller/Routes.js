@@ -15,10 +15,10 @@ router.get('/', (req, res) => {
 }) */
 
 router.get('/products', selectProducts);
-router.get('/product', selectProduct);
+router.get('/product/:id', selectProduct);
 router.post('/product', insertProduct);
 router.put('/product', updateProduct);
-router.delete('/product', deleteProduct);
+router.delete('/product/:id', deleteProduct);
 
 
 export default router;

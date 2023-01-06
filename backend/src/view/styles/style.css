@@ -1,0 +1,10 @@
+img{
+          width: 18px;
+          height: 250px;
+      }
+      
+      #products{
+        display: flex;
+        justify-content: space-around;
+        font-size: 22px;
+}

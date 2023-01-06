@@ -52,7 +52,7 @@ export async function selectProducts(req, res){
 }
 
 export async function selectProduct(req, res){
-       let id = req.body.id;
+       let id = req.params.id;
        openDb().then(db => {
              db.all('SELECT * FROM Product WHERE id=?', [id])
               .then(product => res.json(product))
@@ -60,7 +60,7 @@ export async function selectProduct(req, res){
 }
 
 export async function deleteProduct(req, res){
-       let id = req.body.id;
+       let id = req.params.id;
        openDb().then(db => {
         db.all('DELETE FROM Product WHERE id=?', [id])
               .then(res => res)
