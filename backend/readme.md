@@ -37,7 +37,6 @@ Para o desenvolvimento da API foi utilizado JavaScript com NodeJS, Express, o ba
 <img src='https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white'>
 
 <br>
-<br>
 
 ## Dependências necessárias
 
@@ -62,17 +61,17 @@ Todas dependências necessárias estão <a href = 'https://github.com/luanyolive
 
 ## Produtos
 
+<img src='assets/bancodedados.png'>
+
 ### Ver todos os produtos:
 
 Utilizar o método HTTP GET no caminho <b>"url da api" + /products</b>
 <br>
 
-
 ### Buscar produto:
 
 Utilizar o método HTTP GET no caminho <b>"url da api" + /product/:id</b>
 <br>
-
 
 ### Adicionar produto:
 
@@ -84,11 +83,9 @@ Especificações dos campos:
 
 <br>
 
-
 ### Alterar um produto já existente:
 Utilizar o método HTTP PUT no caminho <b>"url da api" + /product/:id</b> passando novamente todos os campos presentes na entidade, da mesma forma que o método anterior para adicionar um aluno, mas inserindo as modificações desejadas no corpo da requisição.
 <br>
-
 
 ### Deletar um produto:
 Utilizar o método HTTP DELETE no caminho <b>"url da api" + /product/:id</b>.
@@ -100,7 +97,7 @@ Utilizar o método HTTP DELETE no caminho <b>"url da api" + /product/:id</b>.
 Utilizar o método HTTP GET no caminho <b>"url da api" + /currency/:currency</b>.
 <br>
 
-- <strong> EXEMPLOS PARA PESQUISA </strong>:  https://economia.awesomeapi.com.br/last/USD-BRL || https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL  
+- <strong> EXEMPLOS PARA PESQUISA </strong>:  https://economia.awesomeapi.com.br/last/USD-BRL || https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL  ...
 <br>
 
 - <strong> IMPORTANTE </strong>: A resposta da requisição aparecerá no console, assim como as atividades do cache.
@@ -108,7 +105,7 @@ Utilizar o método HTTP GET no caminho <b>"url da api" + /currency/:currency</b>
 
 ### Página com preços
 
-Basta abrir o arquivo index.js dentro da pasta view. A cada requisição o próprio navegador armazena as repostas no seu LocalStorage.
+Basta abrir o arquivo index.html dentro da pasta view. A cada requisição o próprio navegador armazena as repostas no seu LocalStorage.
 
 ## Inicialização da aplicação via terminal
 
@@ -136,7 +133,6 @@ npm i
 ```
 
 <br>
-<br>
 
 
 É necessário que o REDIS esteja sendo executado. De forma simples você pode instalar o REDIS na sua máquina através dos seguintes links:
@@ -157,7 +153,6 @@ Em seguida:
 npm run dev
 ```
 
-
 > ## Testes Unitários
 
 Para rodar os testes das validações da aplicação, basta abrir o terminal dentro da pasta do projeto e executar o código abaixo:
@@ -168,6 +163,7 @@ npm i jest
 <br>
 E 
 <br>
+
 ```
 npm run test
 ```
