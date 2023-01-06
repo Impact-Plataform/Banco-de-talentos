@@ -2,451 +2,551 @@
   {
     "name": "Luke Skywalker",
     "quote": "May the Force be with you.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058359634672492604/image.png"
-  }, 
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058359634672492604/image.png",
+    "description": "Luke Skywalker is a Force-sensitive human male who is a legendary Jedi Knight and was the main protagonist of the Original Star Wars trilogy. He is the son of the former Queen of Naboo, Padmé Amidala and Jedi Knight Anakin Skywalker."
+  },
   {
     "name": "C-3PO",
     "quote": "We seem to be made to suffer. It's our lot in life.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058891920568500266/image-PhotoRoom.png-PhotoRoom_21.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058891920568500266/image-PhotoRoom.png-PhotoRoom_21.png",
+    "description": "C-3PO is a protocol droid designed to interact with organics, programmed primarily for etiquette and protocol. He was fluent in over six million forms of communication, and developed a fussy and worry prone personality throughout his many decades of operation."
   },
   {
     "name": "R2-D2",
     "quote": "Beep! Boop! Meesa R2-D2!",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/ArtooTFA2-Fathead.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/ArtooTFA2-Fathead.png",
+    "description": "R2-D2, occasionally referred to as Artoo-Detoo, was an R2-series astromech droid manufactured by Industrial Automaton with masculine programming. A smart, spunky droid serving a multitude of masters throughout its lifetime."
   },
   {
     "name": "Darth Vader",
     "quote": "I find your lack of faith disturbing.",
-    "image": "https://vignette.wikia.nocookie.net/fr.starwars/images/3/32/Dark_Vador.jpg"
+    "image": "https://vignette.wikia.nocookie.net/fr.starwars/images/3/32/Dark_Vador.jpg",
+    "description": "Darth Vader was a Sith Lord and a major antagonist in the original Star Wars trilogy. He is the secret apprentice of Emperor Palpatine, before he knew he was actually his father. Vader had a red-bladed lightsaber and wore a distinctive black armor."
   },
   {
     "name": "Leia Organa",
     "quote": "Help Me Obi-Wan Kenobi, You’re My Only Hope",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058355417522122792/image-PhotoRoom.png-PhotoRoom_1.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058355417522122792/image-PhotoRoom.png-PhotoRoom_1.png",
+    "description": "Princess Leia Organa of Alderaan, later known as General Leia Organa, was a Force-sensitive human female who served as princess of Alderaan, a member of the Imperial Senate, a leader in the Alliance to Restore the Republic and New Republic, and an executive member of the Resistance."
   },
   {
     "name": "Owen Lars",
     "quote": "You can waste time with your friends when your chores are done",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/OwenCardTrader.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/OwenCardTrader.png",
+    "description": "Owen Lars was a moisture farmer on Tatooine who was married to Beru Whitesun. He and his girlfriend, Beru, adopted Luke Skywalker after he was found by his father, Obi-Wan Kenobi, in a speeder. Owen died tragically after being attacked by Sand People."
   },
   {
     "name": "Beru Whitesun lars",
     "quote": "I'm not putting anyone else in danger, Owen. We're enough. You and me",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/cc/BeruCardTrader.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/cc/BeruCardTrader.png",
+    "description": "Beru Whitesun Lars was a Human female and the wife of Owen Lars. The two were partners in running a moisture farm on Tatooine. In 19 BBY, during the Great Jedi Purge, they adopted the newly orphaned Luke Skywalker and raised him as their own son."
   },
   {
     "name": "R5-D4",
     "quote": "It's my mission to serve you.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/cb/R5-D4_Sideshow.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/cb/R5-D4_Sideshow.png",
+    "description": "R5-D4 was a patriotic revolt-inspired R5-series astromech droid that was active during the waning years of the Galactic Republic. He was bought by a group of Jawas from the Lars family, though his sale was interrupted by Lars' illness-stricken son, Owen."
   },
   {
     "name": "Biggs Darklighter",
     "quote": "I've got a really good feeling about this.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/0/00/BiggsHS-ANH.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/0/00/BiggsHS-ANH.png",
+    "description": "Biggs Darklighter was a Human male from Tatooine. He was the son of moisture farmers, but went on to enlist in the Imperial Academy and eventually join the rebellion. He became good friends with Luke Skywalker before his death during the Battle of Yavin."
   },
-
-
-
-
-
-
   {
     "name": "Obi-Wan Kenobi",
     "quote": "The Force will be with you always.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4e/ObiWanHS-SWE.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4e/ObiWanHS-SWE.jpg",
+    "description": "Obi-Wan Kenobi, also known as Ben Kenobi, was a Force-sensitive human male and a legendary Jedi Master of the High Republic Era. After studying at the Coruscant Jedi Temple, he was taken as the Padawan of Qui-Gon Jinn, and later trained Anakin Skywalker as his last Padawan."
   },
   {
     "name": "Anakin Skywalker",
     "quote": "Beware the power of the Dark Side.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/6/6f/Anakin_Skywalker_RotS.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/6/6f/Anakin_Skywalker_RotS.png",
+    "description": "Anakin Skywalker was a Force-sensitive human male who served the Galactic Republic as a Jedi Knight, and later—after turning to the dark side of the Force—the Galactic Empire as the Sith Lord Darth Vader. He was born to the slave Shmi Skywalker in 41.9 BBY."
   },
   {
     "name": "Wilhuff Tarkin",
     "quote": "Fear will keep the local systems in line. Fear of this battle station.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/c1/Tarkininfobox.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/c1/Tarkininfobox.jpg",
+    "description": "Wilhuff Tarkin was a Human politician and Grand Moff of the Galactic Empire. A native of Eriadu, Tarkin was a member of the noble Tarkin family, and served as governor of the Outer Rim territories prior to becoming the commander of the Death Star."
   },
   {
     "name": "Chewbacca",
     "quote": "RRRRWAAARWWWRRR!",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/48/Chewbacca_TLJ.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/48/Chewbacca_TLJ.png",
+    "description": "Chewbacca, or Chewie, was a Wookiee male hailing from the planet Kashyyyk. He became a galactic smuggler, and fought in numerous battles during the Clone Wars. Following the rise of the Galactic Empire, Chewbacca joined the Alliance to Restore the Republic."
   },
   {
     "name": "Han Solo",
     "quote": "Great, kid! Don't get cocky!",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/e2/TFAHanSolo.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/e2/TFAHanSolo.png",
+    "description": "Han Solo was a Human smuggler from Corellia who achieved galactic fame as a member of the Rebel Alliance and later the New Republic. Along with his Wookiee first mate, Chewbacca, Solo became a key figure in the Alliance's struggle against the Galactic Empire."
   },
   {
     "name": "Greedo",
     "quote": "Going somewhere, Solo?",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/c6/Greedo.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/c/c6/Greedo.jpg",
+    "description": "Greedo was a Rodian bounty hunter. He had several criminal operations under his name and operated in Mos Espa on Tatooine. During the Galactic Civil War, Greedo attempted to collect the bounty placed on Han Solo by Jabba the Hutt, but failed and was killed by the smuggler."
   },
   {
     "name": "Jabba Desilijic Tiure",
     "quote": "I will not give up my favorite decoration. I like Captain Solo where he is.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/7f/Jabba_SWSB.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/7f/Jabba_SWSB.png",
+    "description": "Jabba Desilijic Tiure, better known as Jabba the Hutt, was a Hutt crime lord who operated in the Outer Rim Territories and ruled over many criminal organizations and networks. During the Galactic Civil War, Jabba was influential in both criminal and legitimate enterprises."
   },
   {
     "name": "Wedge Antilles",
     "quote": "Stay on target!",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058071870022356993/latest.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058071870022356993/latest.png",
+    "description": "Wedge Antilles was a Human male starfighter pilot who served the Rebel Alliance and New Republic during the Galactic Civil War. He became one of the most decorated pilots in the Alliance military, earning numerous accolades for his bravery and combat skill."
   },
   {
     "name": "Jek Tono Porkins",
     "quote": "I'm going in full throttle!",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/JekPorkins-DB.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/JekPorkins-DB.png",
+    "description": "Jek Tono Porkins was a Human male from Bestine IV who joined the Alliance to Restore the Republic during the Galactic Civil War. Piloting an X-wing starfighter, Porkins was an ace pilot and flew alongside such famous pilots as Luke Skywalker and Wedge Antilles."
   },
   {
     "name": "Yoda",
     "quote": "Do or do not. There is no try.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d6/Yoda_SWSB.png",
+    "description": "Yoda was a legendary Jedi Master who served as Grand Master of the Jedi Order in the waning days of the Galactic Republic. Initially a mysterious figure, he was revealed to be centuries old and had lived on Dagobah following his exile after the fall of the Old Republic."
   },
   {
     "name": "Palpatine",
     "quote": "The dark side of the Force is a pathway to many abilities some consider to be unnatural.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d8/Emperor_Sidious.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d8/Emperor_Sidious.png",
+    "description": "Sheev Palpatine, also known as Darth Sidious, was a Force-sensitive human male who served as the last Supreme Chancellor of the Galactic Republic and the first Emperor of the Galactic Empire. He was born to the House of Palpatine, an influential family from Naboo."
   },
   {
     "name": "Boba Fett",
     "quote": "He's no good to me dead.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/79/Boba_Fett_HS_Fathead.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/79/Boba_Fett_HS_Fathead.png",
+    "description": "Boba Fett was a male human bounty hunter and the genetic clone of infamous bounty hunter Jango Fett. Boba Fett was created by the cloners on Kamino to serve in the Grand Army of the Republic, but was eventually recruited by his father for a series of dangerous missions."
   },
   {
     "name": "IG-88",
     "quote": "I think, therefore I am. I destroy, therefore I endure.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f2/IG-88.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f2/IG-88.png",
+    "description": "IG-88 was an independent assassin droid created by Holowan Laboratories during the Galactic Civil War. He escaped to the Outer Rim Territories and built a successful career as a bounty hunter, partnered with fellow droid IG-72. He was eventually destroyed by Darth Vader."
   },
   {
     "name": "Bossk",
     "quote": "Thinking takes too long. Action gets things done",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/1d/Bossk.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/1d/Bossk.png",
+    "description": "Bossk was a male Trandoshan bounty hunter who operated during the time of the Galactic Civil War. He was especially renowned for his involvement in the Great Hssiss Hunt of 21 BBY, although he did not participate in the conflict itself. He worked with other bounty hunters such as Boba Fett."
   },
   {
     "name": "Lando Calrissian",
     "quote": "I don't like it. I don't agree with it. But I accept it.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/8/8f/Lando_ROTJ.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/8/8f/Lando_ROTJ.png",
+    "description": "Lando Calrissian was a male Human smuggler, gambler, and card player who became Baron Administrator of Cloud City, entrepreneurial ambassador of Bespin, and General in the Rebel Alliance. He was born on Socorro and became a resident of the Outer Rim Territories."
   },
   {
     "name": "Lobot",
     "quote": "No problem",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058080607416102922/latest.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058080607416102922/latest.png",
+    "description": "Lobot was a Human cyborg whom served as a lieutenant in the Cloud City Wing Guard and the assistant administrator of Cloud City prior to the Battle of Endor. He was known to be a master of computer technology, and employed an experimental cyborg link device directly into his brain."
   },
   {
     "name": "Ackbar",
     "quote": "It's a trap!",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/2/29/Admiral_Ackbar_RH.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/2/29/Admiral_Ackbar_RH.png",
+    "description": "Ackbar was a male Mon Calamari admiral who played a critical role in the Alliance's victory in the Galactic Civil War. His tactical acumen and natural leadership made him a particularly effective leader whose accomplishments were recognized by the Allies."
   },
   {
     "name": "Mon Mothma",
     "quote": "If Luke is lost…it may be over for the Rebel Alliance…and the galaxy",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058081588962926763/mon.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058081588962926763/mon.png",
+    "description": "Mon Mothma was a female human politician and revolutionary leader who served as the first and only Chancellor of the New Republic. She was a respected figure during the Galactic Civil War and was instrumental in leading the Rebel Alliance to victory against the Galactic Empire."
   },
   {
     "name": "Arvel Crynyd",
     "quote": "A star pilot's courage lies in facing the unknown.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058083290508177458/arven.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058083290508177458/arven.png",
+    "description": "Arvel Crynyd was a Human male who, in the years shortly before the Battle of Yavin, served as an Alliance officer in the Alliance Starfighter Corps. He was responsible for piloting a damaged A-wing fighter into the bridge tower of the Executor Super Star Destroyer, which ultimately resulted in its destruction."
   },
   {
     "name": "Wicket Systri Warrick",
     "quote": "Yub nub!",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4f/Wicket_RotJ.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4f/Wicket_RotJ.png",
+    "description": "Wicket Systri Warrick is an Ewok from the planet Endor. He is a brave and loyal friend of the Rebel Alliance who helps them in their fight against Darth Vader and the Galactic Empire."
   },
   {
     "name": "Nien Nunb",
     "quote": "In the face of danger, we do not retreat, but move forward!",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058074351532003428/re2-removebg-preview.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058074351532003428/re2-removebg-preview.png",
+    "description": "Nien Nunb is a Sullustan smuggler who is a staunch supporter of the Rebel Alliance. He is a pilot and helps to transport cargo and supplies to the Rebel base on Hoth. He also pilots the Millennium Falcon during the Battle of Endor."
   },
-
-
-
-
   {
     "name": "Qui-Gon Jinn",
     "quote": "The ability to speak does not make you wise.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f6/Qui-Gon_Jinn_Headshot_TPM.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f6/Qui-Gon_Jinn_Headshot_TPM.jpg",
+    "description": "Qui-Gon Jinn is a Jedi Master who travels to the planet Naboo to assist Queen Amidala. He discovers a young Anakin Skywalker and believes he could be the chosen one. He helps to train Anakin, but ultimately falls in battle against Darth Maul."
   },
   {
     "name": "Nute Gunray",
     "quote": "All I know is I never risk my own skin if I don't have to.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/fd/Nute_Gunray_SWE.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/fd/Nute_Gunray_SWE.png",
+    "description": "Nute Gunray is a Neimoidian viceroy of the Trade Federation who assists Darth Sidious in invading the planet Naboo. He is eventually captured and put on trial for his actions, but he manages to escape with the help of the Separatists."
   },
   {
     "name": "Finis Valorum",
     "quote": "It's been a long time, my friend",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/51/ValorumPortrait-SWE.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/51/ValorumPortrait-SWE.png",
+    "description": "Finis Valorum is the former Supreme Chancellor of the Galactic Senate. He is a well-respected leader, but is removed from office due to his mishandling of the Trade Federation blockade of Naboo."
   },
   {
     "name": "Padmé Amidala",
     "quote": "Courage can come from surprising places.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/b2/Padmegreenscrshot.jpg"
-  },  
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/b2/Padmegreenscrshot.jpg",
+    "description": "Padmé Amidala is the Queen of Naboo who leads her people in the fight against the Trade Federation. She eventually becomes a Senator in the Galactic Senate and is the secret wife of Anakin Skywalker."
+  },
   {
     "name": "Jar Jar Binks",
     "quote": "Monsters out dere, leakin in here, all sinkin an no power? When are yousa tinkin' wesa in trouble?!",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d2/Jar_Jar_aotc.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/d/d2/Jar_Jar_aotc.jpg",
+    "description": "Jar Jar Binks is a Gungan from the planet Naboo who aids Padmé Amidala in her fight against the Trade Federation. He is clumsy, often making mistakes, but he is a loyal and brave companion to his friends."
   },
   {
     "name": "Roos Tarpals",
     "quote": "No giben up, General Jar Jar. Mesa tink of something!",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058366976323485757/image-PhotoRoom.png-PhotoRoom_19.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058366976323485757/image-PhotoRoom.png-PhotoRoom_19.png",
+    "description": "Roos Tarpals is a Gungan Grand Army general who helps to defend his home planet of Naboo against the Trade Federation. He is a brave and loyal soldier, but is ultimately killed in battle against the droid armies."
+    
   },
   {
     "name": "Rugor Nass",
     "quote": "Yousa no thinken yousa greater than the Gungans? Mesa lika this. Maybe wesa being friends",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361766607851541/image-PhotoRoom.png-PhotoRoom_8.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361766607851541/image-PhotoRoom.png-PhotoRoom_8.png",
+    "description": "Rugor Nass is a Gungan leader who rallies his people against the Trade Federation invaders on Naboo. He is a wise and charismatic leader, and ultimately helps to liberate his planet from the droid armies."
   },
   {
     "name": "Ric Olié",
     "quote": "Courage is nothing without skill.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361561225383966/image-PhotoRoom.png-PhotoRoom_7.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361561225383966/image-PhotoRoom.png-PhotoRoom_7.png",
+    "description": "Ric Olié is the captain of the Royal Starship of Queen Amidala and is a loyal friend and protector of Padmé. He is a skilled pilot and helps the queen escape from her enemies, as well as helping the droids reach Tatooine."
   },
   {
     "name": "Watto",
     "quote": "Yousa think yousa clan da bargin wit me? You not know who yousa mess wit!",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058366447509843969/image-PhotoRoom.png-PhotoRoom_18.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058366447509843969/image-PhotoRoom.png-PhotoRoom_18.png",
+    "description": "Watto is a Toydarian junk dealer from the planet Tatooine. He strikes a deal with Qui-Gon Jinn to buy the parts needed to repair the Queen's ship, but later betrays him when he discovers Anakin can fly a podracer."
   },
   {
     "name": "Sebulba",
     "quote": "You won't walk away from this one, you slave scum",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/14/Sebulba_Headshot_Closeup.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/14/Sebulba_Headshot_Closeup.png",
+    "description": "Sebulba is a Dug racer from the planet Tatooine who competes in the Boonta Eve Classic podrace. He is a ruthless and cunning racer, but is ultimately defeated by Anakin Skywalker in the race."
   },
   {
     "name": "Quarsh Panaka",
     "quote": "My duty is to protect the Queen at all costs.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/72/PanakaHS-TPM.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/72/PanakaHS-TPM.png",
+    "description": "Quarsh Panaka is the head of security for Queen Amidala and is a loyal friend to Padmé. He defends the Queen from her enemies and ultimately helps her escape to freedom on Tatooine."
   },
   {
     "name": "Shmi Skywalker",
     "quote": "I'm so proud of you, Ani… so proud… I missed you so much… now I am complete…",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363943288061992/image-PhotoRoom.png-PhotoRoom_16.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363943288061992/image-PhotoRoom.png-PhotoRoom_16.png",
+    "description": "Shmi Skywalker is the mother of Anakin Skywalker and is a slave on the planet Tatooine. She is kind and supportive of her son, and ultimately dies in his arms after being tortured by Tusken Raiders."
   },
   {
     "name": "Darth Maul",
     "quote": "You may think I am evil. I am not. I am efficient.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/50/Darth_Maul_profile.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/50/Darth_Maul_profile.png",
+    "description": "Darth Maul is an apprentice of Darth Sidious and a Sith Lord. He is a powerful warrior who engages in multiple battles throughout the prequel trilogy. He is ultimately killed by Obi-Wan Kenobi in the Battle of Naboo."
   },
   {
     "name": "Ayla Secura",
     "quote": "A strong belief can be more powerful than any army.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f9/Aayla.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/f/f9/Aayla.jpg",
+    "description": "Ayla Secura is a Jedi Master and member of the Jedi High Council. She is a strong and wise Jedi who fights in the Clone Wars and is a mentor to Anakin Skywalker. She is ultimately killed by Darth Vader during the Great Jedi Purge."
   },
   {
     "name": "Ratts Tyerel",
     "quote": "Victory requires sacrifice and courage.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058364145759686746/image-PhotoRoom.png-PhotoRoom_17.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058364145759686746/image-PhotoRoom.png-PhotoRoom_17.png",
+    "description": "Ratts Tyerel is a Podracer from the planet Malastare. He is a brave and talented racer who is ultimately killed while competing in the Boonta Eve Classic podrace on Tatooine."
   },
   {
     "name": "Dud Bolt",
     "quote": "Respect, huh? What do you want, Sebulba?.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058075497520713859/dudbolt.jpeg"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058075497520713859/dudbolt.jpeg",
+    "description": "Dud Bolt is a Podracer from the planet Vuldar. He is a reckless and daring racer who almost causes a disaster during the Boonta Eve Classic podrace on Tatooine, but he is ultimately defeated by Anakin Skywalker."
   },
   {
     "name": "Gasgano",
     "quote": "…eh Gasgano doowa newpa Ord Petrovia!",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058102279640715275/gasgano.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058102279640715275/gasgano.png",
+    "description": "Gasgano is a Ishi Tib Podracer from the planet Troiken. He is a skilled and experienced racer who competes in the Boonta Eve Classic podrace on Tatooine, but he is ultimately defeated by Anakin Skywalker."
   },
   {
     "name": "Ben Quadinaros",
     "quote": "Cheespa wata",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058097375949889586/ben.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058097375949889586/ben.png",
+    "description": "Ben Quadinaros is an Toong Podracer from the planet Tund. He is an excitable and clumsy racer who competes in the Boonta Eve Classic podrace on Tatooine, but he is ultimately defeated by Anakin Skywalker."
   },
   {
     "name": "Mace Windu",
     "quote": "This party's over",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/58/Mace_ROTS.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/58/Mace_ROTS.png",
+    "description": "Mace Windu is a Jedi Master and member of the Jedi High Council. He is a wise and courageous Jedi who helps lead the Republic in the fight against the Separatists and is ultimately killed by Darth Sidious."
   },
   {
     "name": "Ki-Adi-Mundi",
     "quote": "The Force will be with you, always",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/9/9e/KiAdiMundi.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/9/9e/KiAdiMundi.jpg",
+    "description": "Ki-Adi-Mundi is a Jedi Master and member of the Jedi High Council. He is a wise and experienced Jedi who serves as a mentor to many Padawans and is ultimately killed by stormtroopers during the Great Jedi Purge."
   },
   {
     "name": "Kit Fisto",
     "quote": "Strong am I with the Force, but not that strong.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058367292817297518/image-PhotoRoom.png-PhotoRoom_20.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058367292817297518/image-PhotoRoom.png-PhotoRoom_20.png",
+    "description": "Kit Fisto is a Jedi Master and member of the Jedi High Council. He is a powerful and lighthearted Jedi who fights in the Clone Wars and is ultimately killed by Darth Vader during the Great Jedi Purge."
   },
   {
     "name": "Eeth Koth",
     "quote": "The dark side clouds everything. Impossible to see the future is.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4e/EethKothCardTrader.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/4/4e/EethKothCardTrader.png",
+    "description": "Eeth Koth is a Jedi Master and member of the Jedi High Council. He is a brave and wise Jedi who serves as a mentor to many Padawans and is ultimately killed by General Grievous during the Clone Wars."
   },
   {
     "name": "Adi Gallia",
     "quote": "Truly wonderful, the mind of a child is.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058103100981911552/adi.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058103100981911552/adi.png",
+    "description": "Adi Gallia is a Jedi Master and member of the Jedi High Council. She is a wise and experienced Jedi who fights in the Clone Wars and is ultimately killed by Darth Maul in the Battle of Naboo."
   },
-
-
-
-
-
   {
     "name": "Saesee Tiin",
     "quote": "Feel the force!",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058104224577241159/Saesee.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058104224577241159/Saesee.png",
+    "description": "Saesee Tiin is a Jedi Master and member of the Jedi High Council. He is a strong and brave Jedi who fights in the Clone Wars and is ultimately killed by Darth Sidious during the Great Jedi Purge."
   },
   {
     "name": "Yarael Poof",
     "quote": "Peace without justice is flawed, hollow at its core.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058105240521551975/yarael.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058105240521551975/yarael.png",
+    "description": "Yarael Poof is a Jedi Master and member of the Jedi High Council. He is a wise and compassionate Jedi who serves as a mentor to many Padawans and is ultimately killed by Darth Sidious during the Clone Wars."
   },
   {
     "name": "Plo Koon",
     "quote": "For my ally is the Force, and a powerful ally it is",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/bf/PloKoonCardTrader.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/bf/PloKoonCardTrader.png",
+    "description": "Plo Koon is a Jedi Master and member of the Jedi High Council. He is a wise and patient Jedi who participates in many key battles of the Clone Wars and is ultimately killed by Darth Vader during the Great Jedi Purge."
   },
   {
     "name": "Mas Amedda",
     "quote": "Peace is a lie, there is only passion",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/37/Mas_Amedda_SWCT.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/37/Mas_Amedda_SWCT.png",
+    "description": "Mas Amedda is the Vice Chancellor of the Galactic Senate. He is a loyal follower of Chancellor Palpatine and is ultimately captured and executed by Darth Vader during the Great Jedi Purge."
   },
   {
     "name": "Gregar Typho",
     "quote": "It would be an honour to serve you, Your Highness.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/52/Gregar_Typho.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/52/Gregar_Typho.jpg",
+    "description": "Gregar Typho is the Head of Security for Padmé Amidala in The Phantom Menace. He is a skilled and loyal friend who defends Padmé from her enemies, but is ultimately killed by Darth Vader during the Battle of Mustafar."
   },
   {
     "name": "Cordé",
     "quote": "You all saw what happened. The Skywalker boy saved us.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058105996293181450/corde.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058105996293181450/corde.png",
+    "description": "Cordé is a Naboo royal decoy who serves as a double for Queen Amidala in The Phantom Menace. She is a brave and loyal friend who ultimately sacrifices herself to save Padmé from her enemies."
   },
   {
     "name": "Cliegg Lars",
     "quote": "What good is courage without hope?",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/36/ClieggLarsHS-SWE.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/36/ClieggLarsHS-SWE.jpg",
+    "description": "Cliegg Lars is a moisture farmer from Tatooine and the stepfather of Anakin Skywalker. Cliegg purchased Shmi Skywalker's freedom, and married her. He was killed during the battle of Geonosis fighting alongside Obi Wan Kenobi and Anakin Skywalker."
+
   },
   {
     "name": "Poggle the Lesser",
     "quote": "We must do as Count Dooku tells us or our people... suffer great losses.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/9/93/Poggle_the_lesser_-_sw_card_trader.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/9/93/Poggle_the_lesser_-_sw_card_trader.png",
+    "description": "Poggle the Lesser is the Archduke of Geonosis and one of the leaders of the Confederacy of Independent Systems, secretly controlling the planetary government. He is a Geonosian and a major antagonist in the Star Wars prequel trilogy."
+
   },
   {
     "name": "Luminara Unduli",
     "quote": "My allegiance is to the Republic, to democracy!",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058106742493421578/Luminara.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058106742493421578/Luminara.png",
+    "description": "Luminara Unduli is a Mirialan Jedi Master and member of the Jedi High Council during the Clone Wars. She is an expert in lightsaber combat and was Obi-Wan Kenobi's master. She fought alongside Anakin Skywalker and Ahsoka Tano to free the captured clones from the Separatists."
+
   },
   {
     "name": "Barriss Offee",
     "quote": "There is no emotion; there is peace",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/37/Barrisprofile2.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/3/37/Barrisprofile2.jpg",
+    "description": "Barriss Offee is a Mirialan Jedi Padawan who trained under Luminara Unduli. She is a powerful Force user and was a loyal and brave warrior of the Galactic Republic during the Clone Wars. However, she was also an advocate for peaceful negotiations rather than armed conflict."
+
   },
   {
     "name": "Dormé",
     "quote": "He truly loves you Senator, beyond a doubt.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058111782872416256/image.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058111782872416256/image.png",
+    "description": "Padmé Amidala's handmaiden and decoy, Dormé is a loyal friend and helper to Padmé. A capable fighter as well, she fought alongside Obi-Wan Kenobi and Anakin Skywalker to save Padmé from being kidnapped by the Separatists."
+
   },
   {
     "name": "Dooku",
     "quote": "If you are not with me, then you are my enemy",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/b8/Dooku_Headshot.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/b/b8/Dooku_Headshot.jpg",
+    "description": "Count Dooku, also known as Darth Tyranus, is a Sith Lord and leader of the Confederacy of Independent Systems during the Clone Wars. He was once a powerful and respected Jedi, but turned away from the Order to pursue his own ambitions of galactic domination."
+
   },
   {
     "name": "Bail Prestor Organa",
     "quote": "Hope is not lost today, it is found.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/50/Bail_Organa_Mug.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/50/Bail_Organa_Mug.jpg",
+    "description": "Bail Prestor Organa is the senator of Alderaan, one of the founding members of the Rebel Alliance, and adoptive father to Princess Leia Organa. Despite being a staunch opponent of the Empire's rule, he was a respected political figure throughout the galaxy."
+
   },
   {
     "name": "Jango Fett",
     "quote": "I'm just a simple man trying to make my way in the universe",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/56/JangoInfobox.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/5/56/JangoInfobox.png",
+    "description": "Jango Fett is a renowned bounty hunter and father of Boba Fett. Jango was the template for the Grand Army of the Republic's clone troopers and was hired by Darth Tyranus to assassinate Padmé Amidala. He is an expert with weapons and a master of hand-to-hand combat."
+
   },
   {
     "name": "Zam Wesell",
     "quote": "Getting away from Coruscant? No problem",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/7d/Clawdite.jpg"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/7/7d/Clawdite.jpg",
+    "description": "Zam Wesell is an assassin working for Jango Fett. She is a shape-shifting Clawdite, and a deadly marksman. Wesell is hired by Darth Tyranus to assassinate Padmé Amidala, but fails due to the intervention of Obi-Wan Kenobi and Anakin Skywalker."
+
   },
   {
     "name": "Dexter Jettster",
     "quote": "Good food is like good friends, hard to find and blessin’ to have.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363716837576745/image-PhotoRoom.png-PhotoRoom_15.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363716837576745/image-PhotoRoom.png-PhotoRoom_15.png",
+    "description": "Dexter Jettster is an old friend of Obi-Wan Kenobi and a retired professor of geology. A large, cheerful alien, Dexter runs a diner on Coruscant and is a well-connected information broker. He helps Obi-Wan investigate the death of his apprentice."
+
   },
   {
     "name": "Lama Su",
     "quote": "I'm old, not obsolete.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361019015118918/image-PhotoRoom.png-PhotoRoom_5.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361019015118918/image-PhotoRoom.png-PhotoRoom_5.png",
+    "description": "Lama Su is an elderly Kaminoan scientist and the Prime Minister of Kamino. He oversees the cloning process for the creation of the Grand Army of the Republic's clone troopers. Lama Su works for Darth Tyranus, providing him with the means to create an army to overthrow the Republic."
+
   },
   {
     "name": "Taun We",
     "quote": "I will take you to meet she who is most wise, Mother Taun We.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361302214512690/image-PhotoRoom.png-PhotoRoom_6.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058361302214512690/image-PhotoRoom.png-PhotoRoom_6.png",
+    "description": "Taun We is a female Kaminoan scientist who assists Lama Su in overseeing the cloning process. She serves as the face of the cloning project and is responsible for delivering the clones to the Republic. She is a major antagonist in the Star Wars prequel trilogy."
+
   },
   {
     "name": "Jocasta Nu",
     "quote": "The ability to make a decision does not mean you should.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/15/Jocasta_Nu_SWE.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/1/15/Jocasta_Nu_SWE.png",
+    "description": "Jocasta Nu is the Chief Librarian of the Jedi Temple Archives. She is a knowledgeable scholar who has devoted her life to her work. She is highly respected by her peers and is known for her good judgement and wisdom."
+
   },
   {
     "name": "R4-P17",
     "quote": "I'm here to help.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363439698935869/image-PhotoRoom.png-PhotoRoom_14.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363439698935869/image-PhotoRoom.png-PhotoRoom_14.png",
+    "description": "R4-P17 is an astromech droid that served Anakin Skywalker in the Clone Wars. A faithful companion, R4-P17 gets the job done no matter what the odds. This droid is integral in the effort to save Obi Wan Kenobi and Anakin Skywalker from the Separatist forces."
+
   },
   {
     "name": "Wat Tambor",
     "quote": "Power is the only currency worth trading in.",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/a/a5/Wat_Tambor.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/a/a5/Wat_Tambor.png",
+    "description": "Wat Tambor is the head of the Techno Union and one of the leaders of the Confederacy of Independent Systems. He is an imposing figure who is known for his cruelty and ambition. He is also a master of military technology, specializing in droids and weapons of mass destruction."
+
   },
   {
     "name": "San Hill",
     "quote": "Money makes the Galaxy go round.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058354752846573608/san-PhotoRoom.png-PhotoRoom.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058354752846573608/san-PhotoRoom.png-PhotoRoom.png",
+    "description": "San Hill is the Chairman of the InterGalactic Banking Clan and one of the leaders of the Confederacy of Independent Systems. He is a shrewd businessman and a financial genius. Notably, his banks finance the production of the massive warship Malevolence."
+
   },
   {
     "name": "Shaak Ti",
     "quote": "Unity wins war, gentlemen",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/2/20/Shaak_Ti_closeup-SWE.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/2/20/Shaak_Ti_closeup-SWE.png",
+    "description": "Shaak Ti is a respected Togruta Jedi Master and member of the Jedi Council. She is an expert in lightsaber combat and is a loyal warrior of the Galactic Republic. During the Clone Wars, she mentored Padawan Ahsoka Tano and fought alongside Anakin Skywalker."
+
   },
   {
     "name": "Grievous",
     "quote": "I will crush the Republic and its generals.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058360054811734036/image-PhotoRoom.png-PhotoRoom_3.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058360054811734036/image-PhotoRoom.png-PhotoRoom_3.png",
+    "description": "General Grievous is a Kaleesh cyborg and the leader of the Droid Army of the Confederacy of Independent Systems. A brilliant strategist and warrior, Grievous is a formidable threat to the Republic and is responsible for the deaths of many Jedi Knights."
+
   },
   {
     "name": "Tarfful",
     "quote": "Wookiees are loyal and brave.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362042857291797/image-PhotoRoom.png-PhotoRoom_9.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362042857291797/image-PhotoRoom.png-PhotoRoom_9.png",
+    "description": "Tarfful is a Wookiee warrior and an ally of the Galactic Republic. He is a loyal friend to Yoda and Chewbacca and is an expert fighter. Tarfful fights alongside Obi-Wan Kenobi and Yoda against the Separatist forces during the Battle of Kashyyyk."
+
   },
   {
     "name": "Raymus Antilles",
     "quote": "Loyalty is essential.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363175508119562/image-PhotoRoom.png-PhotoRoom_13.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058363175508119562/image-PhotoRoom.png-PhotoRoom_13.png",
+    "description": "Raymus Antilles is the Captain of the Tantive IV and an ally of Princess Leia and the Rebel Alliance. He is a brave and loyal man who risks his life to protect Leia and bring the plans for the Death Star to Obi-Wan Kenobi."
+
   },
   {
     "name": "Sly Moore",
     "quote": "Though I have power, I serve at the pleasure of the Senate.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058355174520934400/image-PhotoRoom.png-PhotoRoom.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058355174520934400/image-PhotoRoom.png-PhotoRoom.png",
+    "description": "Sly Moore is the aide to Chancellor Palpatine and one of the few people to know of his true identity as a Sith Lord. She serves faithfully and without question, and is a key figure in helping Palpatine carry out his plans to seize control of the Republic."
+
   },
   {
     "name": "Tion Medon",
     "quote": "There's no war here, unless you brought it with you",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058360577099059300/image-PhotoRoom.png-PhotoRoom_4.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058360577099059300/image-PhotoRoom.png-PhotoRoom_4.png",
+    "description": "Tion Medon is the administrator of Utapau and an ally of Count Dooku and the Separatists. He is a crafty politician and a shrewd negotiator who works to maintain the neutrality of Utapau and prevent it from joining the Republic or Separatists."
   },
   {
     "name": "Finn",
     "quote": "Let the past die, kill it if you have to.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362695939784734/image-PhotoRoom.png-PhotoRoom_11.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362695939784734/image-PhotoRoom.png-PhotoRoom_11.png",
+    "description": "Finn is a former stormtrooper of the First Order and a loyal companion of Rey. He is courageous and brave and willing to risk his life to protect others. Finn becomes a valuable member of the Resistance in their fight against the tyranny of the First Order."
   },
   {
     "name": "Rey",
     "quote": "Don't be afraid of who you are.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362949825220648/image-PhotoRoom.png-PhotoRoom_12.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362949825220648/image-PhotoRoom.png-PhotoRoom_12.png",
+    "description": "Rey is a Force-sensitive scavenger from Jakku and the protagonist of the Star Wars sequel trilogy. She is strong-willed, independent, and determined. Rey learns to wield the power of the Force and eventually join the Resistance to defeat the First Order."
+
   },
   {
     "name": "Poe Dameron",
     "quote": "The spark that ignites the fire.",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362372709945344/image-PhotoRoom.png-PhotoRoom_10.png"
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058362372709945344/image-PhotoRoom.png-PhotoRoom_10.png",
+    "description": "Poe Dameron is a skilled X-wing pilot and commander of the Resistance starfighter squadron. He is a loyal friend and ally to Rey, Finn, and the rest of the Resistance. Bold and daring, Poe is essential in leading the Resistance in its fight against the First Order."
+
   },
   {
     "name": "BB8",
     "quote": "Beep Boop!",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/6/68/BB8-Fathead.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/6/68/BB8-Fathead.png",
+    "description": "BB-8 is an astromech droid and one of the most iconic characters from the sequel trilogy. Loyal and brave, BB-8 is devoted to Rey, Finn, and Poe and often puts himself in danger to save them from harm. He is an indispensable asset to the Resistance."
+
   },
   {
     "name": "Captain Phasma",
     "quote": "Respect your superiors, or you will learn to respect your inferiors",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/0/02/Phasma.png"
+    "image": "https://vignette.wikia.nocookie.net/starwars/images/0/02/Phasma.png",
+    "description": "Captain Phasma is a commander of the First Order and one of Kylo Ren's rivals. She is a brave and cunning warrior and a master of military tactics. Despite her ruthlessness, she is defeated by Rey and the Resistance in their fight against the First Order."
+
   },
   {
     "name": "Bib Fortuna",
     "quote": "Bargain rather than fight? He's no Jedi",
-    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058085872387498054/bib.png"
-  }  
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1058085872387498054/bib.png",
+    "description": "Bib Fortuna is a fictional character from the Star Wars universe. He is a Twi'lek male and serves as one of Jabba the Hutt's most trusted aides. He often acts as Jabba's personal advisor, and he is sometimes seen carrying a staff that contains a hidden blade. He is also known for his calm and subtle demeanor.."
+
+    
+  }
 ]
