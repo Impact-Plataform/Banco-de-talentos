@@ -1,5 +1,6 @@
 import axios from "axios";
 import characterInfo from '../assets/MoreAboutCharacters/charactersInfo.json'
+import filmsInfo from '../assets/MoreAboutCharacters/films.json'
 import { CharacterTYPE } from "../Types";
 
 export async function getDetailedCharacter(character: any, setCharactersList: any) {
@@ -11,17 +12,29 @@ export async function getDetailedCharacter(character: any, setCharactersList: an
         if (response.data.count > 0) {
             characterHolder.forEach(async (character: any) => {
                 const characterMoreInfo = characterInfo.find((item: any) => item.name === character.name)
+                let films: any = [];
 
                 const homeworldResponse = await axios.get(character.homeworld);
-                const specieResponse = await axios.get(character.species);
+                const speciesResponse = await axios.get(character.species);
 
+                const filmsPromises = character.films.map((film: any) => axios.get(film));
+                const filmsResponses = await Promise.all(filmsPromises);
+
+
+                setTimeout(() => {
+                    filmsResponses.map((response) => films.push(filmsInfo.find((item: any) => item.name === response.data.title)));
+                    character.films = films;
+
+
+                }, 100)
 
                 character.image = characterMoreInfo?.image;
                 character.quote = characterMoreInfo?.quote;
-
+                character.description = characterMoreInfo?.description;
 
                 character.homeworld = homeworldResponse.data.name
-                character.species = specieResponse.data.name
+                character.species = speciesResponse.data.name
+
 
             });
 
