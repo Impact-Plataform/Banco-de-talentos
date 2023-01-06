@@ -14,7 +14,7 @@ interface Props {
 export default function CharactersList({ characters }: Props) {
   const [isDisabledNext, setIsDisabledNext] = useState(false);
   const [isDisabledBack, setIsDisabledBack] = useState(true);
-  const { page, setPage, gender, speciesFilter } = useContext(AppContext);
+  const { page, setPage, gender, speciesFilter, filmFilter } = useContext(AppContext);
 
 
   const handlePerPage = (page: number, target: any) => {
@@ -51,7 +51,7 @@ export default function CharactersList({ characters }: Props) {
 
   return(
     <CharactersListDiv>
-       { handlePage(page, characters, gender, speciesFilter)?.map((character) => (
+       { handlePage(page, characters, gender, speciesFilter, filmFilter)?.map((character) => (
         <CharacterCard
           key={character.id}
           img={`https://starwars-visualguide.com/assets/img/characters/${character.id}.jpg`}

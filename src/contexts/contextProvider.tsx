@@ -11,7 +11,10 @@ interface AppContextInterface {
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
   speciesFilter: string | undefined,
   setSpeciesFilter: React.Dispatch<React.SetStateAction<any>>,
-  handleSpecies: any, 
+  handleSpecies: any,
+  filmFilter: string | undefined,
+  setFilmFilter: React.Dispatch<React.SetStateAction<any>>,
+
 }
 
 interface Props {
@@ -27,6 +30,7 @@ const AppProvider = ({ children }: Props) => {
   const [gender, setGender] = useState();
   const [speciesFilter, setSpeciesFilter] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [filmFilter, setFilmFilter] = useState();
 
 
   const handleSpecies = (target: any) => {
@@ -44,6 +48,8 @@ const AppProvider = ({ children }: Props) => {
     speciesFilter,
     setSpeciesFilter,
     handleSpecies,
+    filmFilter,
+    setFilmFilter,
   }
   
 
