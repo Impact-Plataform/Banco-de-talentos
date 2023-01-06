@@ -13,6 +13,10 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
+  button {
+    font-family: inherit;
+  }
+
   body {
     ${({ theme }) => css`
       background: ${theme.colors.secondaryDarkColor};

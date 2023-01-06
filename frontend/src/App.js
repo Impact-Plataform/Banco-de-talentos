@@ -11,9 +11,9 @@ function App() {
       <FiltersProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="*" element={<PageNotFound />} />
-            <Route path="/:name" element={<Detail />} />
+            <Route path="/character/:name" element={<Detail />} />
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </FiltersProvider>

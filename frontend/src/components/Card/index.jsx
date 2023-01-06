@@ -108,7 +108,9 @@ export const Card = ({ character }) => {
           )}
         </ListFilms>
       </FilmsWrapper>
-      <SeeMoreLink to={`${changeSlug(name)}`}>More Info ►</SeeMoreLink>
+      <SeeMoreLink to={`character/${changeSlug(name)}`}>
+        More Info ►
+      </SeeMoreLink>
     </CardBox>
   );
 };

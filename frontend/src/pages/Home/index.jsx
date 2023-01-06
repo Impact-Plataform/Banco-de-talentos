@@ -3,15 +3,24 @@ import { Heading } from "../../components/Heading";
 import { BabyYoda, Illustrations } from "../../assets";
 import { Card, Search, Filter } from "../../components";
 import { useCharactersContext, useFilterContext } from "../../contexts";
-import { CardsWrapper, Logo, Filters, EmptyMessage } from "./styles";
+import {
+  CardsWrapper,
+  Logo,
+  Filters,
+  ClearButton,
+  EmptyMessage,
+  DetailText,
+} from "./styles";
 import "./styles.css";
+import { ScrollUp } from "../../components/ScrollUp";
+import { Loading } from "../../components";
 
 const Home = () => {
   const { loading, searchCharacters, clearSearch, filmsData, speciesData } =
     useCharactersContext();
 
   // filter function
-  const { updateFilterValue, all_characters, filter_character } =
+  const { updateFilterValue, all_characters, filter_character, clearFilters } =
     useFilterContext();
 
   const getUniqueValue = (data, attr) => {
@@ -25,8 +34,6 @@ const Home = () => {
   const filterGender = getUniqueValue(all_characters, "gender");
   const filterFilm = getUniqueValue(filmsData, "url");
   const filterSpecie = getUniqueValue(speciesData, "url");
-
-  console.log(filter_character);
 
   // search function
   const [query, setQuery] = useState("");
@@ -52,7 +59,7 @@ const Home = () => {
     : filter_character;
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (
@@ -100,7 +107,10 @@ const Home = () => {
           filterName={speciesData}
           color={"#57FF86"}
         />
+        <ClearButton onClick={clearFilters}>Clear Filters</ClearButton>
       </Filters>
+
+      {!query && <DetailText>Showing 0 of 87 characters</DetailText>}
 
       <CardsWrapper>
         {filtered.map((character) => (
@@ -116,6 +126,7 @@ const Home = () => {
           </EmptyMessage>
         )}
       </CardsWrapper>
+      <ScrollUp />
     </>
   );
 };
