@@ -8,6 +8,7 @@
     "start": "node dist/server.js",
     "dev": "tsx watch src/server.ts",
     "coverage": "vitest run --coverage",
+    "migrate:dev": "npx prisma migrate dev",
     "lint": "eslint --fix --ext",
     "lint-staged": "lint-staged"
   },
@@ -23,11 +24,13 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-promise": "^6.1.1",
+    "prisma": "^4.8.1",
     "tsx": "^3.12.1",
     "typescript": "^4.9.4",
     "vitest": "^0.26.3"
   },
   "dependencies": {
+    "@prisma/client": "^4.8.1",
     "cors": "^2.8.5",
     "express": "^4.18.2"
   }
