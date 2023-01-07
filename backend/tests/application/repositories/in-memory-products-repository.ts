@@ -8,7 +8,11 @@ export class InMemoryProductsRepository implements ProductsRepository {
     this.products.push(product);
   }
 
-  async findByName(name: string): Promise<Product> {
+  async load(): Promise<Product[]> {
+    return this.products;
+  }
+
+  async loadByName(name: string): Promise<Product> {
     const product = this.products.find((product) => product.name === name);
     return product;
   }

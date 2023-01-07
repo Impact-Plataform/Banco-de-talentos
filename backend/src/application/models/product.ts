@@ -1,4 +1,5 @@
 import { randomUUID } from "node:crypto";
+import { AppError } from "../../errors/app-error";
 import { Replace } from "../../utils/replace";
 
 interface productsProps {
@@ -13,6 +14,10 @@ export class Product {
   private _id: string;
 
   constructor(props: Replace<productsProps, { createdAt?: Date }>) {
+    if (props.quantity <= 0) {
+      throw new AppError("Unable to add 0 products");
+    }
+
     this._id = randomUUID();
     this.props = {
       ...props,

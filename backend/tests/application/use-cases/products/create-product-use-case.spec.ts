@@ -16,7 +16,7 @@ describe("Create products", () => {
 
     await createProduct.execute(newProduct);
 
-    const product = await productsRepository.findByName("Teclado - Keychron");
+    const product = await productsRepository.loadByName("Teclado - Keychron");
 
     expect(product).toHaveProperty("id");
     expect(product).toHaveProperty("createdAt");
@@ -33,6 +33,19 @@ describe("Create products", () => {
     };
     await createProduct.execute(newProduct);
 
+    expect(createProduct.execute(newProduct)).rejects.toBeInstanceOf(AppError);
+  });
+
+  it("should not be able create a product without quantity", async () => {
+    const productsRepository = new InMemoryProductsRepository();
+    const createProduct = new CreateProductUseCase(productsRepository);
+
+    const newProduct = {
+      name: "Teclado - Keychron",
+      price: 550.99,
+      quantity: 0,
+    };
+   
     expect(createProduct.execute(newProduct)).rejects.toBeInstanceOf(AppError);
   });
 });

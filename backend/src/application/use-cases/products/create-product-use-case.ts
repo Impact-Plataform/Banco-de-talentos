@@ -12,7 +12,7 @@ export class CreateProductUseCase {
   constructor(private productsRepository: ProductsRepository) {}
 
   async execute({ name, price, quantity }: CreateProductDTO): Promise<Product> {
-    const productAlreadyExists = await this.productsRepository.findByName(name);
+    const productAlreadyExists = await this.productsRepository.loadByName(name);
 
     if (productAlreadyExists) {
       throw new AppError("Product already exists", 409);
