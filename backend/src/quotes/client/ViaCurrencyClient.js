@@ -11,7 +11,7 @@ class viaCurrencyClient{
    .then((res) => {
      let apiResponse = res.data;
      console.log(`Retornando dados da API referentes a ${currency}: ${JSON.stringify(apiResponse)}`)
-   })
+    })
    .catch((err) => {
      console.error(`Erro ao chamar a API`)
      console.error(err)

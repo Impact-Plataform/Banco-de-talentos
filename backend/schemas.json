@@ -1,0 +1,23 @@
+{
+  "Product":{
+     "type": "object",
+     "properties": {
+        "id":{
+          "type": "integer"
+        },
+        "name":{
+          "type": "string"
+        },
+        "price":{
+           "type": "number"
+        },
+        "currency":{
+          "type": "string"
+        },
+        "symbol":{
+          "type": "string"
+        }
+
+     }
+  }
+}
