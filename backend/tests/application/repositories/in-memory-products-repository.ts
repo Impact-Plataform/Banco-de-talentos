@@ -13,7 +13,12 @@ export class InMemoryProductsRepository implements ProductsRepository {
   }
 
   async loadByName(name: string): Promise<Product> {
-    const product = this.products.find((product) => product.name === name);
+    const product = this.products.find((product) => product.name === name);   
     return product;
+  }
+
+  async delete(name: string): Promise<void> {
+    const productsUpdated = this.products.filter((product) => product.name !== name);
+    this.products = productsUpdated
   }
 }
