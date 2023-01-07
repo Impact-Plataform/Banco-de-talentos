@@ -70,3 +70,44 @@ export const loadSpecies = async (dispatch) => {
     dispatch({ type: types.SPECIES_ERROR });
   }
 };
+
+const APIVehicles = API + "vehicles";
+
+export const loadVehicles = async (dispatch) => {
+  dispatch({ type: types.VEHICLES_LOADING });
+  try {
+    const response = await axios.get(APIVehicles);
+    const vehicles = await response.data.results;
+    const count = response.data.count;
+    loadAllData(APIVehicles, count, vehicles, dispatch, "VEHICLES_SUCCESS");
+  } catch (error) {
+    dispatch({ type: types.VEHICLES_ERROR });
+  }
+};
+const APIStarships = API + "starships";
+
+export const loadStarships = async (dispatch) => {
+  dispatch({ type: types.STARSHIPS_LOADING });
+  try {
+    const response = await axios.get(APIStarships);
+    const starships = await response.data.results;
+    const count = response.data.count;
+    loadAllData(APIStarships, count, starships, dispatch, "STARSHIPS_SUCCESS");
+  } catch (error) {
+    dispatch({ type: types.STARSHIPS_ERROR });
+  }
+};
+
+const APIPlanets = API + "planets";
+
+export const loadPlanets = async (dispatch) => {
+  dispatch({ type: types.PLANETS_LOADING });
+  try {
+    const response = await axios.get(APIPlanets);
+    const planets = await response.data.results;
+    const count = response.data.count;
+    loadAllData(APIPlanets, count, planets, dispatch, "PLANETS_SUCCESS");
+  } catch (error) {
+    dispatch({ type: types.PLANETS_ERROR });
+  }
+};

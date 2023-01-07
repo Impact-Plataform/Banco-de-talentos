@@ -11,7 +11,7 @@ export const yellow = {
 };
 
 export const red = {
-  300: "#FF8989",
+  100: "#FF8989",
 };
 
 export const neutral = {

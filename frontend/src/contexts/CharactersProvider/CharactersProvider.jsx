@@ -1,5 +1,12 @@
 import { useEffect, useReducer, useRef, useContext } from "react";
-import { loadCharacters, loadFilms, loadSpecies } from "./actions";
+import {
+  loadCharacters,
+  loadFilms,
+  loadSpecies,
+  loadVehicles,
+  loadStarships,
+  loadPlanets,
+} from "./actions";
 import { CharactersContext } from "./context";
 import { data } from "./data";
 import { reducer } from "./reducer";
@@ -44,6 +51,42 @@ export const CharactersProvider = ({ children }) => {
 
   useEffect(() => {
     loadSpecies(dispatch).then((dispatch) => {
+      if (isMounted.current) {
+        dispatch();
+      }
+    });
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    loadVehicles(dispatch).then((dispatch) => {
+      if (isMounted.current) {
+        dispatch();
+      }
+    });
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    loadStarships(dispatch).then((dispatch) => {
+      if (isMounted.current) {
+        dispatch();
+      }
+    });
+
+    return () => {
+      isMounted.current = false;
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    loadPlanets(dispatch).then((dispatch) => {
       if (isMounted.current) {
         dispatch();
       }

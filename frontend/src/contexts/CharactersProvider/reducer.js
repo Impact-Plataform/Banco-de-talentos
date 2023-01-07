@@ -29,6 +29,34 @@ export const reducer = (state, action) => {
     case types.SPECIES_ERROR: {
       return { ...state, error: true, loading: false };
     }
+    case types.VEHICLES_SUCCESS: {
+      return { ...state, vehiclesData: action.payload, loading: false };
+    }
+    case types.VEHICLES_LOADING: {
+      return { ...state, loading: true };
+    }
+    case types.VEHICLES_ERROR: {
+      return { ...state, error: true, loading: false };
+    }
+    case types.STARSHIPS_SUCCESS: {
+      return { ...state, starshipsData: action.payload, loading: false };
+    }
+    case types.STARSHIPS_LOADING: {
+      return { ...state, loading: true };
+    }
+    case types.STARSHIPS_ERROR: {
+      return { ...state, error: true, loading: false };
+    }
+    case types.PLANETS_SUCCESS: {
+      return { ...state, planetsData: action.payload, loading: false };
+    }
+    case types.PLANETS_LOADING: {
+      return { ...state, loading: true };
+    }
+    case types.PLANETS_ERROR: {
+      return { ...state, error: true, loading: false };
+    }
+
     // SEARCH ACTIONS
     case types.SEARCH_CHARACTERS: {
       return {

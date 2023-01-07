@@ -6,6 +6,7 @@ const Info = ({ title, data }) => {
   return (
     <div>
       <Heading
+        style={{ whiteSpace: "nowrap" }}
         level={3}
         spacing="0.15em"
         fontSize="small"

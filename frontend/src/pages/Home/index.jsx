@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { Heading } from "../../components/Heading";
 import { BabyYoda, Illustrations } from "../../assets";
-import { Card, Search, Filter } from "../../components";
+import { Card, Search, Filter, ScrollUp, Loading } from "../../components";
 import { useCharactersContext, useFilterContext } from "../../contexts";
 import {
   CardsWrapper,
@@ -12,8 +12,7 @@ import {
   DetailText,
 } from "./styles";
 import "./styles.css";
-import { ScrollUp } from "../../components/ScrollUp";
-import { Loading } from "../../components";
+
 import { GlobalStyles } from "../../styles";
 
 const Home = () => {
