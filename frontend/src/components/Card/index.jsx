@@ -3,6 +3,7 @@ import { changeSlug } from "../../helpers/slug";
 import { useCharactersContext } from "../../contexts";
 import { Heading } from "../Heading";
 import P from "prop-types";
+import { motion } from "framer-motion";
 import {
   CardBox,
   CharactersInfo,
@@ -12,6 +13,7 @@ import {
   ListFilms,
   Films,
   SeeMoreLink,
+  // CardContainer,
 } from "./styles";
 import Info from "./Info";
 
@@ -51,67 +53,74 @@ export const Card = ({ character }) => {
   );
 
   return (
-    <CardBox onClick={handleClick}>
-      <header>
-        <Heading level={2} align="center" color="yellowColor" weight="700">
-          {name}
-        </Heading>
-        <CharactersInfo open={true}>
-          <Info title="Gender" data={gender} />
-          <Info title="Birthyear" data={birth_year} />
-          <Info
-            title="Species"
-            data={
-              species.length > 0
-                ? speciesData.map((specie) =>
-                    species.includes(specie.url) ? specie.name : "",
-                  )
-                : "-"
-            }
-          />
+    <motion.div
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+    >
+      <CardBox layout onClick={handleClick}>
+        <header>
+          <Heading level={2} align="center" color="yellowColor" weight="700">
+            {name}
+          </Heading>
+          <CharactersInfo open={true}>
+            <Info title="Gender" data={gender} />
+            <Info title="Birthyear" data={birth_year} />
+            <Info
+              title="Species"
+              data={
+                species.length > 0
+                  ? speciesData.map((specie) =>
+                      species.includes(specie.url) ? specie.name : "",
+                    )
+                  : "-"
+              }
+            />
+          </CharactersInfo>
+        </header>
+
+        <InfoDetailsWrapper>
+          <InfoDetails>
+            <Info title="Height" data={height} />
+          </InfoDetails>
+          <InfoDetails>
+            <Info title="Mass" data={mass} />
+          </InfoDetails>
+        </InfoDetailsWrapper>
+
+        <CharactersInfo open={showMoreInfo}>
+          <Info title="Skin" data={skin_color} />
+          <Info title="Hair" data={hair_color} />
+          <Info title="Eye" data={eye_color} />
         </CharactersInfo>
-      </header>
 
-      <InfoDetailsWrapper>
-        <InfoDetails>
-          <Info title="Height" data={height} />
-        </InfoDetails>
-        <InfoDetails>
-          <Info title="Mass" data={mass} />
-        </InfoDetails>
-      </InfoDetailsWrapper>
-
-      <CharactersInfo open={showMoreInfo}>
-        <Info title="Skin" data={skin_color} />
-        <Info title="Hair" data={hair_color} />
-        <Info title="Eye" data={eye_color} />
-      </CharactersInfo>
-
-      <FilmsWrapper>
-        <Heading
-          level={3}
-          spacing="0.15em"
-          fontSize="small"
-          textTransform="uppercase"
-          weight="700"
-        >
-          Films
-        </Heading>
-        <ListFilms>
-          {filmsData.map(
-            (film) =>
-              films.includes(film.url) && (
-                <Films key={film.episode_id} cor={filmColor(film.episode_id)}>
-                  {film.title}
-                </Films>
-              ),
-          )}
-        </ListFilms>
-      </FilmsWrapper>
-      <SeeMoreLink to={`character/${changeSlug(name)}`}>
-        More Info ►
-      </SeeMoreLink>
-    </CardBox>
+        <FilmsWrapper>
+          <Heading
+            level={3}
+            spacing="0.15em"
+            fontSize="small"
+            textTransform="uppercase"
+            weight="700"
+          >
+            Films
+          </Heading>
+          <ListFilms>
+            {filmsData.map(
+              (film) =>
+                films.includes(film.url) && (
+                  <Films key={film.episode_id} cor={filmColor(film.episode_id)}>
+                    {film.title}
+                  </Films>
+                ),
+            )}
+          </ListFilms>
+        </FilmsWrapper>
+        <SeeMoreLink to={`character/${changeSlug(name)}`}>
+          More Info ►
+        </SeeMoreLink>
+      </CardBox>
+    </motion.div>
   );
 };
 

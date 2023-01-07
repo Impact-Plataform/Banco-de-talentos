@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { theme, typeScale } from "../../styles";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export const SeeMoreLink = styled(Link)`
   font-family: inherit;
@@ -34,7 +35,7 @@ export const CharactersInfo = styled.div`
   transition: all .5s ease-in-out;
 `;
 
-export const CardBox = styled.div`
+export const CardBox = styled(motion.div)`
   display: grid;
   min-height: 24em;
   padding: 1em 1.5em;

@@ -19,7 +19,8 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     ${({ theme }) => css`
-      background: ${(props) => props.backgroundColor};
+      background: ${(props) =>
+        props.color ? props.color : theme.colors.secondaryDarkColor};
       color: ${theme.colors.lightColor};
       font-family: ${theme.fonts.primaryFont};
       min-height: 100vh;

@@ -45,3 +45,24 @@ export const DetailCharacters = styled.div`
   padding: 1.5em;
   place-content: center;
 `;
+
+export const GoBackButton = styled.button`
+  background: ${theme.colors.secondaryLightColor};
+  padding: 0 .3em;
+  border-radius: 10px;
+  border: none;
+  color: inherit;
+  font-size: ${typeScale.header3};
+  cursor: pointer;
+
+
+  @media(max-width: 600px){
+    font-size: ${typeScale.header4};
+    margin-bottom: 1em;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+`;

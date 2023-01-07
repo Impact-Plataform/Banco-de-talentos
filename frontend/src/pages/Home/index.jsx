@@ -1,7 +1,15 @@
 import { useState, useCallback } from "react";
 import { Heading } from "../../components/Heading";
 import { BabyYoda, Illustrations } from "../../assets";
-import { Card, Search, Filter, ScrollUp, Loading } from "../../components";
+import { AnimatePresence } from "framer-motion";
+import {
+  Card,
+  Search,
+  Filter,
+  ScrollUp,
+  Loading,
+  Pagination,
+} from "../../components";
 import { useCharactersContext, useFilterContext } from "../../contexts";
 import {
   CardsWrapper,
@@ -13,11 +21,15 @@ import {
 } from "./styles";
 import "./styles.css";
 
-import { GlobalStyles } from "../../styles";
-
 const Home = () => {
-  const { loading, searchCharacters, clearSearch, filmsData, speciesData } =
-    useCharactersContext();
+  const {
+    characters,
+    loading,
+    searchCharacters,
+    clearSearch,
+    filmsData,
+    speciesData,
+  } = useCharactersContext();
 
   // filter function
   const { updateFilterValue, all_characters, filter_character, clearFilters } =
@@ -51,12 +63,34 @@ const Home = () => {
     [clearSearch, searchCharacters, query],
   );
 
+  // pagination
+  const perPage = 15;
+  const [currentPage, setCurrentPage] = useState(1);
+  const indexOfLastCharacter = currentPage * perPage;
+  const indexOfFirstCharacter = indexOfLastCharacter - perPage;
+
+  const visibleCharacter = filter_character.slice(
+    indexOfFirstCharacter,
+    indexOfLastCharacter,
+  );
+
   // map data
   const filtered = query
     ? filter_character.filter((item) => {
-        return item.name.toLowerCase().includes(query.toLowerCase());
+        return item.name
+          .toLowerCase()
+          .trim()
+          .includes(query.toLowerCase().trim());
       })
-    : filter_character;
+    : visibleCharacter;
+
+  console.log(query);
+
+  // clear filters function
+  const clearFilter = () => {
+    clearFilters();
+    if (filter_character.length !== characters.length) setCurrentPage(1);
+  };
 
   if (loading) {
     return <Loading />;
@@ -107,15 +141,22 @@ const Home = () => {
           filterName={speciesData}
           color={"#57FF86"}
         />
-        <ClearButton onClick={clearFilters}>Clear Filters</ClearButton>
+        <ClearButton onClick={clearFilter}>Clear Filters</ClearButton>
       </Filters>
 
-      {!query && <DetailText>Showing 0 of 87 characters</DetailText>}
+      {!query && (
+        <DetailText>
+          Showing {visibleCharacter.length} of {filter_character.length}{" "}
+          characters
+        </DetailText>
+      )}
 
       <CardsWrapper>
-        {filtered.map((character) => (
-          <Card key={character.url} character={character} />
-        ))}
+        <AnimatePresence>
+          {filtered.map((character) => (
+            <Card key={character.url} character={character} />
+          ))}
+        </AnimatePresence>
         {filtered.length === 0 && (
           <EmptyMessage>
             <BabyYoda />
@@ -127,7 +168,13 @@ const Home = () => {
         )}
       </CardsWrapper>
       <ScrollUp />
-      <GlobalStyles backgroundColor="#303236" />
+      {filtered.length !== 0 && (
+        <Pagination
+          perPage={perPage}
+          setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
+        />
+      )}
     </>
   );
 };

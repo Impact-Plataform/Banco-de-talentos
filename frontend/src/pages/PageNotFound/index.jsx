@@ -3,7 +3,6 @@ import { useCallback } from "react";
 import { Heading } from "../../components/Heading";
 import { GoBackNotFound, NotFoundWrapper } from "./styles";
 import { Illustrations } from "../../assets";
-import { GlobalStyles } from "../../styles";
 
 const PageNotFound = () => {
   const navigate = useNavigate();
@@ -13,7 +12,7 @@ const PageNotFound = () => {
     <NotFoundWrapper>
       <Heading
         level={1}
-        color="primaryDarkColor"
+        color="secondaryLightColor"
         textTransform="uppercase"
         weight="700"
         align="center"
@@ -23,7 +22,7 @@ const PageNotFound = () => {
       </Heading>
       <Heading
         level={2}
-        color="primaryDarkColor"
+        color="lightColor"
         textTransform="uppercase"
         weight="700"
         align="center"
@@ -31,11 +30,10 @@ const PageNotFound = () => {
         Page Not Found
       </Heading>
       <img src={Illustrations.DarthVader} alt="Darth Vader" />
-      <Heading level={3} color="primaryDarkColor">
+      <Heading level={3} color="lightColor">
         Maybe the force isn&apos;t with you.
       </Heading>
       <GoBackNotFound onClick={handleClick}>Go Back</GoBackNotFound>
-      <GlobalStyles backgroundColor="#C4C8CA" />
     </NotFoundWrapper>
   );
 };

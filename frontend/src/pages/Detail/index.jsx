@@ -1,4 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useCallback } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCharactersContext } from "../../contexts";
 import { changeSlug } from "../../helpers/slug";
 import { GlobalStyles } from "../../styles";
@@ -11,12 +12,14 @@ import {
   UniqueCharacter,
   UniqueCharacterText,
   FilmDate,
+  GoBackButton,
 } from "./styles";
-import { Carousel } from "../../components";
+import { Carousel, Loading } from "../../components";
 
 const Detail = () => {
   const {
     characters,
+    loading,
     speciesData,
     filmsData,
     vehiclesData,
@@ -29,8 +32,16 @@ const Detail = () => {
     changeSlug(item.name).includes(params.name) ? item : "",
   );
 
+  const navigate = useNavigate();
+  const handleClick = useCallback(() => navigate(-1), [navigate]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div>
+      <GoBackButton onClick={handleClick}>◂</GoBackButton>
       {data.map((character) => (
         <div key={character.url}>
           <Header>

@@ -29,4 +29,8 @@ export const BackToTopButton = styled.button`
   @media(max-width: 530px) {
     right: 20px;
   }
+
+  @media(max-width: 380px) {
+    bottom: 100px;
+  }
 `;
