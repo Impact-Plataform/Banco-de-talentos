@@ -4,13 +4,12 @@
   "description": "Este desafio tem como objetivo te avaliar como desenvolvedor Back-end;",
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
-    "start": "node dist/server.js",
     "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "test": "vitest",
     "coverage": "vitest run --coverage",
     "migrate:dev": "npx prisma migrate dev",
-    "lint": "eslint --fix --ext",
-    "lint-staged": "lint-staged"
+    "lint": "eslint --fix"
   },
   "keywords": [],
   "author": "",

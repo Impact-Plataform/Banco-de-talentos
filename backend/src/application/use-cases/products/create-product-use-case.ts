@@ -1,5 +1,5 @@
 import { Product } from "../../models/product";
-import { ProductsRepository } from "../../repositories/products/products-repository";
+import { ProductsRepository } from "../../repositories/products-repository";
 
 interface CreateProductDTO {
   name: string;

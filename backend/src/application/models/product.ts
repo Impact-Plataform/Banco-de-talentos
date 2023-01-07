@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { Replace } from "../../../utils/replace";
+import { Replace } from "../../utils/replace";
 
 interface productsProps {
   name: string;
@@ -30,6 +30,10 @@ export class Product {
 
   public get quantity() {
     return this.props.quantity;
+  }
+
+  public get createdAt() {
+    return this.props.createdAt;
   }
 
   public get id() {
