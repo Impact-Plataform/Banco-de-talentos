@@ -8,6 +8,7 @@ export const GoBackNotFound = styled.button`
   cursor: pointer;
   margin-top: 1em;
   color: inherit;
+  border-radius: 10px;
 `;
 
 export const NotFoundWrapper = styled.div`
