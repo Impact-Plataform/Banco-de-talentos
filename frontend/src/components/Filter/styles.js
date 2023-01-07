@@ -29,7 +29,6 @@ export const SelectInput = styled.select`
   -moz-appearance:none;
   -ms-appearance:none;
   appearance:none;
-  font-family: inherit;
   outline: 0;
   box-shadow: none;
   border: 1px solid;

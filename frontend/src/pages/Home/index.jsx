@@ -84,8 +84,6 @@ const Home = () => {
       })
     : visibleCharacter;
 
-  console.log(query);
-
   // clear filters function
   const clearFilter = useCallback(() => {
     clearFilters();
@@ -98,7 +96,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div>
       <Logo>
         <img src={Illustrations.StarWars} alt="Star Wars" />
       </Logo>
@@ -168,15 +166,15 @@ const Home = () => {
           </EmptyMessage>
         )}
       </CardsWrapper>
-      <ScrollUp />
-      {filtered.length !== 0 && (
+      {!query && (
         <Pagination
           perPage={perPage}
           setCurrentPage={setCurrentPage}
           currentPage={currentPage}
         />
       )}
-    </>
+      <ScrollUp />
+    </div>
   );
 };
 

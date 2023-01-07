@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { theme } from "../../styles";
 
 export const InputSearch = styled.input`
-  font-family: inherit;
   border: 1px solid transparent;
   outline: none;
   caret-color: ${theme.colors.lightColor};

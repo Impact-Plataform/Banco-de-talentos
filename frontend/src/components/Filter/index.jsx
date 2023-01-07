@@ -11,9 +11,9 @@ export const Filter = ({
   return (
     <FilterWrapper onClick={updateFilterValue}>
       <SelectInput name={name} cor={color}>
-        {filterData.map((curElem, index) => {
+        {filterData.map((curElem) => {
           return (
-            <Option key={index} value={curElem} checkedColor={color}>
+            <Option key={curElem} value={curElem} checkedColor={color}>
               {curElem === "all"
                 ? `All ${name.charAt(0).toUpperCase() + name.slice(1)}`
                 : curElem.includes(name)

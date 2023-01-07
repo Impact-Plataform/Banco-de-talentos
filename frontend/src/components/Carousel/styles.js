@@ -8,7 +8,7 @@ export const CarouselWrapper = styled.div`
 `;
 
 export const CarouselContainer = styled.div`
-  max-width: 40vw;
+  max-width: 60vw;
   display: flex;
   align-items: center;
   margin-bottom: 2em;
@@ -30,7 +30,6 @@ export const CarouselItem = styled.div`
 `;
 
 export const ButtonCarousel = styled.button`
-  background-color: transparent;
   border: none;
   cursor: pointer;
   color: ${theme.colors.lightColor};

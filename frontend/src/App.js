@@ -13,10 +13,7 @@ function App() {
           <Routes>
             <Route path="/character/:name" element={<Detail />} />
             <Route path="/" element={<Home />} />
-            <Route
-              path="*"
-              element={<PageNotFound styles={{ backgroundColor: "white" }} />}
-            />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
       </FiltersProvider>

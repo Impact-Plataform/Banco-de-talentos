@@ -13,7 +13,6 @@ import {
   ListFilms,
   Films,
   SeeMoreLink,
-  // CardContainer,
 } from "./styles";
 import Info from "./Info";
 
@@ -53,12 +52,7 @@ export const Card = ({ character }) => {
   );
 
   return (
-    <motion.div
-      layout
-      animate={{ opacity: 1 }}
-      initial={{ opacity: 0 }}
-      exit={{ opacity: 0 }}
-    >
+    <motion.div layout>
       <CardBox layout onClick={handleClick}>
         <header>
           <Heading level={2} align="center" color="yellowColor" weight="700">

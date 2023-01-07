@@ -13,7 +13,7 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
-  button {
+  button, select, input {
     font-family: inherit;
   }
 

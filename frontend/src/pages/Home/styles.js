@@ -40,7 +40,6 @@ export const ClearButton = styled.button`
   padding: .5em 1em;
   border-radius: 4px;
   color: inherit;
-  font-family: inherit;
   cursor: pointer;
 
   &:hover {
