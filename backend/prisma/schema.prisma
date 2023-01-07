@@ -8,10 +8,11 @@ datasource db {
 }
 
 model Product {
-  id       String @id
-  name     String @unique
-  price    Float
-  quantity Int
+  id        String   @id
+  name      String   @unique
+  price     Float
+  quantity  Int
+  createdAt DateTime @default(now())
 
   @@map("products")
 }
