@@ -15,4 +15,10 @@ export const Cards = styled.section`
   flex-direction: row;
   flex-wrap: wrap;
   padding: 10px;
+  flex-grow: 1;
+`;
+
+export const Container = styled.section`
+  display: flex;
+  width: 100%;
 `;

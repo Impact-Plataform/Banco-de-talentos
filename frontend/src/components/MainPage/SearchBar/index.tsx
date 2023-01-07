@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import Person from "../../../model/person.model";
 import { Input, Div, Button, SearchIcon } from "./style";
 
-const SearchBar = (props: { persons: Person[]; updatePersons: Function }) => {
-  const { persons, updatePersons } = props;
+const SearchBar = (props: {
+  persons: Person[];
+  updatePersons: Function;
+  filterActive: string;
+  updateFilterActive: Function;
+}) => {
+  const { persons, updatePersons, updateFilterActive } = props;
   const [search, setSearch] = useState("");
 
   const checkKeyPress = (key: string) => {
@@ -22,6 +27,7 @@ const SearchBar = (props: { persons: Person[]; updatePersons: Function }) => {
       }
       return false;
     });
+    updateFilterActive("");
     updatePersons(filteredPersons);
   };
 
