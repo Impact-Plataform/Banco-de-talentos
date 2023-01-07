@@ -1,6 +1,6 @@
-import StarWars from "./illustrations/starwars.svg";
+import DarthVader from "./illustrations/DarthVader.svg";
+import StarWars from "./illustrations/StarWars.svg";
 import FilterIcon from "./icons/filter.svg";
-import DarthVader from "./illustrations/darthvader.svg";
 
 export * from "./icons/yoda";
 export * from "./icons/stormtrooper";

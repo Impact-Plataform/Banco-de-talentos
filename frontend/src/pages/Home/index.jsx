@@ -87,10 +87,11 @@ const Home = () => {
   console.log(query);
 
   // clear filters function
-  const clearFilter = () => {
+  const clearFilter = useCallback(() => {
     clearFilters();
     if (filter_character.length !== characters.length) setCurrentPage(1);
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (loading) {
     return <Loading />;
