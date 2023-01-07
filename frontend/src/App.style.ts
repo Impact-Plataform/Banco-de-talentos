@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export const Container = styled.main`
   width: 100%;
   height: 100%;
@@ -15,7 +15,7 @@ export const Header = styled.header`
   justify-content: center;
 `;
 
-export const Link = styled.a`
+export const Liink = styled(Link)`
   color: #fff;
   margin: 5px;
   font-size: 1.2rem;

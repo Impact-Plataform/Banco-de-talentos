@@ -1,4 +1,5 @@
 export default interface Person {
+  id: string;
   name: string;
   height: string;
   mass: string;
@@ -12,4 +13,5 @@ export default interface Person {
   species: string[];
   vehicles: string[];
   starships: string[];
+  url: string;
 }

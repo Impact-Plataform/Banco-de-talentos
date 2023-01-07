@@ -1,43 +1,22 @@
 import React from "react";
-import { Section, Name, Details, DetailItem } from "./style";
+import { Section } from "./style";
 
 import Person from "../../../model/person.model";
-
+import { useNavigate } from "react-router-dom";
+import PersonDetails from "../../PersonDetails";
 const Card = (props: { person: Person }) => {
   const { person } = props;
+  const navigate = useNavigate();
+  const openCard = (id: string) => {
+    navigate(`/card/${id}`);
+  };
   return (
-    <Section>
-      <Name>{person.name}</Name>
-      <Details>
-        <DetailItem>
-          <span>Peso</span>
-          <span>{person.height}</span>
-        </DetailItem>
-        <DetailItem>
-          <p>Massa</p>
-          <p>{person.mass}</p>
-        </DetailItem>
-        <DetailItem>
-          <p>Cor do cabelo</p>
-          <p>{person.hair_color}</p>
-        </DetailItem>
-        <DetailItem>
-          <p>Cor de pele</p>
-          <p>{person.skin_color}</p>
-        </DetailItem>
-        <DetailItem>
-          <p>Cor dos olhos</p>
-          <p>{person.eye_color}</p>
-        </DetailItem>
-        <DetailItem>
-          <p>Ano de nascimento</p>
-          <p>{person.birth_year}</p>
-        </DetailItem>
-        <DetailItem>
-          <p>Gênero</p>
-          <p>{person.gender}</p>
-        </DetailItem>
-      </Details>
+    <Section
+      onClick={(e) => {
+        openCard(person.id);
+      }}
+    >
+      <PersonDetails person={person} />
     </Section>
   );
 };
