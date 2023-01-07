@@ -1,3 +1,4 @@
+import { AppError } from "../../../errors/app-error";
 import { Product } from "../../models/product";
 import { ProductsRepository } from "../../repositories/products-repository";
 
@@ -14,7 +15,7 @@ export class CreateProductUseCase {
     const productAlreadyExists = await this.productsRepository.findByName(name);
 
     if (productAlreadyExists) {
-      throw new Error("Product already exists");
+      throw new AppError("Product already exists", 409);
     }
 
     const product = new Product({
