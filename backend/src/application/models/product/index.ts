@@ -21,10 +21,18 @@ export class Product {
   }
 
   public get name() {
-    return this.props.name
+    return this.props.name;
+  }
+
+  public get price() {
+    return this.props.price;
+  }
+
+  public get quantity() {
+    return this.props.quantity;
   }
 
   public get id() {
-    return this._id
+    return this._id;
   }
 }
