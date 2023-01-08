@@ -1,8 +1,8 @@
 import { randomUUID } from "node:crypto";
-import { AppError } from "../../errors/app-error";
-import { Replace } from "../../utils/replace";
+import { AppError } from "../../shared/errors/app-error";
+import { Replace } from "../../shared/helpers/replace";
 
-interface productsProps {
+interface productProps {
   name: string;
   price: number;
   quantity: number;
@@ -10,12 +10,12 @@ interface productsProps {
 }
 
 export class Product {
-  private props: productsProps;
+  private props: productProps;
   private _id: string;
 
-  constructor(props: Replace<productsProps, { createdAt?: Date }>) {
+  constructor(props: Replace<productProps, { createdAt?: Date }>) {
     if (props.quantity <= 0) {
-      throw new AppError("Unable to add 0 products");
+      throw new AppError("Quantity must be positive");
     }
 
     this._id = randomUUID();
@@ -44,4 +44,16 @@ export class Product {
   public get id() {
     return this._id;
   }
+
+  public setProps({ name, price, quantity }: inputUpdatedProps) {
+    this.props.name = name;
+    this.props.price = price;
+    this.props.quantity = quantity;
+  }
 }
+
+type inputUpdatedProps = {
+  name: string;
+  price: number;
+  quantity: number;
+};

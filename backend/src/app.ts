@@ -1,6 +1,6 @@
 import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
-import { AppError } from "./errors/app-error";
+import { AppError } from "./shared/errors/app-error";
 
 const app = express();
 

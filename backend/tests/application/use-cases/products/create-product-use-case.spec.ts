@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { CreateProductUseCase } from "../../../../src/application/use-cases/products/create-product-use-case";
-import { AppError } from "../../../../src/errors/app-error";
+import { AppError } from "../../../../src/shared/errors/app-error";
 import { InMemoryProductsRepository } from "../../repositories/in-memory-products-repository";
 
 describe("Create products", () => {

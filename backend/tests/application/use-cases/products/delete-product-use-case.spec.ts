@@ -1,8 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CreateProductUseCase } from "../../../../src/application/use-cases/products/create-product-use-case";
 import { DeleteProductUseCase } from "../../../../src/application/use-cases/products/delete-product-use-case";
-import { LoadProductsUseCase } from "../../../../src/application/use-cases/products/load-products-use-case";
-import { AppError } from "../../../../src/errors/app-error";
+import { AppError } from "../../../../src/shared/errors/app-error";
 import { InMemoryProductsRepository } from "../../repositories/in-memory-products-repository";
 
 describe("Delete products", () => {
@@ -22,7 +21,6 @@ describe("Delete products", () => {
   it("should be able delete a product", async () => {
     const productsRepository = new InMemoryProductsRepository();
     const createProduct = new CreateProductUseCase(productsRepository);
-    const loadProducts = new LoadProductsUseCase(productsRepository);
     const deleteProducts = new DeleteProductUseCase(productsRepository);
 
     for (const product of products) {
@@ -31,7 +29,7 @@ describe("Delete products", () => {
 
     await deleteProducts.execute("Mouse - Red Dragon");
 
-    const allProducts = await loadProducts.execute();
+    const allProducts = await productsRepository.load();
 
     expect(allProducts).toHaveLength(1);
     expect(allProducts[0].name).toBe("Teclado - Keychron");
@@ -46,6 +44,8 @@ describe("Delete products", () => {
       await createProduct.execute(product);
     }
 
-    expect(deleteProducts.execute("Televisão 42 polegadas")).rejects.toBeInstanceOf(AppError);
+    expect(
+      deleteProducts.execute("Televisão 42 polegadas")
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
