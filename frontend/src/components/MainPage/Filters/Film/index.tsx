@@ -12,6 +12,7 @@ const Film = (props: {
   const { persons, updatePersons, active, updateFilterActive } = props;
 
   const [films, setFilms] = useState([]);
+
   useEffect(() => {
     apiService.getAllFilms().then((data) => {
       setFilms(data);
@@ -42,6 +43,7 @@ const Film = (props: {
                 filterPersons(film.url);
                 updateFilterActive(film.title);
               }}
+              key={film.url}
             >
               {film.title}
             </ListItem>

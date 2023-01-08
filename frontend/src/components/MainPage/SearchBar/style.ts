@@ -11,11 +11,20 @@ export const Input = styled.input`
   &:focus {
     border-bottom: 4px solid purple;
   }
+  @media screen and (max-width: 728px) {
+    width: 75%;
+  }
 `;
 
 export const Div = styled.div`
   position: relative;
   width: 600px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  @media screen and (max-width: 728px) {
+    width: 100%;
+  }
 `;
 
 export const Button = styled.button`
@@ -36,10 +45,8 @@ export const Button = styled.button`
   transition: background 0.3s;
   cursor: pointer;
 
-  @media (max-width: 768px) {
-    &:hover {
-      background: none;
-    }
+  @media (max-width: 728px) {
+    right: 12%;
   }
 `;
 

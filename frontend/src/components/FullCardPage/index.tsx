@@ -22,13 +22,7 @@ const FullCardPage = () => {
 
   useEffect(() => {
     const date = apiService.getAllPersons().then((data) => {
-      const dataApi: Person[] = data.map((item: Person) => {
-        const url: string = item.url;
-        const [, pId] = url.split("https://swapi.py4e.com/api/people/");
-        const [id] = pId.split("/");
-        item.id = id;
-        return item;
-      });
+      const dataApi: Person[] = data;
       setPersons(dataApi);
       setData(dataApi);
       dataApi.forEach((dataPerson: Person, i: number) => {
@@ -54,6 +48,7 @@ const FullCardPage = () => {
     }
     setActualCard((currentValue) => currentValue + 1);
   };
+
   const backCard = () => {
     if (actualCard - 1 < 0) {
       return;
@@ -61,13 +56,14 @@ const FullCardPage = () => {
 
     setActualCard((currentValue) => currentValue - 1);
   };
+
   return (
     <>
       {person ? (
         <Main>
           {actualCard !== 0 ? (
             <Button onClick={(e) => backCard()}>
-              <MdOutlineChevronLeft size={42} />
+              <MdOutlineChevronLeft size={28} />
             </Button>
           ) : (
             <DivNotExist />
@@ -85,7 +81,7 @@ const FullCardPage = () => {
             <DivNotExist />
           ) : (
             <Button onClick={(e) => nextCard()}>
-              <MdOutlineChevronRight size={42} />
+              <MdOutlineChevronRight size={28} />
             </Button>
           )}
         </Main>

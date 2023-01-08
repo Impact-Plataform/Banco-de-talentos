@@ -12,6 +12,12 @@ export const Section = styled.section`
   font-size: 1.4rem;
   overflow-y: scroll;
   overflow-x: hidden;
+  background-color: rgba(218, 34, 235, 0.1);
+  box-shadow: inset 0 0 1em rgba(218, 34, 235);
+  @media (max-width: 728px) {
+    font-size: 1.2rem;
+    width: 100%;
+  }
 `;
 
 export const DetailItemContainer = styled.li`
@@ -55,7 +61,8 @@ export const Button = styled.button`
   &:hover {
     background: purple;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 728px) {
+    height: 42px;
     &:hover {
       background: none;
     }

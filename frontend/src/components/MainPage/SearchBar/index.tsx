@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Person from "../../../model/person.model";
 import { Input, Div, Button, SearchIcon } from "./style";
+import apiService from "../../../services/api.service";
 
 const SearchBar = (props: {
-  persons: Person[];
   updatePersons: Function;
   filterActive: string;
   updateFilterActive: Function;
 }) => {
-  const { persons, updatePersons, updateFilterActive } = props;
+  const { updatePersons, updateFilterActive } = props;
   const [search, setSearch] = useState("");
+  const [persons, setPersons] = useState<Person[]>();
+
+  useEffect(() => {
+    apiService.getAllPersons().then((data) => setPersons(data));
+  }, []);
 
   const checkKeyPress = (key: string) => {
     if (key === "Enter") {
@@ -21,19 +26,20 @@ const SearchBar = (props: {
   };
 
   const searchPerson = (search: string) => {
-    let filteredPersons = persons.filter((person) => {
-      if (person.name.toLowerCase().includes(search)) {
+    let filteredPersons = persons!.filter((person) => {
+      if (person.name.toLowerCase().includes(search.toLowerCase())) {
         return person;
       }
       return false;
     });
-    updateFilterActive("");
+    updateFilterActive("search");
     updatePersons(filteredPersons);
   };
 
   return (
     <Div>
       <Input
+        placeholder="Digite o nome do personagem"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         onKeyUp={(e) => {

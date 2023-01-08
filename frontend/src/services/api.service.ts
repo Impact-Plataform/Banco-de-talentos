@@ -12,13 +12,23 @@ class ApiService {
     const { data } = await api.get("");
     return data;
   }
+  setId(arr: any) {
+    const withId = arr.map((item: any) => {
+      const url: string = item.url;
+      const [, pId] = url.split("https://swapi.py4e.com/api/people/");
+      const [id] = pId.split("/");
+      item.id = id;
+      return item;
+    });
+    return withId;
+  }
 
   async getPeopleByPage(page: number) {
     const api = axios.create({
       baseURL: `https://swapi.py4e.com/api/people/?page=${page}`,
     });
     const { data } = await api.get("");
-
+    data.results = this.setId(data.results);
     return data;
   }
 
@@ -38,6 +48,7 @@ class ApiService {
   }
   async getAllPersons(): Promise<Person[]> {
     let peoples: any = await this.getWithLoop("/people");
+    peoples = this.setId(peoples);
     return peoples;
   }
   async getAllPlanets() {

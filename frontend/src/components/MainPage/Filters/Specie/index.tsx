@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Person from "../../../../model/person.model";
-import { Div, List, ListItem } from "./../style";
+import { Div, ListItem } from "./../style";
+import { List } from "./style";
 import apiService from "../../../../services/api.service";
 
 const Specie = (props: {
@@ -10,8 +11,8 @@ const Specie = (props: {
   updateFilterActive: Function;
 }) => {
   const { persons, updatePersons, active, updateFilterActive } = props;
-
   const [species, setSpecies] = useState([]);
+
   useEffect(() => {
     apiService.getAllSpecies().then((data) => {
       setSpecies(data);
@@ -37,6 +38,7 @@ const Specie = (props: {
         {species.map((specie: any) => {
           return (
             <ListItem
+              key={specie.url}
               className={active === specie.name ? "selected" : ""}
               onClick={(e) => {
                 filterPersons(specie.url);

@@ -13,10 +13,12 @@ export const Header = styled.header`
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 5px;
 `;
 
 export const Liink = styled(Link)`
   color: #fff;
   margin: 5px;
   font-size: 1.5rem;
+  text-decoration: none;
 `;

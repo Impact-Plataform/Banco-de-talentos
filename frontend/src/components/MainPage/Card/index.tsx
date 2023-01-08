@@ -7,9 +7,11 @@ import PersonDetails from "../../PersonDetails";
 const Card = (props: { person: Person }) => {
   const { person } = props;
   const navigate = useNavigate();
+
   const openCard = (id: string) => {
     navigate(`/card/${id}`);
   };
+
   return (
     <Section
       onClick={(e) => {

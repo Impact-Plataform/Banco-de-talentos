@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import {
   Section,
   Cards,
@@ -12,7 +13,6 @@ import Person from "../../model/person.model";
 import SearchBar from "./SearchBar";
 import Filters from "./Filters";
 import apiService from "../../services/api.service";
-// const data: Person[] = require("../../api.json");
 
 const MainPage = () => {
   const [persons, setPersons] = useState<Person[]>([]);
@@ -24,13 +24,7 @@ const MainPage = () => {
 
   useEffect(() => {
     apiService.getPeopleByPage(currentPage).then((data) => {
-      const dataApi: Person[] = data.results.map((item: Person) => {
-        const url: string = item.url;
-        const [, pId] = url.split("https://swapi.py4e.com/api/people/");
-        const [id] = pId.split("/");
-        item.id = id;
-        return item;
-      });
+      const dataApi: Person[] = data.results;
       setCount(data.count);
       setPersons(dataApi);
       setData(dataApi);
@@ -54,20 +48,20 @@ const MainPage = () => {
     <>
       {data.length > 0 ? (
         <Section>
-          <h1>Seja bem vindo</h1>
           <SearchBar
             updatePersons={updatePersons}
-            persons={data}
             filterActive={filterActive}
             updateFilterActive={updateFilterActive}
           />
           <Container>
             <Filters
               updatePersons={updatePersons}
-              persons={data}
               filterActive={filterActive}
               updateFilterActive={updateFilterActive}
+              changePage={changePage}
+              data={data}
             ></Filters>
+
             <ContainerCards>
               <Cards>
                 {persons.map((person: Person) => {
@@ -76,8 +70,9 @@ const MainPage = () => {
               </Cards>
               <Pages>
                 {Array.from(Array(pages), (item, index) => {
-                  return (
+                  return filterActive === "" ? (
                     <Button
+                      key={index + new Date().getTime()}
                       onClick={(e) => {
                         changePage(index + 1);
                         setFilterActive("");
@@ -86,6 +81,8 @@ const MainPage = () => {
                     >
                       {index + 1}
                     </Button>
+                  ) : (
+                    <></>
                   );
                 })}
               </Pages>

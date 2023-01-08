@@ -33,6 +33,7 @@ const Gender = (props: {
                 filterPersons(gender);
                 updateFilterActive(gender);
               }}
+              key={gender + new Date().getTime()}
             >
               {gender}
             </ListItem>

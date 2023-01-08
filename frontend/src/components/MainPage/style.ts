@@ -15,6 +15,10 @@ export const Cards = styled.section`
   flex-wrap: wrap;
   padding: 10px;
   align-content: flex-start;
+  @media screen and (max-width: 728px) {
+    flex-direction: column;
+    align-content: center;
+  }
 `;
 
 export const ContainerCards = styled.section`
@@ -22,6 +26,7 @@ export const ContainerCards = styled.section`
   width: 100%;
   flex-direction: column;
 `;
+
 export const Container = styled.section`
   display: flex;
   width: 100%;
@@ -46,4 +51,5 @@ export const Pages = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 10px;
 `;

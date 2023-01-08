@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const PersonDetails = (props: { person: Person }) => {
   const { person } = props;
+
   return (
     <>
       <Name>{person.name}</Name>
