@@ -1,12 +1,10 @@
 import cx from 'classnames';
 import { Moon, Sun } from 'phosphor-react';
-import { useContext } from 'react';
 
-import { DarkModeContextData } from '../../interfaces/darkMode.interface';
-import { DarkModeContext } from '../../providers/DarkMode';
+import { useDarkMode } from '../../providers/DarkMode';
 
 export function DarkModeToggle() {
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext) as DarkModeContextData;
+  const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <label htmlFor="toggle" className="flex items-center cursor-pointer">

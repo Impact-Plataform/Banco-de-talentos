@@ -1,25 +1,29 @@
 import cx from 'classnames';
-import { useContext } from 'react';
 
-import { DarkModeContext, DarkModeContextData } from '../../providers/DarkMode';
+import { useDarkMode } from '../../providers/DarkMode';
 import { DarkModeToggle } from './DarkModeToggle';
+import { SearchBar } from './SearchBar';
 
 export function Header() {
-  const { darkMode } = useContext(DarkModeContext) as DarkModeContextData;
+  const { darkMode } = useDarkMode();
 
   return (
     <header
-      className={cx('fixed top-0 w-full flex flex-row justify-between py-4 px-10', {
-        'bg-gray-500': darkMode,
+      className={cx('fixed top-0 w-full py-4 px-10 h-fit', {
+        'bg-gray-800': darkMode,
         'bg-gray-600': !darkMode,
       })}
     >
       <div className="flex flex-col items-center">
         <img src="/src/assets/star-wars-logo.png" alt="Star Wars logo" className="w-80" />
-        <p className="text-sw-yellow font-bold text-lg tracking-wider">SWAPI CLient</p>
+        <p className="text-sw-yellow font-bold text-lg tracking-wider mt-1">
+          SWAPI CLient
+        </p>
       </div>
-      <div className="w-9" /> {/*Block separator*/}
-      <DarkModeToggle />
+      <div className="flex flex-row justify-between mt-2">
+        <SearchBar />
+        <DarkModeToggle />
+      </div>
     </header>
   );
 }

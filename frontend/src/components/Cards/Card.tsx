@@ -1,23 +1,20 @@
 import cx from 'classnames';
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { characters as characterImages } from '../../assets/images.json';
 import { snakeCasify } from '../../helpers/snakeCasify';
 import { Character } from '../../interfaces/character.interface';
-import { DarkModeContextData } from '../../interfaces/darkMode.interface';
-import { FilmsContextData } from '../../interfaces/films.interface';
 import { imageJsonInterface } from '../../interfaces/json.interface';
-import { DarkModeContext } from '../../providers/DarkMode';
-import { FilmsContext } from '../../providers/Films';
+import { useDarkMode } from '../../providers/DarkMode';
+import { useFilms } from '../../providers/Films';
 
 interface CardProps {
   character: Character;
 }
 
 export function Card({ character }: CardProps) {
-  const { films } = useContext(FilmsContext) as FilmsContextData;
-  const { darkMode } = useContext(DarkModeContext) as DarkModeContextData;
+  const { films } = useFilms();
+  const { darkMode } = useDarkMode();
 
   return (
     <Link
