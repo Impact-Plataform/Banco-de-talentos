@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ProductController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.impact.project.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: ProductController (com.impact.project.controller)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProductController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    70%
+  </span>
+  <span class="absValue">
+    (28/40)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ProductController$$SpringCGLIB$$0</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    70%
+  </span>
+  <span class="absValue">
+    (28/40)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.impact.project.controller;
+&nbsp;
+&nbsp;import com.impact.project.exception.ProductErrorResponse;
+&nbsp;import com.impact.project.exception.ResourceNotFoundException;
+&nbsp;import com.impact.project.model.Product;
+&nbsp;import com.impact.project.service.ProductService;
+&nbsp;import io.swagger.v3.oas.annotations.Operation;
+&nbsp;import io.swagger.v3.oas.annotations.media.Content;
+&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponse;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;import java.util.UUID;
+&nbsp;
+&nbsp;import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+&nbsp;import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+&nbsp;
+&nbsp;@RestController
+<b class="fc">&nbsp;@RequestMapping(&quot;/api&quot;)</b>
+<b class="fc">&nbsp;public class ProductController {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private ProductService productService;
+&nbsp;
+&nbsp;    @Operation(summary = &quot;GET all products&quot;, description = &quot;Returns all products&quot;,
+&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;200&quot;),
+&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;, content = @Content)})
+&nbsp;    @GetMapping(&quot;/products&quot;)
+<b class="nc">&nbsp;    public List&lt;Product&gt; getProducts() {</b>
+<b class="fc">&nbsp;        List&lt;Product&gt; products = productService.getAllProducts();</b>
+<b class="fc">&nbsp;        for (Product product : products) {</b>
+<b class="fc">&nbsp;            UUID id = product.getId();</b>
+<b class="fc">&nbsp;            product.add(linkTo(methodOn(ProductController.class).getProductById(id)).withSelfRel());</b>
+<b class="fc">&nbsp;        }</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(products, HttpStatus.OK).getBody();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Operation(summary = &quot;GET a product by id&quot;, description = &quot;Returns a product as per the id&quot;,
+&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;200&quot;),
+&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;, content = @Content)})
+&nbsp;    @GetMapping(&quot;/products/{id}&quot;)
+<b class="nc">&nbsp;    public ResponseEntity&lt;Product&gt; getProductById(@PathVariable UUID id ) {</b>
+<b class="fc">&nbsp;        if(!productService.checkIfProductIsNull(id)) throw new ResourceNotFoundException(&quot;Product was not found&quot;);</b>
+<b class="nc">&nbsp;        </b>
+<b class="fc">&nbsp;        Product product = productService.getProductById(id);</b>
+<b class="fc">&nbsp;        product.add(linkTo(methodOn(ProductController.class).getProducts()).withRel(&quot;list of products&quot;));</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(product, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Operation(summary = &quot;POST a product&quot;, description = &quot;Returns a product created&quot;,
+&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;201&quot;),
+<b class="nc">&nbsp;                    @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Bad Request&quot;)})</b>
+<b class="nc">&nbsp;    @PostMapping(&quot;/products&quot;)</b>
+&nbsp;    public ResponseEntity&lt;Product&gt; createProduct(@RequestBody Product product) {
+<b class="fc">&nbsp;        Product createdProduct = productService.createProduct(product);</b>
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(createdProduct, HttpStatus.CREATED);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Operation(summary = &quot;PUT a product&quot;, description = &quot;Update a product created&quot;,
+&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;200&quot;),
+<b class="nc">&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;)})</b>
+<b class="nc">&nbsp;    @PutMapping(&quot;/products/{id}&quot;)</b>
+&nbsp;    public ResponseEntity&lt;Product&gt; updateProduct(@PathVariable UUID id, @RequestBody Product product) {
+<b class="fc">&nbsp;        if(!productService.checkIfProductIsNull(id)) throw new ResourceNotFoundException(&quot;Product was not found&quot;);</b>
+&nbsp;        
+<b class="nc">&nbsp;        Product updateProduct = productService.updateProduct(id, product);</b>
+<b class="nc">&nbsp;        return new ResponseEntity&lt;&gt;(updateProduct, HttpStatus.OK);</b>
+&nbsp;    }
+&nbsp;
+<b class="nc">&nbsp;    @Operation(summary = &quot;DELETE a product&quot;, description = &quot;Deleted a product created&quot;,</b>
+<b class="nc">&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;204&quot;),</b>
+<b class="nc">&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;)})</b>
+&nbsp;    @DeleteMapping(&quot;/products/{id}&quot;)
+&nbsp;    public ResponseEntity&lt;Void&gt; deleteProduct(@PathVariable UUID id) {
+<b class="fc">&nbsp;        if(!productService.checkIfProductIsNull(id)) throw new ResourceNotFoundException(&quot;Product was not found&quot;);</b>
+&nbsp;        
+<b class="fc">&nbsp;        productService.deleteProduct(id);</b>
+<b class="fc">&nbsp;        return ResponseEntity.noContent().build();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @ExceptionHandler
+&nbsp;    public ResponseEntity&lt;ProductErrorResponse&gt; handleException(ResourceNotFoundException exc) {
+&nbsp;
+<b class="fc">&nbsp;        ProductErrorResponse error = new ProductErrorResponse();</b>
+&nbsp;
+<b class="fc">&nbsp;        error.setStatus(HttpStatus.NOT_FOUND.value());</b>
+<b class="fc">&nbsp;        error.setMessage(exc.getMessage());</b>
+<b class="fc">&nbsp;        error.setTimeStamp(System.currentTimeMillis());</b>
+&nbsp;
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(error, HttpStatus.NOT_FOUND);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @ExceptionHandler
+&nbsp;    public ResponseEntity&lt;ProductErrorResponse&gt; handleException(Exception exc) {
+&nbsp;
+<b class="fc">&nbsp;        ProductErrorResponse error = new ProductErrorResponse();</b>
+&nbsp;
+<b class="fc">&nbsp;        error.setStatus(HttpStatus.BAD_REQUEST.value());</b>
+<b class="fc">&nbsp;        error.setMessage(exc.getMessage());</b>
+<b class="fc">&nbsp;        error.setTimeStamp(System.currentTimeMillis());</b>
+&nbsp;
+<b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(error, HttpStatus.BAD_REQUEST);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-01-07 21:44</div>
+</div>
+</body>
+</html>

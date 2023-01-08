@@ -1,0 +1,239 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Product</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.impact.project.model</a>
+</div>
+
+<h1>Coverage Summary for Class: Product (com.impact.project.model)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Product</td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (14/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    60%
+  </span>
+  <span class="absValue">
+    (15/25)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Product$HibernateProxy$4HdvpVB6</td>
+  </tr>
+  <tr>
+    <td class="name">Product$HibernateProxy$Dv7bO4Ew</td>
+  </tr>
+  <tr>
+    <td class="name">Product$HibernateProxy$l82dF1fI</td>
+  </tr>
+  <tr>
+    <td class="name">Product$HibernateProxy$xnScdjSv</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    87,5%
+  </span>
+  <span class="absValue">
+    (14/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    60%
+  </span>
+  <span class="absValue">
+    (15/25)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.impact.project.model;
+&nbsp;
+&nbsp;import jakarta.persistence.*;
+&nbsp;import org.jetbrains.annotations.NotNull;
+&nbsp;import org.springframework.hateoas.RepresentationModel;
+&nbsp;
+&nbsp;import java.math.BigDecimal;
+&nbsp;import java.util.Objects;
+&nbsp;import java.util.UUID;
+&nbsp;
+&nbsp;@Entity
+&nbsp;@Table(name = &quot;product&quot;)
+&nbsp;public class Product extends RepresentationModel&lt;Product&gt; {
+&nbsp;
+&nbsp;    @Id
+&nbsp;    @GeneratedValue
+&nbsp;    private UUID id;
+&nbsp;
+&nbsp;    @Column(nullable = false)
+&nbsp;    private String name;
+&nbsp;    
+&nbsp;    @Column
+&nbsp;    private String description;
+&nbsp;    
+&nbsp;    @Column(nullable = false)
+&nbsp;    private BigDecimal price;
+&nbsp;
+&nbsp;    @Column(name = &quot;price_usd&quot;)
+&nbsp;    private BigDecimal priceUSD;
+&nbsp;
+&nbsp;    @Column(name = &quot;price_eur&quot;)
+&nbsp;    private BigDecimal priceEUR;
+&nbsp;
+<b class="fc">&nbsp;    public Product() {</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;
+&nbsp;    public void updatePrices(BigDecimal priceUSD, BigDecimal priceEUR) {
+<b class="fc">&nbsp;        this.priceUSD = priceUSD;</b>
+<b class="fc">&nbsp;        this.priceEUR = priceEUR;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public UUID getId() {
+<b class="fc">&nbsp;        return id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setId(UUID id) {
+<b class="fc">&nbsp;        this.id = UUID.fromString(String.valueOf(id));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getName() {
+<b class="fc">&nbsp;        return name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setName(String name) {
+<b class="fc">&nbsp;        this.name = name;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDescription() {
+<b class="fc">&nbsp;        return description;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setDescription(String description) {
+<b class="fc">&nbsp;        this.description = description;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public BigDecimal getPrice() {
+<b class="fc">&nbsp;        return price;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setPrice(BigDecimal price) {
+<b class="fc">&nbsp;        this.price = price;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public BigDecimal getPriceUSD() {
+<b class="fc">&nbsp;        return priceUSD;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setPriceUSD(BigDecimal priceUSD) {
+<b class="fc">&nbsp;        this.priceUSD = priceUSD;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public BigDecimal getPriceEUR() {
+<b class="fc">&nbsp;        return priceEUR;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setPriceEUR(BigDecimal priceEUR) {
+<b class="fc">&nbsp;        this.priceEUR = priceEUR;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object o) {
+<b class="nc">&nbsp;        if (this == o) return true;</b>
+<b class="nc">&nbsp;        if (o == null || getClass() != o.getClass()) return false;</b>
+&nbsp;
+<b class="nc">&nbsp;        Product product = (Product) o;</b>
+&nbsp;
+<b class="nc">&nbsp;        if (id != product.id) return false;</b>
+<b class="nc">&nbsp;        if (!Objects.equals(name, product.name)) return false;</b>
+<b class="nc">&nbsp;        if (!Objects.equals(description, product.description)) return false;</b>
+<b class="nc">&nbsp;        if (!Objects.equals(price, product.price)) return false;</b>
+<b class="nc">&nbsp;        if (!Objects.equals(priceUSD, product.priceUSD)) return false;</b>
+<b class="nc">&nbsp;        return Objects.equals(priceEUR, product.priceEUR);</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    public @NotNull String toString() {
+<b class="nc">&nbsp;        return &quot;Product{&quot; +</b>
+&nbsp;                &quot;id=&quot; + id +
+&nbsp;                &quot;, name=&#39;&quot; + name + &#39;\&#39;&#39; +
+&nbsp;                &quot;, description=&#39;&quot; + description + &#39;\&#39;&#39; +
+&nbsp;                &quot;, price=&quot; + price +
+&nbsp;                &quot;, priceUSD=&quot; + priceUSD +
+&nbsp;                &quot;, priceEUR=&quot; + priceEUR +
+&nbsp;                &#39;}&#39;;
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-01-07 21:44</div>
+</div>
+</body>
+</html>

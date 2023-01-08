@@ -1,0 +1,138 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CurrencyController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.impact.project.controller</a>
+</div>
+
+<h1>Coverage Summary for Class: CurrencyController (com.impact.project.controller)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CurrencyController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33,3%
+  </span>
+  <span class="absValue">
+    (1/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33,3%
+  </span>
+  <span class="absValue">
+    (1/3)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.impact.project.controller;
+&nbsp;
+&nbsp;import com.impact.project.service.CurrencyService;
+&nbsp;import io.swagger.v3.oas.annotations.Operation;
+&nbsp;import io.swagger.v3.oas.annotations.media.Content;
+&nbsp;import io.swagger.v3.oas.annotations.media.Schema;
+&nbsp;import io.swagger.v3.oas.annotations.responses.ApiResponse;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;import org.springframework.web.reactive.function.client.WebClient;
+&nbsp;import reactor.core.publisher.Mono;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@RequestMapping(value = &quot;/api&quot;)
+<b class="fc">&nbsp;public class CurrencyController {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private CurrencyService currencyService;
+&nbsp;
+&nbsp;    @Operation(summary = &quot;GET all currency&quot;, description = &quot;Returns all currency&quot;,
+&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;200&quot;),
+&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;, content = @Content)})
+&nbsp;    @GetMapping(&quot;/currency&quot;)
+&nbsp;    public Mono&lt;String&gt; getCurrencies() {
+<b class="nc">&nbsp;        return currencyService.getCurrencyAll();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Operation(summary = &quot;GET a currency by symbol&quot;, description = &quot;Returns a currency by symbol&quot;,
+&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;200&quot;),
+&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;, content = @Content)})
+&nbsp;    @GetMapping(&quot;/currency/{symbol}&quot;)
+&nbsp;    public Mono&lt;String&gt; getCurrency(@PathVariable String symbol) {
+<b class="nc">&nbsp;        return currencyService.getCurrencyBySymbol(symbol);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-01-07 21:44</div>
+</div>
+</body>
+</html>
