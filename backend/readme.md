@@ -1,10 +1,19 @@
-# Spring Boot "Microservice" Impact Platafrom Project
+[<img align="right" width="250" height="120" src="https://user-images.githubusercontent.com/23271567/211178068-0ad2732f-9cd1-4f07-81ca-5e8209686070.png">](https://www.plataformatech.com) [**Equipe Plataforma Impact**](https://www.plataformatech.com) <br> <br>
+[<img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white">](https://twitter.com/PlataformaMpact)  
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">](https://www.linkedin.com/company/plataforma-impact) <br> 
+[<img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white">](https://www.facebook.com/plataformaimpact)
+
+
+
+# Spring Boot "Microservice" Impact Platafrom Project  
+
+
 
 This is a sample Java / Maven / Spring Boot (version 3.0.1) application that can be used as a starter for creating a microservice rest.
 
 
 
-## How to Run 
+## How to Run [🔝](#welcome-badges-4-readmemd-profile)
 
 This application is packaged as a war which has Tomcat 10.1.4 embedded. 
 
@@ -22,7 +31,7 @@ Once the application runs you should see something like this
 2023-01-06T14:11:32.778-03:00  INFO 13332 --- [  restartedMain] c.i.project.ImpactProjectApplication     : Started ImpactProjectApplication in 4.978 seconds (process running for 5.462)
 ```
 
-# Indice
+# Indice [🔝](#welcome-badges-4-readmemd-profile)
 
 - [Spring Boot "Microservice" Impact Platafrom Project](#spring-boot--microservice--impact-platafrom-project)
    - [How to Run](#how-to-run)
@@ -31,7 +40,7 @@ Once the application runs you should see something like this
        - [Get endpoints, documentation configurations, etc.](#get-endpoints-documentation-configurations-etc)
        - [Create a product resource](#create-a-product-resource)
        - [list of products](#list-of-products)
-       - [By ID with UUID](#by-id-with-uuid--using-hateoas-to-link-the-urls-to-product-list-)
+       - [By ID with UUID](#by-id-with-uuid)
        - [Update a product resource](#update-a-product-resource)
        - [Delete a product resource](#delete-a-product-resource)
        - [Documentation Swagger](#to-view-swagger-2-api-docs)
@@ -39,7 +48,7 @@ Once the application runs you should see something like this
    - [About Spring Boot](#about-spring-boot)
    - [Running the project with MySQL](#running-the-project-with-mysql)
 
-## About the Service
+## About the Service [🔝](#welcome-badges-4-readmemd-profile)
 
 The service is just a simple products review REST service, that consumes another api of currencies and converts the price of 
 the product at runtime for the two currencies (see more) https://shorturl.at/jxzNP (USD / EUR) for this it was necessary to apply dependencies that work synchronously, 
@@ -66,21 +75,18 @@ Here is what this little application demonstrates:
 
 
 The service has structural applications most used in the development market such as MVC architecture, TDD concept 
-applications, clean Code.
-
-The picture you see the structure:
-
+applications, clean Code. [The picture you see the structure](https://user-images.githubusercontent.com/23271567/211178746-19d6f453-b3ea-4ae4-9743-0431291c0589.png) :point_left:
 
 It was also implementing a unit testing system with JUnit5, which provides a more robust application and less prone to bugs.
 as you saw above there is a command to execute all tests that were successful. and also you can find inside the folder 
-src/main/resource/ResultTest.html where you can see the coverage report, identifying the points where the project still 
+[```htmlReport.index.html```](https://user-images.githubusercontent.com/23271567/211178668-2a27ea8a-32c0-42ed-9c32-2bc11bc8d15e.png) where you can see the coverage report, identifying the points where the project still 
 can be improved, note that you will find inside the resource two files sql file that was used for testing.
 
 
 
 Here are some endpoints you can call:
 
-### Get endpoints, documentation configurations, etc.
+### Get endpoints, documentation configurations, etc. [🔝](#welcome-badges-4-readmemd-profile)
 
 ```
 http://localhost:8080/api/swagger-ui.html
@@ -90,7 +96,7 @@ http://localhost:8080/api/currency
 http://localhost:8080/api/currency/:symbol   // (USD or EUR)
 ```
 
-### Create a product resource
+### Create a product resource [🔝](#welcome-badges-4-readmemd-profile)
 
 ```
 POST /api/products
@@ -107,7 +113,7 @@ RESPONSE: HTTP 201 (Created)
 Location header: http://localhost:8080/api/products/1
 ```
 
-### list of products
+### list of products [🔝](#welcome-badges-4-readmemd-profile)
 
 ```
 GET http://localhost:8080/api/products
@@ -138,7 +144,7 @@ Content: application/json
 }
 ```
 
-### Update a product resource
+### Update a product resource [🔝](#welcome-badges-4-readmemd-profile)
 
 ```
 PUT /api/products/e6ec75a3-cf21-4fa5-864f-2d6144f06b4c
@@ -153,7 +159,7 @@ Content-Type: application/json
 
 RESPONSE: HTTP 204 
 ```
-### Delete a product resource
+### Delete a product resource [🔝](#welcome-badges-4-readmemd-profile)
 
 ```
 DELETE /api/products/e6ec75a3-cf21-4fa5-864f-2d6144f06b4c
@@ -166,7 +172,7 @@ Content: No Content
 
 Run the server and browse to localhost:8080/swagger-ui.html
 
-# About Spring Boot
+# About Spring Boot [🔝](#welcome-badges-4-readmemd-profile)
 
 Spring Boot is an "opinionated" application bootstrapping framework that makes it easy to create new RESTful services (among other types of applications). It provides many of the usual Spring facilities that can be configured easily usually without any XML. In addition to easy set up of Spring Controllers, Spring Data, etc. Spring Boot comes with the Actuator module that gives the application the following endpoints helpful in monitoring and operating the service:
 
@@ -190,7 +196,7 @@ Spring Boot is an "opinionated" application bootstrapping framework that makes i
 
 The 'test' profile runs on H2 in-memory database. To view and query the database you can browse to http://localhost:8080/h2-console. Default username is 'sa' with a blank password. Make sure you disable this in your production profiles. For more, see https://goo.gl/U8m62X
 
-# Running the project with MySQL
+# Running the project with MySQL [🔝](#welcome-badges-4-readmemd-profile)
 
 This project uses an in-memory database so that you don't have to install a database in order to run it. However, converting it to run with another relational database such as MySQL or PostgreSQL is very easy. Since the project uses Spring Data and the Repository pattern, it's even fairly easy to back the same service with MongoDB. 
 
@@ -237,13 +243,17 @@ spring.datasource.initialization-mode=always
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-### ! Important 
+### :bangbang: Important [🔝](#welcome-badges-4-readmemd-profile)   
 
 In this case, I already used MySQL in this project, so if want used mySQL, is not necessary add a dependency.
 if you want used other DB like postgreSQL, is necessessary add to dependency. For more, see https://shorturl.at/iBEYZ
 
 
 
+
+Author                                                                                                                                                     |                                                                                                                                                                                                                                                                         |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [<img src="https://avatars.githubusercontent.com/u/23271567?v=4" width=115><br><sub>@rodrigoml21</sub>](https://github.com/rodriigolima) <br><br> | :computer: [About me](https://about.me/rmls)
 
 
 
