@@ -90,7 +90,7 @@ const FullCardPage = () => {
           )}
         </Main>
       ) : (
-        <h1>Carregando</h1>
+        <h1 style={{ color: "white" }}>Carregando</h1>
       )}
     </>
   );

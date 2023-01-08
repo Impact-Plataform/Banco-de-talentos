@@ -12,13 +12,38 @@ export const Section = styled.section`
 
 export const Cards = styled.section`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   padding: 10px;
-  flex-grow: 1;
+  align-content: flex-start;
 `;
 
+export const ContainerCards = styled.section`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+`;
 export const Container = styled.section`
   display: flex;
   width: 100%;
+`;
+export const Button = styled.button`
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+  margin: 4px;
+  cursor: pointer;
+  &:hover {
+    background-color: purple;
+    color: white;
+  }
+  &.clicked {
+    background-color: purple;
+    color: white;
+  }
+`;
+
+export const Pages = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

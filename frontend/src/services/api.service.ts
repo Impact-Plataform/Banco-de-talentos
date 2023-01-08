@@ -5,6 +5,23 @@ export const api = axios.create({
 });
 
 class ApiService {
+  async getOne(url: string) {
+    const api = axios.create({
+      baseURL: url,
+    });
+    const { data } = await api.get("");
+    return data;
+  }
+
+  async getPeopleByPage(page: number) {
+    const api = axios.create({
+      baseURL: `https://swapi.py4e.com/api/people/?page=${page}`,
+    });
+    const { data } = await api.get("");
+
+    return data;
+  }
+
   async getWithLoop(path: string) {
     let arr: never[] = [];
     let response: any = await api.get(path);
@@ -42,13 +59,6 @@ class ApiService {
   async getAllFilms() {
     let films: any = await this.getWithLoop("/films");
     return films;
-  }
-  async getOne(url: string) {
-    const api = axios.create({
-      baseURL: url,
-    });
-    const { data } = await api.get("");
-    return data;
   }
 }
 
