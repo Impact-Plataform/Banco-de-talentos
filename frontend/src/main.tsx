@@ -8,6 +8,7 @@ import { App } from './App';
 import { CharactersProvider } from './providers/Characters';
 import { DarkModeProvider } from './providers/DarkMode';
 import { FilmsProvider } from './providers/Films';
+import { SpeciesProvider } from './providers/Species';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.render(
       <DarkModeProvider>
         <CharactersProvider>
           <FilmsProvider>
-            <App />
+            <SpeciesProvider>
+              <App />
+            </SpeciesProvider>
           </FilmsProvider>
         </CharactersProvider>
       </DarkModeProvider>
