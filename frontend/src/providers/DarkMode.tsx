@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { createContext, ReactNode, useState } from 'react';
+import { createContext, ReactNode, useContext, useState } from 'react';
 
 import { DarkModeContextData } from '../interfaces/darkMode.interface';
 
@@ -10,7 +10,7 @@ interface DarkModeProps {
 export const DarkModeContext = createContext<DarkModeContextData | null>(null);
 
 export function DarkModeProvider({ children }: DarkModeProps) {
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [darkMode, setDarkMode] = useState<boolean>(true);
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
@@ -32,3 +32,5 @@ export function DarkModeProvider({ children }: DarkModeProps) {
     </DarkModeContext.Provider>
   );
 }
+
+export const useDarkMode = () => useContext(DarkModeContext) as DarkModeContextData;

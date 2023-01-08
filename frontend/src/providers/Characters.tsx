@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useEffect, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
-import { getAllPeople } from '../api/SWAPI';
+import { getByPath } from '../api/SWAPI';
 import { Character, CharactersContextData } from '../interfaces/character.interface';
 
 interface CharactersProps {
@@ -17,12 +17,13 @@ export function CharactersProvider({ children }: CharactersProps) {
   const addPage = () => setCurrentPage((prev) => prev + 1);
 
   useEffect(() => {
-    getAllPeople(currentPage || 1).then((response) => {
-      if (typeof response == 'object') {
-        setCharacters((prev) => (prev ? [...prev, ...response] : response));
-      }
-    });
-  }, [currentPage]);
+    getByPath('people', { page: search ? 1 : currentPage, search }).then(
+      ({ ok, results: res }) => {
+        if (ok && search) setCharacters(res);
+        else if (ok) setCharacters((prev) => (prev ? [...prev, ...res] : res));
+      },
+    );
+  }, [currentPage, search]);
 
   return (
     <CharactersContext.Provider
@@ -32,3 +33,5 @@ export function CharactersProvider({ children }: CharactersProps) {
     </CharactersContext.Provider>
   );
 }
+
+export const useCharacter = () => useContext(CharactersContext) as CharactersContextData;
