@@ -29,28 +29,16 @@ Current scope:     <a href="../../index.html">all classes</a>
   <th class="name">Class</th>
 </tr>
   <tr>
-    <td class="name">ProductRepository$MockitoMock$5WvJFw7h</td>
+    <td class="name">ProductRepository$MockitoMock$BZA2GwN6</td>
   </tr>
   <tr>
-    <td class="name">ProductRepository$MockitoMock$5WvJFw7h$auxiliary$0DJNZ7W4</td>
+    <td class="name">ProductRepository$MockitoMock$BZA2GwN6$auxiliary$c03NCxEw</td>
   </tr>
   <tr>
-    <td class="name">ProductRepository$MockitoMock$5WvJFw7h$auxiliary$Aut0U609</td>
+    <td class="name">ProductRepository$MockitoMock$BZA2GwN6$auxiliary$hof9OQxr</td>
   </tr>
   <tr>
-    <td class="name">ProductRepository$MockitoMock$5WvJFw7h$auxiliary$DxKrHGLg</td>
-  </tr>
-  <tr>
-    <td class="name">ProductRepository$MockitoMock$mIu38vKu</td>
-  </tr>
-  <tr>
-    <td class="name">ProductRepository$MockitoMock$mIu38vKu$auxiliary$3VnsUByr</td>
-  </tr>
-  <tr>
-    <td class="name">ProductRepository$MockitoMock$mIu38vKu$auxiliary$KuKOZfKp</td>
-  </tr>
-  <tr>
-    <td class="name">ProductRepository$MockitoMock$mIu38vKu$auxiliary$x1RtMHSt</td>
+    <td class="name">ProductRepository$MockitoMock$BZA2GwN6$auxiliary$yiHRnpOp</td>
   </tr>
 <tr>
   <td class="name"><strong>Total</strong></td>
@@ -65,6 +53,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 <code class="sourceCode" id="sourceCode">&nbsp;package com.impact.project.repository;
 &nbsp;
 &nbsp;import com.impact.project.model.Product;
+&nbsp;import org.springframework.data.domain.Page;
+&nbsp;import org.springframework.data.domain.Pageable;
 &nbsp;import org.springframework.data.jpa.repository.JpaRepository;
 &nbsp;import org.springframework.stereotype.Repository;
 &nbsp;
@@ -74,7 +64,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;@Repository
 &nbsp;public interface ProductRepository extends JpaRepository&lt;Product, UUID&gt;  {
 &nbsp;    Product findByName(String name);
-&nbsp;
+&nbsp;    Page findAll(Pageable pageable);
 &nbsp;    Optional&lt;Product&gt; findById(UUID id);
 &nbsp;}
 </code>
@@ -100,7 +90,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-01-07 21:44</div>
+    <div style="float:right;">generated on 2023-01-08 00:03</div>
 </div>
 </body>
 </html>

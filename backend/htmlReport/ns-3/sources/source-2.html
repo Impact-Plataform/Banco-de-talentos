@@ -48,10 +48,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    70%
+    93,1%
   </span>
   <span class="absValue">
-    (28/40)
+    (27/29)
   </span>
 </td>
 </tr>
@@ -70,10 +70,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    70%
+    93,1%
   </span>
   <span class="absValue">
-    (28/40)
+    (27/29)
   </span>
 </td>
 </tr>
@@ -105,7 +105,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 &nbsp;
 &nbsp;@RestController
-<b class="fc">&nbsp;@RequestMapping(&quot;/api&quot;)</b>
+&nbsp;@RequestMapping(&quot;/api&quot;)
 <b class="fc">&nbsp;public class ProductController {</b>
 &nbsp;
 &nbsp;    @Autowired
@@ -115,7 +115,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;200&quot;),
 &nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;, content = @Content)})
 &nbsp;    @GetMapping(&quot;/products&quot;)
-<b class="nc">&nbsp;    public List&lt;Product&gt; getProducts() {</b>
+&nbsp;    public List&lt;Product&gt; getProducts() {
 <b class="fc">&nbsp;        List&lt;Product&gt; products = productService.getAllProducts();</b>
 <b class="fc">&nbsp;        for (Product product : products) {</b>
 <b class="fc">&nbsp;            UUID id = product.getId();</b>
@@ -128,9 +128,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;200&quot;),
 &nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;, content = @Content)})
 &nbsp;    @GetMapping(&quot;/products/{id}&quot;)
-<b class="nc">&nbsp;    public ResponseEntity&lt;Product&gt; getProductById(@PathVariable UUID id ) {</b>
+&nbsp;    public ResponseEntity&lt;Product&gt; getProductById(@PathVariable UUID id ) {
 <b class="fc">&nbsp;        if(!productService.checkIfProductIsNull(id)) throw new ResourceNotFoundException(&quot;Product was not found&quot;);</b>
-<b class="nc">&nbsp;        </b>
+&nbsp;        
 <b class="fc">&nbsp;        Product product = productService.getProductById(id);</b>
 <b class="fc">&nbsp;        product.add(linkTo(methodOn(ProductController.class).getProducts()).withRel(&quot;list of products&quot;));</b>
 <b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(product, HttpStatus.OK);</b>
@@ -138,8 +138,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;    @Operation(summary = &quot;POST a product&quot;, description = &quot;Returns a product created&quot;,
 &nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;201&quot;),
-<b class="nc">&nbsp;                    @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Bad Request&quot;)})</b>
-<b class="nc">&nbsp;    @PostMapping(&quot;/products&quot;)</b>
+&nbsp;                    @ApiResponse(responseCode = &quot;400&quot;, description = &quot;Bad Request&quot;)})
+&nbsp;    @PostMapping(&quot;/products&quot;)
 &nbsp;    public ResponseEntity&lt;Product&gt; createProduct(@RequestBody Product product) {
 <b class="fc">&nbsp;        Product createdProduct = productService.createProduct(product);</b>
 <b class="fc">&nbsp;        return new ResponseEntity&lt;&gt;(createdProduct, HttpStatus.CREATED);</b>
@@ -147,8 +147,8 @@ Current scope:     <a href="../../index.html">all classes</a>
 &nbsp;
 &nbsp;    @Operation(summary = &quot;PUT a product&quot;, description = &quot;Update a product created&quot;,
 &nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;200&quot;),
-<b class="nc">&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;)})</b>
-<b class="nc">&nbsp;    @PutMapping(&quot;/products/{id}&quot;)</b>
+&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;)})
+&nbsp;    @PutMapping(&quot;/products/{id}&quot;)
 &nbsp;    public ResponseEntity&lt;Product&gt; updateProduct(@PathVariable UUID id, @RequestBody Product product) {
 <b class="fc">&nbsp;        if(!productService.checkIfProductIsNull(id)) throw new ResourceNotFoundException(&quot;Product was not found&quot;);</b>
 &nbsp;        
@@ -156,9 +156,9 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="nc">&nbsp;        return new ResponseEntity&lt;&gt;(updateProduct, HttpStatus.OK);</b>
 &nbsp;    }
 &nbsp;
-<b class="nc">&nbsp;    @Operation(summary = &quot;DELETE a product&quot;, description = &quot;Deleted a product created&quot;,</b>
-<b class="nc">&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;204&quot;),</b>
-<b class="nc">&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;)})</b>
+&nbsp;    @Operation(summary = &quot;DELETE a product&quot;, description = &quot;Deleted a product created&quot;,
+&nbsp;            responses = {@ApiResponse(description = &quot;Success Operation&quot;, responseCode = &quot;204&quot;),
+&nbsp;                    @ApiResponse(responseCode = &quot;404&quot;, description = &quot;Not found&quot;)})
 &nbsp;    @DeleteMapping(&quot;/products/{id}&quot;)
 &nbsp;    public ResponseEntity&lt;Void&gt; deleteProduct(@PathVariable UUID id) {
 <b class="fc">&nbsp;        if(!productService.checkIfProductIsNull(id)) throw new ResourceNotFoundException(&quot;Product was not found&quot;);</b>
@@ -214,7 +214,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2023-01-07 21:44</div>
+    <div style="float:right;">generated on 2023-01-08 00:03</div>
 </div>
 </body>
 </html>
