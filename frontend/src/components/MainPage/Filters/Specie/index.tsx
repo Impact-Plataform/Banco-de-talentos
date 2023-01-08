@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Person from "../../../../model/person.model";
 import { Div, List, ListItem } from "./../style";
-const species = require("../../../../apiSpecies.json");
+import apiService from "../../../../services/api.service";
 
 const Specie = (props: {
   persons: Person[];
@@ -10,6 +10,13 @@ const Specie = (props: {
   updateFilterActive: Function;
 }) => {
   const { persons, updatePersons, active, updateFilterActive } = props;
+
+  const [species, setSpecies] = useState([]);
+  useEffect(() => {
+    apiService.getAllSpecies().then((data) => {
+      setSpecies(data);
+    });
+  }, [species]);
 
   const filterPersons = (filterItem: string) => {
     let filteredPersons: Person[] = persons.filter((person: Person) => {
@@ -23,7 +30,7 @@ const Specie = (props: {
     updatePersons(filteredPersons);
   };
 
-  return (
+  return species.length > 0 ? (
     <Div>
       <h2>Espécies</h2>
       <List>
@@ -42,6 +49,8 @@ const Specie = (props: {
         })}
       </List>
     </Div>
+  ) : (
+    <></>
   );
 };
 

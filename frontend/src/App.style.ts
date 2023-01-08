@@ -18,5 +18,5 @@ export const Header = styled.header`
 export const Liink = styled(Link)`
   color: #fff;
   margin: 5px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 `;

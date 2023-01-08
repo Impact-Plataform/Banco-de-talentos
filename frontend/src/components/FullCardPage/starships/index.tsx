@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Content, DetailItemContainer, Item } from "./../style";
-const starships = require("../../../apiStarships.json");
+import apiService from "../../../services/api.service";
 const Starships = (props: { personStarships: any }) => {
   const { personStarships } = props;
-  const persStarships = starships.filter((item: any) => {
-    for (let starship of personStarships) {
-      if (starship === item.url) return true;
-    }
-    return false;
-  });
-  return persStarships.length > 0 ? (
+
+  const [starships, setStarships]: any = useState([]);
+
+  useEffect(() => {
+    const array: any = [];
+    const setArray = async () => {
+      for (let starshipUrl of personStarships) {
+        const starship = await apiService.getOne(starshipUrl);
+        array.push(starship);
+      }
+    };
+    setArray().then(() => {
+      setStarships(array);
+    });
+  }, [personStarships]);
+
+  return starships.length > 0 ? (
     <DetailItemContainer>
       <Content>
         <h2>Naves</h2>
         <Content>
-          {persStarships.map((item: any) => {
+          {starships.map((item: any) => {
             return <Item>{item.name}</Item>;
           })}
         </Content>

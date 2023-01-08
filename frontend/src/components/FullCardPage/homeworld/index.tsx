@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Content, DetailItemContainer, Item } from "./../style";
-const homweworlds = require("../../../apiPlanets.json");
+import apiService from "../../../services/api.service";
 
 const Homeworld = (props: { persHomeworld: any }) => {
   const { persHomeworld } = props;
-  const homeworld = homweworlds.filter((item: any) => {
-    return item.url === persHomeworld;
-  });
-  return (
+
+  const [homeworld, setHomeWorld]: any = useState(null);
+
+  useEffect(() => {
+    apiService.getOne(persHomeworld).then((planet) => {
+      setHomeWorld(planet);
+    });
+  }, [persHomeworld]);
+
+  return homeworld ? (
     <DetailItemContainer>
       <Content>
         <h2>Planeta Natal</h2>
         <Content>
-          {homeworld.map((item: any) => {
-            return <Item>{item.name}</Item>;
-          })}
+          <Item>{homeworld.name}</Item>
         </Content>
       </Content>
     </DetailItemContainer>
+  ) : (
+    <></>
   );
 };
 

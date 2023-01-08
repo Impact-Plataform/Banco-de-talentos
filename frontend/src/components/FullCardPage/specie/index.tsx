@@ -1,25 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Content, DetailItemContainer, Item } from "./../style";
-const species = require("../../../apiSpecies.json");
+import apiService from "../../../services/api.service";
 const Specie = (props: { personSpecie: any }) => {
   const { personSpecie } = props;
-  const persSpecies = species.filter((item: any) => {
-    for (let specie of personSpecie) {
-      if (specie === item.url) return true;
-    }
-    return false;
-  });
-  return (
+
+  const [specie, setSpecie]: any = useState(null);
+
+  useEffect(() => {
+    apiService.getOne(personSpecie).then((speccie) => {
+      setSpecie(speccie);
+    });
+  }, [personSpecie]);
+
+  return specie ? (
     <DetailItemContainer>
       <Content>
         <h2>Espécie</h2>
         <Content>
-          {persSpecies.map((item: any) => {
-            return <Item>{item.name}</Item>;
-          })}
+          <Item>{specie.name}</Item>
         </Content>
       </Content>
     </DetailItemContainer>
+  ) : (
+    <></>
   );
 };
 

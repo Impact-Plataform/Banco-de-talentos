@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Person from "../../../../model/person.model";
 import { Div, List, ListItem } from "./../style";
-const films = require("../../../../apiFilms.json");
+import apiService from "../../../../services/api.service";
 
 const Film = (props: {
   persons: Person[];
@@ -10,6 +10,13 @@ const Film = (props: {
   updateFilterActive: Function;
 }) => {
   const { persons, updatePersons, active, updateFilterActive } = props;
+
+  const [films, setFilms] = useState([]);
+  useEffect(() => {
+    apiService.getAllFilms().then((data) => {
+      setFilms(data);
+    });
+  }, [films]);
 
   const filterPersons = (filterItem: string) => {
     let filteredPersons: Person[] = persons.filter((person: Person) => {
@@ -23,7 +30,7 @@ const Film = (props: {
     updatePersons(filteredPersons);
   };
 
-  return (
+  return films.length > 0 ? (
     <Div>
       <h2>Filmes</h2>
       <List>
@@ -42,6 +49,8 @@ const Film = (props: {
         })}
       </List>
     </Div>
+  ) : (
+    <></>
   );
 };
 

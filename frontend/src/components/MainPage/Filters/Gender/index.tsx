@@ -1,7 +1,7 @@
 import React from "react";
 import Person from "../../../../model/person.model";
 import { Div, List, ListItem } from "./../style";
-const genders = ["male", "female", "n/a"];
+const genders = ["male", "female", "n/a", "none"];
 
 const Gender = (props: {
   persons: Person[];
