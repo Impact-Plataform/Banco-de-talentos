@@ -11,9 +11,9 @@
 
 This is a sample Java / Maven / Spring Boot (version 3.0.1) application that can be used as a starter for creating a microservice rest.
 
+Read this in other languages: Português-BR
 
-
-## How to Run [🔝](#welcome-badges-4-readmemd-profile)
+## How to Run [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 This application is packaged as a war which has Tomcat 10.1.4 embedded. 
 
@@ -31,24 +31,22 @@ Once the application runs you should see something like this
 2023-01-06T14:11:32.778-03:00  INFO 13332 --- [  restartedMain] c.i.project.ImpactProjectApplication     : Started ImpactProjectApplication in 4.978 seconds (process running for 5.462)
 ```
 
-# Indice [🔝](#welcome-badges-4-readmemd-profile)
+# Indice [🔝](#spring-boot--microservice--impact-platafrom-project)
 
-- [Spring Boot "Microservice" Impact Platafrom Project](#spring-boot--microservice--impact-platafrom-project)
-   - [How to Run](#how-to-run)
-     - [About the Service](#about-the-service)
-     - 
-       - [Get endpoints, documentation configurations, etc.](#get-endpoints-documentation-configurations-etc)
-       - [Create a product resource](#create-a-product-resource)
-       - [list of products](#list-of-products)
-       - [By ID with UUID](#by-id-with-uuid)
-       - [Update a product resource](#update-a-product-resource)
-       - [Delete a product resource](#delete-a-product-resource)
-       - [Documentation Swagger](#to-view-swagger-2-api-docs)
-      
-   - [About Spring Boot](#about-spring-boot)
-   - [Running the project with MySQL](#running-the-project-with-mysql)
+- [Spring Boot "Microservice" Impact Platafrom Project](#spring-boot--microservice--impact-platafrom-project-)
+   - [How to Run](#how-to-run-)
+     - [About the Service](#about-the-service-)
+       - [Get endpoints, documentation configurations, etc.](#get-endpoints-documentation-configurations-etc-)
+       - [Create a product resource](#create-a-product-resource-)
+       - [list of products](#list-of-products-)
+       - [By ID with UUID](#by-id-with-uuid-)
+       - [Update a product resource](#update-a-product-resource-)
+       - [Delete a product resource](#delete-a-product-resource-)
+       - [Documentation Swagger](#to-view-swagger-2-api-docs-) 
+   - [About Spring Boot](#about-spring-boot-)
+   - [Running the project with MySQL](#running-the-project-with-mysql-)
 
-## About the Service [🔝](#welcome-badges-4-readmemd-profile)
+## About the Service [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 The service is just a simple products review REST service, that consumes another api of currencies and converts the price of 
 the product at runtime for the two currencies (see more) https://shorturl.at/jxzNP (USD / EUR) for this it was necessary to apply dependencies that work synchronously, 
@@ -86,7 +84,7 @@ can be improved, note that you will find inside the resource two files sql file 
 
 Here are some endpoints you can call:
 
-### Get endpoints, documentation configurations, etc. [🔝](#welcome-badges-4-readmemd-profile)
+### Get endpoints, documentation configurations, etc. [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 ```
 http://localhost:8080/api/swagger-ui.html
@@ -96,7 +94,7 @@ http://localhost:8080/api/currency
 http://localhost:8080/api/currency/:symbol   // (USD or EUR)
 ```
 
-### Create a product resource [🔝](#welcome-badges-4-readmemd-profile)
+### Create a product resource [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 ```
 POST /api/products
@@ -113,7 +111,7 @@ RESPONSE: HTTP 201 (Created)
 Location header: http://localhost:8080/api/products/1
 ```
 
-### list of products [🔝](#welcome-badges-4-readmemd-profile)
+### list of products [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 ```
 GET http://localhost:8080/api/products
@@ -144,7 +142,7 @@ Content: application/json
 }
 ```
 
-### Update a product resource [🔝](#welcome-badges-4-readmemd-profile)
+### Update a product resource [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 ```
 PUT /api/products/e6ec75a3-cf21-4fa5-864f-2d6144f06b4c
@@ -159,7 +157,7 @@ Content-Type: application/json
 
 RESPONSE: HTTP 204 
 ```
-### Delete a product resource [🔝](#welcome-badges-4-readmemd-profile)
+### Delete a product resource [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 ```
 DELETE /api/products/e6ec75a3-cf21-4fa5-864f-2d6144f06b4c
@@ -168,11 +166,11 @@ Content-Type: No content
 RESPONSE: HTTP 204 
 Content: No Content
 ```
-### To view Swagger 2 API docs
+### To view Swagger 2 API docs [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 Run the server and browse to localhost:8080/swagger-ui.html
 
-# About Spring Boot [🔝](#welcome-badges-4-readmemd-profile)
+# About Spring Boot [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 Spring Boot is an "opinionated" application bootstrapping framework that makes it easy to create new RESTful services (among other types of applications). It provides many of the usual Spring facilities that can be configured easily usually without any XML. In addition to easy set up of Spring Controllers, Spring Data, etc. Spring Boot comes with the Actuator module that gives the application the following endpoints helpful in monitoring and operating the service:
 
@@ -192,17 +190,17 @@ Spring Boot is an "opinionated" application bootstrapping framework that makes i
 
 **/trace** Displays trace information (by default the last few HTTP requests).
 
-### To view your H2 in-memory datbase
+### To view your H2 in-memory datbase [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 The 'test' profile runs on H2 in-memory database. To view and query the database you can browse to http://localhost:8080/h2-console. Default username is 'sa' with a blank password. Make sure you disable this in your production profiles. For more, see https://goo.gl/U8m62X
 
-# Running the project with MySQL [🔝](#welcome-badges-4-readmemd-profile)
+# Running the project with MySQL [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 This project uses an in-memory database so that you don't have to install a database in order to run it. However, converting it to run with another relational database such as MySQL or PostgreSQL is very easy. Since the project uses Spring Data and the Repository pattern, it's even fairly easy to back the same service with MongoDB. 
 
 Here is what you would do to back the services with MySQL, for example: 
 
-### In pom.xml add: 
+### In pom.xml add:  [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 ```
         <dependency>
@@ -211,7 +209,7 @@ Here is what you would do to back the services with MySQL, for example:
         </dependency>
 ```
 
-### Append this to the end of application.yml: 
+### Append this to the end of application.yml:  [🔝](#spring-boot--microservice--impact-platafrom-project)
 
 ```
 ---
@@ -233,7 +231,7 @@ spring:
 hotel.service:
   name: 'test profile:'
 ```
-### Append this to the end of application.properties:
+### Append this to the end of application.properties: [🔝](#spring-boot--microservice--impact-platafrom-project)
 ```
 spring.datasource.driver-class-name = com.mysql.cj.jdbc.Driver
 spring.datasource.url = jdbc:mysql://localhost:3306/desafioimpact2?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
@@ -243,7 +241,7 @@ spring.datasource.initialization-mode=always
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-### :bangbang: Important [🔝](#welcome-badges-4-readmemd-profile)   
+### :bangbang: Important [🔝](#spring-boot--microservice--impact-platafrom-project)   
 
 In this case, I already used MySQL in this project, so if want used mySQL, is not necessary add a dependency.
 if you want used other DB like postgreSQL, is necessessary add to dependency. For more, see https://shorturl.at/iBEYZ
