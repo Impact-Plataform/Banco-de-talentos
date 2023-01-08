@@ -2,6 +2,7 @@ import cx from 'classnames';
 
 import { useDarkMode } from '../../providers/DarkMode';
 import { DarkModeToggle } from './DarkModeToggle';
+import { Filters } from './Filters';
 import { SearchBar } from './SearchBar';
 
 export function Header() {
@@ -20,10 +21,11 @@ export function Header() {
           SWAPI CLient
         </p>
       </div>
-      <div className="flex flex-row justify-between mt-2">
+      <div className="flex flex-row justify-around mt-2">
         <SearchBar />
         <DarkModeToggle />
       </div>
+      <Filters />
     </header>
   );
 }

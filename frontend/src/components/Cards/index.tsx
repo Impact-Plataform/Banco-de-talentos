@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react';
 
-import { useCharacter } from '../../providers/Characters';
+import { useCharacters } from '../../providers/Characters';
 import { Card } from './Card';
 
 export function Cards() {
   const loaderRef = useRef<HTMLDivElement>(null);
-  const { characters, addPage } = useCharacter();
+  const { characters, addPage } = useCharacters();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entities) => {

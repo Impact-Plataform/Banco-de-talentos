@@ -34,4 +34,4 @@ export function CharactersProvider({ children }: CharactersProps) {
   );
 }
 
-export const useCharacter = () => useContext(CharactersContext) as CharactersContextData;
+export const useCharacters = () => useContext(CharactersContext) as CharactersContextData;

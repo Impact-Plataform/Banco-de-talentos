@@ -1,13 +1,13 @@
 import cx from 'classnames';
 import { FormEvent, useState } from 'react';
 
-import { useCharacter } from '../../providers/Characters';
+import { useCharacters } from '../../providers/Characters';
 import { useDarkMode } from '../../providers/DarkMode';
 
 export function SearchBar() {
   const [char, setChar] = useState<string>('');
 
-  const { setSearch } = useCharacter();
+  const { setSearch } = useCharacters();
   const { darkMode } = useDarkMode();
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
