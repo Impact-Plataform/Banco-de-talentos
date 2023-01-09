@@ -1,0 +1,9 @@
+{
+  "name": "impact-backend-challenge",
+  "version": "1.0.0",
+  "description": "Back-end challenge provided by Impact to join its talent pool",
+  "main": "./src/index.js",
+  "repository": "https://github.com/brunonasc74/Banco-de-talentos",
+  "author": "brunonasc74 <bruno.hpn74@gmail.com>",
+  "license": "MIT"
+}
