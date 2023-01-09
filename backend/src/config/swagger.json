@@ -3,7 +3,7 @@
 	"info": {
 		"title": "Impacta",
 		"version": "1.0.0",
-		"description": "Impacta backend challenge"
+		"description": "This document outlines the API of the Impact backend challenge. It includes the structure for a 'Product' object, which represents a product that is being sold. It also includes the structure for a 'Currency' object, which represents a currency exchange rate and the conversion between different currencies to BRL. The API allows for the creation, reading, updating, and deletion of products, as well as the retrieval of current currency exchange rates."
 	},
 	"components": {
 		"schemas": {
