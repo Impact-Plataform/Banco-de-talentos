@@ -1,9 +1,29 @@
 {
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "axios": "^1.2.2",
+    "express": "^4.18.2",
+    "express-validation": "^4.1.0",
+    "node-cache": "^5.1.2",
+    "path": "^0.12.7",
+    "sequelize": "^6.28.0",
+    "sequelize-cli": "^6.5.2",
+    "sqlite3": "^5.1.4",
+    "swagger-ui-express": "^4.6.0"
+  },
+  "devDependencies": {
+    "supertest": "^6.3.3",
+    "vitest": "^0.26.3"
+  },
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "vitest"
+  },
   "name": "impact-backend-challenge",
   "version": "1.0.0",
   "description": "Back-end challenge provided by Impact to join its talent pool",
   "main": "./src/index.js",
-  "repository": "https://github.com/brunonasc74/Banco-de-talentos",
+  "repository": "https://github.com/brunonasc74/Banco-de-talentos/tree/bruno-nascimento-backend",
   "author": "brunonasc74 <bruno.hpn74@gmail.com>",
   "license": "MIT"
 }
