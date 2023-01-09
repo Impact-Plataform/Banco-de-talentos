@@ -45,15 +45,15 @@ export class Product {
     return this._id;
   }
 
-  public setProps({ name, price, quantity }: inputUpdatedProps) {
+  public setProps({ name, price, quantity }: updatedProps) {
     this.props.name = name;
     this.props.price = price;
     this.props.quantity = quantity;
   }
 }
 
-type inputUpdatedProps = {
+interface updatedProps {
   name: string;
   price: number;
   quantity: number;
-};
+}

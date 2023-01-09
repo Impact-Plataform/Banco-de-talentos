@@ -9,7 +9,7 @@ export interface ProductsRepository {
   delete(name: string): Promise<void>;
 }
 
-export type updatedProps = {
+export interface updatedProps {
   id: string;
   data: {
     name: string;
