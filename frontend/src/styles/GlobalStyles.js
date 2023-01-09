@@ -19,14 +19,10 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     ${({ theme }) => css`
-      background: ${(props) =>
-        props.color ? props.color : theme.colors.secondaryDarkColor};
+      background: ${theme.colors.secondaryDarkColor};
       color: ${theme.colors.lightColor};
       font-family: ${theme.fonts.primaryFont};
       min-height: 100vh;
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 2em;
     `}
   }
 `;

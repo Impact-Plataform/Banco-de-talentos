@@ -4,15 +4,15 @@ import { useCharactersContext } from "../../contexts";
 import { Heading } from "../Heading";
 import P from "prop-types";
 import { motion } from "framer-motion";
+import Image from "../../assets/pictures.json";
 import {
   CardBox,
   CharactersInfo,
-  InfoDetailsWrapper,
-  InfoDetails,
   FilmsWrapper,
   ListFilms,
   Films,
   SeeMoreLink,
+  CardImage,
 } from "./styles";
 import Info from "./Info";
 
@@ -31,8 +31,6 @@ export const Card = ({ character }) => {
     name,
     gender,
     birth_year,
-    mass,
-    height,
     species,
     skin_color,
     hair_color,
@@ -55,6 +53,7 @@ export const Card = ({ character }) => {
     <motion.div layout>
       <CardBox layout onClick={handleClick}>
         <header>
+          <CardImage src={Image.characters[name]} alt={name} />
           <Heading level={2} align="center" color="yellowColor" weight="700">
             {name}
           </Heading>
@@ -73,15 +72,6 @@ export const Card = ({ character }) => {
             />
           </CharactersInfo>
         </header>
-
-        <InfoDetailsWrapper>
-          <InfoDetails>
-            <Info title="Height" data={height} />
-          </InfoDetails>
-          <InfoDetails>
-            <Info title="Mass" data={mass} />
-          </InfoDetails>
-        </InfoDetailsWrapper>
 
         <CharactersInfo open={showMoreInfo}>
           <Info title="Skin" data={skin_color} />

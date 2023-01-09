@@ -30,9 +30,21 @@ export const CharactersInfo = styled.div`
   gap: 1em;
   text-align: center;
   place-content: center;
-  margin-top: 1em;
+  margin-top: ${(props) => (props.open ? ".5em" : "")} ;
   opacity: ${(props) => (props.open ? 1 : 0)};
+  margin-bottom: ${(props) => (props.open ? "1em" : "")};
   transition: all .5s ease-in-out;
+`;
+
+export const CardImage = styled.img`
+  width: 150px;
+  height: 150px;
+  display: flex;
+  margin: 10px auto;
+  border: 2px solid ${theme.colors.secondaryLightColor};
+  border-radius: 50%;
+  object-fit: cover;
+  transition:  0.5s ease-out;
 `;
 
 export const CardBox = styled(motion.div)`
@@ -47,7 +59,7 @@ export const CardBox = styled(motion.div)`
   transition:  0.5s ease-out;
   overflow: visible;
 
-  &:hover {
+  &:hover, &:hover ${CardImage} {
     border-color: ${theme.colors.yellowColor};
     -webkit-box-shadow: 0px 0px 20px 1px #ffbb763f;
     box-shadow: 0px 0px 20px 1px #ffbb763f;
@@ -58,7 +70,7 @@ export const CardBox = styled(motion.div)`
     }
   }
 
-  &:focus-within {
+  &:focus-within, &:focus-within ${CardImage} {
     border-color: ${theme.colors.yellowColor};
     -webkit-box-shadow: 0px 0px 20px 1px #ffbb763f;
     box-shadow: 0px 0px 20px 1px #ffbb763f;
@@ -66,31 +78,11 @@ export const CardBox = styled(motion.div)`
       transform: translate(-50%, 50%);
       opacity: 1;
     }
-
     ${CharactersInfo} {
       opacity: 1;
+      margin-bottom: 1em;
     }
   }
-`;
-
-export const InfoDetailsWrapper = styled.div`
-  display: flex;
-  gap: 1em;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const InfoDetails = styled.div`
-  width: 80px;
-  height: 80px;
-  border-radius: 50px;
-  background-color: ${theme.colors.lightColor};
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: ${theme.colors.primaryDarkColor};
 `;
 
 export const FilmsWrapper = styled.div`

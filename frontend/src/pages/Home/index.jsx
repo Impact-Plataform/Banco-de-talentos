@@ -20,6 +20,7 @@ import {
   DetailText,
 } from "./styles";
 import "./styles.css";
+import { GridContainer } from "../../components/GridContainer";
 
 const Home = () => {
   const {
@@ -96,7 +97,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <GridContainer>
       <Logo>
         <img src={Illustrations.StarWars} alt="Star Wars" />
       </Logo>
@@ -174,7 +175,7 @@ const Home = () => {
         />
       )}
       <ScrollUp />
-    </div>
+    </GridContainer>
   );
 };
 

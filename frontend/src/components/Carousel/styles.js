@@ -25,7 +25,7 @@ export const CarouselBox = styled.div`
 `;
 
 export const CarouselItem = styled.div`
-  padding: 10px;
+  padding: 1em;
   display: flex;
 `;
 
@@ -35,4 +35,5 @@ export const ButtonCarousel = styled.button`
   color: ${theme.colors.lightColor};
   background-color: transparent;
   font-size: ${typeScale.header3};
+  padding: 0 .2em;
 `;

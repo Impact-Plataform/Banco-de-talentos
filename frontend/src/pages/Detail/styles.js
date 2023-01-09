@@ -12,6 +12,7 @@ export const HeadingDetail = styled.h1`
   font-size: ${typeScale.header1};
   color: ${theme.colors.secondaryDarkColor};
   -webkit-text-stroke: 2px ${theme.colors.yellowColor};
+  text-align: center;
 `;
 
 export const HeaderInfoWrapper = styled.div`
@@ -47,10 +48,11 @@ export const DetailCharacters = styled.div`
 `;
 
 export const GoBackButton = styled.button`
-  background: ${theme.colors.secondaryLightColor};
+  background: #61616164;
   padding: 0 .3em;
+  margin: 1em 2em;
   border-radius: 10px;
-  border: none;
+  border: 2px solid ${theme.colors.lightColor};
   color: inherit;
   font-size: ${typeScale.header3};
   cursor: pointer;
@@ -62,7 +64,21 @@ export const GoBackButton = styled.button`
   }
 
   &:hover {
-    opacity: 0.7;
+    color: ${theme.colors.yellowColor};
+    border-color: ${theme.colors.yellowColor};
   }
 
+`;
+
+export const CharacterPicture = styled.div`
+  height: 65vh;
+  background: linear-gradient(0deg, ${
+    theme.colors.secondaryDarkColor
+  } 5%, rgba(32, 31, 32, 0) 100%),
+  url(${(props) => props.url}) center center fixed no-repeat;
+  background-size: cover;
+
+  @media(max-width: 600px) {
+    height: 50vh;
+  }
 `;

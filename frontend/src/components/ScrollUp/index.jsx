@@ -1,6 +1,13 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BackToTopIcon } from "../../assets";
 import { BackToTopButton } from "./styles";
+
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
 export const ScrollUp = () => {
   const [scrollUp, setScrollUp] = useState(false);
@@ -12,13 +19,6 @@ export const ScrollUp = () => {
       } else {
         setScrollUp(false);
       }
-    });
-  }, []);
-
-  const scrollToTop = useCallback(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
     });
   }, []);
 
