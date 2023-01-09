@@ -18,7 +18,19 @@ const getCurrencyData = async () => {
 	return data;
 };
 
+const assignUsdAndEur = async (productObj, productPrice) => {
+	const data = await getCurrencyData();
+	const usd = +(productPrice / +data.USD.bid).toFixed(2);
+	const eur = +(productPrice / +data.EUR.bid).toFixed(2);
+	return {
+		...productObj,
+		priceUSD: usd,
+		priceEUR: eur
+	};
+};
+
 module.exports = {
 	fetchEconomiaAPI,
-	getCurrencyData
+	getCurrencyData,
+	assignUsdAndEur
 };
