@@ -10,8 +10,8 @@ const Card = ({
   genero,
 }) => {
   return (
-    <div className="row">
-  <div className="col-sm-4 mb-3 mb-sm-0">
+    <div className="row w-100">
+  <div className="col-sm-4 mb-3 mb-sm-0 p-4">
     <div className="card">
       <div className="card-body">
         <h5 className="card-title">{nome}</h5>
