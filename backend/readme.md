@@ -53,11 +53,13 @@ Para o desenvolvimento da API foi utilizado JavaScript com NodeJS, Express, o ba
     "nodemon": "^2.0.20",
     "redis": "^4.5.1",
     "sqlite": "^4.1.2",
-    "sqlite3": "^5.1.4"
+    "sqlite3": "^5.1.4",
+    "swagger-jsdoc": "^6.2.7",
+    "swagger-ui-express": "^4.6.0"
+  },
   },
 ```
 Todas dependências necessárias estão <a href = 'https://github.com/luanyoliveira16/Banco-de-talentos/blob/luany-oliveira-backend/backend/package.json'>neste arquivo</a>. 
-
 
 ## Produtos
 
@@ -94,18 +96,29 @@ Utilizar o método HTTP DELETE no caminho <b>"url da api" + /product/:id</b>.
 <br>
 
 ## Consulta API Economia
+
+- <strong> EXEMPLOS PARA PESQUISA </strong>:  https://economia.awesomeapi.com.br/last/USD-BRL || https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL  ...
+<br>
+
 Utilizar o método HTTP GET no caminho <b>"url da api" + /currency/:currency</b>.
 <br>
 
-- <strong> EXEMPLOS PARA PESQUISA </strong>:  https://economia.awesomeapi.com.br/last/USD-BRL || https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL  ...
+- <strong> COTAÇÃO DE TODAS AS MOEDAS </strong>
+<br>
+Utilizar o método HTTP GET no caminho <b>"url da api" + /currency/all</b>.
 <br>
 
 - <strong> IMPORTANTE </strong>: A resposta da requisição aparecerá no console, assim como as atividades do cache.
 <br>
 
+<img src='assets/quotes1.png'>
+
 ### Página com preços
 
 Basta abrir o arquivo index.html dentro da pasta view. A cada requisição o próprio navegador armazena as repostas no seu LocalStorage.
+
+<img src='assets/quotes2.png'>
+<img src='assets/quotes3.png'>
 
 ## Inicialização da aplicação via terminal
 
@@ -167,6 +180,8 @@ E
 ```
 npm run test
 ```
+
+## Obrigada!
 
 
 

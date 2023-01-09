@@ -1,6 +1,6 @@
 import axios from "axios";
-
 import { VIA_CURRENCY_URL } from '../../config/secrets.js'
+
 
 class viaCurrencyClient{
   async findByCurrency(currency){
@@ -22,3 +22,4 @@ class viaCurrencyClient{
 
 
 export default new viaCurrencyClient();
+
