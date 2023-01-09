@@ -6,7 +6,7 @@ const Card = ({
   peso,
   corDoCabelo,
   roupa,
-  corDCosOlhos,
+  corDosOlhos,
   especie,
   genero,
   filmes
@@ -21,7 +21,7 @@ const Card = ({
         <p className="card-text">{altura}</p>
         <p className="card-text">{peso}</p>
         <p className="card-text">{corDoCabelo}</p>
-        <p className="card-text">{corDCosOlhos}</p>
+        <p className="card-text">{corDosOlhos}</p>
         <p className="card-text">{roupa}</p>
         <p className="card-text">{especie}</p>
         <p className="card-text">{filmes}</p>
