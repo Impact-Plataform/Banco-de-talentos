@@ -32,7 +32,7 @@
   {
     "name": "Owen Lars",
     "quote": "You can waste time with your friends when your chores are done",
-    "image": "https://vignette.wikia.nocookie.net/starwars/images/e/eb/OwenCardTrader.png",
+    "image": "https://cdn.discordapp.com/attachments/361609071649882114/1060873187933552760/own.png",
     "description": "Owen Lars was a moisture farmer on Tatooine who was married to Beru Whitesun. He and his girlfriend, Beru, adopted Luke Skywalker after he was found by his father, Obi-Wan Kenobi, in a speeder. Owen died tragically after being attacked by Sand People."
   },
   {
@@ -343,7 +343,7 @@
     "description": "Mas Amedda is the Vice Chancellor of the Galactic Senate. He is a loyal follower of Chancellor Palpatine and is ultimately captured and executed by Darth Vader during the Great Jedi Purge."
   },
   {
-    "name": "Gregar Typho",
+    "name":"Gregar Typho",  
     "quote": "It would be an honour to serve you, Your Highness.",
     "image": "https://vignette.wikia.nocookie.net/starwars/images/5/52/Gregar_Typho.jpg",
     "description": "Gregar Typho is the Head of Security for Padmé Amidala in The Phantom Menace. He is a skilled and loyal friend who defends Padmé from her enemies, but is ultimately killed by Darth Vader during the Battle of Mustafar."
