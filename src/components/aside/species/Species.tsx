@@ -11,14 +11,14 @@ import ModalContainer from './Modal';
 
 
 export default function Species() {
-  const { isLoading, handleSpecies } = useContext(AppContext);
+  const { handleSpecies, isLoadingSpecies, setIsLoadingSpecies } = useContext(AppContext);
   const [species, setSpecies] = useState<ISpecie[]>([]);
-
   
 
   useEffect(() => {
-    storeAllSpecies(getAllSpecies, setSpecies)
-  }, [isLoading])
+    storeAllSpecies(getAllSpecies, setSpecies, setIsLoadingSpecies)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoadingSpecies])
 
   return(
     <SpeciesContainer>

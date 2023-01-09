@@ -1,4 +1,4 @@
-export const storeAllSpecies = async (serviceSpecies: any, setState: any) => {
+export const storeAllSpecies = async (serviceSpecies: any, setState: any, setIsLoadingSpecies: any) => {
   let data = [];
   const storeSpecies = JSON.parse(localStorage.getItem('species') as string);
   
@@ -11,6 +11,7 @@ export const storeAllSpecies = async (serviceSpecies: any, setState: any) => {
   }
   if (storeSpecies !== null) 
     setState(storeSpecies)
+    setIsLoadingSpecies(false)
 }
 
 

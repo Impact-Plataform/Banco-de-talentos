@@ -38,8 +38,8 @@ export const handleCharactersFilter = (
 }
 
 
-export const createdId = (url: string) => {
-  const removeMidText = url.replace("https://swapi.dev/api/people/", "");
+export const createdId = (baseUrl: string, url: string) => {
+  const removeMidText = url.replace(baseUrl, "");
   let result = "";
   if (removeMidText[1] !== "/") {
     result = removeMidText.substring(0, 2)

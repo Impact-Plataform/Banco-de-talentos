@@ -3,6 +3,9 @@ import { ICharacter } from '../types/Characters.types';
 import { createdId, handleGetPlanet } from '../utils';
 
 
+const urlPeople = "https://swapi.dev/api/people/";
+
+
 export const getNamePlanet = async (planet: string): Promise<string | []> => {
   try {
     const response = await api.get(planet.replace("https://swapi.dev/api/", ""));
@@ -22,8 +25,7 @@ export const getCharactersPerPage = async (page: number):Promise<ICharacter[]> =
     const responseResult = responseData.results.map( async (character: ICharacter) => {
       return {
         ...character,
-        id: createdId(character.url),
-        homeworld: await handleGetPlanet(character.homeworld),
+        id: createdId(urlPeople, character.url),
       }
     });
     const responsePromiseAll = await Promise.all(responseResult)
