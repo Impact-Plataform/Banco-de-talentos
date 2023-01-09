@@ -1,5 +1,4 @@
 import notFoundGif from '../../assets/notFound.gif'
-import videoBackground from '../../assets/background.mp4';
 import './index.css'
 import Background from '../Background';
 
