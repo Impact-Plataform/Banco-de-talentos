@@ -1,5 +1,5 @@
 // essa função serve para dar capturar o valor de cada option do select
-export async function getOptions(setDynamicState: React.Dispatch<React.SetStateAction<any>>, url: any) {
+export async function getOptions(setDynamicState: React.Dispatch<React.SetStateAction<any>>, url: string) {
     let nextPage = url;
     let optionsArray = [{value: '', label: 'Select your option'}, { value: 'all', label: 'All' }];
     let hasResults = false;
