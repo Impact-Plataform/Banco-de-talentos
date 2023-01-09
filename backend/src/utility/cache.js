@@ -18,12 +18,12 @@ const getCurrencyData = async () => {
 	return data;
 };
 
-const assignUsdAndEur = async (productObj, productPrice) => {
+const assignUsdAndEur = async (object, objectPrice) => {
 	const data = await getCurrencyData();
-	const usd = +(productPrice / +data.USD.bid).toFixed(2);
-	const eur = +(productPrice / +data.EUR.bid).toFixed(2);
+	const usd = +(objectPrice / +data.USD.bid).toFixed(2);
+	const eur = +(objectPrice / +data.EUR.bid).toFixed(2);
 	return {
-		...productObj,
+		...object,
 		priceUSD: usd,
 		priceEUR: eur
 	};
