@@ -33,21 +33,20 @@ export async function handleCharacters(pagNumber: number, setCharactersList: Rea
 
 
 async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: CharacterTYPE) {
-
-    charactersList.forEach(async (character: any) => {
-
+    let processedItems: number = 0;
+    charactersList.forEach(async (character: any, index: number, array: any) => {
+        processedItems += 1;
         characterDetailsHandler(character)
 
-        if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
-            setTimeout(() => {
-                filterData(charactersList, filterOptions, setCharactersList)
-            }, 500)
-        } else {
-            setTimeout(() => {
+        if (processedItems == array.length) {
+            if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
+                setTimeout(() => {
+                    filterData(charactersList, filterOptions, setCharactersList)
+                }, 500)
+            } else {
                 setCharactersList(charactersList);
-            }, 300)
+            }
         }
-
     }
 
     );
