@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import CharacterCard from '../../Components/CharacterCard';
-import { getTotalPages, handleCharacters } from '../../Services';
+import { getTotalPages } from '../../Services';
 import { CharacterTYPE } from '../../Types';
 import './index.css';
 import Sidebar from '../../Components/SideBar';
@@ -10,7 +10,7 @@ import { getDetailedCharacter } from '../../Services/characterDetailed';
 import Background from '../../Components/Background';
 
 function Home() {
-    const [charactersList, setCharactersList] = useState<CharacterTYPE[]>([]);
+    const [charactersList, setCharactersList] = useState<string | CharacterTYPE[]>([]);
 
     const [totalPages, setTotalPages] = useState<number>(0);
 
@@ -20,7 +20,7 @@ function Home() {
 
     const [filmsList, setFilmsList] = useState<CharacterTYPE[]>([]);
 
-    const [searchValue, setSearchValue] = useState('');
+    const [searchValue, setSearchValue] = useState<string>('');
 
     const [firstLoad, setFirstLoad] = useState(false);
 
@@ -36,7 +36,7 @@ function Home() {
 
     useEffect(() => {
         setFirstLoad(true);
-    }, [page]);
+    }, [page])
 
     useEffect(() => {
         const recoverCharacter = async () => {
@@ -46,66 +46,64 @@ function Home() {
         if (firstLoad) {
             recoverCharacter();
         }
-    }, [searchValue]);
+
+    }, [searchValue])
+
 
     function renderPagesBar() {
+
         let elements = [];
 
         for (let i = 1; i <= totalPages; i++) {
             elements.push(
-                <h3 className='page__container' page-key={i} onClick={renderKey}>
-                    {i}
-                </h3>
+                <h3 className='page__container' page-key={i} onClick={renderKey}>{i}</h3>
             );
         }
         return elements;
     }
 
     function renderKey(event: any) {
-        if (page === parseInt(event.target.getAttribute('page-key'))) return;
+        if (page === parseInt(event.target.getAttribute('page-key'))) return
 
-        setPage(parseInt(event.target.getAttribute('page-key')));
+        setPage(parseInt(event.target.getAttribute('page-key')))
         setCharactersList([]);
     }
 
     function renderContent() {
-        if (charactersList.length > 0 && typeof charactersList !== 'string') {
+        if (charactersList.length > 0 && typeof charactersList != 'string') {
             return (
                 charactersList.map((item: CharacterTYPE) => {
                     return (
                         <CharacterCard character={item} />
-                    );
-                })
-            );
+                    )
+                }))
         } else if (charactersList.length === 0) {
-            return <Loading />;
-        } else if (typeof charactersList === 'string' && charactersList === 'Characters not found') {
-            return <div>Nothing was found.</div>;
+            return <Loading />
+        } else if (typeof charactersList === 'string' && charactersList === 'Character Not Found') {
+            return (
+                <div>
+                    <h1>Nothing was found</h1>
+                </div>)
         }
-    }
 
+    }
     if (totalPages <= 0) {
-        return <Loading />;
+        return <Loading />
     }
 
     return (
         <div className="main__content">
-            <Background />
+            <Background overlayEnabled={true} />
             <div className='main__cards'>
-                    <Sidebar
-                        pagNumber={page}
-                        setCharactersState={setCharactersList}
-                        speciesList={speciesList}
-                        filmsList={filmsList}
-                    />
+                <Sidebar
+                    pagNumber={page}
+                    setCharactersState={setCharactersList}
+                    speciesList={speciesList}
+                    filmsList={filmsList}
+                />
                 <div className="card__content">
                     <div className="search__card">
-                        <input
-                            onChange={(e) => setSearchValue(e.target.value)}
-                            className='input__search'
-                            type="text"
-                            placeholder='Search for a character'
-                        />
+                        <input onChange={(e) => setSearchValue(e.target.value)} className='input__search' type="text" placeholder='Search for a character' />
                     </div>
                     <div className="card__grid">
                         {renderContent()}
@@ -118,7 +116,7 @@ function Home() {
             <div>
             </div>
         </div>
-    );
+    )
 }
 
 export default Home;
