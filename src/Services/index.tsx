@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Dispatch } from 'react';
-import {  CharacterTYPE } from '../Types';
+import { CharacterTYPE } from '../Types';
 import { characterDetailsHandler } from './characterDetailsHandler';
 import { filterData } from './filterOptions';
 
@@ -12,20 +12,16 @@ export async function handleCharacters(pagNumber: number, setCharactersList: Rea
 
             response.data.results.forEach((character: CharacterTYPE) => charactersArray.push(character));
 
-            // caso exista algum filtro ativo
             if (filterOptions.gender || filterOptions.specie || filterOptions.film) {
                 let nextPage = response.data.next;
-                // enquanto existir próxima página (enquanto next page não for null)
                 while (nextPage) {
-                    //pegue a resposta
+
                     const res = await fetch(nextPage);
                     const { next, results } = await res.json();
 
-                    // adicione ao array
                     results.forEach(async (result: CharacterTYPE) => {
                         charactersArray.push(result)
                     });
-                    // passa para a próxima página
                     nextPage = next;
                 }
                 promisesDealer(charactersArray, setCharactersList, filterOptions)
@@ -39,15 +35,19 @@ export async function handleCharacters(pagNumber: number, setCharactersList: Rea
 async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: CharacterTYPE) {
 
     charactersList.forEach(async (character: any) => {
+
         characterDetailsHandler(character)
 
-        if (filterOptions.gender || filterOptions.species || filterOptions.film) {
-            filterData(charactersList, filterOptions, setCharactersList);
+        if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
+            setTimeout(() => {
+                filterData(charactersList, filterOptions, setCharactersList)
+            }, 500)
         } else {
             setTimeout(() => {
                 setCharactersList(charactersList);
             }, 300)
         }
+
     }
 
     );
