@@ -1,30 +1,39 @@
-export interface CharacterTYPE  {
-    name: string;
-    height: number;
-    mass: number;
-    setCharactersList: React.Dispatch<React.SetStateAction<string>>;
-    homeworld: string;
-    films: Array<string>;
-    charactersList: string[];
-    image: string;
-    birth_year: string;
-    gender: string;
-    quote: string;
-    specie: string;
-    film: string;
-    species: string;
-}
-
-export interface Character {
-   character: CharacterTYPE;
-}
-
-export interface IInputWrapperProps {
-    label?: string;
-    required?: boolean;
-    minimizedLabel?: boolean;
+export interface CharacterTYPE {
+	name: string;
+	height: string;
+	mass: string;
+	hair_color: string;
+	skin_color: string;
+	eye_color: string;
+	birth_year: string;
+	gender: string;
+	homeworld: string;
+	films: string[];
+	species: string[];
+	vehicles: string[];
+	starships: string[];
+	created: string;
+	edited: string;
+	url: string;
+    image?: string;
+    quote?: string;
     description?: string;
-    error?: string;
-    wrapperStyle?: React.CSSProperties;
-    children?: JSX.Element|JSX.Element[];
-  }
+    film: string;
+    data: any;
+}
+
+
+export interface CharacterDetails {
+    name: string;
+    quote: string;
+    image: string;
+    description: string;
+}
+
+export interface FilmType {
+    name?: string;
+    image?: string
+}
+export interface PropBackground {
+    overlayEnabled: boolean;
+}
