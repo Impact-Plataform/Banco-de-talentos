@@ -4,20 +4,19 @@ import { getDetailedCharacter } from '../../Services/characterDetailed';
 import './index.css'
 import Loading from '../../Components/Loading';
 import CharacterNotFound from '../../Components/CharacterNotFound';
-import videoBackground from '../../assets/background.mp4';
 import { CharacterTYPE } from '../../Types';
+import Background from '../../Components/Background';
 
 function CharacterDetails() {
-
     let userId = useParams();
-    const [detailedCharacter, setDetailedCharacter] = useState<CharacterTYPE[]>([]);
+    const [detailedCharacter, setDetailedCharacter] = useState<any>([]);
 
     useEffect(() => {
-        const recoverCharacter = async () => {
+        const getDetailedCharacterData = async () => {
             const character = await getDetailedCharacter(userId.id, setDetailedCharacter);
         }
 
-        recoverCharacter();
+        getDetailedCharacterData();
     }, [])
 
 
@@ -29,14 +28,9 @@ function CharacterDetails() {
         return <CharacterNotFound />
     }
 
-    console.log(detailedCharacter);
-
     return (
         <div>
-              <div className="video__details">
-                <video autoPlay={true} loop={true} muted={true} src={videoBackground}></video>
-            </div>
-            <div className="overlay__details"></div>
+            <Background overlayEnabled={false} />
             {typeof detailedCharacter != 'string' &&
                 <div className='character-detailed__space'>
                     <img src={detailedCharacter[0].image} className="details__img" />
@@ -60,15 +54,29 @@ function CharacterDetails() {
                             <p>{detailedCharacter[0].mass} kg</p>
                         </div>
                         <div className='character-detailed__container'>
-                            <h1>Specie</h1>
+                            <h1>Species</h1>
                             <p>{detailedCharacter[0].species}</p>
                         </div>
-                        
                     </div>
                 </div>
             }
+            <div className='character__summary'>
+                <h1>About {detailedCharacter[0].name}</h1>
+                <p>{detailedCharacter[0].description}</p>
+            </div>
+            <div className='films__container'>
+                {detailedCharacter[0].filmsDetails.map((item: CharacterTYPE) => {
+                    return (
+                        <div className='unique__film'>
+                            <h2>{item.name}</h2>
+                            <img className='films__img' src={item.image} />
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
 
 export default CharacterDetails;
+
