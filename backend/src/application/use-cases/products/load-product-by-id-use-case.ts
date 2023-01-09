@@ -1,25 +1,25 @@
-import { Product } from "@prisma/client";
-import { AppError } from "../../../shared/errors/app-error";
-import { ProductsRepository } from "../../repositories/products-repository";
+import { Product } from '@prisma/client'
+import { AppError } from '../../../shared/errors/app-error'
+import { ProductsRepository } from '../../repositories/products-repository'
 
 interface LoadProductByIdRequest {
-  productId: string;
+  productId: string
 }
 
 interface LoadProductByIdResponse {
-  product: Product;
+  product: Product
 }
 
 export class LoadProductByIdUseCase {
-  constructor(private productsRepository: ProductsRepository) {}
+  constructor (private readonly productsRepository: ProductsRepository) {}
 
-  async execute({ productId }: LoadProductByIdRequest): Promise<LoadProductByIdResponse> {
-    const product = await this.productsRepository.loadById(productId);
+  async execute ({ productId }: LoadProductByIdRequest): Promise<LoadProductByIdResponse> {
+    const product = await this.productsRepository.loadById(productId)
 
     if (!product) {
-      throw new AppError("Product not found", 404);
+      throw new AppError('Product not found', 404)
     }
-    
-    return { product };
+
+    return { product }
   }
 }

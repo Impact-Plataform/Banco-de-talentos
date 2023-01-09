@@ -9,7 +9,7 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "migrate:dev": "npx prisma migrate dev",
-    "lint": "eslint --fix"
+    "lint": "eslint . --ext .ts"
   },
   "keywords": [],
   "author": "",
