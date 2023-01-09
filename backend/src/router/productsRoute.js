@@ -7,13 +7,14 @@ const {
 } = require('../controllers/ProductController');
 const { Router } = require('express');
 const router = Router();
+const joi = require('../utility/joiValidation');
+const { validate } = require('express-validation');
 
 router
 	.get('/Products', getAllProducts)
-	.post('/Products', createProduct)
+	.post('/Products', validate(joi.validateProduct), createProduct)
 	.get('/Products/:id', getOneProduct)
-	.put('/Products/:id', editProduct)
-	.put('/Products/:id', editProduct)
+	.put('/Products/:id', validate(joi.validateProduct), editProduct)
 	.delete('/Products/:id', deleteProduct);
 
 module.exports = router;
