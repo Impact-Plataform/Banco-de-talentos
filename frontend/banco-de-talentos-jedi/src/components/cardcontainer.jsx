@@ -1,4 +1,4 @@
-import Card from "./card.jsx"
+import Stardex from "./stardex"
 
 const CardContainer = (props)=>{
     try{
@@ -11,18 +11,10 @@ const CardContainer = (props)=>{
                 if(element.gender == "n/a"){
                     element.gender = "genderless"
                 }
-                return <Card 
+                return <Stardex 
                 key={index}
+                index={index}
                 name={element.name}
-                species={element.species}
-                mass={element.mass}
-                height={element.height}
-                hair_color={element.hair_color}
-                skin_color={element.skin_color}
-                eye_color={element.eye_color}
-                birth_year={element.birth_year}
-                gender={element.gender}
-                films={element.films}
                 />
             })
             }
