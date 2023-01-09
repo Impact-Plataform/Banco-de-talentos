@@ -225,9 +225,9 @@ E
 npm run test
 ```
 
-## Inicialização da aplicação via terminal
+## Swagger
 
-Documentação no Swagger: api/api-doc
+api/api-doc
 
 ## Obrigada!
 
