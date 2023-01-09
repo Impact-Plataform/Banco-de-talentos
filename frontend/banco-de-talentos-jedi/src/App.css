@@ -1,0 +1,107 @@
+@font-face {
+  font-family: "Jedi";
+  src: url(./assets/Starjedi.ttf);
+}
+
+@font-face {
+  font-family: "Jedi2";
+  src: url(./assets/Starjhol.ttf);
+}
+
+.hide{
+  display: none;
+}
+
+body{
+  background-image: url(./assets/star-sky-fundo-de-estrelas-do-espaco-particulas-de-brilho_160081-317.jpg) ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading{
+  color: yellow;
+  font-family: "Jedi";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card{
+  color: yellow;
+  border-radius: 30px;
+  box-shadow: 1px 1px 10px 8px #d5df0d91;
+  margin: 1vw;
+  width: 30vw;
+  min-width: 300px;
+  max-width: 350px;
+}
+
+b{
+  font-family: "Jedi2";
+}
+
+p{
+  margin: 10px
+}
+
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 97vw;
+  height: auto;
+}
+
+main{
+  color: yellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font-family: "Jedi";
+  margin-bottom: 0.2em;
+}
+
+span{
+  margin-top: 10px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0  rgba(255, 0, 0, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 0, 0, 0);
+  }
+}
+
+.loadingAnimation{
+  width: 100px;
+  animation: pulse 2.0s linear infinite;
+  border-radius: 50%;
+}
+
+button{
+  background-color: #18242D;
+  color: yellow;
+  font-family: "Jedi";
+  border-radius: 30px;
+  border: 2px solid yellow;
+}
+
+button:hover{
+  background-color: yellow;
+  color: #18242D;
+  font-family: "Jedi";
+  border-radius: 30px;
+  border: 2px solid #18242D;
+}
