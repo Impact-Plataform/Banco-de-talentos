@@ -21,5 +21,6 @@ export interface ICharacterProps {
   img: string,
   name: string,
   height: string,
-  homeworld: string | Promise<any>,
+  birth_year: string,
+  mass: string,
 }

@@ -57,7 +57,8 @@ export default function CharactersList({ characters }: Props) {
           img={`https://starwars-visualguide.com/assets/img/characters/${character.id}.jpg`}
           name={character.name}
           height={character.height}
-          homeworld={ character.homeworld }
+          birth_year={ character.birth_year }
+          mass={ character.mass}
         />
       )) }
       <ButtonBackCharacters disabled={ isDisabledBack } onClick={ (e) => handlePerPage(page, e.target) } value="back">Volta</ButtonBackCharacters>
