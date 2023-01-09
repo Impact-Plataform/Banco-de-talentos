@@ -8,7 +8,6 @@ describe('Product', () => {
       price: 55.99,
       quantity: 10
     }
-
     const product = new Product(productsProps)
 
     expect(product).toBeTruthy()
