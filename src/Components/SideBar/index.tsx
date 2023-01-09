@@ -11,12 +11,14 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber }: any)
         { value: 'all', label: 'All' },
         { value: 'male', label: 'Male' },
         { value: 'female', label: 'Female' },
+        { value: 'hermaphrodite', label: 'Hermaphrodite' },
+        { value: 'none', label: 'None' },
         { value: 'n/a', label: 'N/A' }
     ];
 
     const filterOptionsHolder = {
         gender: '',
-        specie: '',
+        species: '',
         film: '',
     };
 
@@ -35,6 +37,7 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber }: any)
     }, [choosedOptions, pagNumber])
 
 
+    console.log(choosedOptions)
 
     function handleChange(e: any, selectName: any) {
         setChoosedOptions({
