@@ -1,0 +1,4 @@
+export const LOAD_FILTER = "LOAD_FILTER";
+export const UPDATE_FILTER = "UPDATE_FILTER";
+export const FILTER_CHARACTERS = "FILTER_CHARACTERS";
+export const CLEAR_FILTERS = "CLEAR_FILTERS";

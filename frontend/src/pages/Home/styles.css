@@ -1,0 +1,34 @@
+.filterBy {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+
+.filterBy img {
+  width: 14px;
+  height: 14px;
+}
+
+
+.filterBy p {
+  display: block;
+}
+
+@media(max-width: 780px) {
+  .filterBy p {
+    display: none;
+  }
+}
+
+@media(max-width: 750px) {
+  .filterBy p {
+    display: block;
+  }
+}
+
+@media(max-width: 430px) {
+  #title {
+    font-size: 1.4rem;
+    letter-spacing: 7px;
+  }
+}
