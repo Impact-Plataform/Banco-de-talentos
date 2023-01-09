@@ -106,7 +106,7 @@
 }
 
 .main__video {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%; 
@@ -125,7 +125,7 @@
 .main__overlay {
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -371,12 +371,6 @@
 
     }
 
-    .main__video video {
-      position: absolute;
-      right: 0;
-      bottom: 1;
-    }
-
   }
 }
 
@@ -410,7 +404,7 @@
     }
 
     .card__content {
-      width: 90%;
+      width: 90%; 
       height: 100vh;
       display: flex;
       flex-direction: column;
@@ -467,16 +461,7 @@
   ::placeholder {
     font-size: 30px;
   }
-  
-  .main__video {
-    height: 520vh;
-  }
 
-  .main__overlay {
-    height: 520vh;
-
-  }
-  
   
  
 }
