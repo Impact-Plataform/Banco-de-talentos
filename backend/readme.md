@@ -97,16 +97,15 @@ Utilizar o método HTTP DELETE no caminho <b>"url da api" + /product/:id</b>.
 
 ## Consulta API Economia
 
-- <strong> EXEMPLOS PARA PESQUISA </strong>:  https://economia.awesomeapi.com.br/last/USD-BRL || https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL  ...
-<br>
+- <strong> COTAÇÃO DE MOEDAS ESPECÍFICAS </strong>: 
 
 Utilizar o método HTTP GET no caminho <b>"url da api" + /currency/:currency</b>.
 <br>
+Exemplos: https://economia.awesomeapi.com.br/last/USD-BRL || https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL  ...
 
 - <strong> COTAÇÃO DE TODAS AS MOEDAS </strong>
-<br>
+
 Utilizar o método HTTP GET no caminho <b>"url da api" + /currency/all</b>.
-<br>
 
 - <strong> IMPORTANTE </strong>: A resposta da requisição aparecerá no console, assim como as atividades do cache.
 <br>
