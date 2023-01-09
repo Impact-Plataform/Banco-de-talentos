@@ -7,7 +7,9 @@ const Card = ({
   corDoCabelo,
   roupa,
   corDCosOlhos,
+  especie,
   genero,
+  filmes
 }) => {
   return (
     <div className="row w-100">
@@ -21,6 +23,8 @@ const Card = ({
         <p className="card-text">{corDoCabelo}</p>
         <p className="card-text">{corDCosOlhos}</p>
         <p className="card-text">{roupa}</p>
+        <p className="card-text">{especie}</p>
+        <p className="card-text">{filmes}</p>
         <a href="#" className="btn btn-primary">Ver mais</a>
       </div>
     </div>
