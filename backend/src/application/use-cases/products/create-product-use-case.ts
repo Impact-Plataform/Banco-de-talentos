@@ -1,17 +1,21 @@
 import { AppError } from "../../../shared/errors/app-error";
-import { Product } from "../../models/product";
+import { Product } from "../../entities/product";
 import { ProductsRepository } from "../../repositories/products-repository";
 
-interface CreateProductDTO {
+interface CreateProductRequest {
   name: string;
   price: number;
   quantity: number;
 }
 
+interface CreateProductResponse {
+  product: Product;
+}
+
 export class CreateProductUseCase {
   constructor(private productsRepository: ProductsRepository) {}
 
-  async execute({ name, price, quantity }: CreateProductDTO): Promise<Product> {
+  async execute({ name, price, quantity }: CreateProductRequest): Promise<CreateProductResponse> {
     const productAlreadyExists = await this.productsRepository.loadByName(name);
 
     if (productAlreadyExists) {
@@ -25,6 +29,6 @@ export class CreateProductUseCase {
     });
     await this.productsRepository.create(product);
 
-    return product;
+    return { product };
   }
 }

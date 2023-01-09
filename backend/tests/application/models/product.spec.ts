@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { Product } from "../../../src/application/models/product"; 
+import { Product } from "../../../src/application/entities/product"; 
 
 describe('Product', () => {
   it('should be able to create a product', () => {

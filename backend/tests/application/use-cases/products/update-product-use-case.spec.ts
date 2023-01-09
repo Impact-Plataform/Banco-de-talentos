@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import { CreateProductUseCase } from "../../../../src/application/use-cases/products/create-product-use-case";
 import { UpdateProductUseCase } from "../../../../src/application/use-cases/products/update-product-use-case";
 import { AppError } from "../../../../src/shared/errors/app-error";
-import { randomUUID } from "node:crypto";
 import { InMemoryProductsRepository } from "../../repositories/in-memory-products-repository";
 
 describe("Delete products", () => {
@@ -17,9 +16,11 @@ describe("Delete products", () => {
       quantity: 3,
     });
 
-    const { id } = await productsRepository.loadByName("Mouse - Red Dragon");
+    const { id: productId } = await productsRepository.loadByName(
+      "Mouse - Red Dragon"
+    );
     await updateProducts.execute({
-      id,
+      productId,
       data: {
         name: "Mouse - Red Dragon",
         price: 50,
@@ -29,7 +30,7 @@ describe("Delete products", () => {
 
     const [product] = await productsRepository.load();
 
-    expect(product.id).toBe(id);
+    expect(product.id).toBe(productId);
     expect(product.price).toBe(50);
     expect(product.quantity).toBe(10);
   });
@@ -47,7 +48,7 @@ describe("Delete products", () => {
 
     expect(
       updateProducts.execute({
-        id: randomUUID(),
+        productId: "any_id",
         data: {
           name: "Mouse - Red Dragon",
           price: 50,

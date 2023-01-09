@@ -1,6 +1,6 @@
-import express, { NextFunction, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
-import { AppError } from "./shared/errors/app-error";
+import { AppError } from "../../shared/errors/app-error";
 
 const app = express();
 
@@ -17,10 +17,6 @@ app.use((err: Error, _req: Request, res: Response) => {
     status: "error",
     message: `Internal server error - ${err.message}`,
   });
-});
-
-app.get("/", (_request, response) => {
-  return response.json({ message: "hello world" });
 });
 
 export { app };

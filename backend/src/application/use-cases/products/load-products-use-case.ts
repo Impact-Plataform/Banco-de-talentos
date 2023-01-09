@@ -1,11 +1,15 @@
-import { Product } from "../../models/product";
+import { Product } from "../../entities/product";
 import { ProductsRepository } from "../../repositories/products-repository";
+
+interface LoadProductsResponse {
+  products: Product[];
+}
 
 export class LoadProductsUseCase {
   constructor(private productsRepository: ProductsRepository) {}
 
-  async execute(): Promise<Product[]> {
+  async execute(): Promise<LoadProductsResponse> {
     const products = await this.productsRepository.load();
-    return products;
+    return { products };
   }
 }

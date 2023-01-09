@@ -30,7 +30,8 @@ describe("Load products", () => {
     products.forEach(async (product) => {
       await createProduct.execute(product);
     });
-    const allProducts = await loadProducts.execute();
+    
+    const { products: allProducts } = await loadProducts.execute();
 
     expect(allProducts).toHaveLength(3);
   });

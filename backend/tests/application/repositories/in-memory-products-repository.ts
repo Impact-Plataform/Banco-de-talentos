@@ -1,4 +1,4 @@
-import { Product } from "../../../src/application/models/product";
+import { Product } from "../../../src/application/entities/product";
 import {
   ProductsRepository,
   updatedProps,
@@ -30,9 +30,9 @@ export class InMemoryProductsRepository implements ProductsRepository {
     productUpdate.setProps({ ...data });
   }
 
-  async delete(name: string): Promise<void> {
+  async delete(productId: string): Promise<void> {
     const productsUpdated = this.products.filter(
-      (product) => product.name !== name
+      (product) => product.id !== productId
     );
     this.products = productsUpdated;
   }

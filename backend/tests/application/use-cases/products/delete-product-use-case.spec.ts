@@ -27,7 +27,11 @@ describe("Delete products", () => {
       await createProduct.execute(product);
     }
 
-    await deleteProducts.execute("Mouse - Red Dragon");
+    const productDeleted = await productsRepository.loadByName(
+      "Mouse - Red Dragon"
+    );
+
+    await deleteProducts.execute({ productId: productDeleted.id });
 
     const allProducts = await productsRepository.load();
 
@@ -45,7 +49,7 @@ describe("Delete products", () => {
     }
 
     expect(
-      deleteProducts.execute("Televisão 42 polegadas")
+      deleteProducts.execute({ productId: "any_id" })
     ).rejects.toBeInstanceOf(AppError);
   });
 });
