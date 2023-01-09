@@ -1,4 +1,6 @@
+const yup = require('yup');
 const { assignUsdAndEur } = require('../utility/cache');
+const { validateRequest } = require('../utility/yupValidation');
 const db = require('../models');
 
 class ProductController {
@@ -22,7 +24,8 @@ class ProductController {
 	// @route  POST /Products
 	static async createProduct(req, res) {
 		try {
-			const newProduct = req.body;
+			const validatedData = await validateRequest(req);
+			const newProduct = validatedData;
 			newProduct.priceBRL = Math.round(newProduct.priceBRL * 100) / 100;
 			await db.Product.create(newProduct);
 
@@ -31,7 +34,12 @@ class ProductController {
 				productInfo: newProduct
 			});
 		} catch (err) {
-			res.status(400).send(err.message);
+			if (err instanceof yup.ValidationError) {
+				const errorMessage = err.inner.map((err) => err.message).join(', ');
+				res.status(400).send({ validationFailed: errorMessage });
+			} else {
+				res.status(400).send(err.message);
+			}
 		}
 	}
 	// @desc   Return selected product
@@ -59,7 +67,8 @@ class ProductController {
 	static async editProduct(req, res) {
 		const { id } = req.params;
 		try {
-			const newInfo = req.body;
+			const validatedData = await validateRequest(req);
+			const newInfo = validatedData;
 			newInfo.priceBRL = Math.round(newInfo.priceBRL * 100) / 100;
 			await db.Product.update(newInfo, { where: { id: +id } });
 			const updatedProduct = await db.Product.findOne({ where: { id: +id } });
@@ -73,7 +82,12 @@ class ProductController {
 				updatedProductInfo: updatedProduct
 			});
 		} catch (err) {
-			res.status(400).send(err.message);
+			if (err instanceof yup.ValidationError) {
+				const errorMessage = err.inner.map((err) => err.message).join(', ');
+				res.status(400).send({ validationFailed: errorMessage });
+			} else {
+				res.status(400).send(err.message);
+			}
 		}
 	}
 	// @desc   Delete selected product
