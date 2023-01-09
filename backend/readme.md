@@ -44,7 +44,7 @@ Para o desenvolvimento da API foi utilizado JavaScript com NodeJS, Express, o ba
 git clone https://github.com/luanyoliveira16/Banco-de-talentos.git
 ```
 
-Em seguida, entre na pasta backend utilizando o seguinte comando no terminal:
+Em seguida, entre nas pastas Banco-de-talentos e backend utilizando os seguintes comandos no terminal:
 
 ```
 cd Banco-de-talentos
@@ -101,7 +101,6 @@ npm run dev
     "sqlite3": "^5.1.4",
     "swagger-jsdoc": "^6.2.7",
     "swagger-ui-express": "^4.6.0"
-  },
   },
 ```
 Todas dependências necessárias estão <a href = 'https://github.com/luanyoliveira16/Banco-de-talentos/blob/luany-oliveira-backend/backend/package.json'>neste arquivo</a>. 
@@ -163,52 +162,6 @@ Basta abrir o arquivo index.html dentro da pasta view. A cada requisição o pr�
 
 <img src='assets/quotes2.png'>
 <img src='assets/quotes3.png'>
-
-## Inicialização da aplicação via terminal
-
-```
-git clone https://github.com/luanyoliveira16/Banco-de-talentos.git
-```
-
-Em seguida, entre na pasta backend utilizando o seguinte comando no terminal:
-
-```
-cd Banco-de-talentos
-cd backend
-```
-
-Depois
-
-```
-git checkout luany-oliveira-backend
-```
-
-E, por fim, instale todas as dependências necessárias:
-
-```
-npm i
-```
-
-<br>
-
-
-É necessário que o REDIS esteja sendo executado. De forma simples você pode instalar o REDIS na sua máquina através dos seguintes links:
-<br>
-
-- <strong> <a href='https://github.com/microsoftarchive/redis/releases'> WINDOWS </a> </strong> Após extrair os arquivos do ZIP, basta abrir o <em>redis-serve.exe</em>.
-<br>
-
-- <strong> <a href='https://redis.io/docs/getting-started/installation/install-redis-on-linux/'> LINUX </a> </strong>
-
-
-<br>
-<br>
-
-Em seguida:
-
-```
-npm run dev
-```
 
 > ## Testes Unitários
 
