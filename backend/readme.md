@@ -1,60 +1,62 @@
-# Desafio para integrar o banco de talentos como Desenvolvedor Back-end
+# Impact Plataform - Programa Jedi
 
-Este desafio tem como objetivo te avaliar como desenvolvedor Back-end;
+Welcome to my project! This challenge is intended by Impact Plataform to evaluate me as a Back-end developer.
 
-## Sobre o desafio
-Este é um desafio, não um teste de faculdade, então há várias respostas corretas.
+This API allows you to manage products and retrieve current currency exchange rates. It includes endpoints for creating, reading, updating, and deleting products, as well as for retrieving current exchange rates for various currencies. Please see the API documentation (/api-docs) for more details on the structure and usage of these endpoints.
 
-Daremos a você alguns requisitos que devem ser cumpridos e pelos quais você será avaliado, mas você é livre para escolher um método de solução.
+## [API Link](https://jedi-backend-challenge-production.up.railway.app/)
 
-O que esperamos aprender com você com este desafio:
+## Running this project locally
 
-- Seu estilo de trabalho.
-- Como você pensa e resolve problemas.
-- Como você se comunica.
+```bash
+# with yarn
+git clone git@github.com:brunonasc74/Banco-de-talentos.git
+cd .\Banco-de-talentos\backend
+git checkout bruno-nascimento-backend
+yarn
+yarn start
 
-## Descrição do Desafio
-Crie uma API REST, que responda os seguintes métodos:
+# with npm
+git clone git@github.com:brunonasc74/Banco-de-talentos.git
+cd .\Banco-de-talentos\backend
+git checkout bruno-nascimento-backend
+npm install
+npm start
+```
 
-[get] /Products (todos os produtos)
-[post] /Products (Para criar produtos)
-[get/put/delete] /Products/$ID (por ID)
+```bash
+# Server will run on port 4000
+http://localhost:4000
+```
 
-[get] /Currency/ (todas as cotações)
-[get] /Currency/$symbol (exemplo: BRL, USD, EUR)
-   
-   - Os produtos devem ser cadastrados em BRL, usando a API Rest
-   - A cotação das outras moedas deve vir da API:
-     - https://economia.awesomeapi.com.br/all/USD-BRL para USD 
-     - https://economia.awesomeapi.com.br/all/EUR-BRL para EUR
-   - Ou, se preferir você pode buscar todas as moedas e encontrar as cotações usando o identificador, através do endpoint:
-   - https://economia.awesomeapi.com.br/all
-   - Armazene os dados da cotação em cache para evitar atingir o limite de requests da api; 
-   - Ao buscar o produto ele deverá vir com o valor cadastrador em Real e o valor equivalente em mais duas outras moedas da sua escolha (Ex: Dolar e EUR)
+## Swagger documentation
+
+```bash
+# For more information about the API follow this link
+https://jedi-backend-challenge-production.up.railway.app/api-docs/
+# Or locally
+http://localhost:4000/api-docs
+```
+
+## Schemas
+
+### <strong>Product</strong>
+
+| Method     | Route                   | Description                   |
+| ---------- | ----------------------- | ----------------------------- |
+| **GET**    | `/Products`             | Return all products           |
+| **POST**   | `/Products`             | Create a new product          |
+| **GET**    | `/Products/`<strong>:id | Return selected product by id |
+| **PUT**    | `/Products/`<strong>:id | Update selected product by id |
+| **DELETE** | `/Products/`<strong>:id | Delete selected product by id |
+
+### <strong>Currency</strong>
+
+| Method  | Route                       | Description              |
+| ------- | --------------------------- | ------------------------ |
+| **GET** | `/Currency`                 | Return all currencies    |
+| **GET** | `/Currency/`<strong>:symbol | Return selected currency |
+
+<hr>
   
-## Requisitos
-
-  - A api rest deverá está devidamente documentada (swagger)
-  - Escrever testes unitarios para o sistema
- 
-## Critérios de avaliação
-
-  - Seu código será avaliado por: semântica, organização, estrutura, legibilidade, tamanho, entre outros fatores.
-  - O histórico do `git` será avaliado.
-
-## Considerações
-
-- Não limitaremos sua escolha de ferramentas ou bibliotecas. Mas faça escolhas que atendam às suas necessidades. Não há necessidade de usar uma bazuca para matar uma formiga, mas o objetivo do desafio é avaliar suas habilidades.
-- Tente escrever o melhor código possível. Vai facilitar nossa vida na hora de avaliar sua solução.
-- Não se esqueça de documentar o processo necessário para buildar e executar seu aplicativo. Ou então como vamos avaliar seu trabalho se não podemos iniciar o projeto em nossas máquinas?
-
-## Como submeter seu projeto
-  1. Efetue o fork deste repositório e crie um branch com o seu nome, sobrenome e qual teste você está submetendo. (exemplo: fulano-dasilva-backend);
-  2. Após finalizar o desafio, crie um Pull Request;
-  3. Aguarde algum contribuidor realizar o code review;
-
-## Dúvidas?
-Tem alguma dúvida relacionada ao processo? Abra um [issue](https://github.com/Impact-Plataform/Banco-de-talentos/issues) e teremos prazer em ajudar.
-
 ## Obrigado!
-Agradecemos sua participação no desafio. Boa sorte! 😄
