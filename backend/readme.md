@@ -11,7 +11,7 @@
 
 This is a sample Java / Maven / Spring Boot (version 3.0.1) application that can be used as a starter for creating a microservice rest.
 
-Read this in other languages: Português-BR
+Read this in other languages: [Português-BR](https://github.com/rodriigolima/Banco-de-talentos/blob/rodrigo-lima-backend/backend/readme-pt-br.md)
 
 ## How to Run [🔝](#spring-boot--microservice--impact-platafrom-project)
 
