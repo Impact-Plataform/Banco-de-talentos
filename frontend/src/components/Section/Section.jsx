@@ -6,25 +6,18 @@ import Spinner from "../Spinner/Spinner";
 import style from "./Section.module.css";
 
 const Section = () => {
-  const [dados, setDados] = useState([]);
+  const [objeto, setObjeto] = useState([]);
   const [page, setPage] = useState(1);
-  
-
-  const [dados2, setDados2] = useState([]);
+  const [array, setArray] = useState([]);
 
   useEffect(() => {
     api
       .get(`/people/?page=${page}`)
-      .then((response) => { setDados([response.data]), setDados2(response.data.results)})
+      .then((response) => { setObjeto([response.data]), setArray(response.data.results)})
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [page]);
-  console.log(dados, "resultados");
-
-  
-
-
 
   const nextPage = () => {
     setPage(page + 1);
@@ -37,9 +30,9 @@ const Section = () => {
   return (
     <section className={style.section}>
       <div className="container-md">
-      <div className="row row-cols-1 row-cols-md-5 g-3 p-5">
-      {dados2 ? (
-        dados2.map((item, index) => {
+      <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
+      {array ? (
+        array.map((item, index) => {
           return (
             <Card
               key={index}
@@ -59,7 +52,7 @@ const Section = () => {
       </div>
       </div>
       <div class="container-fluid p-2">
-      <Pagination onClick={nextPage} />
+      <Pagination anterior={previousPage} proxima={nextPage} />
       </div>
       
     </section>
