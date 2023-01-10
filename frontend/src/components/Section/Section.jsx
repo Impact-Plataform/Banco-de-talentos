@@ -8,16 +8,23 @@ import style from "./Section.module.css";
 const Section = () => {
   const [dados, setDados] = useState([]);
   const [page, setPage] = useState(1);
+  
+
+  const [dados2, setDados2] = useState([]);
 
   useEffect(() => {
     api
-      .get(`/?page=${page}`)
-      .then((response) => setDados([response.data]))
+      .get(`/people/?page=${page}`)
+      .then((response) => { setDados([response.data]), setDados2(response.data.results)})
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [page]);
   console.log(dados, "resultados");
+
+  
+
+
 
   const nextPage = () => {
     setPage(page + 1);
@@ -29,28 +36,32 @@ const Section = () => {
 
   return (
     <section className={style.section}>
-      {dados ? (
-        dados.map((item, index) => {
+      <div className="container-md">
+      <div className="row row-cols-1 row-cols-md-5 g-3 p-5">
+      {dados2 ? (
+        dados2.map((item, index) => {
           return (
             <Card
               key={index}
               nome={item.name}
+              genero={item.gender}
               altura={item.height}
               peso={item.mass}
               corDoCabelo={item.hair_color}
-              roupa={item.skin_color}
               corDosOlhos={item.eye_color}
-              genero={item.gender}
-              especie={item.species}
-              filmes={item.films}
+              roupa={item.skin_color}
             />
           );
         })
       ) : (
         <Spinner />
       )}
-
+      </div>
+      </div>
+      <div class="container-fluid p-2">
       <Pagination onClick={nextPage} />
+      </div>
+      
     </section>
   );
 };
