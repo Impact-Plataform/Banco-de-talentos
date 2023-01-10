@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/images/star-wars-logo.svg";
-import style from "./Header.module.css";
 import api from "../../service/api";
+import bb8 from "../../assets/images/bb-8.svg"
+import logo from "../../assets/images/star-wars-logo.png";
+import style from "./Header.module.css";
+
 
 const Header = ({ filmes }) => {
   const [films, setFilms] = useState([]);
+  const [especie, setEspecie] = useState([]);
+  const [genero, setGenero] = useState([]);
 
   useEffect(() => {
     api
@@ -16,26 +20,26 @@ const Header = ({ filmes }) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, []);
-  console.log(films, "filmes");
 
   return (
-    <nav className="navbar bg-body-tertiary">
+    <nav className="navbar bg-tertiary">
       <div className="container-fluid">
         <a className="navbar-brand">
           <img src={logo} className={style.logo} />
         </a>
-        <form className="d-flex" role="search">
+        
+        <form className="d-flex justify-content-start w-50" role="search">
           <input
-            className="form-control me-2"
+            className="form-control me-2 w-50"
             type="search"
             placeholder="Pesquisar"
             aria-label="Search"
           />
-          <select class="form-select me-2" aria-label="Select">
+          <select className="form-select me-2 w-25" aria-label="Select">
             <option selected>Filtrar</option>
-            <option value="1">Especie</option>
-            <option value={filmes}>Filmes</option>
-            <option value="3">Genero</option>
+            <option value={especie}>Especie</option>
+            <option value={films}>Filmes</option>
+            <option value={genero}>Genero</option>
           </select>
           {films.map((result) => {
             return (
@@ -47,6 +51,7 @@ const Header = ({ filmes }) => {
             Buscar
           </button>
         </form>
+        <img src={bb8} alt="icone personagem bb-8" className={style.svg} />
       </div>
     </nav>
   );
