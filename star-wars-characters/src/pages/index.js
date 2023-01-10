@@ -1,3 +1,3 @@
 export * from './HomePage';
-export * from './PersonPage';
+export * from './CharacterPage';
 export * from './SearchPage';
