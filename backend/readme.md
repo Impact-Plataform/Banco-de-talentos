@@ -9,13 +9,15 @@ This API allows you to manage products and retrieve current currency exchange ra
 ```bash
 # with yarn
 git clone git@github.com:brunonasc74/Banco-de-talentos.git
-cd Banco-de-talentos
+cd .\Banco-de-talentos\backend
+git checkout bruno-nascimento-backend
 yarn
 yarn start
 
 # with npm
 git clone git@github.com:brunonasc74/Banco-de-talentos.git
-cd Banco-de-talentos
+cd .\Banco-de-talentos\backend
+git checkout bruno-nascimento-backend
 npm install
 npm start
 ```
