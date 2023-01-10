@@ -6,25 +6,26 @@ import { characterDetailsHandler } from "./characterDetailsHandler";
 export async function getDetailedCharacter(character: any, setCharactersList: React.Dispatch<React.SetStateAction<string | CharacterTYPE[]>>) {
     axios.get(`https://swapi.py4e.com/api/people/?search=${character}`).then((response => {
         let characterHolder: CharacterTYPE[] = [];
-        response.data.results.forEach((character: CharacterTYPE) => characterHolder.push(character));
+        let charactersFullfiled: any = []
+        response.data.results.forEach(async (character: CharacterTYPE) => characterHolder.push(character));
 
-        // se houver pelo menos um personagem
-        if (response.data.count > 0) {
-            getCharacterData(characterHolder);
-            setTimeout(() => {
-                setCharactersList(characterHolder);
-            }, 350)
-        }
-        else {
-            // Caso não haja um personagem
-            setCharactersList('Character not found');
-        }
+
+        let applyDetailsToCharacters = characterHolder.map(async (character: any) => {
+            await characterDetailsHandler(character);
+            return character;
+
+        });
+
+        charactersFullfiled = applyDetailsToCharacters;
+
+        Promise.all(charactersFullfiled).then((response) => {
+            setCharactersList(response);
+
+            if (response.length === 0) {
+                setCharactersList('Character not found');
+            }
+        })
+
+
     }))
-}
-
-async function getCharacterData(charactersList: CharacterTYPE[], ) {
-    charactersList.forEach(async (character: any) => {
-        characterDetailsHandler(character);
-
-    });
 }
