@@ -1,15 +1,13 @@
 import api from './index';
 import { ICharacter } from '../types/Characters.types';
-import { createdId, handleGetPlanet } from '../utils';
+import { createdId } from '../utils';
+import { urlPeople } from '../constants';
 
 
-const urlPeople = "https://swapi.dev/api/people/";
-
-
-export const getNamePlanet = async (planet: string): Promise<string | []> => {
+export const getNamePlanet = async (planet: string): Promise<string> => {
   const response = await api.get(planet.replace("https://swapi.dev/api/", ""));
   const returnedData = await response.data;
-  return returnedData
+  return returnedData.name
 };
 
 
@@ -35,3 +33,8 @@ export const getAllCharacters = async ():Promise<ICharacter[]> => {
     const dataResult = await Promise.all(dataPromise)
     return dataResult.reduce((acc, value) => ([...acc, ...value]),[])
 }
+
+export const fetcherCharacterId = (url: string) => api.get(url).then(res => res.data);
+
+
+// export const getNamePlanet = (url: string) => api.get(url).then(res => res.data);
