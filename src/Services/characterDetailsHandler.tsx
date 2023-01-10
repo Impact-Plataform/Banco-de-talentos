@@ -1,10 +1,11 @@
 import axios from "axios";
-import { CharacterDetails, CharacterTYPE, FilmType } from "../Types";
+import { CharacterDetails, FilmType } from "../Types";
 import filmsInfo from '../assets/MoreAboutCharacters/films.json'
 import characterInfo from '../assets/MoreAboutCharacters/charactersInfo.json'
 
 export async function characterDetailsHandler(character: any) {
     let films:any = [];
+
 
     const characterMoreInfo: CharacterDetails | undefined = characterInfo.find((item: CharacterDetails ) => item.name === character.name);
 
@@ -12,13 +13,13 @@ export async function characterDetailsHandler(character: any) {
     const homeworldResponse = await axios.get(character.homeworld);
 
     //Recupera os filmes de todos os personagens
-    const filmsPromises = character.films.map((film: any) => axios.get(film));
+    const filmsPromises = character.films.map(async(film: any) => axios.get(film));
 
     //Despacha todos os filmes
     const filmsResponses = await Promise.all(filmsPromises);
     filmsResponses.map((response) => films.push(filmsInfo.find((item: FilmType) => item.name === response.data.title) || {}))
 
-    const speciesPromises = character.species.map((specie: any) => axios.get(specie));
+    const speciesPromises = character.species.map(async(specie: any) => axios.get(specie));
     let speciesResponses = await Promise.all(speciesPromises);
 
     character.image = characterMoreInfo?.image;
