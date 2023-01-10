@@ -8,7 +8,7 @@
     "start": "node dist/main/server.js",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "migrate:dev": "npx prisma migrate dev",
+    "migrate": "npx prisma migrate dev",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [],

@@ -13,12 +13,12 @@ export class Product {
   private readonly props: productProps
   private readonly _id: string
 
-  constructor (props: Replace<productProps, { createdAt?: Date }>) {
+  constructor (props: Replace<productProps, { createdAt?: Date }>, id?: string) {
     if (props.quantity <= 0) {
       throw new AppError('Quantity must be positive')
     }
 
-    this._id = randomUUID()
+    this._id = id ?? randomUUID()
     this.props = {
       ...props,
       createdAt: props.createdAt ?? new Date()

@@ -1,21 +1,15 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
 import cors from 'cors'
-import { AppError } from '../../shared/errors/app-error'
+import { productsRoutes } from '../routes/create-products-routes'
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
-
-app.use((err: Error, _req: Request, res: Response) => {
-  if (err instanceof AppError) {
-    return res.status(err.statusCode).json({
-      message: err.message
-    })
-  }
-  return res.status(500).json({
-    status: 'error',
-    message: `Internal server error - ${err.message}`
+app.use(productsRoutes)
+app.get('/', (_req, res) => {
+  res.json({
+    message: 'hello'
   })
 })
 
