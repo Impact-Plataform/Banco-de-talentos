@@ -15,12 +15,6 @@ export async function filterData(characters: any, filterOptions: any, setCharact
         return true;
     });   
 
-        if (filteredArray.length === 0) {
-            setCharactersList("Character Not Found")
-        } else {
-            setTimeout(() => {
-                setCharactersList(filteredArray);
-            }, 1400)
-        }
+      return filteredArray;
 
 }

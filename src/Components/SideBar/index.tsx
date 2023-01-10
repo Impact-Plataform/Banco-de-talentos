@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './index.css'
 import './glitch.css'
 import Select from 'react-select'
-import { handleCharacters } from '../../Services';
+import { handleCharacters, promisesDealer } from '../../Services';
 
 function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber }: any) {
 
@@ -16,6 +16,8 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber }: any)
         { value: 'n/a', label: 'N/A' }
     ];
 
+    let characterArray:any = []
+
     const filterOptionsHolder = {
         gender: '',
         species: '',
@@ -24,16 +26,14 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber }: any)
 
     const [choosedOptions, setChoosedOptions] = useState(filterOptionsHolder)
 
-    // gender = '' && specie = '' && film = ''
-
     useEffect(() => {
         const fetchData = async () => {
-            const filter = await handleCharacters(pagNumber, setCharactersState, choosedOptions)
+            let personArray = await handleCharacters(pagNumber, choosedOptions, characterArray)
+            let item = await promisesDealer(characterArray, setCharactersState, choosedOptions);
         };
 
-
         fetchData();
-
+        
     }, [choosedOptions, pagNumber])
 
 

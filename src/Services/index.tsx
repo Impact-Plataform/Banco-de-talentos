@@ -4,36 +4,33 @@ import { CharacterTYPE } from '../Types';
 import { characterDetailsHandler } from './characterDetailsHandler';
 import { filterData } from './filterOptions';
 
-export async function handleCharacters(pagNumber: number, setCharactersList: React.Dispatch<React.SetStateAction<any>>, filterOptions: any) {
-    axios.get(`https://swapi.py4e.com/api/people/?page=${pagNumber}`)
-        .then(async (response) => {
+export async function handleCharacters(pagNumber: number, filterOptions: any, characterArray:any) {
+    const response = await axios.get(`https://swapi.py4e.com/api/people/?page=${pagNumber}`);
 
-            let charactersArray: CharacterTYPE[] = [];
+    response.data.results.forEach((character: CharacterTYPE) => characterArray.push(character));
 
-            response.data.results.forEach((character: CharacterTYPE) => charactersArray.push(character));
+    if (filterOptions.gender || filterOptions.specie || filterOptions.film) {
+        let nextPage = response.data.next;
+        while (nextPage) {
 
-            if (filterOptions.gender || filterOptions.specie || filterOptions.film) {
-                let nextPage = response.data.next;
-                while (nextPage) {
+            const res = await fetch(nextPage);
+            const { next, results } = await res.json();
 
-                    const res = await fetch(nextPage);
-                    const { next, results } = await res.json();
-
-                    results.forEach(async (result: CharacterTYPE) => {
-                        charactersArray.push(result)
-                    });
-                    nextPage = next;
-                }
-                promisesDealer(charactersArray, setCharactersList, filterOptions)
-            } else {
-                promisesDealer(charactersArray, setCharactersList, filterOptions)
-            }
-        });
+            results.forEach(async (result: CharacterTYPE) => {
+                characterArray.push(result)
+            });
+            nextPage = next;
+        }
+        return characterArray;
+    } else {
+        return characterArray;
+    }
+    
 }
 
-
-async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: CharacterTYPE) {
+export async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: any) {
     let processedItems:number = 0;
+    
     charactersList.forEach(async (character: any, index: number, array: any) => {
         await characterDetailsHandler(character);
 
@@ -41,19 +38,16 @@ async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList
 
         if (processedItems === array.length) {
             if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
-                setTimeout(() => {
-                    filterData(charactersList, filterOptions, setCharactersList)
-                }, 400)
-            } else {
-                setTimeout(() => {
-                    setCharactersList(charactersList);
-                }, 350)
+               let item = await filterData(charactersList, filterOptions, setCharactersList)
+
+               Promise.resolve(item).then((response) => {
+                  setCharactersList(response);
+               })
+
             }
         }
-    }
 
-    );
-
+})
 }
 
 export async function getTotalPages(setTotalPages: React.Dispatch<React.SetStateAction<number>>, totalPages: number) {
