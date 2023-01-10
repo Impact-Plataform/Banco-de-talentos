@@ -6,9 +6,11 @@ export const CharacterProvider = ({ children }) => {
   const [allCharacters, setAllCharacters] = useState([]);
 
   // estados simples
-  const [loading, setLoading] = useState([]);
+  const [loading, setLoading] = useState(true);
+  // estado do filtro
+  const [active, setActive] = useState(true);
 
-  // chama a api
+  // chama todos os peronagens
   const getAllCharacters = async () => {
     let url = 'https://swapi.dev/api/people';
 
@@ -26,14 +28,36 @@ export const CharacterProvider = ({ children }) => {
       }
 
       console.log('terminou a chamada');
+      setLoading(false);
       setAllCharacters(characters);
     } catch (error) {
       console.log(error);
     }
   };
+
+  // chamar pelo id
+  const getCharacterById = async id => {
+    let url = 'https://swapi.dev/api/';
+
+    try {
+      console.log('chamando o recurso people/id');
+
+      while (url) {
+        const response = await axios(`${url}people/${id}`);
+        console.log(response.data);
+        return response;
+      }
+
+      console.log('terminou a chamada do people/id');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getAllCharacters();
   }, []);
   console.log('people: ', allCharacters);
+
   return <CharacterContext.Provider value={{ number: 0 }}>{children}</CharacterContext.Provider>;
 };
