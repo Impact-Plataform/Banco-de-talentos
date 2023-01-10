@@ -104,6 +104,7 @@ button:hover{
   font-family: "Jedi";
   border-radius: 30px;
   border: 2px solid #18242D;
+  cursor: pointer;
 }
 
 .stardex{
@@ -118,4 +119,32 @@ button:hover{
 .stardex:hover{
   box-shadow: 1px 1px 10px 8px #d5df0d91;
   cursor: pointer;
+}
+
+nav{
+  font-family: "Jedi";
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 1px 100px 10vw
+}
+
+#root{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  margin: 0px;
+  font-size: 2.28em;
+  color: yellow
+}
+
+.Active{
+  background-color: yellow;
+  color: #18242D;
+  font-family: "Jedi";
+  border-radius: 30px;
+  border: 2px solid #18242D;
 }

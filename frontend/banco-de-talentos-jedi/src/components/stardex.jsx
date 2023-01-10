@@ -1,9 +1,9 @@
+import { useNavigate } from "react-router-dom"
 const Stardex = (props)=>{
+    const navigate = useNavigate()
     return (
-        <div className="stardex">
-            {/* <Link to={`card/${props.index}`}> */}
+        <div className="stardex" onClick={()=>navigate(`/card/${props.index}`)}>
             {props.name}
-            {/* </Link> */}
         </div>
     )
 }

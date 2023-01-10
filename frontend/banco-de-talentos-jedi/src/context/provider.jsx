@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Context } from "./Context"
+import { Context } from "./context"
 
 export const Provider = ({ children }) => {
     const [starData, setStarData] = useState([])

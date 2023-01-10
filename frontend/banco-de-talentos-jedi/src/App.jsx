@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { Characters } from './pages/characters.jsx'
 import './App.css'
+import Loading from './pages/loading.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Characters />
+    <Loading />
   )
 }
 
