@@ -2,7 +2,6 @@ import cx from 'classnames';
 import { Link } from 'react-router-dom';
 
 import { characters as characterImages } from '../../assets/images.json';
-import { snakeCasify } from '../../helpers/snakeCasify';
 import { Character } from '../../interfaces/character.interface';
 import { ObjectInterface } from '../../interfaces/object.interface';
 import { useDarkMode } from '../../providers/DarkMode';
@@ -18,7 +17,7 @@ export function Card({ character }: CardProps) {
 
   return (
     <Link
-      to={snakeCasify(character.name)}
+      to={`details/${character.name}`}
       className="w-[80%] bg-gray-700 m-2 rounded-lg p-6"
     >
       <img
@@ -35,7 +34,7 @@ export function Card({ character }: CardProps) {
             'text-gray-200': darkMode,
           })}
         >
-          Films:{' '}
+          Films:
         </span>
         <div className="ml-6">
           {films

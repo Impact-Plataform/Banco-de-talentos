@@ -1,3 +1,4 @@
+import { CharacterDetail } from './CharacterDetail';
 import { Home } from './Home';
 
-export { Home };
+export { CharacterDetail, Home };
