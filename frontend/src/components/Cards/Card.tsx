@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { characters as characterImages } from '../../assets/images.json';
 import { snakeCasify } from '../../helpers/snakeCasify';
 import { Character } from '../../interfaces/character.interface';
-import { imageJsonInterface } from '../../interfaces/json.interface';
+import { ObjectInterface } from '../../interfaces/object.interface';
 import { useDarkMode } from '../../providers/DarkMode';
 import { useFilms } from '../../providers/Films';
 
@@ -22,7 +22,7 @@ export function Card({ character }: CardProps) {
       className="w-[80%] bg-gray-700 m-2 rounded-lg p-6"
     >
       <img
-        src={(characterImages as imageJsonInterface)[character.name]}
+        src={(characterImages as ObjectInterface)[character.name]}
         alt={`${character.name}`}
         className="rounded-lg w-full"
       />
