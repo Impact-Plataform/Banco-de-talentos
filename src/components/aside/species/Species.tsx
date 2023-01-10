@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useContext, useEffect, useState } from 'react';
 import { SpeciesContainer } from './species.style';
-import { getAllSpecies } from '../../../services/aside.service';
+import { getAllSpecies } from '../../../services/species.service';
 import { AppContext } from '../../../contexts/contextProvider';
 import { ISpecie } from '../../../types/Species.types';
 import { storeAllSpecies } from '../../../store/store';
