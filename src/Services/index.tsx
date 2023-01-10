@@ -25,27 +25,25 @@ export async function handleCharacters(pagNumber: number, setCharactersList: Rea
                     nextPage = next;
                 }
                 promisesDealer(charactersArray, setCharactersList, filterOptions)
+
             } else {
                 promisesDealer(charactersArray, setCharactersList, filterOptions)
             }
         });
 }
 
-
 async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: CharacterTYPE) {
 
-    await characterDetailsHandler(charactersList);
-
     if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
-        setTimeout(() => {
-            filterData(charactersList, filterOptions, setCharactersList)
-        }, 1000)
+        filterData(charactersList, filterOptions, setCharactersList)
     } else {
         setTimeout(() => {
             setCharactersList(charactersList);
-        }, 1000)
+        }, 1800)
     }
 }
+
+
 
 export async function getTotalPages(setTotalPages: React.Dispatch<React.SetStateAction<number>>, totalPages: number) {
     let nextPage: any = 'https://swapi.py4e.com/api/people/';

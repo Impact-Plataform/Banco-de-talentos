@@ -22,7 +22,7 @@ export async function getDetailedCharacter(character: any, setCharactersList: Re
     }))
 }
 
-async function getCharacterData(charactersList: CharacterTYPE[]) {
+async function getCharacterData(charactersList: CharacterTYPE[], ) {
     charactersList.forEach(async (character: any) => {
         characterDetailsHandler(character);
 
