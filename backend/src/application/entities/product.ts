@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { randomUUID } from 'node:crypto'
 import { AppError } from '../../shared/errors/app-error'
-import { Replace } from '../../shared/helpers/replace'
+import { Replace } from '../../shared/utils/replace'
 
 interface productProps {
   name: string
@@ -26,27 +25,27 @@ export class Product {
     }
   }
 
-  public get name () {
+  public get name (): string {
     return this.props.name
   }
 
-  public get price () {
+  public get price (): number {
     return this.props.price
   }
 
-  public get quantity () {
+  public get quantity (): number {
     return this.props.quantity
   }
 
-  public get createdAt () {
+  public get createdAt (): Date {
     return this.props.createdAt
   }
 
-  public get id () {
+  public get id (): string {
     return this._id
   }
 
-  public setProps ({ name, price, quantity }: updatedProps) {
+  public setProps ({ name, price, quantity }: updatedProps): void {
     this.props.name = name
     this.props.price = price
     this.props.quantity = quantity
