@@ -5,6 +5,11 @@ import { CharacterContext } from './CharacterContext';
 export const CharacterProvider = ({ children }) => {
   const [allCharacters, setAllCharacters] = useState([]);
 
+  // custom hook para formulario
+  const { valueSearch, onInputChange, onResetForm } = useForm({
+    valueSearch: '',
+  });
+
   // estados simples
   const [loading, setLoading] = useState(true);
   // estado do filtro
@@ -59,5 +64,11 @@ export const CharacterProvider = ({ children }) => {
   }, []);
   console.log('people: ', allCharacters);
 
-  return <CharacterContext.Provider value={{ number: 0 }}>{children}</CharacterContext.Provider>;
+  return (
+    <CharacterContext.Provider
+      value={{ valueSearch, onInputChange, onResetForm, allCharacters, getCharacterById }}
+    >
+      {children}
+    </CharacterContext.Provider>
+  );
 };
