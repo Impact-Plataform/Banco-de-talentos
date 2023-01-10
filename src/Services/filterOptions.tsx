@@ -1,11 +1,7 @@
-import { characterDetailsHandler } from "./characterDetailsHandler";
-
 export async function filterData(characters: any, filterOptions: any, setCharactersList: React.Dispatch<React.SetStateAction<any>>) {
-    const filteredArray = characters.filter((person: any) => {
+    const filteredArray = characters.filter((person: any) => {  
 
-        characterDetailsHandler(person);
-
-        if (filterOptions.gender && (person.gender.toLowerCase() !== filterOptions.gender.toLowerCase()) && filterOptions.gender !== 'all') {
+        if (filterOptions.gender  && (person.gender.toLowerCase() !== filterOptions.gender.toLowerCase()) && filterOptions.gender !== 'all') {
             return false;
         }
 
@@ -13,18 +9,18 @@ export async function filterData(characters: any, filterOptions: any, setCharact
             return false;
         }
 
-        if (filterOptions.film && (!person.films.includes(filterOptions.film)) && filterOptions.film !== 'all') {
+        if (filterOptions.film  && (!person.films.includes(filterOptions.film)) && filterOptions.film !== 'all') {
             return false;
         }
         return true;
-    });
+    });   
 
-    if (filteredArray.length === 0) {
-        setCharactersList("Character Not Found")
-    } else {
-        setTimeout(() => {
-            setCharactersList(filteredArray);
-        }, 1800)
-    }
+        if (filteredArray.length === 0) {
+            setCharactersList("Character Not Found")
+        } else {
+            setTimeout(() => {
+                setCharactersList(filteredArray);
+            }, 1400)
+        }
 
 }
