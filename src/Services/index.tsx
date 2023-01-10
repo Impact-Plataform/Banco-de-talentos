@@ -38,6 +38,8 @@ async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList
     charactersList.forEach(async (character: any, index: number, array: any) => {
         await characterDetailsHandler(character);
 
+        console.log(character);
+
         processedItems++;
 
         if (processedItems === array.length) {
