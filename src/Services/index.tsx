@@ -34,7 +34,7 @@ export async function handleCharacters(pagNumber: number, setCharactersList: Rea
 
 async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: CharacterTYPE) {
 
-    characterDetailsHandler(charactersList);
+    await characterDetailsHandler(charactersList);
 
     if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
         setTimeout(() => {
