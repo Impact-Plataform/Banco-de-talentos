@@ -1,8 +1,12 @@
+import { characterDetailsHandler } from "./characterDetailsHandler";
+
 export async function filterData(characters: any, filterOptions: any, setCharactersList: React.Dispatch<React.SetStateAction<any>>) {
     const filteredArray = characters.filter((person: any) => {  
 
+        characterDetailsHandler(person);
+
         if (filterOptions.gender  && (person.gender.toLowerCase() !== filterOptions.gender.toLowerCase()) && filterOptions.gender !== 'all') {
-            return false;
+            return false;   
         }
 
         if (filterOptions.specie && ((!person.species.includes(filterOptions.specie)) && filterOptions.specie !== 'all')) {
@@ -20,7 +24,7 @@ export async function filterData(characters: any, filterOptions: any, setCharact
         } else {
             setTimeout(() => {
                 setCharactersList(filteredArray);
-            }, 1500)
+            }, 800)
         }
 
 }

@@ -44,11 +44,11 @@ async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList
             if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
                 setTimeout(() => {
                     filterData(charactersList, filterOptions, setCharactersList)
-                }, 2500)
+                }, 1000)
             } else {
                 setTimeout(() => {
                     setCharactersList(charactersList);
-                }, 2500)
+                }, 1000)
             }
         }
     }
