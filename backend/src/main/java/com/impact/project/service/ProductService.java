@@ -1,11 +1,15 @@
 package com.impact.project.service;
 
+import com.impact.project.controller.ProductController;
 import com.impact.project.model.Product;
 import com.impact.project.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -29,16 +33,23 @@ public class ProductService {
         return productRepository.save(product);
     }
 
-    
+
     public Product getProductById(UUID id) {
         Product product = productRepository.findById(id).orElseThrow();
         convertPriceToOtherPriceCurrency(product);
+
+        product.add(linkTo(methodOn(ProductController.class).getProductById(id)).withSelfRel());
+        product.add(linkTo(methodOn(ProductController.class).getProducts()).withRel("list of products"));
         return product;
     }
 
     public List<Product> getAllProducts() {
-        
+
         List<Product> products = productRepository.findAll();
+        for (Product product : products) {
+            UUID id = product.getId();
+            product.add(linkTo(methodOn(ProductController.class).getProductById(id)).withSelfRel());
+        }
         convertPricesToCorrencies(products);
         return products;
     }
@@ -51,19 +62,19 @@ public class ProductService {
     }
 
     public void deleteProduct(UUID id) {
-        if(checkIfProductIsNull(id)) productRepository.deleteById(id);
+        if (checkIfProductIsNull(id)) productRepository.deleteById(id);
     }
-    
+
     private void convertPriceToOtherPriceCurrency(Product product) {
-        double usdExchangeRate =  currencyService.getCurrencyValueToProduct("USD").doubleValue();
-        double eurExchangeRate =  currencyService.getCurrencyValueToProduct("EUR").doubleValue();
+        double usdExchangeRate = currencyService.getCurrencyValueToProduct("USD").doubleValue();
+        double eurExchangeRate = currencyService.getCurrencyValueToProduct("EUR").doubleValue();
         BigDecimal usd = product.getPrice().divide(BigDecimal.valueOf(usdExchangeRate), 2, RoundingMode.HALF_UP);
         BigDecimal eur = product.getPrice().divide(BigDecimal.valueOf(eurExchangeRate), 2, RoundingMode.HALF_UP);
         product.updatePrices(usd, eur);
     }
-    
+
     private void convertPricesToCorrencies(List<Product> products) {
-        for(Product product : products) convertPriceToOtherPriceCurrency(product);
+        for (Product product : products) convertPriceToOtherPriceCurrency(product);
     }
 
 
