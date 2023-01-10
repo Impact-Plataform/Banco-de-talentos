@@ -34,6 +34,7 @@ export async function handleCharacters(pagNumber: number, setCharactersList: Rea
 
 async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: CharacterTYPE) {
     let processedItems:number = 0;
+
     charactersList.forEach(async (character: any, index: number, array: any) => {
         await characterDetailsHandler(character);
 
@@ -43,11 +44,11 @@ async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList
             if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
                 setTimeout(() => {
                     filterData(charactersList, filterOptions, setCharactersList)
-                }, 400)
+                }, 2500)
             } else {
                 setTimeout(() => {
                     setCharactersList(charactersList);
-                }, 350)
+                }, 2500)
             }
         }
     }
