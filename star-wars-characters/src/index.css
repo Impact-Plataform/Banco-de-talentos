@@ -1,0 +1,11 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Helvetica Neue', sans-serif;
+}
