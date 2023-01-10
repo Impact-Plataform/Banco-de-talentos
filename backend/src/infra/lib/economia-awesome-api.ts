@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { cacheUtil } from '../../../shared/utils/cacheUtil'
+import { cacheUtil } from '../../shared/utils/cacheUtil'
 
 export async function getCurrenciesData (): Promise<any> {
   const cacheData = cacheUtil.get('api-data')

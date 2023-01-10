@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
-import { getCurrenciesData } from '../../../infra/lib/api/economia-awesome-api'
+import { getCurrenciesData } from '../../../infra/lib/economia-awesome-api'
 
 export class LoadCurrenciesUseCase {
   static async execute (): Promise<any> {

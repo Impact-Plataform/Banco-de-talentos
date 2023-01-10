@@ -19,8 +19,6 @@ export class CreateProductUseCase {
     const productAlreadyExists = await this.productsRepository.loadByName(name)
 
     if (productAlreadyExists) {
-      console.log(productAlreadyExists)
-
       throw new AppError('Product already exists', 409)
     }
 
