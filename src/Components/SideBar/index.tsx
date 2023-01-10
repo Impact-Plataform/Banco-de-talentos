@@ -37,8 +37,6 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber }: any)
     }, [choosedOptions, pagNumber])
 
 
-    console.log(choosedOptions)
-
     function handleChange(e: any, selectName: any) {
         setChoosedOptions({
             ...choosedOptions,

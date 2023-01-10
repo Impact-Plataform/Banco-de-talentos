@@ -33,30 +33,18 @@ export async function handleCharacters(pagNumber: number, setCharactersList: Rea
 
 
 async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: CharacterTYPE) {
-    let processedItems:number = 0;
 
-    charactersList.forEach(async (character: any, index: number, array: any) => {
-        await characterDetailsHandler(character);
+    characterDetailsHandler(charactersList);
 
-        console.log(character);
-
-        processedItems++;
-
-        if (processedItems === array.length) {
-            if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
-                setTimeout(() => {
-                    filterData(charactersList, filterOptions, setCharactersList)
-                }, 1000)
-            } else {
-                setTimeout(() => {
-                    setCharactersList(charactersList);
-                }, 1000)
-            }
-        }
+    if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
+        setTimeout(() => {
+            filterData(charactersList, filterOptions, setCharactersList)
+        }, 1000)
+    } else {
+        setTimeout(() => {
+            setCharactersList(charactersList);
+        }, 1000)
     }
-
-    );
-
 }
 
 export async function getTotalPages(setTotalPages: React.Dispatch<React.SetStateAction<number>>, totalPages: number) {
