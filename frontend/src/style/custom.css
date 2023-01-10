@@ -1,16 +1,14 @@
-/* definindo variáveis para cores */
+
 :root{
-    --primary: #026E81;
+    --primary: #0D8AA6;
     --secondary: #00ABBD;
-    /* tertiary não é um padrão do Bootstrap, mas pode ser adicionado! */
-    --tertiary: #72F2EB;
+    --tertiary: #0D0D0D;
     --success: #0099DD;
     --info: #A1C7E0;
-    --warning: #FF9933;
+    --warning: #FEEB23;
     --danger: #E3371E;
 }
-/* sobrescrevendo classes padrão do Bootstrap */
-/* a marcação !important dá um peso maior a regra, sobrescrevendo regras prévias */
+
 .bg-primary, .btn-primary{
     background-color: var(--primary) !important;
 }
@@ -21,8 +19,16 @@
     background-color: var(--tertiary) !important;
 }
 .bg-success, .btn-success{
-    background-color: var(--success) !important;
+    background-color: var(--warning) !important;
+    color: #0D0D0D;
+    font-weight: bold;
+    border-color: var(--tertiary) !important;
 }
+.bg-success, .btn-success:hover{
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
 .bg-info, .btn-info{
     background-color: var(--info) !important;
 }
