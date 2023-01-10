@@ -1,6 +1,13 @@
 import { Dispatch, SetStateAction } from 'react';
 
+export interface FilterProps {
+  films: string;
+  gender: string;
+  species: string;
+}
+
 export interface Character {
+  [key: string]: string | Array<string>;
   name: string;
   height: string;
   mass: string;
@@ -21,8 +28,11 @@ export interface Character {
 
 export interface CharactersContextData {
   characters: Array<Character> | null;
+  charactersToShow: Array<Character> | null;
   currentPage: number;
   addPage: () => void;
   search: string;
   setSearch: Dispatch<SetStateAction<string>>;
+  filters: FilterProps;
+  changeFilters: (filters: Partial<FilterProps>) => void;
 }

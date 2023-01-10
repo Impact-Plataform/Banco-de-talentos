@@ -5,7 +5,7 @@ import { Card } from './Card';
 
 export function Cards() {
   const loaderRef = useRef<HTMLDivElement>(null);
-  const { characters, addPage } = useCharacters();
+  const { charactersToShow, addPage } = useCharacters();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entities) => {
@@ -18,8 +18,8 @@ export function Cards() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center pt-36">
-      {characters?.map((character, index) => (
+    <div className="flex flex-col items-center pt-48">
+      {charactersToShow?.map((character, index) => (
         <Card key={index} character={character} />
       ))}
       <div ref={loaderRef} />
