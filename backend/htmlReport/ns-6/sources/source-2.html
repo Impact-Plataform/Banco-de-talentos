@@ -1,0 +1,214 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ProductService</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.impact.project.service</a>
+</div>
+
+<h1>Coverage Summary for Class: ProductService (com.impact.project.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ProductService</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ProductService$$SpringCGLIB$$0</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D$auxiliary$4z3oE7pl</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D$auxiliary$ax05EBW0</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D$auxiliary$DBLLplCu</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D$auxiliary$Hhw4CrDk</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D$auxiliary$Ib7czqyy</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D$auxiliary$NJkZmmW5</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D$auxiliary$pS4bvyFi</td>
+  </tr>
+  <tr>
+    <td class="name">ProductService$MockitoMock$hX8UxU8D$auxiliary$v2j6aZT8</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.impact.project.service;
+&nbsp;
+&nbsp;import com.impact.project.model.Product;
+&nbsp;import com.impact.project.repository.ProductRepository;
+&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+&nbsp;import org.springframework.context.annotation.ComponentScan;
+&nbsp;import org.springframework.stereotype.Service;
+&nbsp;import org.springframework.transaction.annotation.Transactional;
+&nbsp;
+&nbsp;import java.math.BigDecimal;
+&nbsp;import java.math.RoundingMode;
+&nbsp;import java.util.List;
+&nbsp;import java.util.Optional;
+&nbsp;import java.util.UUID;
+&nbsp;
+&nbsp;@Service
+&nbsp;@Transactional
+&nbsp;@ComponentScan(&quot;com.impact.project&quot;)
+<b class="fc">&nbsp;public class ProductService {</b>
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private ProductRepository productRepository;
+&nbsp;
+&nbsp;    @Autowired
+&nbsp;    private CurrencyService currencyService;
+&nbsp;
+&nbsp;    public Product createProduct(Product product) {
+<b class="fc">&nbsp;        convertPriceToOtherPriceCurrency(product);</b>
+<b class="fc">&nbsp;        return productRepository.save(product);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    
+&nbsp;    public Product getProductById(UUID id) {
+<b class="fc">&nbsp;        Product product = productRepository.findById(id).orElseThrow();</b>
+<b class="fc">&nbsp;        convertPriceToOtherPriceCurrency(product);</b>
+<b class="fc">&nbsp;        return product;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public List&lt;Product&gt; getAllProducts() {
+&nbsp;        
+<b class="fc">&nbsp;        List&lt;Product&gt; products = productRepository.findAll();</b>
+<b class="fc">&nbsp;        convertPricesToCorrencies(products);</b>
+<b class="fc">&nbsp;        return products;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Product updateProduct(UUID id, Product product) {
+<b class="fc">&nbsp;        productRepository.findById(id);</b>
+<b class="fc">&nbsp;        product.setId(id);</b>
+<b class="fc">&nbsp;        convertPriceToOtherPriceCurrency(product);</b>
+<b class="fc">&nbsp;        return productRepository.save(product);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void deleteProduct(UUID id) {
+<b class="fc">&nbsp;        if(checkIfProductIsNull(id)) productRepository.deleteById(id);</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    private void convertPriceToOtherPriceCurrency(Product product) {
+<b class="fc">&nbsp;        double usdExchangeRate =  currencyService.getCurrencyValueToProduct(&quot;USD&quot;).doubleValue();</b>
+<b class="fc">&nbsp;        double eurExchangeRate =  currencyService.getCurrencyValueToProduct(&quot;EUR&quot;).doubleValue();</b>
+<b class="fc">&nbsp;        BigDecimal usd = product.getPrice().divide(BigDecimal.valueOf(usdExchangeRate), 2, RoundingMode.HALF_UP);</b>
+<b class="fc">&nbsp;        BigDecimal eur = product.getPrice().divide(BigDecimal.valueOf(eurExchangeRate), 2, RoundingMode.HALF_UP);</b>
+<b class="fc">&nbsp;        product.updatePrices(usd, eur);</b>
+&nbsp;    }
+&nbsp;    
+&nbsp;    private void convertPricesToCorrencies(List&lt;Product&gt; products) {
+<b class="fc">&nbsp;        for(Product product : products) convertPriceToOtherPriceCurrency(product);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;    public boolean checkIfProductIsNull(UUID id) {
+<b class="fc">&nbsp;        Optional&lt;Product&gt; product = productRepository.findById(id);</b>
+<b class="fc">&nbsp;        return product.isPresent();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-01-08 00:03</div>
+</div>
+</body>
+</html>
