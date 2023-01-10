@@ -1,0 +1,109 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Programa Jedi: Desafio Back-end",
+    "description": "Desafio desenvolvido pela Plataforma Impact para o processo seletivo do banco de talentos. Feito por Lucas Vinícius Santos de Lima, candidato a desenvolvedor back-end.",
+    "contact": {
+      "email": "limalucks@hotmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [{
+    "url": "http://localhost:3000/",
+    "description": "API de testes"
+  }],
+  "paths": {
+    "/Products": {
+      "post": {
+        "summary": "Cadastro de Produto",
+        "description": "Rota para a criação de produtos.",
+        "tags": ["Products"],
+        "requestBody": {
+          "content":{
+            "application/json": {
+              "schema":{}
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Listar os produtos",
+        "description": "Rota para a listagem de todos os produtos.",
+        "tags": ["Products"],
+        "requestBody": {
+          "content":{
+            "application/json": {
+              "schema":{}
+            }
+          }
+        }
+      }
+    },
+    "/Products/$ID": {
+      "get": {
+        "summary": "Listar o produto",
+        "description": "Rota para a listagem de produto pelo ID.",
+        "tags": ["Products"],
+        "requestBody": {
+          "content":{
+            "application/json": {
+              "schema":{}
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Editar o produto",
+        "description": "Rota para a edição de produto pelo ID.",
+        "tags": ["Products"],
+        "requestBody": {
+          "content":{
+            "application/json": {
+              "schema":{}
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Excluir o produto",
+        "description": "Rota para a exclusão de produto pelo ID.",
+        "tags": ["Products"],
+        "requestBody": {
+          "content":{
+            "application/json": {
+              "schema":{}
+            }
+          }
+        }
+      }
+    },
+    "/Currency": {
+      "get": {
+        "summary": "Listar as cotações",
+        "description": "Rota para a listagem de todas as cotações.",
+        "tags": ["Currency"],
+        "requestBody": {
+          "content":{
+            "application/json": {
+              "schema":{}
+            }
+          }
+        }
+      }
+  },
+"/Currency/$symbol": {
+  "get": {
+    "summary": "Listar a cotação pelo symbol",
+    "description": "Rota para a listagem da cotações pelo symbol.",
+    "tags": ["Currency"],
+    "requestBody": {
+      "content":{
+        "application/json": {
+          "schema":{}
+        }
+      }
+    }
+  }
+}
+}
+}
