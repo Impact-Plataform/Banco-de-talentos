@@ -20,9 +20,11 @@
   "homepage": "https://github.com/Brunospo/bruno-bispo-backend#readme",
   "dependencies": {
     "@prisma/client": "^4.8.0",
+    "axios": "^1.2.2",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
+    "node-cache": "^5.1.2",
     "yup": "^0.32.11",
     "yup-locales": "^1.2.10"
   },
