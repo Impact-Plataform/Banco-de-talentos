@@ -13,8 +13,8 @@ const Card = ({
 }) => {
   return (
     
-      <div class="col">
-        <div class="card h-100">
+      <div className="col">
+        <div className="card h-100">
           <div className="card-body">
             <h5 className="card-title">{nome}</h5>
             <p className="card-text">{genero}</p>
