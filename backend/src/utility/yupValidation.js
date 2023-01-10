@@ -6,7 +6,7 @@ const productSchema = yup.object().shape({
 	priceBRL: yup.number().moreThan(0).required()
 });
 
-async function validateRequest(req) {
+const validateRequest = async (req) => {
 	try {
 		const validatedData = await productSchema.validate(req.body, {
 			abortEarly: false
@@ -15,7 +15,7 @@ async function validateRequest(req) {
 	} catch (validationError) {
 		throw validationError;
 	}
-}
+};
 
 module.exports = {
 	validateRequest
