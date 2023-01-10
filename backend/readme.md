@@ -1,8 +1,10 @@
 # Impact Plataform - Programa Jedi
 
-Welcome to my project! This challenge is intended by Impact Plataform to evaluate me as a Back-end developer. 
+Welcome to my project! This challenge is intended by Impact Plataform to evaluate me as a Back-end developer.
 
 This API allows you to manage products and retrieve current currency exchange rates. It includes endpoints for creating, reading, updating, and deleting products, as well as for retrieving current exchange rates for various currencies. Please see the API documentation (/api-docs) for more details on the structure and usage of these endpoints.
+
+## [API Link](https://jedi-backend-challenge-production.up.railway.app/)
 
 ## Running this project locally
 
@@ -27,14 +29,14 @@ npm start
 http://localhost:4000
 ```
 
-
 ## Swagger documentation
 
 ```bash
 # For more information about the API follow this link
+https://jedi-backend-challenge-production.up.railway.app/api-docs/
+# Or locally
 http://localhost:4000/api-docs
 ```
-
 
 ## Schemas
 
@@ -47,7 +49,6 @@ http://localhost:4000/api-docs
 | **GET**    | `/Products/`<strong>:id | Return selected product by id |
 | **PUT**    | `/Products/`<strong>:id | Update selected product by id |
 | **DELETE** | `/Products/`<strong>:id | Delete selected product by id |
-
 
 ### <strong>Currency</strong>
 
