@@ -3,6 +3,7 @@ import cx from 'classnames';
 import { useDarkMode } from '../../providers/DarkMode';
 import { DarkModeToggle } from './DarkModeToggle';
 import { Filters } from './Filters';
+import { Logo } from './Logo';
 import { SearchBar } from './SearchBar';
 
 export function Header() {
@@ -15,13 +16,8 @@ export function Header() {
         'bg-gray-600': !darkMode,
       })}
     >
-      <div className="flex flex-col items-center">
-        <img src="/src/assets/star-wars-logo.png" alt="Star Wars logo" className="w-80" />
-        <p className="text-sw-yellow font-bold text-lg tracking-wider mt-1">
-          SWAPI CLient
-        </p>
-      </div>
-      <div className="flex flex-row justify-around mt-2">
+      <Logo />
+      <div className="flex flex-row justify-around">
         <SearchBar />
         <DarkModeToggle />
       </div>

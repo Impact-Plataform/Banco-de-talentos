@@ -15,7 +15,7 @@ export function Filters() {
   const optionsCSS = cx(cx({ 'bg-gray-900': darkMode }));
 
   return (
-    <div className="mt-3 flex justify-between">
+    <div className="flex justify-between p-2">
       <select
         name="Film"
         id=""
