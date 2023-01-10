@@ -20,7 +20,7 @@ export async function filterData(characters: any, filterOptions: any, setCharact
         } else {
             setTimeout(() => {
                 setCharactersList(filteredArray);
-            }, 500)
+            }, 1500)
         }
 
 }
