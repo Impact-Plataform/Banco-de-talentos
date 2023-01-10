@@ -17,10 +17,31 @@ export interface ICharacter {
 }
 
 export interface ICharacterProps {
+  id: number,
   key: number,
   img: string,
   name: string,
   height: string,
   birth_year: string,
   mass: string,
+  setState: any,
+}
+
+
+export interface ICharacterDetails {
+  id: string,
+  name: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
+  birth_year: string;
+  gender: string;
+  homeworld: string;
+  films: object[];
+  species: string;
+  vehicles: string[];
+  starships: string[];
+  url: string;
 }
