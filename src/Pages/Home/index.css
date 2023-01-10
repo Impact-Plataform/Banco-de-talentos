@@ -323,6 +323,22 @@
   border: 3px solid rgb(93, 92, 97);
 }
 
+.search__notfound > img {
+  max-width: 400px;
+  width: 100%;
+}
+
+.search__notfound  {
+  margin: 0;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center  ;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 
 
 @media (min-height: 600px) {

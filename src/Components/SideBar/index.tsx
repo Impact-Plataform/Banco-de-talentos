@@ -4,7 +4,7 @@ import './glitch.css'
 import Select from 'react-select'
 import { handleCharacters, promisesDealer } from '../../Services';
 
-function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber }: any) {
+function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber, searchValue, error, setError }: any) {
 
     const genderOptions: any = [
         { value: '', label: 'Select your option' },
@@ -26,15 +26,19 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber }: any)
 
     const [choosedOptions, setChoosedOptions] = useState(filterOptionsHolder)
 
+
     useEffect(() => {
         const fetchData = async () => {
             let personArray = await handleCharacters(pagNumber, choosedOptions, characterArray)
-            let item = await promisesDealer(characterArray, setCharactersState, choosedOptions);
+            let item = await promisesDealer(characterArray, setCharactersState, choosedOptions, searchValue);
         };
 
         fetchData();
         
-    }, [choosedOptions, pagNumber])
+    }, [choosedOptions, searchValue, pagNumber])
+
+
+
 
 
     function handleChange(e: any, selectName: any) {

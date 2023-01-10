@@ -6,6 +6,7 @@ import './index.css';
 import Sidebar from '../../Components/SideBar';
 import { getOptions } from '../../Services/getSelectOptions';
 import Loading from '../../Components/Loading';
+import searchNotFound from '../../assets/filterNotFound.gif'
 import { getDetailedCharacter } from '../../Services/characterDetailed';
 import Background from '../../Components/Background';
 
@@ -24,6 +25,8 @@ function Home() {
 
     const [firstLoad, setFirstLoad] = useState(false);
 
+    const [error, setError] = useState<string>('')
+
     useEffect(() => {
         const fetchSelectOptionsAndPageNumber = async () => {
             const pages = getTotalPages(setTotalPages, totalPages);
@@ -40,7 +43,7 @@ function Home() {
 
     useEffect(() => {
         const recoverCharacter = async () => {
-            const character = await getDetailedCharacter(searchValue, setCharactersList);
+            const character = await getDetailedCharacter(searchValue, setCharactersList, '', '');
         }
 
         if (firstLoad) {
@@ -77,12 +80,13 @@ function Home() {
                         <CharacterCard character={item} />
                     )
                 }))
-        } else if (charactersList.length === 0) {
-            return <Loading />
-        } else if (typeof charactersList === 'string' && charactersList === 'Character Not Found') {
+        // } else if (charactersList.length === 0 && error.length === 0) {
+        //     return <Loading />
+        } else if (typeof charactersList === 'string' && charactersList === 'Character not found') {
             return (
-                <div>
+                <div className='search__notfound'>
                     <h1>Nothing was found</h1>
+                    <img src={searchNotFound} />
                 </div>)
         }
 
@@ -100,8 +104,12 @@ function Home() {
                     setCharactersState={setCharactersList}
                     speciesList={speciesList}
                     filmsList={filmsList}
+                    searchValue={searchValue}
+                    error={error}
+                    setError={setError}
                 />
                 <div className="card__content">
+                    
                     <div className="search__card">
                         <input onChange={(e) => setSearchValue(e.target.value)} className='input__search' type="text" placeholder='Search for a character' />
                     </div>

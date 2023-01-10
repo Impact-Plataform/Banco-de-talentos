@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { Dispatch } from 'react';
 import { CharacterTYPE } from '../Types';
+import { getDetailedCharacter } from './characterDetailed';
 import { characterDetailsHandler } from './characterDetailsHandler';
 import { filterData } from './filterOptions';
 
@@ -28,8 +29,8 @@ export async function handleCharacters(pagNumber: number, filterOptions: any, ch
     
 }
 
-export async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: any) {
-    let processedItems:number = 0;
+export async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: Dispatch<CharacterTYPE[]>, filterOptions: any, searchValue:any) {
+    let processedItems:number = 0
     
     charactersList.forEach(async (character: any, index: number, array: any) => {
         await characterDetailsHandler(character);
@@ -38,7 +39,11 @@ export async function promisesDealer(charactersList: CharacterTYPE[], setCharact
 
         if (processedItems === array.length) {
             if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
-               let item = await filterData(charactersList, filterOptions, setCharactersList)
+               let item = await filterData(charactersList, filterOptions, searchValue)
+
+               if (item.length === 0 ) {
+                  await getDetailedCharacter(searchValue, setCharactersList, filterOptions, searchValue)
+               }
 
                Promise.resolve(item).then((response) => {
                   setCharactersList(response);

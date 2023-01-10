@@ -13,7 +13,7 @@ function CharacterDetails() {
 
     useEffect(() => {
         const getDetailedCharacterData = async () => {
-            const character = await getDetailedCharacter(userId.id, setDetailedCharacter);
+            const character = await getDetailedCharacter(userId.id, setDetailedCharacter, '', userId.id);
         }
 
         getDetailedCharacterData();
