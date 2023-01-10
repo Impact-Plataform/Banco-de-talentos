@@ -34,6 +34,9 @@
 }
 .bg-warning, .btn-warning{
     background-color: var(--warning) !important;
+    color: #0D0D0D;
+    font-weight: bold;
+    border-color: #FEEB23;
 }
 .bg-danger .btn-danger{
     background-color: var(--danger) !important;
@@ -43,4 +46,21 @@
 }
 .nav-link:hover{
     color: var(--warning) !important ; 
+}
+
+.card-body{
+    background: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.25rem;
+    transition: box-shadow 200ms ease 0s;
+    transition-property: box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    box-shadow: rgb(40 41 61 / 16%) 0px 10px 20px, rgb(96 97 112 / 16%) 0px 0.5px 2px;
+    -webkit-tap-highlight-color: transparent;
+}
+.card-body:hover{
+    transform: scale(1.1);
+    transition: all 1s;
 }
