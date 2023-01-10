@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { CharacterContext } from '../context/CharacterContext';
 import logoStarWars from '../assets/logo.svg';
 
 export const Navigation = () => {
+  const { number } = useContext(CharacterContext);
+  console.log('number', number);
   return (
     <>
       <header className="container">

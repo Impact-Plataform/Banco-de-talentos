@@ -1,10 +1,11 @@
 import { AppRouter } from './AppRouter';
+import { CharacterProvider } from './context/CharacterProvider';
 
 const App = () => {
   return (
-    <div>
+    <CharacterProvider>
       <AppRouter />
-    </div>
+    </CharacterProvider>
   );
 };
 
