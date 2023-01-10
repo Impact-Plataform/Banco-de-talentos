@@ -3,6 +3,7 @@ import 'express-async-errors';
 
 import { errorMiddleware } from './middlewares/errorMiddleware';
 import { pageNotFoundMiddleware } from './middlewares/pageNotFoundMiddleware';
+import { currencyRouter } from './router/currencyRouter';
 import { productRouter } from './router/productRouter';
 
 const app = express();
@@ -10,6 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/Products', productRouter);
+app.use('/Currency', currencyRouter);
 
 app.use(pageNotFoundMiddleware);
 
