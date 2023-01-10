@@ -27,6 +27,10 @@ export interface ICharacterProps {
   setState: any,
 }
 
+interface IFilms {
+  title: string,
+  filmId: string
+}
 
 export interface ICharacterDetails {
   id: string,
@@ -39,7 +43,7 @@ export interface ICharacterDetails {
   birth_year: string;
   gender: string;
   homeworld: string;
-  films: object[];
+  films: IFilms[];
   species: string;
   vehicles: string[];
   starships: string[];
