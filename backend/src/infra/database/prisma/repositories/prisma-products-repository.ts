@@ -22,13 +22,15 @@ export class PrismaProductsRepository implements ProductsRepository {
   async loadByName (name: string): Promise<Product> {
     const product = await connection.product.findUnique({ where: { name } })
     if (product) {
-      return PrismaProductsMapper.toDomain(product) ?? null
+      return PrismaProductsMapper.toDomain(product)
     }
   }
 
   async loadById (id: string): Promise<Product> {
-    const product = this.products.find((product) => product.id === id)
-    return product
+    const product = await connection.product.findUnique({ where: { id } })
+    if (product) {
+      return PrismaProductsMapper.toDomain(product)
+    }
   }
 
   async update ({ id, data }: updatedProps): Promise<void> {

@@ -1,4 +1,4 @@
-import { app } from './config/app'
+import { app } from './app'
 
 const port = 3333
 

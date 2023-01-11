@@ -1,5 +1,5 @@
-import { Product } from '@prisma/client'
 import { AppError } from '../../../shared/errors/app-error'
+import { Product } from '../../entities/product'
 import { ProductsRepository } from '../../repositories/products-repository'
 
 interface LoadProductByIdRequest {

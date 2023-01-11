@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { Product } from '../../../../src/application/entities/product'
 import { CreateProductUseCase } from '../../../../src/application/use-cases/products/create-product-use-case'
 import { LoadProductByIdUseCase } from '../../../../src/application/use-cases/products/load-product-by-id-use-case'
 import { AppError } from '../../../../src/shared/errors/app-error'
@@ -37,6 +38,7 @@ describe('Load products by id', () => {
     )
     const { product } = await loadProductbyId.execute({ productId })
 
+    expect(product).toBeInstanceOf(Product)
     expect(product.name).toBe('Monitor - AOC')
     expect(product.price).toBe(1550.99)
   })
