@@ -18,3 +18,13 @@ export const getAllSpecies = async (): Promise<ISpecie[]> => {
   const dataResult = await Promise.all(dataPromise);
   return dataResult.reduce((acc, value) => ([...acc, ...value]),[])
 }
+
+
+export const getSpecie = async (url: string[]) => {
+  if (url.length === 0) {
+    return "Sem informação";
+  }
+  const response = await api.get(url[0].replace("https://swapi.dev/api/", ""));
+  const responseData = await response.data;
+  return responseData.name;
+}

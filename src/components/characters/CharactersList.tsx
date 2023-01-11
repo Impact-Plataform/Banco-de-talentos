@@ -14,7 +14,7 @@ interface Props {
 export default function CharactersList({ characters }: Props) {
   const [isDisabledNext, setIsDisabledNext] = useState(false);
   const [isDisabledBack, setIsDisabledBack] = useState(true);
-  const { page, setPage, gender, speciesFilter } = useContext(AppContext);
+  const { page, setPage, gender, speciesFilter, filmFilter, charactersSearch, setCharacterId } = useContext(AppContext);
 
 
   const handlePerPage = (page: number, target: any) => {
@@ -51,13 +51,16 @@ export default function CharactersList({ characters }: Props) {
 
   return(
     <CharactersListDiv>
-       { handlePage(page, characters, gender, speciesFilter)?.map((character) => (
+       { handlePage(page, characters, gender, speciesFilter, filmFilter, charactersSearch)?.map((character) => (
         <CharacterCard
+          id={character.id}
           key={character.id}
           img={`https://starwars-visualguide.com/assets/img/characters/${character.id}.jpg`}
           name={character.name}
           height={character.height}
-          homeworld={ character.homeworld }
+          birth_year={ character.birth_year }
+          mass={ character.mass}
+          setState={setCharacterId}
         />
       )) }
       <ButtonBackCharacters disabled={ isDisabledBack } onClick={ (e) => handlePerPage(page, e.target) } value="back">Volta</ButtonBackCharacters>

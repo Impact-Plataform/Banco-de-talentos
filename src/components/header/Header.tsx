@@ -2,11 +2,19 @@
 import { HeaderContainer } from './header.style';
 import Image from 'next/image';
 import logo from '../../../public/starwars.png';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { AppContext } from '../../contexts/contextProvider';
 
 
 export default function Header() {
-  const [_character, setCharacter] = useState('');
+  const [character, setCharacter] = useState('');
+  const { setCharactersSearch } = useContext(AppContext)
+
+
+  const handleSetCharactersSearch = (character: string) => {
+    setCharactersSearch(character.toLowerCase());
+    setCharacter('')
+  };
 
 
   return(
@@ -18,9 +26,15 @@ export default function Header() {
       />
       <input
         type="text"
+        value={character}
         onChange={ (e)=> setCharacter(e.target.value) }
       />
-      <button type="button">Pesquisar</button>
+      <button
+        onClick={ () => handleSetCharactersSearch(character) }
+        type="button"
+        >
+          Pesquisar
+      </button>
     </HeaderContainer>
   );
 }

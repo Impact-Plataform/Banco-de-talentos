@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { useContext, useEffect, useState } from 'react';
 import { SpeciesContainer } from './species.style';
-import { getAllSpecies } from '../../../services/aside.service';
+import { getAllSpecies } from '../../../services/species.service';
 import { AppContext } from '../../../contexts/contextProvider';
 import { ISpecie } from '../../../types/Species.types';
 import { storeAllSpecies } from '../../../store/store';
@@ -11,14 +11,14 @@ import ModalContainer from './Modal';
 
 
 export default function Species() {
-  const { isLoading, handleSpecies } = useContext(AppContext);
+  const { handleSpecies, isLoadingSpecies, setIsLoadingSpecies } = useContext(AppContext);
   const [species, setSpecies] = useState<ISpecie[]>([]);
-
   
 
   useEffect(() => {
-    storeAllSpecies(getAllSpecies, setSpecies)
-  }, [isLoading])
+    storeAllSpecies(getAllSpecies, setSpecies, setIsLoadingSpecies)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoadingSpecies])
 
   return(
     <SpeciesContainer>
@@ -26,8 +26,9 @@ export default function Species() {
       <ul>
         { species.slice(0, 10).map((specie) => (
           <li
+            id={createdIdSpecies(specie.url)}
             key={ uuidv4() }
-            value={createdIdSpecies(specie.url)}
+            value={specie.name}
             onClick={(e) => handleSpecies(e.target)}
             >
               {specie.name}

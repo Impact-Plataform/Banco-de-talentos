@@ -1,36 +1,24 @@
 'use client'
 import React, { createContext, useState } from 'react';
+import { AppContextInterface, Props } from '../types/Context.types';
 
-
-interface AppContextInterface {
-  page: number,
-  setPage: React.Dispatch<React.SetStateAction<number>>,
-  gender: string | undefined,
-  setGender: React.Dispatch<React.SetStateAction<any>>,
-  isLoading: boolean,
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
-  speciesFilter: string | undefined,
-  setSpeciesFilter: React.Dispatch<React.SetStateAction<any>>,
-  handleSpecies: any, 
-}
-
-interface Props {
-  children: React.ReactNode;
-}
 
 export const AppContext = createContext<AppContextInterface>({} as AppContextInterface);
-
-// Provider in your app
 
 const AppProvider = ({ children }: Props) => {
   const [page, setPage] = useState(0);
   const [gender, setGender] = useState();
-  const [speciesFilter, setSpeciesFilter] = useState();
+  const [speciesFilter, setSpeciesFilter] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [filmFilter, setFilmFilter] = useState();
+  const [charactersSearch, setCharactersSearch] = useState();
+  const [isLoadingSpecies, setIsLoadingSpecies] = useState(true);
+  const [characterId, setCharacterId] = useState();
 
 
   const handleSpecies = (target: any) => {
-    return setSpeciesFilter(target.getAttribute("value"))
+    const data = { id: target.id, name: target.getAttribute("value") }
+    setSpeciesFilter(data)
   }
 
 
@@ -44,6 +32,14 @@ const AppProvider = ({ children }: Props) => {
     speciesFilter,
     setSpeciesFilter,
     handleSpecies,
+    filmFilter,
+    setFilmFilter,
+    charactersSearch,
+    setCharactersSearch,
+    isLoadingSpecies,
+    setIsLoadingSpecies,
+    characterId,
+    setCharacterId
   }
   
 
