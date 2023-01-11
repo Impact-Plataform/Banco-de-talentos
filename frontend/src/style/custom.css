@@ -12,6 +12,10 @@
 .bg-primary, .btn-primary{
     background-color: var(--primary) !important;
 }
+.bg-primary, .btn-primary:hover{
+    background-color: var(--warning) !important;
+    color: var(--tertiary) !important;
+}
 .bg-secondary, .btn-secondary{
     background-color: var(--secondary) !important;
 }
@@ -63,4 +67,16 @@
 .card-body:hover{
     transform: scale(1.1);
     transition: all 1s;
+}
+
+@media screen and (max-width: 768px) {
+
+    .container-fluid{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-fluid form{
+        width: 100%;
+    }
 }
