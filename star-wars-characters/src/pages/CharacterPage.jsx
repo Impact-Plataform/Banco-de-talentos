@@ -5,13 +5,24 @@ import { images } from '../assets/images';
 
 export const CharacterPage = () => {
   const { getCharacterById } = useContext(CharacterContext);
+  let { id } = useParams();
+
   const [loading, setLoading] = useState(true);
   const [character, setCharacter] = useState({});
+  /* 
+    No momento do meu desenvolvimento, 
+    ao acessar na API a url: https://swapi.dev/api/people/17
+    retornava "not found", em seguida pulava para https://swapi.dev/api/people/18
+    para resolver, decidi fazer essa verificação abaixo
+    acrescentando +1 a partir do id 17.
+  */
 
-  const { id } = useParams();
+  if (+id >= 17) {
+    id = parseInt(id) + 1;
+    console.log(typeof id);
+  }
   const getCharacter = async id => {
     const data = await getCharacterById(id);
-    console.log('characterpage: ', data);
     // guarda o objeto do personagem
     setCharacter(data.data);
     setLoading(false);
@@ -20,14 +31,6 @@ export const CharacterPage = () => {
     getCharacter(id);
   }, []);
 
-  // "name": "Tion Medon",
-  // "height": "206",
-  // "mass": "80",
-  // "hair_color": "none",
-  // "skin_color": "grey",
-  // "eye_color": "black",
-  // "birth_year": "unknown",
-  // "gender": "male",
   return (
     <div className="container main-character">
       {loading ? (

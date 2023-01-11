@@ -34,8 +34,8 @@ export const CharacterProvider = ({ children }) => {
       }
 
       console.log('terminou a chamada');
-      setLoading(false);
       setAllCharacters(characters);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -43,18 +43,12 @@ export const CharacterProvider = ({ children }) => {
 
   // chamar pelo id
   const getCharacterById = async id => {
-    let url = 'https://swapi.dev/api/';
-
     try {
       console.log('chamando o recurso people/id');
 
-      while (url) {
-        const response = await axios(`${url}people/${id}`);
-        console.log(response.data);
-        return response;
-      }
-
-      console.log('terminou a chamada do people/id');
+      const response = await axios(`https://swapi.dev/api/people/${id}`);
+      console.log('by id', response.data);
+      return response;
     } catch (error) {
       console.log(error);
     }
