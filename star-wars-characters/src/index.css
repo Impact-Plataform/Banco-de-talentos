@@ -14,10 +14,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
 }
-/* 
+
 div {
   border: 1px solid red;
-} */
+}
 
 /* header */
 header {
@@ -127,4 +127,47 @@ header form {
   display: block;
   color: #888;
   margin-bottom: 16px;
+}
+
+/* character page */
+
+.main-character {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin-top: 16px;
+  margin-bottom: 12px;
+}
+
+.main-character h1 {
+  font-size: 44px;
+  color: #ffe81f;
+  margin-left: 8px;
+}
+
+.character-info {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 12px; */
+}
+
+.character-info ul {
+  padding: 32px;
+  font-size: 20px;
+}
+
+.character-info li {
+  margin-top: 12px;
+}
+.character-image {
+  height: 320px;
+  padding: 8px;
+}
+
+.character-image img {
+  width: 300px;
+  height: 300px;
+
+  border-radius: 24%;
+  object-fit: cover;
 }

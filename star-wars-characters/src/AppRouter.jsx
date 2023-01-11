@@ -8,6 +8,7 @@ export const AppRouter = () => {
     <Routes>
       <Route path="/" element={<Navigation />}>
         <Route index element={<HomePage />} />
+        <Route path="character/:id" element={<CharacterPage />} />
       </Route>
       {/* se não der match com nenhuma rota */}
       <Route path="*" element={<Navigate to="/" />} />
