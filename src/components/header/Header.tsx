@@ -1,14 +1,19 @@
 'use client'
-import { HeaderContainer } from './header.style';
-import Image from 'next/image';
-import logo from '../../../public/starwars.png';
 import { useContext, useState } from 'react';
+import Image from 'next/image';
+import { IconButton } from '@chakra-ui/react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { HeaderContainer } from './header.style';
+import logo from '../../../public/starwars.png';
 import { AppContext } from '../../contexts/contextProvider';
+import { SearchIcon } from '@chakra-ui/icons';
 
 
 export default function Header() {
   const [character, setCharacter] = useState('');
-  const { setCharactersSearch } = useContext(AppContext)
+  const { setCharactersSearch } = useContext(AppContext);
+  const router = usePathname();
 
 
   const handleSetCharactersSearch = (character: string) => {
@@ -19,22 +24,27 @@ export default function Header() {
 
   return(
     <HeaderContainer>
-      <Image
-        src={logo}
-        alt="star wars logo"
-        width={100}
-      />
-      <input
-        type="text"
-        value={character}
-        onChange={ (e)=> setCharacter(e.target.value) }
-      />
-      <button
-        onClick={ () => handleSetCharactersSearch(character) }
-        type="button"
-        >
-          Pesquisar
-      </button>
+      <Link href={`/`}>
+        <Image
+          src={logo}
+          alt="star wars logo"
+          width={100}
+        />
+        {(router === "/")? (
+        <div>
+          <input
+            type="text"
+            value={character}
+            onChange={ (e)=> setCharacter(e.target.value) }
+          />
+          <IconButton
+            aria-label='Search database'
+            icon={<SearchIcon />}
+            onClick={ () => handleSetCharactersSearch(character) }
+          />
+        </div>
+        ): ""}
+      </Link>
     </HeaderContainer>
   );
 }

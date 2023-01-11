@@ -6,7 +6,7 @@ import { theme } from '../../styles/theme';
 
 export default function CustomChakraProvider({ children }: PropsWithChildren) {
   return(
-    <ChakraProvider theme={theme}>
+    <ChakraProvider>
       { children }
     </ChakraProvider>
   );
