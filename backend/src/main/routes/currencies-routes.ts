@@ -4,7 +4,7 @@ import { LoadCurrencyBySymbolController } from '../../infra/http/controllers/cur
 
 const currenciesRoutes = Router()
 
-currenciesRoutes.get('/currency', new LoadCurrencyBySymbolController().handle)
-currenciesRoutes.get('/currency/:id', new LoadCurrenciesController().handle)
+currenciesRoutes.get('/currency/:symbol', new LoadCurrencyBySymbolController().handle)
+currenciesRoutes.get('/currency', new LoadCurrenciesController().handle)
 
 export { currenciesRoutes }

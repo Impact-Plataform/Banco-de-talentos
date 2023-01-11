@@ -25,7 +25,7 @@ export class CreateProductUseCase {
     const product = new Product({
       name,
       price,
-      quantity
+      quantity: Math.round(quantity)
     })
     await this.productsRepository.create(product)
 
