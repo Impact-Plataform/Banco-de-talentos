@@ -1,10 +1,10 @@
 import { Router } from 'express';
 
-import { createProductController } from '../controllers/createProductController';
-import { DeleteProductController } from '../controllers/deleteProductController';
-import { getProductByIdController } from '../controllers/getProductByIdController';
-import { GetProductsController } from '../controllers/getProductsController';
-import { UpdateProductController } from '../controllers/updateProductController';
+import { createProductController } from '../controllers/product/createProductController';
+import { DeleteProductController } from '../controllers/product/deleteProductController';
+import { getProductByIdController } from '../controllers/product/getProductByIdController';
+import { GetProductsController } from '../controllers/product/getProductsController';
+import { UpdateProductController } from '../controllers/product/updateProductController';
 import { GetCurrencyValues } from '../middlewares/getCurrencyValue';
 import { GetProductMiddleware } from '../middlewares/getProductMiddleware';
 import { ValidateBodyFields } from '../middlewares/validateBodyFieldsMiddleware';

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { cache } from '../index';
+import { cache } from '../../index';
 
 export class GetCurenciesController {
 	async execute (req: Request, res: Response) {

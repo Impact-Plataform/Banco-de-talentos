@@ -1,6 +1,6 @@
 import { Product } from '@prisma/client';
 import { Request, Response } from 'express';
-import { prismaClient } from '../database/PrismaClient';
+import { prismaClient } from '../../database/PrismaClient';
 
 export class UpdateProductController {
 	async execute(req: Request<Pick<Product, 'id'>, unknown, Omit<Product, 'id'>>, res: Response) {

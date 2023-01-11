@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { prismaClient } from '../database/PrismaClient';
+import { prismaClient } from '../../database/PrismaClient';
 
 export class GetProductsController {
 	async execute(req: Request, res: Response) {

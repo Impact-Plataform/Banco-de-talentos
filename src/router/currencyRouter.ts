@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { GetCurenciesController } from '../controllers/getCurrenciesController';
+import { GetCurenciesController } from '../controllers/currency/getCurrenciesController';
 
 const getCurencies = new GetCurenciesController();
 
