@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { CharacterContext } from '../context/CharacterContext';
 import { images } from '../assets/images';
+import { Loader } from '../components';
 
 export const CharacterPage = () => {
   const { getCharacterById } = useContext(CharacterContext);
@@ -34,7 +35,7 @@ export const CharacterPage = () => {
   return (
     <div className="container main-character">
       {loading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : (
         <>
           <div className="container main-character">

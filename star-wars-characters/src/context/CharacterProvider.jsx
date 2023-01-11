@@ -61,7 +61,16 @@ export const CharacterProvider = ({ children }) => {
 
   return (
     <CharacterContext.Provider
-      value={{ valueSearch, onInputChange, onResetForm, allCharacters, getCharacterById }}
+      value={{
+        valueSearch,
+        onInputChange,
+        onResetForm,
+        allCharacters,
+        getCharacterById,
+        // Loader
+        loading,
+        setLoading,
+      }}
     >
       {children}
     </CharacterContext.Provider>

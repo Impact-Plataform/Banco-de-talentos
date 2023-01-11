@@ -171,3 +171,10 @@ header form {
   border-radius: 24%;
   object-fit: cover;
 }
+
+/* loader */
+.container-loader {
+  display: flex;
+  justify-content: center;
+  margin: 160px 0;
+}

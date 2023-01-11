@@ -1,22 +1,28 @@
 import React, { useContext } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
+import { Loader } from './Loader';
 import { CharacterCard } from './CharacterCard';
 import { images } from '../assets/images';
 
 export const CharacterList = () => {
-  const { allCharacters } = useContext(CharacterContext);
+  const { allCharacters, loading } = useContext(CharacterContext);
+  console.log('loading', loading);
   return (
     <>
-      <div className="card-list-character container">
-        {allCharacters.map((character, index) => (
-          <CharacterCard
-            character={character}
-            key={character.name}
-            id={index + 1}
-            image={images.characters[character.name]}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div className="card-list-character container">
+          {allCharacters.map((character, index) => (
+            <CharacterCard
+              character={character}
+              key={character.name}
+              id={index + 1}
+              image={images.characters[character.name]}
+            />
+          ))}
+        </div>
+      )}
     </>
   );
 };
