@@ -5,10 +5,17 @@ import logo from "../../assets/images/star-wars-logo.png";
 import style from "./Header.module.css";
 
 
-const Header = ({ filmes }) => {
+const Header = ({ filmes, onChange, value}) => {
   const [films, setFilms] = useState([]);
   const [especie, setEspecie] = useState([]);
   const [genero, setGenero] = useState([]);
+  const [text, setText] = useState('');
+  console.log(text);
+
+  function handleChange(event){
+    onChange(event.target.value)
+    setText(value);
+  }
 
   useEffect(() => {
     api
@@ -34,6 +41,8 @@ const Header = ({ filmes }) => {
             type="search"
             placeholder="Pesquisar"
             aria-label="Search"
+            value={value}
+            onChange={handleChange}
           />
           <select className="form-select me-2 w-25" aria-label="Select">
             <option selected>Filtrar</option>
