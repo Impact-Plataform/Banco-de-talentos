@@ -1,11 +1,9 @@
 import { Request, Response } from 'express';
-import { GenerateCache } from '../utils/nodeCache';
-
-const generatedCache = new GenerateCache();
+import { cache } from '../index';
 
 export class GetCurenciesController {
 	async execute (req: Request, res: Response) {
-		const currencies = await generatedCache.generate();
+		const currencies = await cache.find();
   
 		return res.json({currencies});
 	}

@@ -1,13 +1,12 @@
-import NodeCache from 'node-cache';
+import { myCache } from '../index';
 import { ICurrency } from '../interfaces/currencyInterface';
 import { AxiosUtils } from '../utils/axiosUtils';
 
-const myCache = new NodeCache({ stdTTL: 10 });
 const axiosUtil = new AxiosUtils();
 
-export class GenerateCache {
+export class Cache {
 
-	async generate(): Promise<ICurrency[]> {
+	async find(): Promise<ICurrency[]> {
 
 		const cache: ICurrency[] | undefined = myCache.get('currencies');
 
@@ -15,11 +14,15 @@ export class GenerateCache {
 			return cache;
 		}
 
+		await this.generate();
+
+		return this.find();
+	}
+
+	async generate() {
 		const axiosData = await axiosUtil.getApiData();
 		const formatedAxiosData = axiosUtil.transformArray(axiosData);
   
 		myCache.set('currencies', formatedAxiosData);
-
-		return this.generate();
 	}
 }
