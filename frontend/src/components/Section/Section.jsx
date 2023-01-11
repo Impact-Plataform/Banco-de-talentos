@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
 import Spinner from "../Spinner/Spinner";
 import style from "./Section.module.css";
+import um from "../../assets/images/personagens/1.jpg";
 
 const Section = () => {
   const [objeto, setObjeto] = useState([]);
@@ -18,6 +19,7 @@ const Section = () => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [page]);
+  console.log(array, "resultados");
 
   const nextPage = () => {
     setPage(page + 1);
@@ -26,6 +28,7 @@ const Section = () => {
   const previousPage = () => {
     setPage(page - 1);
   };
+
 
   return (
     <section className={style.section}>
@@ -36,13 +39,14 @@ const Section = () => {
           return (
             <Card
               key={index}
+              imageId={um}
               nome={item.name}
-              genero={item.gender}
-              altura={item.height}
-              peso={item.mass}
-              corDoCabelo={item.hair_color}
-              corDosOlhos={item.eye_color}
-              roupa={item.skin_color}
+              // genero={item.gender}
+              // altura={item.height}
+              // peso={item.mass}
+              // corDoCabelo={item.hair_color}
+              // corDosOlhos={item.eye_color}
+              // roupa={item.skin_color}
             />
           );
         })
