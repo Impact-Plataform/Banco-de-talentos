@@ -14,7 +14,6 @@ export class CreateProductController {
         price,
         quantity
       })
-
       return response.status(201).json(ProductViewModel.toHTTP(product))
     } catch (err) {
       if (err.issues) {
