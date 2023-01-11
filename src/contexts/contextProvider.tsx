@@ -5,11 +5,10 @@ import { AppContextInterface, Props } from '../types/Context.types';
 
 export const AppContext = createContext<AppContextInterface>({} as AppContextInterface);
 
-
 const AppProvider = ({ children }: Props) => {
   const [page, setPage] = useState(0);
   const [gender, setGender] = useState();
-  const [speciesFilter, setSpeciesFilter] = useState();
+  const [speciesFilter, setSpeciesFilter] = useState<any | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [filmFilter, setFilmFilter] = useState();
   const [charactersSearch, setCharactersSearch] = useState();
@@ -18,7 +17,8 @@ const AppProvider = ({ children }: Props) => {
 
 
   const handleSpecies = (target: any) => {
-    return setSpeciesFilter(target.getAttribute("value"))
+    const data = { id: target.id, name: target.getAttribute("value") }
+    setSpeciesFilter(data)
   }
 
 

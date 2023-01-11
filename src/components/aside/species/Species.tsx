@@ -26,8 +26,9 @@ export default function Species() {
       <ul>
         { species.slice(0, 10).map((specie) => (
           <li
+            id={createdIdSpecies(specie.url)}
             key={ uuidv4() }
-            value={createdIdSpecies(specie.url)}
+            value={specie.name}
             onClick={(e) => handleSpecies(e.target)}
             >
               {specie.name}

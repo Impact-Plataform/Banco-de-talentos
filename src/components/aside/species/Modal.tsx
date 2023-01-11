@@ -47,7 +47,8 @@ export default function ModalCotainer({ species }: Props) {
               { species.map((specie) => (
                 <li
                   key={ uuidv4() }
-                  value={createdIdSpecies(specie.url)}
+                  id={createdIdSpecies(specie.url)}
+                  value={specie.name}
                   onClick={ (e) => handleSpeciesModal(e.target, onClose) }
                   >
                     {specie.name}

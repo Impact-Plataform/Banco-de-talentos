@@ -13,6 +13,7 @@ export default function Header() {
 
   const handleSetCharactersSearch = (character: string) => {
     setCharactersSearch(character.toLowerCase());
+    setCharacter('')
   };
 
 
@@ -25,6 +26,7 @@ export default function Header() {
       />
       <input
         type="text"
+        value={character}
         onChange={ (e)=> setCharacter(e.target.value) }
       />
       <button

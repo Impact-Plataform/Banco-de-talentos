@@ -5,8 +5,8 @@ import { ICharacter } from '../types/Characters.types';
 export const handleCharactersFilter = (
   listCharacters: ICharacter[],
   gender: string | undefined,
-  speciesFilter: string | undefined,
-  filmFilter: string | undefined,
+  speciesFilter: { id: string } | undefined,
+  filmFilter: { id: string } | undefined,
   charactersSearch: string | undefined
   ) => {
 
@@ -17,7 +17,7 @@ export const handleCharactersFilter = (
     if (speciesFilter) {
       const data = listCharacters.filter((character) => {
         if (character.species.length > 0) {
-          return createdIdSpecies(character.species[0]) === speciesFilter
+          return createdIdSpecies(character.species[0]) === speciesFilter?.id
         }
       });
       return data
@@ -25,7 +25,7 @@ export const handleCharactersFilter = (
 
     if (filmFilter) {
       const data = listCharacters.filter((character) => {
-        return character.films.find((film) => film === filmFilter)
+        return character.films.find((film) => film === filmFilter?.id)
       })
       return data
     }
@@ -61,8 +61,8 @@ export const handlePage = (
   page: number,
   character: ICharacter[],
   gender: string | undefined,
-  speciesFilter: string | undefined,
-  filmFilter: string | undefined,
+  speciesFilter: { id: string, name: string } | undefined,
+  filmFilter: { id: string, name: string } | undefined,
   charactersSearch: string | undefined
   ) => {
     const arrayFilter = handleCharactersFilter(character, gender, speciesFilter, filmFilter, charactersSearch)

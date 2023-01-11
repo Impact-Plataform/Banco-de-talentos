@@ -16,7 +16,7 @@ export default function Films() {
 
 
   const handleSetFilmFilter = (target: any) => {
-    setFilmFilter(target.id)
+    setFilmFilter({ id: target.id, name: target.innerText })
   };
 
 
