@@ -8,10 +8,7 @@ export class UpdateProductController {
   async handle (request: Request, response: Response): Promise<Response> {
     try {
       const { name, price, quantity } = validateRequest.parse(request.body)
-      const { id: productId } = request.query
-      if (typeof productId !== 'string') {
-        return response.status(404).json({ error: 'Invalid params' })
-      }
+      const { id: productId } = request.params
       await this.updateProductUseCase.execute({
         productId,
         data: {
@@ -20,12 +17,12 @@ export class UpdateProductController {
           quantity
         }
       })
-      return response.status(204).json({ message: 'Successfully updated product' })
+      return response.json({ message: 'Successfully updated product' })
     } catch (err) {
       if (err.issues) {
         return response.status(400).json({ error: 'Check your input' })
       }
-      return response.status(err.statusCode).json({ error: err.message })
+      return response.status(err.statusCode || 500).json({ error: err.message })
     }
   }
 }

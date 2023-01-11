@@ -16,32 +16,26 @@ export class PrismaProductsRepository implements ProductsRepository {
 
   async load (): Promise<Product[]> {
     const allProducts = await connection.product.findMany()
-    return allProducts.map(product => PrismaProductsMapper.toDomain(product))
+    return allProducts.map((product) => PrismaProductsMapper.toDomain(product))
   }
 
   async loadByName (name: string): Promise<Product> {
     const product = await connection.product.findUnique({ where: { name } })
-    if (product) {
-      return PrismaProductsMapper.toDomain(product)
-    }
+    if (!product) return
+    return PrismaProductsMapper.toDomain(product)
   }
 
   async loadById (id: string): Promise<Product> {
     const product = await connection.product.findUnique({ where: { id } })
-    if (product) {
-      return PrismaProductsMapper.toDomain(product)
-    }
+    if (!product) return
+    return PrismaProductsMapper.toDomain(product)
   }
 
   async update ({ id, data }: updatedProps): Promise<void> {
-    const productUpdate = this.products.find((product) => product.id === id)
-    productUpdate.setProps({ ...data })
+    await connection.product.update({ where: { id }, data: { ...data } })
   }
 
   async delete (productId: string): Promise<void> {
-    const productsUpdated = this.products.filter(
-      (product) => product.id !== productId
-    )
-    this.products = productsUpdated
+    await connection.product.delete({ where: { id: productId } })
   }
 }

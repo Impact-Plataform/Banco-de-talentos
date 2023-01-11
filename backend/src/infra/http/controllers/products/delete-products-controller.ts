@@ -6,10 +6,7 @@ export class DeleteProductController {
 
   async handle (request: Request, response: Response): Promise<Response> {
     try {
-      const { id: productId } = request.query
-      if (typeof productId !== 'string') {
-        return response.status(404).json({ error: 'Invalid params' })
-      }
+      const { id: productId } = request.params
       await this.deleteProductUseCase.execute({ productId })
       return response.status(204).json({ message: 'Successfully deleted product' })
     } catch (err) {

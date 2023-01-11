@@ -19,7 +19,7 @@ export class CreateProductController {
       if (err.issues) {
         return response.status(400).json({ error: 'Check your input' })
       }
-      return response.status(err.statusCode).json({ error: err.message })
+      return response.status(err.statusCode || 500).json({ error: err.message })
     }
   }
 }
