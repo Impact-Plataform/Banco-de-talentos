@@ -1,5 +1,10 @@
 import React from 'react';
+import { CharacterList } from '../components';
 
 export const HomePage = () => {
-  return <div>Home</div>;
+  return (
+    <div className="container">
+      <CharacterList />
+    </div>
+  );
 };

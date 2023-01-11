@@ -42,7 +42,7 @@ header form {
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 1px solid var(--color-yellow);
+  border: 2px solid #ffe81f;
   padding: 12px 24px;
   border-radius: 24px;
   background-color: #fff;
@@ -60,7 +60,7 @@ header form {
 .icon-search {
   width: 20px;
   border: 20px;
-  stroke: #fac710;
+  stroke: #ffe81f;
 }
 
 .btn-search {
@@ -70,7 +70,8 @@ header form {
   padding: 12px 24px;
   font-family: inherit;
   color: #fff;
-  background-color: #f7d354;
+  border: 2px solid #ffe81f;
+  background-color: #111;
   cursor: pointer;
   font-weight: 500;
   letter-spacing: 2px;
@@ -78,5 +79,52 @@ header form {
 
 .btn-search:hover {
   color: #fff;
-  background-color: #fac710;
+  background-color: #ffe81f;
+}
+
+/* card list character */
+.card-list-character {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.character-card {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.card-image {
+  background-color: #444;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  height: 240px;
+}
+
+.card-image img {
+  /* width: 100%;
+  height: 100%; */
+
+  width: 160px;
+  height: 160px;
+
+  border-radius: 24%;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 16px;
+}
+
+.card-info h3 {
+  color: #333;
+}
+
+.character-id {
+  display: block;
+  color: #888;
+  margin-bottom: 16px;
 }

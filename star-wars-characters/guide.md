@@ -8,6 +8,6 @@
 
 - Colors
   #f7d354
-  #fac710
+  #FFE81F
   #fff
   #111
