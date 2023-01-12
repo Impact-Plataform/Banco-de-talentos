@@ -9,13 +9,13 @@ const Pagination = ({anterior, proxima}) => {
     <nav aria-label="Page navigation">
       <ul className="pagination justify-content-center">
         <li className="page-item">
-          <a className="page-link bg-warning" href="#" onClick={anterior} cursor="pointer">
+          <a className="page-link bg-warning" href="#" onClick={anterior}>
             Anterior
           </a>
         </li>
-        <li class="page-item"><img src={vader} className={style.svg}/></li>
+        <li className="page-item"><img src={vader} className={style.svg}/></li>
         <li className="page-item">
-          <a className="page-link bg-warning" href="#" onClick={proxima} cursor="pointer">
+          <a className="page-link bg-warning" href="#" onClick={proxima}>
             Próximo
           </a>
         </li>
