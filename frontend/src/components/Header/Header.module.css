@@ -5,3 +5,8 @@
 .svg {
     width: 100px;
 }
+
+.container {
+    width: 50%;
+    display: flex;
+}
