@@ -15,7 +15,9 @@ export interface AppContextInterface {
   isLoadingSpecies: boolean,
   setIsLoadingSpecies: React.Dispatch<React.SetStateAction<boolean>>,
   characterId: string | undefined,
-  setCharacterId: React.Dispatch<React.SetStateAction<any>>, 
+  setCharacterId: React.Dispatch<React.SetStateAction<any>>,
+  menuIsVisible: boolean;
+  setMenuIsVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 

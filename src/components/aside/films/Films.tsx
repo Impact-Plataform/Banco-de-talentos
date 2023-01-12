@@ -8,7 +8,7 @@ import { AppContext } from '../../../contexts/contextProvider';
 
 
 export default function Films() {
-  const { setFilmFilter } = useContext(AppContext);
+  const { setFilmFilter, setMenuIsVisible } = useContext(AppContext);
 
 
   const fetcher = (url: string) => api.get(url).then(res => res.data)
@@ -17,6 +17,7 @@ export default function Films() {
 
   const handleSetFilmFilter = (target: any) => {
     setFilmFilter({ id: target.id, name: target.innerText })
+    setMenuIsVisible(false)
   };
 
 

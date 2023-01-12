@@ -14,11 +14,13 @@ const AppProvider = ({ children }: Props) => {
   const [charactersSearch, setCharactersSearch] = useState();
   const [isLoadingSpecies, setIsLoadingSpecies] = useState(true);
   const [characterId, setCharacterId] = useState();
+  const [menuIsVisible, setMenuIsVisible] = useState(false);
 
 
   const handleSpecies = (target: any) => {
     const data = { id: target.id, name: target.getAttribute("value") }
     setSpeciesFilter(data)
+    setMenuIsVisible(false)
   }
 
 
@@ -39,7 +41,9 @@ const AppProvider = ({ children }: Props) => {
     isLoadingSpecies,
     setIsLoadingSpecies,
     characterId,
-    setCharacterId
+    setCharacterId,
+    menuIsVisible,
+    setMenuIsVisible
   }
   
 
