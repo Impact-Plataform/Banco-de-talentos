@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   margin-top: -10px;
+  padding-bottom: 100px;
   z-index: 99999999;
 }
 
@@ -323,31 +324,39 @@
   border: 3px solid rgb(93, 92, 97);
 }
 
+.page__active {
+  background-color: rgb(0, 0, 0);
+  box-shadow: 0 0 .2rem #fff,
+  0 0 .1rem #fff,
+  0 0 0.2rem #1d0869,
+  0 0 0.2rem #1d0869,
+  inset 0 0 1.0rem #1d0869;
+}
+
 .search__notfound > img {
   max-width: 400px;
   width: 100%;
+  margin-left: 20px;
+}
+
+.search__notfound > h1 {
+  font-family: SpaceTravel;
+  letter-spacing: 10px;
 }
 
 .search__notfound  {
-  margin: 0;
-  color: white;
+  display: grid;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  text-align: center  ;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  left: 40%;
+  margin-top: 30px;
+  color: white;
+  text-align: center ;
 }
 
-
-
-@media (min-height: 600px) {
-  @media (max-height: 850px) {
-    .card {
-      height: 100%;
-    }
-  }
-}
 
 
 @media (min-width: 1281px) {
@@ -376,6 +385,7 @@
     .card__grid {
       padding-top: 40px;
     }
+    
 
 
   }
@@ -398,11 +408,31 @@
     }
 
     .card__grid {
-      grid-template-columns: 28% 28% 28%;
-      grid-template-rows: 500px 500px 500px 500px;
+      justify-content: center;
+      grid-template-columns: 28% 28%;
+      grid-auto-rows: 500px;
       grid-column-gap: 50px;
 
     }
+
+    .search__notfound  {
+      display: grid;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+      position: absolute;
+      left: 40%;
+      margin-top: 30px;
+      color: white;
+      text-align: center ;
+    }
+
+    .page__box {
+      margin-top: -20px;
+    }
+    
+    
 
   }
 }
@@ -410,56 +440,96 @@
 @media (min-width: 500px) {
   @media (max-width: 999px) {
 
-    .main__cards {
-      flex-direction: column;
-    }
-
-    .card {
+    .main__content {
       height: 100%;
+      width: 100%;
     }
-
-    .card img {
-      width: 80%;
-    }
-
-    .character__info>h3 {
-      font-size: 15px;
-      text-align: center;
-    }
-
+  
     .card__grid {
-      grid-template-columns: 40% 40%;
-      grid-auto-rows: 500px;
-      /* grid-column-gap: 50px; */
-      gap: 50px;
-      justify-content: center;
-      height: 800px;
-    }
-
-    .card__content {
-      width: 90%; 
-      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 100%;
+      overflow-y: hidden;
+      overflow-x: hidden;
+    }
+  
+    .main__cards  {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .input__search {
+      width: 300px;
+      height: 10px;
+      text-align: left;
+      padding: 20px;
+      padding-bottom: 25px;
+      font-size: 2rem;
+      background-color: #1a1b1f;
+      color: white;
+      outline: none;
+      border-radius: 4px;
+      border: 1px solid white;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+    ::placeholder {
+      font-size: 20px;
+    }
+  
+    .page__box {
+      margin-top: 50px;
+    }
+  
+    .card {
+      height: 450px;
+      width: 70%;
+      border-radius: 4px;
+      display: flex;
+      /* border: solid #FFE81F 1px; */
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      border: 0.2rem solid #fff;
+      border-radius: 10px;
+      padding: 0.2em;
+      box-shadow: 0 0 .1rem #fff,
+        0 0 .1rem #fff,
+        0 0 1rem #090a4d,
+        0 0 0.8rem #090a4d,
+        0 0 0.8rem #090a4d,
+        inset 0 0 1.3rem #090a4d;
+      transition: .3s;
+    }
+  
+    .card__content {
+      width: 100%;
+    }
+  
+    .card__grid {
+      row-gap: 70px;
     }
 
     
-    .page__box {
-      margin-top: 20px;
-    } 
-
-  }
+.search__notfound  {
+  display: grid;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  position: inherit;
+  left: 0%;
+  margin-top: 0px;
+  color: white;
+  text-align: center ;
 }
 
-@media (min-width: 500px) and (max-width: 579px) {
-  .card__grid {
-    height: 500px;
-  }
-  
- 
 }
+}
+
 
 @media (min-width: 0px) and (max-width: 499px) {
   .main__content {
@@ -528,98 +598,33 @@
 
   .card__content {
     width: 100%;
-  }
+  } 
 
   .card__grid {
     row-gap: 70px;
   }
 
+  .search__notfound  {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    position: inherit;
+    left: 0%;
+    margin-top: 0px;
+    color: white;
+    text-align: center ;
+  }
+
+  .search__notfound > img {
+    max-width: 300px;
+    width: 100%;
+    margin-left: 20px;
+
+   
+  }
+
   
  
-}
-
-
-@media (min-height: 835px) {
-  @media (max-height: 1024px) {
-    @media(min-width: 500px) {
-      @media(max-width: 999px) {
-        .card__grid {
-          height: 500px;
-        }
-
-        .input__search {
-          margin-top: 5%;
-          margin-bottom: 15%;
-        }
-
-      }
-    }
-
-
-  }
-}
-
-
-@media (min-height: 680px) {
-  @media (max-height: 834px) {
-    @media(min-width: 500px) {
-      @media(max-width: 999px) {
-        .card__grid {
-          height: 300px;
-          margin-top: 10%;
-        }
-
-        .input__search {
-          margin-top: 15%;
-        }
-
-
-      }
-
-    }
-  }
-}
-
-
-
-@media (min-height: 550px) {
-  @media (max-height: 679px) {
-    @media(min-width: 500px) {
-      @media(max-width: 999px) {
-        .card__grid {
-          height: 800px;
-          margin-top: 30%;
-        }
-
-        .input__search {
-          margin-top: 50%;
-        }
-
-
-      }
-
-    }
-  }
-}
-
-
-
-@media (min-height: 0px) {
-  @media (max-height: 549px) {
-    @media(min-width: 500px) {
-      @media(max-width: 999px) {
-        .card__grid {
-          height: 800px;
-          margin-top: 60%;
-        }
-
-        .input__search {
-          margin-top: 100%;
-        }
-
-
-      }
-
-    }
-  }
 }
