@@ -36,13 +36,36 @@ export const HeaderContainer = styled.header<Props>`
     }
   };
 
-  @media(max-width: 640px) {
+  @media(max-width: 710px) {
     input {
       width: 150px !important;
+      height: 30px !important;
+    }
+
+    .icon-btn-search {
+      height: 30px !important;
     }
 
     .icon-btn-hamburger {
       margin-right: 0px;
+    }
+
+    .icon-btn-close {
+      margin-right: 3px !important;
+    }
+  }
+
+  @media(max-width: 400px) {
+    .div-header-search div {
+      margin-left: -40px;
+    }
+
+    input {
+      height: 30px !important;
+    }
+
+    .icon-btn-search {
+      height: 30px !important;
     }
   }
 
