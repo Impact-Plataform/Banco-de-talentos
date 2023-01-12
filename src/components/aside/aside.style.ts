@@ -20,6 +20,7 @@ export const AsideContainer = styled.aside<Props>`
       color: white;
       text-align: center;
 
+
       h3 {
         margin-left: 30px !important;
       }

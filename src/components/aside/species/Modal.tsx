@@ -36,12 +36,12 @@ export default function ModalCotainer({ species }: Props) {
 
   return (
     <ModalStyle.Container>
-      <Button className="btn-more" onClick={onOpen}>Mostrar mais</Button>
+      <Button className="btn-more" onClick={onOpen}>Show more</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalStyle.StyledModal>
-          <ModalStyle.Header>Filtrar por espécies</ModalStyle.Header>
+          <ModalStyle.Header>Filter by species</ModalStyle.Header>
           <ModalStyle.ButtonClose />
           <ModalBody>
             <ModalStyle.UlSpecies>

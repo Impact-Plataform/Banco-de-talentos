@@ -27,7 +27,7 @@ export default function Filter() {
         <>
           <h1>
             <Image src={iconFilter} alt="icon filter" width={10} height={20}/>
-            <span>Filtrar por</span>
+            <span>filter by</span>
           </h1>
         </>
       ): "" }

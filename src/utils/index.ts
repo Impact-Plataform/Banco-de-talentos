@@ -5,7 +5,7 @@ import { ICharacter } from '../types/Characters.types';
 export const handleCharactersFilter = (
   listCharacters: ICharacter[],
   gender: string | undefined,
-  speciesFilter: { id: string } | undefined,
+  speciesFilter: { id: string } | null,
   filmFilter: { id: string } | undefined,
   charactersSearch: string | undefined
   ) => {
@@ -61,7 +61,7 @@ export const handlePage = (
   page: number,
   character: ICharacter[],
   gender: string | undefined,
-  speciesFilter: { id: string, name: string } | undefined,
+  speciesFilter: { id: string, name: string } | null,
   filmFilter: { id: string, name: string } | undefined,
   charactersSearch: string | undefined
   ) => {

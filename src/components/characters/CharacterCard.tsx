@@ -11,9 +11,9 @@ export default function CharacterCard({ img, name, height, birth_year, mass, id,
       <Link href={`/character/${id}`} onClick={() => setState(id)}>
         <Image src={img} alt={ name } width={200} height={300}/>
         <h2>{name}</h2>
-        <p>Altura:<span>{` ${height}cm`}</span></p>
-        <p>Massa:<span>{` ${mass}Kg`}</span></p>
-        <p>Ano de Nascimento:<span>{` ${birth_year}`}</span></p>
+        <p>Height:<span>{` ${height} cm`}</span></p>
+        <p>Mass:<span>{` ${mass} Kg`}</span></p>
+        <p>Birth Year:<span>{` ${birth_year}`}</span></p>
       </Link>
     </CharacterCardContainer>
   );

@@ -1,14 +1,9 @@
 'use client'
 import styled from 'styled-components';
 import {
-  Modal,
-  ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalBody,
   ModalCloseButton,
-  useDisclosure,
-  Button,
   chakra
 } from '@chakra-ui/react';
 

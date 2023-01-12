@@ -23,19 +23,19 @@ export default function Films() {
 
   if (error) return (
     <FilmContainer>
-      <h3>Filmes</h3>
-      <p>falhou ao carregar</p>
+      <h3>Films</h3>
+      <p>failed to load</p>
     </FilmContainer>
   );
   if (isLoading) return (
     <FilmContainer>
-      <h3>Filmes</h3>
-      <p>carregando...</p>
+      <h3>Films</h3>
+      <p>loading...</p>
     </FilmContainer>
   );
   return(
     <FilmContainer>
-      <h3>Filmes</h3>
+      <h3>Films</h3>
       { data.results.map((film: IFilm) => (
         <p
           key={film.episode_id}

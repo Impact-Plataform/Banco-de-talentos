@@ -22,7 +22,7 @@ export default function Species() {
 
   return(
     <SpeciesContainer>
-      <h3>Espécies</h3>
+      <h3>Species</h3>
       <ul>
         { species.slice(0, 10).map((specie) => (
           <li
