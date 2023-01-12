@@ -12,5 +12,8 @@ app.use(express.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use(productsRoutes)
 app.use(currenciesRoutes)
+app.use('/', (_request, response) => {
+  response.redirect('/docs')
+})
 
 export { app }
