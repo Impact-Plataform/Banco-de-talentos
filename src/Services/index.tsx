@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { CharacterTYPE, FilterOptions } from '../Types';
 import { characterDetailsHandler } from './characterDetailsHandler';
-import { filterData } from './filterOptions';
+import { filterCharacter } from './filterOptions';
 
 export async function handleCharacters(pagNumber: number, filterOptions: FilterOptions, characterArray: CharacterTYPE[], searchValue: string) {
     let count = 1;
@@ -41,7 +41,7 @@ export async function promisesDealer(charactersList: CharacterTYPE[], setCharact
         processedItems++;
 
         if (processedItems === array.length) {
-                let item = await filterData(charactersList, filterOptions, searchValue)
+                let item = await filterCharacter(charactersList, filterOptions, searchValue)
                 Promise.resolve(item).then((response) => {
                     setCharactersList(response);
                 })

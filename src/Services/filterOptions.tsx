@@ -1,6 +1,6 @@
 import { CharacterTYPE, FilterOptions } from "../Types";
 
-export async function filterData(characters: CharacterTYPE[], filterOptions: FilterOptions, searchValue: string) {
+export async function filterCharacter(characters: CharacterTYPE[], filterOptions: FilterOptions, searchValue: string) {
     const filteredArray = characters.filter((person: any) => {  
 
         if (filterOptions.gender  && (person.gender.toLowerCase() !== filterOptions.gender.toLowerCase()) && filterOptions.gender !== 'all') {

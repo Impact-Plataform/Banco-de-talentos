@@ -7,7 +7,6 @@ function CharacterCard({ character }: any) {
 
     function holdClickedCharacterDetail() {
         nav(`/${character.name}`)
-        localStorage.setItem('character', JSON.stringify(character));
     }
 
     return (
