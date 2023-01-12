@@ -10,10 +10,11 @@
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "migrate": "npx prisma migrate dev",
+    "seed:dev": "tsx ./src/infra/database/prisma/seed.ts",
     "lint": "eslint . --ext .ts"
   },
   "prisma": {
-    "seed": "tsx ./src/infra/database/prisma/seed.ts"
+    "seed": "node ./src/infra/database/prisma/seed.js"
   },
   "keywords": [],
   "author": "",
