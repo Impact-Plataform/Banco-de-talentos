@@ -1,4 +1,5 @@
 import { Product } from '@prisma/client';
+import { ICurrency } from '../interfaces/currencyInterface';
 
 declare global {
   namespace Express {
@@ -8,6 +9,7 @@ declare global {
         firstCurrency: number | undefined,
         secondCurrency: number | undefined
       }
+      currency: ICurrency
     }
   }
 }
