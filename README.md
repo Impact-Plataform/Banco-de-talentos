@@ -10,7 +10,7 @@ Death Star Database é um site onde você pode descobrir mais sobre os personage
 
 Quando clicar em um personagem, você será direcionado a uma página dedicada a ele, com informações e uma síntese abrangente. **Cuidado com spoilers**.
 
-Além disso, há três filtros disponíveis para melhorar sua pesquisa: gênero, espécie e filme em que apresentado. Eles podem ser combinados para refinar ainda mais seus resultados. Adicionalmente, há uma barra de procura para encontrar um personagem rapidamente, que também pode ser mesclada com os filtros. 
+Além disso, há três filtros disponíveis para melhorar sua pesquisa: gênero, espécie e filme em que é apresentado. Eles podem ser combinados para refinar ainda mais seus resultados. Adicionalmente, há uma barra de procura para encontrar um personagem rapidamente, que também pode ser mesclada com os filtros. 
 
 Você também pode pesquisar por um personagem inserindo o nome dele no link da aplicação - por exemplo - **https://deathstardb.netlify.app/Luke**, irá retornar o personagem **Luke Skywalker**
 
