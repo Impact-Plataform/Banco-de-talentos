@@ -378,22 +378,6 @@ export default {
               }
             }
           },
-          400: {
-            description: 'Bad request - Check your input',
-            content: {
-              'application/json': {
-                schema: {
-                  type: 'object',
-                  properties: {
-                    error: {
-                      type: 'string',
-                      example: 'Check your input'
-                    }
-                  }
-                }
-              }
-            }
-          },
           404: {
             description: 'Product not found',
             content: {
