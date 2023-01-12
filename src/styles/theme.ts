@@ -1,9 +1,11 @@
-export const theme = {
+import { extendTheme } from "@chakra-ui/react";
+
+export const theme = extendTheme({
   styles: {
-    global: {
-      'html, body': {
-        background: 'rgb(27, 26, 23)',
+    global: () => ({
+      body: {
+        bg: "",
       },
-    },
+    }),
   },
-}
+});

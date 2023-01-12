@@ -24,18 +24,28 @@ export default function Filter() {
       { (gender || speciesFilter || filmFilter || charactersSearch)? (
         <h1>Filtrar por</h1>
       ): "" }
-      { (gender)? (
-        <Badge>{gender}<CloseIcon onClick={() => setGender(null)}/></Badge>
-      ): "" }
-      { (speciesFilter)? (
-        <Badge>{speciesFilter?.name}<CloseIcon onClick={() => setSpeciesFilter(null)}/></Badge>
-      ): "" }
-      { (filmFilter)? (
-        <Badge>{filmFilter?.name}<CloseIcon onClick={() => setFilmFilter(null)}/></Badge>
-      ): "" }
-      { (charactersSearch)? (
-        <Badge>{charactersSearch}<CloseIcon onClick={() => setCharactersSearch(null)}/></Badge>
-      ): "" }
+      <div className="div-badge">
+        { (gender)? (
+          <div>
+            <Badge>{gender}<CloseIcon onClick={() => setGender(null)}/></Badge>
+          </div>
+        ): "" }
+        { (speciesFilter)? (
+          <div>
+            <Badge>{speciesFilter?.name}<CloseIcon onClick={() => setSpeciesFilter(null)}/></Badge>
+          </div>
+        ): "" }
+        { (filmFilter)? (
+          <div>
+            <Badge>{filmFilter?.name}<CloseIcon onClick={() => setFilmFilter(null)}/></Badge>
+          </div>
+        ): "" }
+        { (charactersSearch)? (
+          <div>
+            <Badge>{charactersSearch}<CloseIcon onClick={() => setCharactersSearch(null)}/></Badge>
+          </div>
+        ): "" }
+      </div>
     </FilterContainer>
   );
 };
