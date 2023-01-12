@@ -4,8 +4,9 @@
   "description": "Este desafio tem como objetivo te avaliar como desenvolvedor Back-end;",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "dev": "tsx watch src/main/server.ts",
-    "start": "node dist/main/server.js",
+    "start": "node dist/src/main/server.js",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "migrate": "npx prisma migrate dev",
