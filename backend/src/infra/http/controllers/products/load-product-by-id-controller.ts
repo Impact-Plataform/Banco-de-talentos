@@ -9,7 +9,8 @@ export class LoadProductByIdController {
     const { id: productId } = request.params
     try {
       const { product } = await this.loadProductByIdUseCase.execute({ productId })
-      return response.json(ProductViewModel.toHTTP(product))
+      const productResponse = await ProductViewModel.toHTTP(product)
+      return response.json(productResponse)
     } catch (err) {
       return response.status(err.statusCode || 500).json({ error: err.message })
     }

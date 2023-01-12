@@ -7,7 +7,7 @@ export class LoadProductsController {
 
   async handle (_request: Request, response: Response): Promise<Response> {
     const { products } = await this.loadProductsUseCase.execute()
-    const productsViewModel = products.map(product => ProductViewModel.toHTTP(product))
-    return response.json(productsViewModel)
+    const productsResponse = await Promise.all(products.map(async product => ProductViewModel.toHTTP(product)))
+    return response.json(productsResponse)
   }
 }

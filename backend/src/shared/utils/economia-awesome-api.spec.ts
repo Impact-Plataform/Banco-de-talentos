@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { cacheUtil } from '../../shared/utils/cacheUtil'
+import { cacheUtil } from '../utils/cacheUtil'
 import { getCurrenciesData } from './economia-awesome-api'
 
 describe('Get Currencies', () => {

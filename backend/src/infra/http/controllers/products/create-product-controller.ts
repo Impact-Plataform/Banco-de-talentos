@@ -14,7 +14,8 @@ export class CreateProductController {
         price,
         quantity
       })
-      return response.status(201).json(ProductViewModel.toHTTP(product))
+      const productResponse = await ProductViewModel.toHTTP(product)
+      return response.status(201).json(productResponse)
     } catch (err) {
       if (err.issues) {
         return response.status(400).json({ error: 'Check your input' })

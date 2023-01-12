@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-extraneous-class */
-import { getCurrenciesData } from '../../../infra/lib/economia-awesome-api'
+import { getCurrenciesData } from '../../../shared/utils/economia-awesome-api'
 import { AppError } from '../../../shared/errors/app-error'
 
 interface LoadCurrenciesBySymbolRequest {
