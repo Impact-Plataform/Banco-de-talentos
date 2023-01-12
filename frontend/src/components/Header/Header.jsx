@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import api from "../../service/api";
 import bb8 from "../../assets/images/bb-8.svg";
 import logo from "../../assets/images/star-wars-logo.png";
@@ -15,6 +15,13 @@ const Header = () => {
   console.log(species, "as especies");
   const [text, setText] = useState("");
   console.log(text);
+
+  const filmesFiltrados = useMemo(() => {
+    const lowerBusca = text.toLowerCase();
+    return films.filter((filme) =>
+    filme.toLowerCase().includes(lowerBusca)
+    );
+  }, [text]);
 
   function select() {
     const s = document.getElementById("selecao");
@@ -38,25 +45,16 @@ const Header = () => {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-      {films ? (
-        films.map((filme, index) => {
+      {filmesFiltrados.map((filme, index) => {
           return (
             <Card
               key={index}
               imageId={um}
               nome={filme.title}
-              // genero={item.gender}
-              // altura={item.height}
-              // peso={item.mass}
-              // corDoCabelo={item.hair_color}
-              // corDosOlhos={item.eye_color}
-              // roupa={item.skin_color}
             />
           );
         })
-      ) : (
-        <Spinner />
-      )}
+      }
   };
 
   const buscaEspecies = () => {
