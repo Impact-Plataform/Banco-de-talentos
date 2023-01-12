@@ -1,23 +1,35 @@
 import React, { useEffect, useState } from "react";
 import api from "../../service/api";
-import bb8 from "../../assets/images/bb-8.svg"
+import bb8 from "../../assets/images/bb-8.svg";
 import logo from "../../assets/images/star-wars-logo.png";
 import style from "./Header.module.css";
+import SearchInput from "../SearchInput/SearchInput";
+import Card from "../Card/Card";
+import Spinner from "../Spinner/Spinner";
+import um from "../../assets/images/personagens/1.jpg";
 
-
-const Header = ({ filmes, onChange, value}) => {
+const Header = () => {
   const [films, setFilms] = useState([]);
-  const [especie, setEspecie] = useState([]);
-  const [genero, setGenero] = useState([]);
-  const [text, setText] = useState('');
+  console.log(films, "os filmes");
+  const [species, setSpecies] = useState([]);
+  console.log(species, "as especies");
+  const [text, setText] = useState("");
   console.log(text);
 
-  function handleChange(event){
-    onChange(event.target.value)
-    setText(value);
+  function select() {
+    const s = document.getElementById("selecao");
+    const selecao = s.options[s.selectedIndex].value;
+
+    if (text && selecao == "1") {
+      return buscaFilmes();
+    } else if (text && selecao == "2") {
+      return buscaEspecies();
+    } else if (text && selecao == "3") {
+      // buscaGenero;
+    }
   }
 
-  useEffect(() => {
+  const buscaFilmes = () => {
     api
       .get(`films/`)
       .then((response) => {
@@ -26,7 +38,38 @@ const Header = ({ filmes, onChange, value}) => {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-  }, []);
+      {films ? (
+        films.map((filme, index) => {
+          return (
+            <Card
+              key={index}
+              imageId={um}
+              nome={filme.title}
+              // genero={item.gender}
+              // altura={item.height}
+              // peso={item.mass}
+              // corDoCabelo={item.hair_color}
+              // corDosOlhos={item.eye_color}
+              // roupa={item.skin_color}
+            />
+          );
+        })
+      ) : (
+        <Spinner />
+      )}
+  };
+
+  const buscaEspecies = () => {
+    api
+      .get(`species/`)
+      .then((response) => {
+        setSpecies([response.data.results]);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  };
+
 
   return (
     <nav className="navbar bg-tertiary">
@@ -34,32 +77,12 @@ const Header = ({ filmes, onChange, value}) => {
         <a className="navbar-brand">
           <img src={logo} className={style.logo} />
         </a>
-        
-        <form className="d-flex justify-content-start w-50" role="search">
-          <input
-            className="form-control me-2 w-50"
-            type="search"
-            placeholder="Pesquisar"
-            aria-label="Search"
-            value={value}
-            onChange={handleChange}
-          />
-          <select className="form-select me-2 w-25" aria-label="Select">
-            <option selected>Filtrar</option>
-            <option value={especie}>Especie</option>
-            <option value={films}>Filmes</option>
-            <option value={genero}>Genero</option>
-          </select>
-          {films.map((result) => {
-            return (
-              filmes = result.title
-              );
-          })}
-
-          <button className="btn btn-success" type="submit">
-            Buscar
-          </button>
-        </form>
+        <div className={style.container}>
+        <SearchInput value={text} onChange={(search) => setText(search)} />
+        <button className="btn btn-success" type="submit" onClick={select}>
+          Buscar
+        </button>
+        </div>
         <img src={bb8} alt="icone personagem bb-8" className={style.svg} />
       </div>
     </nav>
