@@ -45,7 +45,7 @@ export const Navigation = () => {
               placeholder="Search By Name"
               value={valueSearch}
               onChange={onInputChange}
-              maxLength="2"
+              minLength="2"
               required
             />
           </div>
