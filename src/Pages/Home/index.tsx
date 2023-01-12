@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
 import CharacterCard from '../../Components/CharacterCard';
 import { getTotalPages } from '../../Services';
 import { CharacterTYPE } from '../../Types';
@@ -21,8 +21,8 @@ function Home() {
     const [filmsList, setFilmsList] = useState<CharacterTYPE[]>([]);
 
     const [searchValue, setSearchValue] = useState<string>('');
+    
 
-    const [error, setError] = useState<string>('')
 
     useEffect(() => {
         const fetchSelectOptionsAndPageNumber = async () => {
@@ -34,21 +34,20 @@ function Home() {
         fetchSelectOptionsAndPageNumber();
     }, []);
 
+    
     function renderPagesBar() {
-
         let elements = [];
 
         for (let i = 1; i <= totalPages; i++) {
             elements.push(
-                <h3 className='page__container' page-key={i} onClick={renderKey}>{i}</h3>
+                <h3 className={`page__container ${page === i ? 'page__active' : ''}`} page-key={i} onClick={renderKey}>{i}</h3>
             );
         }
         return elements;
     }
 
     function renderKey(event: any) {
-        if (page === parseInt(event.target.getAttribute('page-key'))) return
-
+        if (page === parseInt(event.target.getAttribute('page-key'))) return 
         setPage(parseInt(event.target.getAttribute('page-key')))
         setCharactersList([]);
     }
@@ -61,8 +60,8 @@ function Home() {
                         <CharacterCard character={item} />
                     )
                 }))
-        // } else if (charactersList.length === 0 && error.length === 0) {
-        //     return <Loading />
+        } else if (charactersList.length === 0) {
+            return <Loading />
         } else if (typeof charactersList === 'string' && charactersList === 'Character not found') {
             return (
                 <div className='search__notfound'>
@@ -86,8 +85,6 @@ function Home() {
                     speciesList={speciesList}
                     filmsList={filmsList}
                     searchValue={searchValue}
-                    error={error}
-                    setError={setError}
                 />
                 <div className="card__content">
                     
