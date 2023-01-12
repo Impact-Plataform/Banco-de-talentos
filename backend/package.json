@@ -12,6 +12,9 @@
     "migrate": "npx prisma migrate dev",
     "lint": "eslint . --ext .ts"
   },
+  "prisma": {
+    "seed": "tsx ./src/infra/database/prisma/seed.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
