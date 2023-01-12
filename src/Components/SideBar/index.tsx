@@ -3,11 +3,12 @@ import './index.css'
 import './glitch.css'
 import Select from 'react-select'
 import { handleCharacters, promisesDealer } from '../../Services';
-import { CharacterTYPE } from '../../Types';
+import { CharacterTYPE, FilterOptions } from '../../Types';
 
 function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber, searchValue }: any) {
 
-    const genderOptions: any = [
+    let characterArray: CharacterTYPE[] = [];
+    const genderOptions: { value: string; label: string }[]  = [
         { value: '', label: 'Select your option' },
         { value: 'all', label: 'All' },
         { value: 'male', label: 'Male' },
@@ -17,21 +18,20 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber, search
         { value: 'n/a', label: 'N/A' }
     ];
 
-    let characterArray: CharacterTYPE[] = []
 
-    const filterOptionsHolder = {
+    const filterOptionsHolder:FilterOptions = {
         gender: '',
         species: '',
         film: '',
     };
 
-    const [choosedOptions, setChoosedOptions] = useState(filterOptionsHolder)
+    const [choosedOptions, setChoosedOptions] = useState<FilterOptions>(filterOptionsHolder)
 
 
     useEffect(() => {
         const fetchData = async () => {
-            let personArray = await handleCharacters(pagNumber, choosedOptions, characterArray, searchValue)
-            let item = await promisesDealer(characterArray, setCharactersState, choosedOptions, searchValue);
+            let personArray:void = await handleCharacters(pagNumber, choosedOptions, characterArray, searchValue)
+            let item:void = await promisesDealer(characterArray, setCharactersState, choosedOptions, searchValue);
         };
 
         fetchData();

@@ -4,25 +4,30 @@ import { characterDetailsHandler } from './characterDetailsHandler';
 import { filterData } from './filterOptions';
 
 export async function handleCharacters(pagNumber: number, filterOptions: any, characterArray: CharacterTYPE[], searchValue: string) {
-    const response = await axios.get(`https://swapi.py4e.com/api/people/?page=${pagNumber}`);
+    let count = 1;
 
-    response.data.results.forEach((character: CharacterTYPE) => characterArray.push(character));
+    if (filterOptions.gender || filterOptions.species || filterOptions.film || searchValue.length > 0) {
+        const allCharacters = await axios.get(`https://swapi.py4e.com/api/people/?page=${count}`);
+        allCharacters.data.results.forEach((character: CharacterTYPE) => characterArray.push(character))
 
-    if (filterOptions.gender || filterOptions.specie || filterOptions.film || searchValue.length > 0) {
-        let nextPage = response.data.next;
+        let nextPage = allCharacters.data.next;
+
         while (nextPage) {
 
             const res = await fetch(nextPage);
             const { next, results } = await res.json();
+            count++;
 
             results.forEach(async (result: CharacterTYPE) => {
                 characterArray.push(result)
             });
+
             nextPage = next;
+
         }
-        return characterArray;
     } else {
-        return characterArray;
+        const response = await axios.get(`https://swapi.py4e.com/api/people/?page=${pagNumber}`);
+        response.data.results.forEach((character: CharacterTYPE) => characterArray.push(character));
     }
 
 }
@@ -39,8 +44,7 @@ export async function promisesDealer(charactersList: CharacterTYPE[], setCharact
             if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
                 let item = await filterData(charactersList, filterOptions, searchValue)
                 Promise.resolve(item).then((response) => {
-                    console.log(response)
-                    if(response.length === 0 ) {}
+                    if (response.length === 0) { }
                     setCharactersList(response);
                 })
 

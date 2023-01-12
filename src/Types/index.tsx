@@ -22,6 +22,12 @@ export interface CharacterTYPE {
     data: any;
 }
 
+export interface FilterOptions {
+	gender: string;
+    species: string;
+    film: string;
+}
+
 
 export interface CharacterDetails {
     name: string;
