@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { CharacterTYPE } from '../Types';
+import { CharacterTYPE, FilterOptions } from '../Types';
 import { characterDetailsHandler } from './characterDetailsHandler';
 import { filterData } from './filterOptions';
 
-export async function handleCharacters(pagNumber: number, filterOptions: any, characterArray: CharacterTYPE[], searchValue: string) {
+export async function handleCharacters(pagNumber: number, filterOptions: FilterOptions, characterArray: CharacterTYPE[], searchValue: string) {
     let count = 1;
 
     if (filterOptions.gender || filterOptions.species || filterOptions.film || searchValue.length > 0) {
@@ -32,16 +32,15 @@ export async function handleCharacters(pagNumber: number, filterOptions: any, ch
 
 }
 
-export async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: React.Dispatch<React.SetStateAction<string | CharacterTYPE[]>>, filterOptions: any, searchValue: string) {
+export async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: React.Dispatch<React.SetStateAction<string | CharacterTYPE[]>>, filterOptions: FilterOptions, searchValue: string) {
     let processedItems: number = 0
 
-    charactersList.forEach(async (character: CharacterTYPE, index: number, array: any) => {
+    charactersList.forEach(async (character: CharacterTYPE, index: number, array: CharacterTYPE[]) => {
         await characterDetailsHandler(character);
 
         processedItems++;
 
         if (processedItems === array.length) {
-            if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
                 let item = await filterData(charactersList, filterOptions, searchValue)
                 Promise.resolve(item).then((response) => {
                     setCharactersList(response);
@@ -50,7 +49,7 @@ export async function promisesDealer(charactersList: CharacterTYPE[], setCharact
             }
         }
 
-    })
+    )
 }
 
 export async function getTotalPages(setTotalPages: React.Dispatch<React.SetStateAction<number>>, totalPages: number) {
