@@ -2,7 +2,7 @@
 import { Badge } from '@chakra-ui/react'
 import { useContext } from 'react';
 import { CloseIcon } from '@chakra-ui/icons';
-import { AppContext } from '../../../contexts/contextProvider';
+import { AppContext } from '../../contexts/contextProvider';
 import { FilterContainer } from './filter.style';
 
 

@@ -5,20 +5,21 @@ import { AppContext } from '../../../contexts/contextProvider';
 
 
 export default function Gender() {
-  const { setGender } = useContext(AppContext);
+  const { setGender, setMenuIsVisible } = useContext(AppContext);
 
-  const handleGender = (target: any) => {
+  const handleGender = (target: any, setMenuIsVisible: any) => {
     setGender(target.getAttribute("value"))
+    setMenuIsVisible(false)
   }
 
   return(
     <GenderContainer>
         <h3>Gênero</h3>
         <ul>
-          <li value="male" onClick={ (e) => handleGender(e.target) }>masculino</li>
-          <li value="female" onClick={ (e) => handleGender(e.target) }>feminino</li>
-          <li value="unknown" onClick={ (e) => handleGender(e.target) }>desconhecido</li>
-          <li value="n/a" onClick={ (e) => handleGender(e.target) }>não tem gênero</li>
+          <li value="male" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>masculino</li>
+          <li value="female" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>feminino</li>
+          <li value="unknown" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>desconhecido</li>
+          <li value="n/a" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>não tem gênero</li>
         </ul>
       </GenderContainer>
   );
