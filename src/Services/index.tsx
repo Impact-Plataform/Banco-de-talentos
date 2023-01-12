@@ -44,7 +44,6 @@ export async function promisesDealer(charactersList: CharacterTYPE[], setCharact
             if (filterOptions.gender || !filterOptions.species || filterOptions.film) {
                 let item = await filterData(charactersList, filterOptions, searchValue)
                 Promise.resolve(item).then((response) => {
-                    if (response.length === 0) { }
                     setCharactersList(response);
                 })
 

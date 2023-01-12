@@ -16,7 +16,11 @@ export async function getDetailedCharacter(character: string, setCharactersList:
         });
 
         Promise.all(applyDetailsToCharacters).then((response) => {
-            setCharactersList(response);
+            if (response.length === 0) {
+                setCharactersList('Character not found')
+            } else {
+                setCharactersList(response);
+            }
         })
 
 
