@@ -85,13 +85,14 @@
     font-family: SpaceTravel;
     letter-spacing: 10px;
     font-size: 3em;
-    width: 20%;
+    width: 30%;
     animation: pulsate2 1.5s infinite alternate;
     box-shadow: 0 0 .2rem #fff,
         0 0 .1rem #fff,
         0 0 1rem #860404,
         0 0 0.8rem #860404,
         0 0 2.1rem #860404,
+    
 
 }
 
@@ -207,23 +208,6 @@
 }
 
 
-@media only screen and (min-width: 1150px) {
-    @media only screen and (max-width: 1380px) {
-        .quote {
-            width: 500px;
-        }
-
-        .details__img {
-            max-width: 430px;
-            max-height: 900px;
-        }
-
-        .films__container {
-            margin-top: 50%;
-        }
-
-    }
-}
 
 @media only screen and (min-width: 1381px) {
     @media only screen and (max-width: 1550px) {
@@ -273,12 +257,15 @@
         }
 
         .character__summary>h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
             width: 100%;
             text-align: center;
         }
 
         .character__summary>p {
             font-family: Roboto;
+            font-size: 25px;
             letter-spacing: 2px;
             margin-top: 5px;
             text-align: center;
@@ -289,6 +276,7 @@
 
     }
 }
+
 
 @media only screen and (min-width: 1000px) {
     @media only screen and (max-width: 1149px) {
@@ -345,6 +333,78 @@
 
     }
 }
+
+    
+@media only screen and (min-width: 1150px) {
+    @media only screen and (max-width: 1380px) {
+        .quote {
+            font-style: italic;
+            font-size: 200px;
+            text-align: center;
+            width: 500px;
+        }
+
+        .films__container {
+            margin-top: 50%;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 10px;
+            width: 80%;
+        }
+
+        .details__img {
+            max-width: 450px;
+            max-height: 500px;
+            margin-top: 20px;
+            object-fit: cover;
+        }
+
+        .details__img:hover {
+            margin-top: 20px;
+        }
+
+        .character-detailed__space {
+            flex-direction: column;
+        }
+
+        .character-detailed__container {
+            width: 100%;
+        }
+
+        .films__container {
+            margin-top: 550px;
+
+        }
+
+        .character__summary {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character__summary>h1 {
+            width: 100%;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .character__summary>p {
+            font-family: Roboto;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            font-size: 30px;
+            text-align: center;
+            width: 70%;
+        }
+
+    }
+
+    }
 
 
 @media only screen and (min-width: 1000px) {

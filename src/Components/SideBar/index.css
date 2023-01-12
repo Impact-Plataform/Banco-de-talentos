@@ -92,29 +92,6 @@
 
   
 
-  @media (min-width: 500px) and (max-width: 999px) {
-
-      .nav {
-        /* flex-direction: column; */
-        margin-top: 20px;
-        height: 10%;
-      }
-
-      .logo {
-        font-size: 3rem;
-      }
-
-      .description {
-        font-size: 2rem;
-      }
-      
-      .options {
-        display: flex;
-        flex-direction: row
-      }
-
-  }
-
   
   @media (min-width: 500px) and (max-width: 999px) {
       .nav {
