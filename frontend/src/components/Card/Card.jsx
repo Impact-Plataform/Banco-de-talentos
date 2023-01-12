@@ -1,4 +1,5 @@
 import React from "react";
+import Modal from "../Modal/Modal";
 
 const Card = ({
   imageId,
@@ -12,6 +13,8 @@ const Card = ({
   genero,
   filmes,
 }) => {
+
+
   return (
     
       <div className="col">
@@ -27,13 +30,11 @@ const Card = ({
             <p className="card-text">{roupa}</p>
             <p className="card-text">{especie}</p>
             <p className="card-text">{filmes}</p>
-            <a href="#" className="btn btn-primary d-flex justify-content-center">
-              Ver mais
-            </a>
+            <Modal/>
           </div>
+          
         </div>
       </div>
-    
   );
 };
 
