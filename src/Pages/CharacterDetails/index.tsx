@@ -8,13 +8,16 @@ import { CharacterTYPE } from '../../Types';
 import Background from '../../Components/Background';
 
 function CharacterDetails() {
-    let userId = useParams();
     const [detailedCharacter, setDetailedCharacter] = useState<any>([]);
+    let getName = useParams();
+    let characterName:string = getName.id!;
 
     useEffect(() => {
         const getDetailedCharacterData = async () => {
-            const character = await getDetailedCharacter(userId.id, setDetailedCharacter, '', userId.id);
+            const character = await getDetailedCharacter(characterName, setDetailedCharacter);
         }
+
+
 
         getDetailedCharacterData();
     }, [])
@@ -33,7 +36,7 @@ function CharacterDetails() {
             <Background overlayEnabled={false} />
             {typeof detailedCharacter != 'string' &&
                 <div className='character-detailed__space'>
-                    <img src={detailedCharacter[0].image} className="details__img" />
+                    <img src={detailedCharacter[0].image} alt={detailedCharacter.name} className="details__img" />
                     <div className='character-detailed__container'>
                         <q className='quote'>{detailedCharacter[0].quote}</q>
                         <h2 className='quote__name'>━ {detailedCharacter[0].name}</h2>
@@ -69,7 +72,7 @@ function CharacterDetails() {
                     return (
                         <div className='unique__film'>
                             <h2>{item.name}</h2>
-                            <img className='films__img' src={item.image} />
+                            <img className='films__img' src={item.image} alt="A film of Star Wars" />
                         </div>
                     )
                 })}

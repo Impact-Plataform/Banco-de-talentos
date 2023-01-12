@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css'
 import './glitch.css'
 import Select from 'react-select'
 import { handleCharacters, promisesDealer } from '../../Services';
+import { CharacterTYPE } from '../../Types';
 
-function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber, searchValue, error, setError }: any) {
+function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber, searchValue }: any) {
 
     const genderOptions: any = [
         { value: '', label: 'Select your option' },
@@ -16,7 +17,7 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber, search
         { value: 'n/a', label: 'N/A' }
     ];
 
-    let characterArray:any = []
+    let characterArray: CharacterTYPE[] = []
 
     const filterOptionsHolder = {
         gender: '',
@@ -29,17 +30,13 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber, search
 
     useEffect(() => {
         const fetchData = async () => {
-            let personArray = await handleCharacters(pagNumber, choosedOptions, characterArray)
+            let personArray = await handleCharacters(pagNumber, choosedOptions, characterArray, searchValue)
             let item = await promisesDealer(characterArray, setCharactersState, choosedOptions, searchValue);
         };
 
         fetchData();
-        
+
     }, [choosedOptions, searchValue, pagNumber])
-
-
-
-
 
     function handleChange(e: any, selectName: any) {
         setChoosedOptions({
