@@ -1,11 +1,20 @@
 import React, { useContext } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { CharacterContext } from '../context/CharacterContext';
 import logoStarWars from '../assets/logo.svg';
 
 export const Navigation = () => {
-  // const { number } = useContext(CharacterContext);
-  // console.log('number', number);
+  const { valueSearch, onInputChange, onResetForm } = useContext(CharacterContext);
+  const navigate = useNavigate();
+
+  const onSearchSubmit = event => {
+    event.preventDefault();
+    navigate('/search', {
+      state: valueSearch,
+    });
+    onResetForm();
+  };
+
   return (
     <>
       <header className="container">
@@ -13,7 +22,7 @@ export const Navigation = () => {
           <img src={logoStarWars} alt="Logo Star Wars" />
         </Link>
 
-        <form>
+        <form onSubmit={onSearchSubmit}>
           <div className="form-group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +38,16 @@ export const Navigation = () => {
                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
               />
             </svg>
-            <input type="search" name="valueSearch" id="" placeholder="Search By Name" />
+            <input
+              type="search"
+              name="valueSearch"
+              id=""
+              placeholder="Search By Name"
+              value={valueSearch}
+              onChange={onInputChange}
+              maxLength="2"
+              required
+            />
           </div>
 
           <button className="btn-search">Search</button>

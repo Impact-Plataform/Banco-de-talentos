@@ -57,7 +57,7 @@ export const CharacterProvider = ({ children }) => {
   useEffect(() => {
     getAllCharacters();
   }, []);
-  console.log('people: ', allCharacters);
+  // console.log('people: ', allCharacters);
 
   return (
     <CharacterContext.Provider
