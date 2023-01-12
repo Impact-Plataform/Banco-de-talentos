@@ -4,22 +4,20 @@ import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
 import Spinner from "../Spinner/Spinner";
 import style from "./Section.module.css";
-import um from "../../assets/images/personagens/1.jpg";
+import img from "../../assets/images/personagens/19.jpg";
 
 const Section = () => {
-  const [objeto, setObjeto] = useState([]);
   const [page, setPage] = useState(1);
   const [array, setArray] = useState([]);
 
   useEffect(() => {
     api
       .get(`/people/?page=${page}`)
-      .then((response) => { setObjeto([response.data]), setArray(response.data.results)})
+      .then((response) => {setArray(response.data.results)})
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [page]);
-  console.log(array, "resultados");
 
   const nextPage = () => {
     setPage(page + 1);
@@ -35,12 +33,12 @@ const Section = () => {
       <div className="container-md">
       <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
       {array ? (
-        array.map((item, index) => {
+        array.map((personagem, index) => {
           return (
             <Card
               key={index}
-              imageId={um}
-              nome={item.name}
+              imageId={img}
+              nome={personagem.name}
               // genero={item.gender}
               // altura={item.height}
               // peso={item.mass}
@@ -55,7 +53,7 @@ const Section = () => {
       )}
       </div>
       </div>
-      <div class="container-fluid p-2">
+      <div className="container-fluid p-2">
       <Pagination anterior={previousPage} proxima={nextPage} />
       </div>
       
