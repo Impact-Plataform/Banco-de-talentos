@@ -1,10 +1,11 @@
-
+import { Header } from "./Components/Header/Index"
+import { Home } from "./pages/home/Index"
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Olá mundo!</h1>
+    <Header/>
     </div>
   )
 }
