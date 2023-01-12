@@ -9,6 +9,7 @@ body {
   background-color: #111;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
+  /* font-size: 100%; */
 }
 .container {
   max-width: 1200px;
@@ -177,4 +178,31 @@ header form {
   display: flex;
   justify-content: center;
   margin: 160px 0;
+}
+
+/* pagination */
+.pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pagination ul {
+  /* width: 360px; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+}
+
+.pagination-link {
+  display: inline-block;
+  padding: 8px;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.is-current {
+  background-color: #ffe81f;
+  color: #111;
 }
