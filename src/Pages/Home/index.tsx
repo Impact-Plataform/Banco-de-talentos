@@ -7,7 +7,6 @@ import Sidebar from '../../Components/SideBar';
 import { getOptions } from '../../Services/getSelectOptions';
 import Loading from '../../Components/Loading';
 import searchNotFound from '../../assets/filterNotFound.gif'
-import { getDetailedCharacter } from '../../Services/characterDetailed';
 import Background from '../../Components/Background';
 
 function Home() {
@@ -23,8 +22,6 @@ function Home() {
 
     const [searchValue, setSearchValue] = useState<string>('');
 
-    const [firstLoad, setFirstLoad] = useState(false);
-
     const [error, setError] = useState<string>('')
 
     useEffect(() => {
@@ -36,22 +33,6 @@ function Home() {
 
         fetchSelectOptionsAndPageNumber();
     }, []);
-
-    useEffect(() => {
-        setFirstLoad(true);
-    }, [page])
-
-    useEffect(() => {
-        const recoverCharacter = async () => {
-            const character = await getDetailedCharacter(searchValue, setCharactersList, '', '');
-        }
-
-        if (firstLoad) {
-            recoverCharacter();
-        }
-
-    }, [searchValue])
-
 
     function renderPagesBar() {
 
@@ -86,7 +67,7 @@ function Home() {
             return (
                 <div className='search__notfound'>
                     <h1>Nothing was found</h1>
-                    <img src={searchNotFound} />
+                    <img src={searchNotFound} alt="A stormtrooper saying: Nothing was found"/>
                 </div>)
         }
 
