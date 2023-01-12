@@ -1,9 +1,11 @@
 'use client'
-import { Badge } from '@chakra-ui/react'
+import { Badge } from '@chakra-ui/react';
+import Image from 'next/image';
 import { useContext } from 'react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { AppContext } from '../../contexts/contextProvider';
 import { FilterContainer } from './filter.style';
+import iconFilter from '../../../public/iconfilter.png';
 
 
 export default function Filter() {
@@ -22,20 +24,35 @@ export default function Filter() {
   return(
     <FilterContainer>
       { (gender || speciesFilter || filmFilter || charactersSearch)? (
-        <h1>Filtrar por</h1>
+        <>
+          <h1>
+            <Image src={iconFilter} alt="icon filter" width={10} height={20}/>
+            <span>Filtrar por</span>
+          </h1>
+        </>
       ): "" }
-      { (gender)? (
-        <Badge>{gender}<CloseIcon onClick={() => setGender(null)}/></Badge>
-      ): "" }
-      { (speciesFilter)? (
-        <Badge>{speciesFilter?.name}<CloseIcon onClick={() => setSpeciesFilter(null)}/></Badge>
-      ): "" }
-      { (filmFilter)? (
-        <Badge>{filmFilter?.name}<CloseIcon onClick={() => setFilmFilter(null)}/></Badge>
-      ): "" }
-      { (charactersSearch)? (
-        <Badge>{charactersSearch}<CloseIcon onClick={() => setCharactersSearch(null)}/></Badge>
-      ): "" }
+      <div className="div-badge">
+        { (gender)? (
+          <div>
+            <Badge>{gender}<CloseIcon onClick={() => setGender(null)}/></Badge>
+          </div>
+        ): "" }
+        { (speciesFilter)? (
+          <div>
+            <Badge>{speciesFilter?.name}<CloseIcon onClick={() => setSpeciesFilter(null)}/></Badge>
+          </div>
+        ): "" }
+        { (filmFilter)? (
+          <div>
+            <Badge>{filmFilter?.name}<CloseIcon onClick={() => setFilmFilter(null)}/></Badge>
+          </div>
+        ): "" }
+        { (charactersSearch)? (
+          <div>
+            <Badge>{charactersSearch}<CloseIcon onClick={() => setCharactersSearch(null)}/></Badge>
+          </div>
+        ): "" }
+      </div>
     </FilterContainer>
   );
 };

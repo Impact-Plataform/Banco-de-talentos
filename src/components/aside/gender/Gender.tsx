@@ -18,7 +18,6 @@ export default function Gender() {
         <ul>
           <li value="male" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>masculino</li>
           <li value="female" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>feminino</li>
-          <li value="unknown" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>desconhecido</li>
           <li value="n/a" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>não tem gênero</li>
         </ul>
       </GenderContainer>

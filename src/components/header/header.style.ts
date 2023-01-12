@@ -28,7 +28,6 @@ export const HeaderContainer = styled.header<Props>`
     }
 
     input {
-      margin-left: -1px !important;
       color: #F0A500;
     }
 
@@ -62,6 +61,11 @@ export const HeaderContainer = styled.header<Props>`
     width: 70%;
   }
 
+  .div-header-search div {
+    display: flex;
+    align-items: center;
+  }
+
   .link {
     cursor: default;
   }
@@ -77,7 +81,6 @@ export const HeaderContainer = styled.header<Props>`
     color: #F0A500;
     border-radius: 5px 0px 0px 5px;
     margin-left: 50px;
-    margin-top: 1px;
     height: 36px;
     width: 340px;
   }
@@ -101,7 +104,6 @@ export const HeaderContainer = styled.header<Props>`
   .icon-btn-close {
     margin-right: 25px;
     font-size: 20px;
-    transition: 1s;
     cursor: pointer;
     color: #F0A500;
   }

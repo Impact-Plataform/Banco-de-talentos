@@ -8,13 +8,14 @@ import {
   ModalCloseButton,
   useDisclosure,
   Button,
+  chakra
 } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { AppContext } from '../../../contexts/contextProvider';
 import { ISpecie } from '../../../types/Species.types';
 import { createdIdSpecies } from '../../../utils';
-import { UlSpecies } from './species.style';
+import * as ModalStyle from './species.style';
 
 
 interface Props {
@@ -34,16 +35,16 @@ export default function ModalCotainer({ species }: Props) {
 
 
   return (
-    <>
-      <Button onClick={onOpen}>Mostrar mais</Button>
+    <ModalStyle.Container>
+      <Button className="btn-more" onClick={onOpen}>Mostrar mais</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Espécies</ModalHeader>
-          <ModalCloseButton />
+        <ModalStyle.StyledModal>
+          <ModalStyle.Header>Filtrar por espécies</ModalStyle.Header>
+          <ModalStyle.ButtonClose />
           <ModalBody>
-            <UlSpecies>
+            <ModalStyle.UlSpecies>
               { species.map((specie) => (
                 <li
                   key={ uuidv4() }
@@ -54,10 +55,10 @@ export default function ModalCotainer({ species }: Props) {
                     {specie.name}
                 </li>
               )) }
-            </UlSpecies>
+            </ModalStyle.UlSpecies>
           </ModalBody>
-        </ModalContent>
+        </ModalStyle.StyledModal>
       </Modal>
-    </>
+    </ModalStyle.Container>
   )
 }
