@@ -6,7 +6,7 @@ import { filterCharacter } from './filterOptions';
 export async function handleCharacters(pagNumber: number, filterOptions: FilterOptions, characterArray: CharacterTYPE[], searchValue: string) {
     let count = 1;
 
-    if (filterOptions.gender || !filterOptions.species || filterOptions.film || searchValue.length > 0) {
+    if (filterOptions.gender || filterOptions.species || filterOptions.film || searchValue.length > 0) {
         const allCharacters = await axios.get(`https://swapi.py4e.com/api/people/?page=${count}`);
         allCharacters.data.results.forEach((character: CharacterTYPE) => characterArray.push(character))
 
