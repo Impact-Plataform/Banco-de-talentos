@@ -11,6 +11,7 @@ export const FilterContainer = styled.div`
     }
    }
 
+  margin-left: 10px;
   margin-top: 10px;
   background: rgb(27, 26, 23);
   height: 80px;
@@ -20,6 +21,8 @@ export const FilterContainer = styled.div`
   }
 
   .div-badge div {
+    align-items: center;
+    margin-top: 5px;
     margin-left: 5px;
   }
 
@@ -29,8 +32,19 @@ export const FilterContainer = styled.div`
   }
 
   h1 {
+    display: flex;
+    align-items: center;
     margin-left: 5px;
     color: white;
     font-size: 20px;
+  }
+
+  h1 img {
+    width: 15px;
+    height: 15px;
+  }
+
+  span {
+    margin-left: 5px;
   }
 `;

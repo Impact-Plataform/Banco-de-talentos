@@ -9,7 +9,7 @@ import { AppContext } from '../../contexts/contextProvider';
 
 
 export default function Aside() {
-  const {menuIsVisible, setMenuIsVisible} = useContext(AppContext)
+  const {menuIsVisible, setMenuIsVisible} = useContext(AppContext);
 
   return(
     <AsideContainer isVisible={menuIsVisible}>

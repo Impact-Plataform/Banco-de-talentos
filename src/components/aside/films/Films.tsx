@@ -21,8 +21,18 @@ export default function Films() {
   };
 
 
-  if (error) return <div>falhou ao carregar</div>
-  if (isLoading) return <div>carregando...</div>
+  if (error) return (
+    <FilmContainer>
+      <h3>Filmes</h3>
+      <p>falhou ao carregar</p>
+    </FilmContainer>
+  );
+  if (isLoading) return (
+    <FilmContainer>
+      <h3>Filmes</h3>
+      <p>carregando...</p>
+    </FilmContainer>
+  );
   return(
     <FilmContainer>
       <h3>Filmes</h3>

@@ -1,9 +1,11 @@
 'use client'
-import { Badge } from '@chakra-ui/react'
+import { Badge } from '@chakra-ui/react';
+import Image from 'next/image';
 import { useContext } from 'react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { AppContext } from '../../contexts/contextProvider';
 import { FilterContainer } from './filter.style';
+import iconFilter from '../../../public/iconfilter.png';
 
 
 export default function Filter() {
@@ -22,7 +24,12 @@ export default function Filter() {
   return(
     <FilterContainer>
       { (gender || speciesFilter || filmFilter || charactersSearch)? (
-        <h1>Filtrar por</h1>
+        <>
+          <h1>
+            <Image src={iconFilter} alt="icon filter" width={10} height={20}/>
+            <span>Filtrar por</span>
+          </h1>
+        </>
       ): "" }
       <div className="div-badge">
         { (gender)? (
