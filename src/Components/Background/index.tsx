@@ -9,7 +9,7 @@ function Background({overlayEnabled}:PropBackground) {
             <div className="main__video">
                 <video autoPlay={true} loop={true} muted={true} src={videoBackground}></video>
             </div>
-            <div className={overlayEnabled && "main__overlay" || ''}></div>
+            <div className={(overlayEnabled && "main__overlay") || ('')}></div>
         </div>
     )
 }
