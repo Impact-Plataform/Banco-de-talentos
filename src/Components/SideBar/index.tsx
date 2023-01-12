@@ -70,7 +70,7 @@ function Sidebar({ setCharactersState, speciesList, filmsList, pagNumber, search
                         <h1 className="glitch species">SPECIES</h1>
                     </div>
                     <Select
-                        name='specie'
+                        name='species'
                         defaultValue={genderOptions[0]}
                         onChange={(value, actionMeta) => handleChange(value, actionMeta.name)}
                         options={speciesList}

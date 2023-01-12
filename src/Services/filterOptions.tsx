@@ -7,7 +7,7 @@ export async function filterCharacter(characters: CharacterTYPE[], filterOptions
             return false;
         }
 
-        if (filterOptions.specie && ((!person.species.includes(filterOptions.specie)) && filterOptions.specie !== 'all')) {
+        if (filterOptions.species && ((!person.species.includes(filterOptions.species)) && filterOptions.species !== 'all')) {
             return false;
         }
 
@@ -19,7 +19,7 @@ export async function filterCharacter(characters: CharacterTYPE[], filterOptions
             return false;
         }
 
-        if (searchValue && (filterOptions.gender !== 'all' || filterOptions.specie !== 'all' || filterOptions.film !== 'all')  && (!person.name.toLowerCase().includes(searchValue.toLowerCase()))) {
+        if (searchValue && (filterOptions.gender !== 'all' || filterOptions.species !== 'all' || filterOptions.film !== 'all')  && (!person.name.toLowerCase().includes(searchValue.toLowerCase()))) {
             return false;
         }
     
