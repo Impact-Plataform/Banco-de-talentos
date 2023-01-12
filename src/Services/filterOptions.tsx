@@ -1,13 +1,13 @@
-import { CharacterTYPE, FilterOptions } from "../Types";
+import { CharacterTYPE } from "../Types";
 
-export async function filterCharacter(characters: CharacterTYPE[], filterOptions: FilterOptions, searchValue: string) {
+export async function filterCharacter(characters: CharacterTYPE[], filterOptions: any, searchValue: string) {
     const filteredArray = characters.filter((person: any) => {  
 
         if (filterOptions.gender  && (person.gender.toLowerCase() !== filterOptions.gender.toLowerCase()) && filterOptions.gender !== 'all') {
             return false;
         }
 
-        if (filterOptions.species && ((!person.species.includes(filterOptions.species)) && filterOptions.species !== 'all')) {
+        if (filterOptions.specie && ((!person.species.includes(filterOptions.specie)) && filterOptions.specie !== 'all')) {
             return false;
         }
 
@@ -19,7 +19,7 @@ export async function filterCharacter(characters: CharacterTYPE[], filterOptions
             return false;
         }
 
-        if (searchValue && (filterOptions.gender !== 'all' || filterOptions.species !== 'all' || filterOptions.film !== 'all')  && (!person.name.toLowerCase().includes(searchValue.toLowerCase()))) {
+        if (searchValue && (filterOptions.gender !== 'all' || filterOptions.specie !== 'all' || filterOptions.film !== 'all')  && (!person.name.toLowerCase().includes(searchValue.toLowerCase()))) {
             return false;
         }
     
