@@ -1,4 +1,6 @@
-export async function filterData(characters: any, filterOptions: any, searchValue: string) {
+import { CharacterTYPE } from "../Types";
+
+export async function filterData(characters: CharacterTYPE[], filterOptions: any, searchValue: string) {
     const filteredArray = characters.filter((person: any) => {  
 
         if (filterOptions.gender  && (person.gender.toLowerCase() !== filterOptions.gender.toLowerCase()) && filterOptions.gender !== 'all') {
@@ -12,11 +14,6 @@ export async function filterData(characters: any, filterOptions: any, searchValu
         if (filterOptions.film  && (!person.films.includes(filterOptions.film)) && filterOptions.film !== 'all') {
             return false;
         }
-        //Adicionar condição de verificação
-        // if (searchValue === ''){
-        //     //Filtra dados com base nas opções de filtro escolhidas
-        //     return filterOptions.gender === 'all' && filterOptions.specie === 'all' && filterOptions.film === 'all';
-        // } 
 
         if (searchValue && (!person.name.toLowerCase().includes(searchValue.toLowerCase()))) {
             return false;
@@ -30,6 +27,5 @@ export async function filterData(characters: any, filterOptions: any, searchValu
         return true;
     });   
 
-      return filteredArray;
-
+     return filteredArray.length === 0 ? 'Character not found' : filteredArray;
 }
