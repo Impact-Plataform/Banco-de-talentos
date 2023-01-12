@@ -22,6 +22,9 @@ export class UpdateProductController {
       if (err.issues) {
         return response.status(400).json({ error: 'Check your input' })
       }
+      if (err.includes('constraint failed on the fields: (`name`)')) {
+        return response.status(400).json({ error: 'Unable to create a product with an existing name' })
+      }
       return response.status(err.statusCode || 500).json({ error: err.message })
     }
   }
