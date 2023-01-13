@@ -7,6 +7,13 @@ interface Props {
 
 
 export const HeaderContainer = styled.header<Props>`
+  @media(min-width: 1800px) {
+    .div-header-search div {
+      margin-left: -300px;
+      justify-content: center !important;
+    }
+  }
+
   @media(max-width: 880px) {
     /* justify-content: space-between; */
     .div-header-logo {

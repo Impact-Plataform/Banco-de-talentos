@@ -9,6 +9,9 @@ export const CharactersListDiv = styled.div`
   justify-content: space-around;
   width: 950px;
 
+  @media(min-width: 1800px) {
+    margin-left: -300px;
+  }
   @media(max-width: 1366px) {
     width: 90%;
    }
@@ -21,10 +24,4 @@ export const CharactersListDiv = styled.div`
    @media(max-width: 615px) {
     width: 60%;
    }
-`;
-
-export const ButtonNextCharacters = styled.button`
-`;
-
-export const ButtonBackCharacters = styled.button`
 `;

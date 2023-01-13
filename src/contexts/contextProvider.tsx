@@ -1,5 +1,6 @@
 'use client'
 import React, { createContext, useState } from 'react';
+import { ICharacter } from '../types/Characters.types';
 import { AppContextInterface, Props } from '../types/Context.types';
 
 
@@ -43,7 +44,7 @@ const AppProvider = ({ children }: Props) => {
     characterId,
     setCharacterId,
     menuIsVisible,
-    setMenuIsVisible
+    setMenuIsVisible,
   }
   
 
