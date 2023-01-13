@@ -1,0 +1,633 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+
+.character-detailed__space {
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100%;
+}
+
+.details__img {
+    max-width: 500px;
+    max-height: 800px;
+    object-fit: cover;
+    z-index: 10;
+}
+
+.character-detailed__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 4;
+    width: 60%;
+}
+
+
+.character-detailed__container>h1 {
+    margin-bottom: 1px;
+    font-family: SpaceTravel;
+    letter-spacing: 12px;
+
+}
+
+.character-detailed__container>p {
+    margin-bottom: 1px;
+    letter-spacing: 8px;
+    margin-bottom: 25px;
+
+}
+
+.quote {
+    font-style: italic;
+    font-size: 50px;
+    text-align: center;
+    width: 90%;
+}
+
+.quote__name {
+    margin-bottom: 50px;
+}
+
+.video__details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 170%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.video__details video {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+
+}
+
+
+.character__summary {
+    z-index: 10;
+    position: absolute;
+    padding-top: 100px;
+    color: white;
+    display: flex;
+    width: 100%;
+    padding-bottom: 50px;
+    justify-content: space-around;
+}
+
+.character__summary>h1 {
+    font-family: SpaceTravel;
+    letter-spacing: 10px;
+    font-size: 3em;
+    width: 30%;
+    animation: pulsate2 1.5s infinite alternate;
+    box-shadow: 0 0 .2rem #fff,
+        0 0 .1rem #fff,
+        0 0 1rem #860404,
+        0 0 0.8rem #860404,
+        0 0 2.1rem #860404,
+    
+
+}
+
+@keyframes pulsate2 {
+
+    100% {
+
+        text-shadow:
+            0 0 0px #fff,
+            0 0 0px #fff,
+            0 0 0px #fff,
+            0 0 4px #0712a5,
+            0 0 5px #0712a5,
+            0 0 6px #0712a5,
+            0 0 7px #0712a5,
+            0 0 8px #0712a5;
+
+    }
+
+    0% {
+
+        text-shadow:
+            0 0 0px #fff,
+            0 0 0px #fff,
+            0 0 0px #fff,
+            0 0 1px #0712a5,
+            0 0 2px #0712a5,
+            0 0 3px #0712a5,
+            0 0 4px #0712a5,
+            0 0 5px #0712a5;
+
+    }
+}
+
+
+
+
+.character__summary>p {
+    font-family: Roboto;
+    letter-spacing: 2px;
+    font-size: 2em;
+    width: 55%;
+    text-align: center;
+}
+
+
+
+.details__img {
+    margin-top: 80px;
+    border-radius: 10px;
+    border: 0.2rem solid #fff;
+    border-radius: 10px;
+    padding: 0.4em;
+    box-shadow: 0 0 .1rem #fff,
+        0 0 .1rem #fff,
+        0 0 1rem #0712a5,
+        0 0 0.8rem #0712a5,
+        0 0 0.8rem #0712a5,
+        inset 0 0 1.3rem #0712a5;
+}
+
+.details__img:hover {
+    margin-top: 80px;
+    border-radius: 10px;
+    border: 0.2rem solid #fff;
+    border-radius: 10px;
+    padding: 0.4em;
+    box-shadow: 0 0 .1rem #fff,
+        0 0 .1rem #fff,
+        0 0 1rem #0fee07,
+        0 0 0.8rem #0fee07,
+        0 0 0.8rem #0fee07,
+        inset 0 0 1.3rem #0fee07;
+}
+
+.films__container {
+    display: flex;
+    width: 100%;
+    gap: 40px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-top: 25%;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px;
+    flex-wrap: wrap;
+}
+
+.unique__film>h2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.films__img {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 200px;
+    max-height: 300px;
+    border: 0.2rem solid #fff;
+    border-radius: 10px;
+    padding: 0.4em;
+    box-shadow: 0 0 .1rem #fff,
+        0 0 .1rem #fff,
+        0 0 1rem #090a4d,
+        0 0 0.8rem #090a4d,
+        0 0 0.8rem #090a4d,
+        inset 0 0 1.3rem #090a4d;
+}
+
+
+
+@media only screen and (min-width: 1381px) {
+    @media only screen and (max-width: 1550px) {
+        .films__container {
+            margin-top: 40%;
+        }
+
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    @media only screen and (max-width: 999px) {
+        .quote {
+            font-style: italic;
+            font-size: 50px;
+            text-align: center;
+            width: 500px;
+        }
+
+        .details__img {
+            max-width: 430px;
+            max-height: 500px;
+            margin-top: 20px;
+        }
+
+        .details__img:hover {
+            margin-top: 20px;
+        }
+
+        .character-detailed__space {
+            flex-direction: column;
+        }
+
+        .character-detailed__container {
+            width: 100%;
+        }
+
+        .films__container {
+            margin-top: 80%;
+
+        }
+
+        .character__summary {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character__summary>h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .character__summary>p {
+            font-family: Roboto;
+            font-size: 25px;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            text-align: center;
+            width: 80%;
+        }
+
+
+
+    }
+}
+
+
+@media only screen and (min-width: 1000px) {
+    @media only screen and (max-width: 1149px) {
+        .quote {
+            font-style: italic;
+            font-size: 50px;
+            text-align: center;
+            width: 500px;
+        }
+
+        .details__img {
+            max-width: 430px;
+            max-height: 500px;
+            margin-top: 20px;
+        }
+
+        .details__img:hover {
+            margin-top: 20px;
+        }
+
+        .character-detailed__space {
+            flex-direction: column;
+        }
+
+        .character-detailed__container {
+            width: 100%;
+        }
+
+        .films__container {
+            margin-top: 60%;
+
+        }
+
+        .character__summary {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character__summary>h1 {
+            width: 100%;
+            text-align: center;
+        }
+
+        .character__summary>p {
+            font-family: Roboto;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            text-align: center;
+            width: 80%;
+        }
+
+
+
+    }
+}
+
+    
+@media only screen and (min-width: 1150px) {
+    @media only screen and (max-width: 1380px) {
+        .quote {
+            font-style: italic;
+            font-size: 200px;
+            text-align: center;
+            width: 500px;
+        }
+
+        .films__container {
+            margin-top: 50%;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 10px;
+            width: 80%;
+        }
+
+        .details__img {
+            max-width: 450px;
+            max-height: 500px;
+            margin-top: 20px;
+            object-fit: cover;
+        }
+
+        .details__img:hover {
+            margin-top: 20px;
+        }
+
+        .character-detailed__space {
+            flex-direction: column;
+        }
+
+        .character-detailed__container {
+            width: 100%;
+        }
+
+        .films__container {
+            margin-top: 550px;
+
+        }
+
+        .character__summary {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character__summary>h1 {
+            width: 100%;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .character__summary>p {
+            font-family: Roboto;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            font-size: 30px;
+            text-align: center;
+            width: 70%;
+        }
+
+    }
+
+    }
+
+
+@media only screen and (min-width: 1000px) {
+    @media only screen and (max-width: 1100px) {
+        .quote {
+            font-style: italic;
+            font-size: 50px;
+            text-align: center;
+            width: 500px;
+        }
+
+        .details__img {
+            max-width: 430px;
+            max-height: 500px;
+            margin-top: 20px;
+        }
+
+        .details__img:hover {
+            margin-top: 20px;
+        }
+
+        .character-detailed__space {
+            flex-direction: column;
+        }
+
+        .character-detailed__container {
+            width: 100%;
+        }
+
+    }
+}
+
+
+
+@media only screen and (min-width: 500px) {
+    @media only screen and (max-width: 700px) {
+        .quote {
+            font-style: italic;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 10px;
+            width: 80%;
+        }
+
+        .details__img {
+            max-width: 330px;
+            max-height: 500px;
+            margin-top: 20px;
+        }
+
+        .details__img:hover {
+            margin-top: 20px;
+        }
+
+        .character-detailed__space {
+            flex-direction: column;
+        }
+
+        .character-detailed__container {
+            width: 100%;
+        }
+
+        .films__container {
+            margin-top: 500px;
+
+        }
+
+        .character__summary {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character__summary>h1 {
+            width: 100%;
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .character__summary>p {
+            font-family: Roboto;
+            font-size: 20px;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            text-align: center;
+            width: 90%;
+        }
+    }
+}
+
+
+/* General Mobiles */ 
+@media only screen and (min-width: 300px) {
+    @media only screen and (max-width: 499px) {
+        .quote {
+            font-style: italic;
+            font-size: 40px;
+            text-align: center;
+            margin-top: 10px;
+            width: 80%;
+        }
+
+        .details__img {
+            max-width: 300px;
+            max-height: 500px;
+            margin-top: 20px;
+        }
+
+        .details__img:hover {
+            margin-top: 20px;
+        }
+
+        .character-detailed__space {
+            flex-direction: column;
+        }
+
+        .character-detailed__container {
+            width: 100%;
+        }
+
+        .films__container {
+            margin-top: 550px;
+
+        }
+
+        .character__summary {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character__summary>h1 {
+            width: 100%;
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .character__summary>p {
+            font-family: Roboto;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            font-size: 20px;
+            text-align: center;
+            width: 90%;
+        }
+
+    }
+}
+
+/* Galaxy Fold */
+@media only screen and (min-width: 200px) {
+    @media only screen and (max-width: 299px) {
+        .quote {
+            font-style: italic;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 10px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .details__img {
+            max-width: 200px;
+            max-height: 500px;
+            margin-top: 20px;
+        }
+
+        .details__img:hover {
+            margin-top: 20px;
+        }
+
+        .character-detailed__space {
+            flex-direction: column;
+        }
+
+        .character-detailed__container {
+            width: 100%;
+        }
+
+        .character-detailed__container>h1 {
+            margin-bottom: 1px;
+            font-family: SpaceTravel;
+            letter-spacing: 12px;
+            font-size: 25px;
+        
+        }
+        
+        .character-detailed__container>p {
+            margin-bottom: 1px;
+            letter-spacing: 8px;
+            margin-bottom: 25px;
+        
+        }
+        
+
+        .films__container {
+            margin-top: 660px;
+
+        }
+
+        .character__summary {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .character__summary>h1 {
+            width: 100%;
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .character__summary>p {
+            font-family: Roboto;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            font-size: 20px;
+            text-align: center;
+            width: 90%;
+        }
+
+    }
+}
