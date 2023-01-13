@@ -6,10 +6,10 @@ Este desafio tem como objetivo te avaliar como desenvolvedor Front-end.
 
 Este repositório contem o **Projeto Landing Page Agency** que reúne o aprendizado desenvolvido por _[Willian Alves Batista](https://www.linkedin.com/in/willian-alves-batista-60aa6a180/)_, todos os textos e descrições foi escrito e revisado por _[Dany Toniato](https://www.linkedin.com/in/danyelle-toniato-bb0386149/)_.
 
-# Projeto Landing Page Agency
+# Projeto Star Wars
 ### Resultado obtido:
-### Deploy do Projeto: [Projeto Landing Page Agency](https://mk-digital-agency.netlify.app/)
-![](./public/mkd-2022.gif)
+### Deploy do Projeto: [Projeto Star Wars](https://starwars-willian-alves-batista.netlify.app/)
+![](./public/star-wars.gif)
 
 #### Habilidades que foram exigidas:
 
@@ -19,31 +19,35 @@ Este repositório contem o **Projeto Landing Page Agency** que reúne o aprendiz
 #### Tecnologias utilizadas:
 
   - TypeScript;
-  - React;
+  - React/Next;
   - Styled-Components;
+  - Chakra UI;
   - HTML;
   - CSS;
   - Eslint;
-  - Prettier;
 
 ---
 
 ## Apresentação do Projeto
 
-O Projeto é uma Landing Page de uma Agencia de publicidade, onde é possivel ver os produtos, serviços oferecidos e o contato da empresa.
+O Projeto é uma pagina de personagens de Star Wars, sendo possivel realizar pesquisar, filtrar e ver detalhes.
 
 
 ### Como da Start na Aplicação
 
 Primeiro clone o projeto na sua maquina. No terminal digite:
 
-    git clone git@github.com:willianbatist/project-landing_page_agency.git
+    git clone git@github.com:willianbatist/willian-alves-batista-frontend.git
     
 Ainda no terminal, entre na raiz do projeto e digite:
 
     npm instal
 
 E depois
+
+    npm run build
+    
+E
 
     npm start
 
