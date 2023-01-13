@@ -1,4 +1,5 @@
 import { CharacterTYPE } from "../Types";
+import { characterDetailsHandler } from "./characterDetailsHandler";
 
 export async function filterCharacter(characters: CharacterTYPE[], filterOptions: any, searchValue: string) {
     const filteredArray = characters.filter((person: any) => {  
@@ -29,3 +30,6 @@ export async function filterCharacter(characters: CharacterTYPE[], filterOptions
 
      return filteredArray.length === 0 ? 'Character not found' : filteredArray;
 }
+
+
+

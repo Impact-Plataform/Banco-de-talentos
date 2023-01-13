@@ -32,24 +32,19 @@ export async function handleCharacters(pagNumber: number, filterOptions: FilterO
 
 }
 
-export async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: React.Dispatch<React.SetStateAction<string | CharacterTYPE[]>>, filterOptions: FilterOptions, searchValue: string) {
-    let processedItems: number = 0
+export async function promisesDealer(charactersList: CharacterTYPE[], setCharactersList: any, filterOptions: FilterOptions, searchValue: string) {
 
-    charactersList.forEach(async (character: CharacterTYPE, index: number, array: CharacterTYPE[]) => {
+    const itemMap = charactersList.map(async (character: CharacterTYPE) => {
         await characterDetailsHandler(character);
+        return character;
+        
+    })
 
-        processedItems++;
 
-        if (processedItems === array.length) {
-                let item = await filterCharacter(charactersList, filterOptions, searchValue)
-                Promise.resolve(item).then((response) => {
-                    setCharactersList(response);
-                })
-
-            }
-        }
-
-    )
+    Promise.all(itemMap).then(async(response) => {
+        let item:CharacterTYPE[] | string =  await filterCharacter(response, filterOptions, searchValue)
+        setCharactersList(item);
+    })
 }
 
 export async function getTotalPages(setTotalPages: React.Dispatch<React.SetStateAction<number>>, totalPages: number) {
