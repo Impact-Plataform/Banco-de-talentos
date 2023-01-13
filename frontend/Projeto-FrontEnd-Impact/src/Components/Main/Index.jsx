@@ -1,12 +1,14 @@
 import { StyledMain } from "./Style"
-import nave from "../../assets/naveSW.png"
+import LogoStar from "../../assets/LStar.png"
+import { Card } from "../Cards/Cards"
 
 export const Main = () =>{
     return(
     
     
     <StyledMain>
-        <img src={nave} alt="nave" className="nave" />
+        <img src={LogoStar} alt="nave" className="nave" />
+        <Card/>
     </StyledMain>
     
     )
