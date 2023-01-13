@@ -6,6 +6,10 @@ export class ValidateCurrencysymbol {
 	async validate(req: Request<{symbol: string}>, res: Response, next: NextFunction) {
 		const { symbol } = req.params;
 
+		if (Number(symbol)) {
+			return res.status(400).json({message: 'Simbolo deve ser uma string'});
+		}
+
 		await validateSymboltype.validate({symbol});
 
 		const currencies = await cache.find();
