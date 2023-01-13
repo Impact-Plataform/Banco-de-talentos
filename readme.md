@@ -26,7 +26,7 @@
 
 ## Apresentação do Projeto
 
-O Projeto é uma pagina de personagens de Star Wars, sendo possivel realizar pesquisar, filtrar e ver detalhes.
+O Projeto é uma pagina de personagens de Star Wars, sendo possivel pesquisar, filtrar e ver detalhes do personagem.
 
 
 ### Como da Start na Aplicação
