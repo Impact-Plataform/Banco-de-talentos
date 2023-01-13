@@ -1,12 +1,20 @@
-import { StyledContainer } from "../../Components/Container/style"
+import Cards from "../../Components/Cards/Cards/Index"
+import Container from "../../Components/Container"
+import { StyledCharacters } from "./style"
 
-export const Header = () =>{
+
+export const Characters = () =>{
     return(
     
-    
-    <StyledContainer>
-       
-    </StyledContainer>
+    <StyledCharacters>
+        <Container>
+            <Cards>
+                
+            </Cards>
+        </Container>
+
+    </StyledCharacters>
+   
     
     )
     }

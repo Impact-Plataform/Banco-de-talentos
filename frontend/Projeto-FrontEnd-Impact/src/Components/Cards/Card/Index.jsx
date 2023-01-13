@@ -1,5 +1,5 @@
 import { StyledCard } from "./style"
-import sabre from "../../assets/sabre.png"
+import sabre from "../../../assets/sabre.png"
 
 
 

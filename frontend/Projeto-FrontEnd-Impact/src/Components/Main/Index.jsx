@@ -1,6 +1,7 @@
 import { StyledMain } from "./Style"
 import LogoStar from "../../assets/LStar.png"
-import { Card } from "../Cards/Cards"
+import { Card } from "../Cards/Card/Index"
+
 
 export const Main = () =>{
     return(
