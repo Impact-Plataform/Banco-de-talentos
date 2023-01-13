@@ -42,6 +42,45 @@ export const DetailsCharacterContainer = styled.div`
       color: white;
     }
   }
+
+  .containerFilms {
+    h2 {
+      color: #F0A500;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  .containerFilmsImgs {
+    margin-bottom: 50px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .containerImgs {
+    margin-top: 15px;
+    background-color: #e5e5e5;
+    width: 300px;
+    height: 450px;
+
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,1);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,1);
+  }
+  .containerImgs:hover {
+    box-shadow: none;
+    transition: 0.4s;
+  }
+
+  .containerImgs h2 {
+    color: #F0A500;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
 `;
 
 

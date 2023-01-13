@@ -109,17 +109,21 @@ export default function DetailsCharacter() {
             )) }
           </ul>
         </div>
-          <div>
+          <div className="containerFilms">
             <h2>Filmes</h2>
-            { character?.films.map((film) => (
-              <div key={ uuidv4() }>
-                <Image
-                  src={`https://starwars-visualguide.com/assets/img/films/${film?.filmId}.jpg`}
-                  alt={`Foto do personagem ${film?.title}`} width={200} height={300}
-                />
-                <p>{film?.title}</p>
-              </div>
-            )) }
+            <div className="containerFilmsImgs">
+              { character?.films.map((film) => (
+                <div className="containerImgs" key={ uuidv4() }>
+                  <Image
+                    src={`https://starwars-visualguide.com/assets/img/films/${film?.filmId}.jpg`}
+                    alt={`Foto do personagem ${film?.title}`}
+                    width={300}
+                    height={400}
+                  />
+                  <h2>{film?.title}</h2>
+                </div>
+              )) }
+            </div>
           </div>
         </div>
     </DetailsCharacterContainer>
