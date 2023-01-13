@@ -63,8 +63,8 @@ export default function CharactersList({ characters }: Props) {
           setState={setCharacterId}
         />
       )) }
-      <ButtonBackCharacters disabled={ isDisabledBack } onClick={ (e) => handlePerPage(page, e.target) } value="back">Volta</ButtonBackCharacters>
-      <ButtonNextCharacters disabled={ isDisabledNext } onClick={ (e) => handlePerPage(page, e.target) } value="next">Próximo</ButtonNextCharacters>
+      <ButtonBackCharacters disabled={ isDisabledBack } onClick={ (e) => handlePerPage(page, e.target) } value="back">Back</ButtonBackCharacters>
+      <ButtonNextCharacters disabled={ isDisabledNext } onClick={ (e) => handlePerPage(page, e.target) } value="next">Next</ButtonNextCharacters>
     </CharactersListDiv>
   );
 };

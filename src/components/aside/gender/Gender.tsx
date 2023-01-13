@@ -14,11 +14,11 @@ export default function Gender() {
 
   return(
     <GenderContainer>
-        <h3>Gênero</h3>
+        <h3>Gender</h3>
         <ul>
-          <li value="male" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>masculino</li>
-          <li value="female" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>feminino</li>
-          <li value="n/a" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>não tem gênero</li>
+          <li value="male" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>male</li>
+          <li value="female" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>female</li>
+          <li value="n/a" onClick={ (e) => handleGender(e.target, setMenuIsVisible) }>has no gender</li>
         </ul>
       </GenderContainer>
   );
