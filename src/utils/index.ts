@@ -63,7 +63,7 @@ export const handlePage = (
   gender: string | undefined,
   speciesFilter: { id: string, name: string } | null,
   filmFilter: { id: string, name: string } | undefined,
-  charactersSearch: string | undefined
+  charactersSearch: string | undefined,
   ) => {
     const arrayFilter = handleCharactersFilter(character, gender, speciesFilter, filmFilter, charactersSearch)
     if (page === 0) {

@@ -6,6 +6,7 @@ export const CharacterCardContainer = styled.div`
   width: 200px;
   background-color: white;
   margin-top: 30px;
+  height: 400px;
 
 
   -webkit-box-shadow: 5px 5px 9px 0px rgba(240,165,0,1);

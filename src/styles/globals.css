@@ -12,3 +12,10 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
+
+.div-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  padding: 50px;
+}
