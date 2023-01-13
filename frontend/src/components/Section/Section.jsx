@@ -9,9 +9,8 @@ import img from "../../assets/images/personagens/19.jpg";
 const Section = () => {
   const [page, setPage] = useState(1);
   const [array, setArray] = useState([]);
-  console.log(array, "personagens");
   const [loading, setLoading] = useState(false);
-
+  
   useEffect(() => {
     setLoading(true)
     api
@@ -41,7 +40,7 @@ const Section = () => {
               return (
                 <Card
                   key={index}
-                  id={personagem.id}
+                  id={personagem.index}
                   imageId={img}
                   nome={personagem.name}
                   genero={personagem.gender}
