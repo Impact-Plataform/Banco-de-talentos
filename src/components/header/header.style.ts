@@ -77,7 +77,7 @@ export const HeaderContainer = styled.header<Props>`
   }
 
   align-items: center;
-  border: 2px solid black;
+  border-bottom: solid 2px #9A999833;
   background: rgb(27, 26, 23);
   height: 83px;
   width: 100vw;
