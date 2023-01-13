@@ -13,6 +13,8 @@ import { createdId } from '../../utils';
 import { getNamesStarships } from '../../services/starships.services';
 import { getNamesVehicles } from '../../services/vehicles.services';
 import { DetailsCharacterContainer, ContainerImg, DescriptionContainer, Loading } from './detailsCharacter.style';
+import Starship from '../../assets/Starship';
+import Vehicle from '../../assets/Vehicle';
 
 
 export default function DetailsCharacter() {
@@ -86,21 +88,27 @@ export default function DetailsCharacter() {
           </div>
         </DescriptionContainer>
       </div>
-      <div>
-          <div>
-            <ul>
-              <h2>Naves</h2>
-              { character?.starships.map((starship: string) => (
-                <li key={ uuidv4() }>{starship}</li>
-              )) }
-            </ul>
-            <ul>
-              <h2>Veículos</h2>
-              { character?.vehicles.map((vehicle: string) => (
-                <li key={ uuidv4() }>{vehicle}</li>
-              )) }
-            </ul>
-          </div>
+      <div className="starships-vehicles-films">
+        <div className="starships-vehicles">
+          <ul>
+            <h2>Starships</h2>
+            { character?.starships.map((starship: string) => (
+              <span key={ uuidv4() }>
+                <Starship />
+                <li>{starship}</li>
+              </span>
+            )) }
+          </ul>
+          <ul>
+            <h2>Vehicles</h2>
+            { character?.vehicles.map((vehicle: string) => (
+              <span key={ uuidv4() }>
+                <Vehicle/>
+                <li>{vehicle}</li>
+              </span>
+            )) }
+          </ul>
+        </div>
           <div>
             <h2>Filmes</h2>
             { character?.films.map((film) => (

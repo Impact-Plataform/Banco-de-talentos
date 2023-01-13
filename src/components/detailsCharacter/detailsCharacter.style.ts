@@ -10,6 +10,38 @@ export const DetailsCharacterContainer = styled.div`
     margin-left: 50px;
     display: flex;
   }
+
+  .starships-vehicles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    height: 280px;
+
+    h2 {
+      color: #F0A500;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-top: 25px;
+      width: 250px;
+    }
+
+    ul span {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      color: white;
+      margin-left: 10px;
+    }
+
+    li {
+      margin-left: 10px;
+      list-style: none;
+      color: white;
+    }
+  }
 `;
 
 
