@@ -1,5 +1,4 @@
 
-import { Cards } from "../../Components/Cards/Cards/Index"
 import { Container } from "../../Components/Container"
 import { Header } from "../../Components/Header/Index"
 
@@ -12,7 +11,7 @@ export const Characters = () =>{
     <StyledCharacters> 
         <Header/>
         
-           <Container/>
+        <Container/>
         
     </StyledCharacters>
    
