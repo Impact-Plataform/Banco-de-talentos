@@ -9,6 +9,7 @@ interface Props {
 
 export const AsideContainer = styled.aside<Props>`
   font-family: Poppins, sans-serif !important;
+  min-width: 20%;
 
    @media(max-width: 880px) {
     display: none;
