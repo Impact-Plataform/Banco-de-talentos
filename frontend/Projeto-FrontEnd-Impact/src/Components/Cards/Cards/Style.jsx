@@ -7,9 +7,7 @@ export const StyledCardUl = styled.ul`
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         column-gap: 3rem;
         row-gap: 4rem;
-
-    
-
+        background-color: red;
 
     li{
         display: flex;
@@ -21,9 +19,8 @@ export const StyledCardUl = styled.ul`
             height: 250px;
             border-radius: 1rem;
             margin-bottom: 2rem;
-            background-color: #1900ff;
-            
-            
+            background-color: yellow;
+              
         }
 
         span{

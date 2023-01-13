@@ -1,6 +1,6 @@
 import { StyledCardUl } from "./Style";
 
-function Cards() {
+export const Cards = ()=> {
 
 
     return (
@@ -8,7 +8,15 @@ function Cards() {
         <StyledCardUl>
 
             <li key="">
-                <Link to=""> <div className="card"></div></Link>
+                <a> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQBvuv1z0Scz-iGMcIKcj7wToQwhzx6Wuf7sqtCczbA&s" className="card"/>TESTE1</a>
+                <span></span>
+            </li>
+            <li key="">
+                <a> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQBvuv1z0Scz-iGMcIKcj7wToQwhzx6Wuf7sqtCczbA&s" className="card"/>TESTE1</a>
+                <span></span>
+            </li>
+            <li key="">
+                <a> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdQBvuv1z0Scz-iGMcIKcj7wToQwhzx6Wuf7sqtCczbA&s" className="card"/>TESTE1</a>
                 <span></span>
             </li>
 
@@ -17,7 +25,7 @@ function Cards() {
     )
 }
 
-export default Cards;
+
 
 
 

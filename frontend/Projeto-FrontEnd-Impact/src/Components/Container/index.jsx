@@ -1,15 +1,16 @@
-import { Container, Movie, MovieList } from "./style";
-import { Link } from "react-router-dom";
+import { Cards } from "../Cards/Cards/Index";
+import {StyledContainer} from "./style";
 
 
-function Container() {
+
+export const Container = ()=> {
     
 
     return (
-        <Container>
-            <h1>Movies</h1>
-        </Container>
+        <StyledContainer>
+        <Cards/>
+        </StyledContainer> 
+        
     )
 }
 
-export default Container;
