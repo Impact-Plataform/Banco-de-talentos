@@ -1,4 +1,5 @@
 import { Header } from "../../Components/Header/Index.jsx";
+import { Main } from "../../Components/Main/Index.jsx";
 import { StyledHome } from "./style";
 
 
@@ -7,7 +8,8 @@ return(
 
 
 <StyledHome>
-<h1>OLA HOME</h1>
+    <Header/>
+    <Main/>
 </StyledHome>
 
 )
