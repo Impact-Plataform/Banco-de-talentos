@@ -34,17 +34,25 @@ body{
   border-radius: 30px;
   box-shadow: 1px 1px 10px 8px #d5df0d91;
   margin: 1vw;
-  width: 30vw;
-  min-width: 300px;
-  max-width: 350px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 b{
-  font-family: "Jedi2";
+  font-family: "Jedi";
 }
 
 p{
-  margin: 10px
+  margin: 1px;
+  margin-left: 10px
 }
 
 .main{
@@ -125,7 +133,7 @@ nav{
   font-family: "Jedi";
   display: flex;
   justify-content: space-around;
-  margin: 10px 1px 100px 10vw
+  margin: 10px 1px 30px 10vw
 }
 
 #root{
@@ -147,4 +155,32 @@ nav{
   font-family: "Jedi";
   border-radius: 30px;
   border: 2px solid #18242D;
+}
+
+
+.gender{
+  background-color: #18242D;
+  color: white;
+  font-family: "Jedi";
+  border-radius: 30px;
+  border: 2px solid white;
+}
+
+.gactive, .gender:hover, .gactive:hover{
+  background-color: white;
+  color: #18242D;
+  font-family: "Jedi";
+  border-radius: 30px;
+  border: 2px solid silver;
+}
+
+.gactive:hover{
+  cursor: not-allowed;
+}
+
+.genderButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 300px;
 }

@@ -25,7 +25,7 @@ const Header = ()=>{
                     setMovie("")
                     setSpecie("")
                     }} />
-                <Button classN={movie }label="Movies Appearance" callback={()=>{
+                <Button classN={movie }label="Movies" callback={()=>{
                     navigate("/movie")
                     setGender("")
                     setMovie("Active")

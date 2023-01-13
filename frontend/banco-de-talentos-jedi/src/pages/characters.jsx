@@ -1,6 +1,7 @@
 import CardContainer from "../components/cardcontainer.jsx"
 import { useContext } from "react"
 import { Context } from "../context/context.jsx"
+import SearchBar from "../components/searchbar.jsx"
 
 
 export function Characters(){
@@ -8,9 +9,10 @@ export function Characters(){
 
     return (
         <main>
-        <section className="main">
-            <CardContainer data={starData}/>
-        </section>
+            <SearchBar />
+            <section className="main">
+                <CardContainer ipage={true} data={starData}/>
+            </section>
         </main>
     )
 }

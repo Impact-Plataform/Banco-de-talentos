@@ -1,9 +1,7 @@
-import listOfSpecies from "./specieList.js";
-
-function reverseList(specieName){
-    const keys = Object.keys(listOfSpecies)
-    const values = Object.values(listOfSpecies)
-    return keys[values.indexOf(specieName)]
+function reverseList(name, list){
+    const keys = Object.keys(list)
+    const values = Object.values(list)
+    return keys[values.indexOf(name)]
 }
 
 export default reverseList
