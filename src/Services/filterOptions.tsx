@@ -1,5 +1,4 @@
 import { CharacterTYPE, FilterOptions } from "../Types";
-import { characterDetailsHandler } from "./characterDetailsHandler";
 
 export async function filterCharacter(characters: CharacterTYPE[], filterOptions: FilterOptions, searchValue: string) {
     const filteredArray = characters.filter((person: any) => {  

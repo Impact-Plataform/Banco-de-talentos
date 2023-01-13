@@ -20,6 +20,7 @@ export interface CharacterTYPE {
     description?: string;
     film: string;
     data: any;
+	filmsDetails: string[];
 }
 
 export interface FilterOptions {
