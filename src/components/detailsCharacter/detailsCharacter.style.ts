@@ -16,6 +16,7 @@ export const DetailsCharacterContainer = styled.div`
     flex-wrap: wrap;
     justify-content: space-evenly;
     height: 280px;
+    margin-top: 40px;
 
     h2 {
       color: #F0A500;
@@ -46,7 +47,7 @@ export const DetailsCharacterContainer = styled.div`
   .containerFilms {
     h2 {
       color: #F0A500;
-      font-size: 20px;
+      font-size: 30px;
       font-weight: bold;
       text-align: center;
     }
@@ -81,10 +82,29 @@ export const DetailsCharacterContainer = styled.div`
     font-weight: bold;
     text-align: center;
   }
+
+  @media(max-width: 700px) {
+    .img-description {
+      display: block;
+    }
+  }
 `;
 
 
 export const ContainerImg = styled.div`
+  @media(max-width: 700px) {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media(max-width: 400px) {
+    justify-content: flex-start;
+    margin-left: -10px;
+  }
+
+  @media(max-width: 361px) {
+    margin-left: -20px;
+  }
 `;
 
 
@@ -92,7 +112,7 @@ export const DescriptionContainer = styled.div`
   background-color: #9A999833;
   margin-left: 50px;
   border-radius: 10px;
-  width: 60%;
+  width: 80%;
 
   div {
     margin-top: 50px;
@@ -117,6 +137,19 @@ export const DescriptionContainer = styled.div`
   span {
     color: #F0A500;
     font-weight: bold;
+  }
+
+
+  @media(max-width: 700px) {
+    margin-left: 0px;
+    width: 90%;
+  }
+
+  @media(max-width: 400px) {
+    div section {
+      margin-top: 0px;
+      margin-left: 0px;
+    }
   }
 `;
 
