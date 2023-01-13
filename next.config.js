@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'starwars-visualguide.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'i.giphy.com',
+      },
     ],
   },
 }

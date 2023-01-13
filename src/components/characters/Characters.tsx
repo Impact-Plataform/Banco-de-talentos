@@ -12,13 +12,12 @@ export default function Characters() {
   const [allCharacter, setAllCharacter] = useState<ICharacter[]>([]);
   const { setIsLoading, isLoading } = useContext(AppContext);
   
-
+  
 
   useEffect(() => {
     storeAllCharacter(getAllCharacters, setAllCharacter, setIsLoading)
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading])
-
 
   return(
     <CharactersContainer>
