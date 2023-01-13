@@ -31,7 +31,7 @@ O Projeto é uma pagina de personagens de Star Wars, sendo possivel pesquisar, f
 
 ### Como da Start na Aplicação
 
-Primeiro clone o projeto na sua maquina. No terminal digite:
+Primeiro, clone o projeto na sua maquina. No terminal digite:
 
     git clone git@github.com:willianbatist/willian-alves-batista-frontend.git
     
