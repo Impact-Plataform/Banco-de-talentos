@@ -12,7 +12,9 @@ import { urlPeople } from '../../constants';
 import { createdId } from '../../utils';
 import { getNamesStarships } from '../../services/starships.services';
 import { getNamesVehicles } from '../../services/vehicles.services';
-import { DetailsCharacterContainer, ContainerImg, DescriptionContainer } from './detailsCharacter.style';
+import { DetailsCharacterContainer, ContainerImg, DescriptionContainer, Loading } from './detailsCharacter.style';
+import Starship from '../../assets/Starship';
+import Vehicle from '../../assets/Vehicle';
 
 
 export default function DetailsCharacter() {
@@ -47,59 +49,83 @@ export default function DetailsCharacter() {
 
   
   if (getCharacter.error) return <h1>Error</h1>
-  if (isLoading) return <h1>Carregando...</h1>;
+  if (isLoading) {
+    return(
+      <Loading>
+        <Image
+          src= "https://i.giphy.com/media/0mby9MpRJJlP0WoBT3/giphy.webp"
+          alt="nave star wars" width={500} height={700}
+        />
+        <h1>Loading...</h1>
+      </Loading>
+    );
+  } 
   return(
     <DetailsCharacterContainer>
-      <ContainerImg>
-        <Image
-          src={`https://starwars-visualguide.com/assets/img/characters/${character?.id}.jpg`}
-          alt={`Foto do personagem ${character?.name}`} width={300} height={500}
-        />
-      </ContainerImg>
-      <DescriptionContainer>
-        <div>
-          <h1>{ character?.name }</h1>
-          <p>Planeta natal:<span>{` ${character?.homeworld}`}</span></p>
-          <p>Ano de nascimento:<span>{` ${character?.birth_year}`}</span></p>
-          { (character?.species === "Sem informação")? "" : (
-            <p>Espécie<span>{` ${character?.species}`}</span></p>
-          ) }
-          <p>Gênero:<span>{` ${character?.gender}`}</span></p>
-          <p>Altura:<span>{` ${character?.height} cm`}</span></p>
-          <p>Massa:<span>{` ${character?.mass} Kg`}</span></p>
-          <p>Cor da pele:<span>{` ${character?.skin_color}`}</span></p>
-          <p>Cor dos olhos:<span>{` ${character?.eye_color}`}</span></p>
-          <p>Cor do cabelo:<span>{` ${character?.hair_color}`}</span></p>
-        </div>
-        <div>
+      <div className="img-description">
+        <ContainerImg>
+          <Image
+            src={`https://starwars-visualguide.com/assets/img/characters/${character?.id}.jpg`}
+            alt={`Foto do personagem ${character?.name}`} width={300} height={500}
+          />
+        </ContainerImg>
+        <DescriptionContainer>
           <div>
-            <ul>
-              <h2>Naves</h2>
-              { character?.starships.map((starship: string) => (
-                <li key={ uuidv4() }>{starship}</li>
-              )) }
-            </ul>
-            <ul>
-              <h2>Veículos</h2>
-              { character?.vehicles.map((vehicle: string) => (
-                <li key={ uuidv4() }>{vehicle}</li>
-              )) }
-            </ul>
+            <h1>{ character?.name }</h1>
+            <section>
+              <p>Planeta natal:<span>{` ${character?.homeworld}`}</span></p>
+              <p>Ano de nascimento:<span>{` ${character?.birth_year}`}</span></p>
+              { (character?.species === "Sem informação")? "" : (
+                <p>Espécie<span>{` ${character?.species}`}</span></p>
+              ) }
+              <p>Gênero:<span>{` ${character?.gender}`}</span></p>
+              <p>Altura:<span>{` ${character?.height} cm`}</span></p>
+              <p>Massa:<span>{` ${character?.mass} Kg`}</span></p>
+              <p>Cor da pele:<span>{` ${character?.skin_color}`}</span></p>
+              <p>Cor dos olhos:<span>{` ${character?.eye_color}`}</span></p>
+              <p>Cor do cabelo:<span>{` ${character?.hair_color}`}</span></p>
+            </section>
           </div>
-          <div>
-            <h2>Filmes</h2>
-            { character?.films.map((film) => (
-              <div key={ uuidv4() }>
-                <Image
-                  src={`https://starwars-visualguide.com/assets/img/films/${film?.filmId}.jpg`}
-                  alt={`Foto do personagem ${film?.title}`} width={200} height={300}
-                />
-                <p>{film?.title}</p>
-              </div>
+        </DescriptionContainer>
+      </div>
+      <div className="starships-vehicles-films">
+        <div className="starships-vehicles">
+          <ul>
+            <h2>Starships</h2>
+            { character?.starships.map((starship: string) => (
+              <span key={ uuidv4() }>
+                <Starship />
+                <li>{starship}</li>
+              </span>
             )) }
+          </ul>
+          <ul>
+            <h2>Vehicles</h2>
+            { character?.vehicles.map((vehicle: string) => (
+              <span key={ uuidv4() }>
+                <Vehicle/>
+                <li>{vehicle}</li>
+              </span>
+            )) }
+          </ul>
+        </div>
+          <div className="containerFilms">
+            <h2>Filmes</h2>
+            <div className="containerFilmsImgs">
+              { character?.films.map((film) => (
+                <div className="containerImgs" key={ uuidv4() }>
+                  <Image
+                    src={`https://starwars-visualguide.com/assets/img/films/${film?.filmId}.jpg`}
+                    alt={`Foto do personagem ${film?.title}`}
+                    width={300}
+                    height={400}
+                  />
+                  <h2>{film?.title}</h2>
+                </div>
+              )) }
+            </div>
           </div>
         </div>
-      </DescriptionContainer>
     </DetailsCharacterContainer>
   );
 };
