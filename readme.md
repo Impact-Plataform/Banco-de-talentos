@@ -14,6 +14,7 @@
 #### Tecnologias utilizadas:
 
   - TypeScript;
+  - JavaScript;
   - React/Next;
   - Styled-Components;
   - Chakra UI;
