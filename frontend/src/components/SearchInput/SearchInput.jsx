@@ -1,12 +1,10 @@
 import React from 'react'
 
-
 const SearchInput = ({ value, onChange}) => {
 
   function handleChange(event){
     onChange(event.target.value);
   }
-
 
   return (
     <form className="d-flex justify-content-center w-50" role="search">
@@ -18,7 +16,7 @@ const SearchInput = ({ value, onChange}) => {
             value={value}
             onChange={handleChange}
           />
-          <select className="form-select me-2 w-25" aria-label="Select" id="selecao">
+           <select className="form-select me-2 w-25" aria-label="Select" id="selecao">
             <option selected>Filtrar</option>
             <option value="1">Filmes</option>
             <option value="2">Espécies</option>

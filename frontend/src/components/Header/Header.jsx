@@ -1,27 +1,24 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import api from "../../service/api";
 import bb8 from "../../assets/images/bb-8.svg";
 import logo from "../../assets/images/star-wars-logo.png";
 import style from "./Header.module.css";
 import SearchInput from "../SearchInput/SearchInput";
 import Card from "../Card/Card";
-import Spinner from "../Spinner/Spinner";
-import um from "../../assets/images/personagens/1.jpg";
 
 const Header = () => {
+  const [text, setText] = useState("");
+  console.log(text);
   const [films, setFilms] = useState([]);
   console.log(films, "os filmes");
   const [species, setSpecies] = useState([]);
   console.log(species, "as especies");
-  const [text, setText] = useState("");
-  console.log(text);
-
-  const filmesFiltrados = useMemo(() => {
-    const lowerBusca = text.toLowerCase();
-    return films.filter((filme) =>
-    filme.toLowerCase().includes(lowerBusca)
-    );
-  }, [text]);
+  const [starships, setStarships] = useState([]);
+  console.log(starships, "naves");
+  const [vehicles, setVehicles] = useState([]);
+  console.log(vehicles);
+  const [planets, setPlanets] = useState([]);
+  console.log(planets);
 
   function select() {
     const s = document.getElementById("selecao");
@@ -33,33 +30,37 @@ const Header = () => {
       return buscaEspecies();
     } else if (text && selecao == "3") {
       // buscaGenero;
+    } else if (text && selecao == "4") {
+      return buscaNaves();
+    } else if (text && selecao == "5") {
+      return buscaVeiculos();
+    } else if (text && selecao == "6") {
+      return buscaPlanetas();
     }
   }
 
   const buscaFilmes = () => {
     api
-      .get(`films/`)
+      .get(`films/?search=${text}`)
       .then((response) => {
         setFilms([response.data.results]);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-      {filmesFiltrados.map((filme, index) => {
-          return (
-            <Card
-              key={index}
-              imageId={um}
-              nome={filme.title}
-            />
-          );
-        })
-      }
+      {films.map((filme, index)=> {
+        return (
+          <Card
+          key={index}
+          nome={filme.title}
+          />
+        )
+      })}
   };
 
   const buscaEspecies = () => {
     api
-      .get(`species/`)
+      .get(`species/?search=${text}`)
       .then((response) => {
         setSpecies([response.data.results]);
       })
@@ -68,6 +69,38 @@ const Header = () => {
       });
   };
 
+  const buscaNaves = () => {
+    api
+      .get(`starships/?search=${text}`)
+      .then((response) => {
+        setStarships([response.data.results]);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  };
+
+  const buscaVeiculos = () => {
+    api
+      .get(`vehicles/?search=${text}`)
+      .then((response) => {
+        setVehicles([response.data.results]);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  };
+
+  const buscaPlanetas = () => {
+    api
+      .get(`planets/?search=${text}`)
+      .then((response) => {
+        setPlanets([response.data.results]);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  };
 
   return (
     <nav className="navbar bg-tertiary">
@@ -76,10 +109,10 @@ const Header = () => {
           <img src={logo} className={style.logo} />
         </a>
         <div className={style.container}>
-        <SearchInput value={text} onChange={(search) => setText(search)} />
-        <button className="btn btn-success" type="submit" onClick={select}>
-          Buscar
-        </button>
+          <SearchInput value={text} onChange={(search) => setText(search)} />
+          <button className="btn btn-success" type="submit" onClick={select}>
+            Buscar
+          </button>
         </div>
         <img src={bb8} alt="icone personagem bb-8" className={style.svg} />
       </div>
