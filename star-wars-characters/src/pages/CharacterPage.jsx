@@ -12,19 +12,12 @@ export const CharacterPage = () => {
   const [character, setCharacter] = useState({});
   /* 
     No momento do meu desenvolvimento, 
-    ao acessar na API a url: https://swapi.dev/api/people/17
-    retornava "not found", em seguida pulava para https://swapi.dev/api/people/18
-    para resolver, decidi fazer essa verificação abaixo
-    acrescentando +1 a partir do id 17.
+    A api swapi tinha dados faltando: https://swapi.dev/api/people/
+    mudei para https://swapi.py4e.com/api/
   */
 
-  if (+id >= 17) {
-    id = parseInt(id) + 1;
-    console.log(typeof id);
-  }
   const getCharacter = async id => {
     const data = await getCharacterById(id);
-    // guarda o objeto do personagem
     setCharacter(data.data);
     setLoading(false);
   };

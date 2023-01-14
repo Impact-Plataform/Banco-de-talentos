@@ -1,11 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
 import { Loader } from './Loader';
 import { CharacterCard } from './CharacterCard';
 import { Pagination } from './Pagination';
 
 export const CharacterList = () => {
-  const { allCharacters, loading } = useContext(CharacterContext);
+  const { allCharacters, loading, filteredCharacters } = useContext(CharacterContext);
+
+  // Logica das paginas
   const totalCharacters = allCharacters.length;
   const [characterPerPage, setCharacterPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,18 +22,32 @@ export const CharacterList = () => {
       ) : (
         <>
           <div className="card-list-character container">
-            {allCharacters
-              .map((character, index) => (
-                <CharacterCard character={character} key={character.name} id={index + 1} />
-              ))
-              .slice(firstIndex, lastIndex)}
+            {filteredCharacters.length ? (
+              <>
+                {filteredCharacters.map(character => (
+                  <CharacterCard character={character} key={character.name} />
+                ))}
+              </>
+            ) : (
+              <>
+                {allCharacters
+                  .map(character => <CharacterCard character={character} key={character.name} />)
+                  .slice(firstIndex, lastIndex)}
+                <Pagination
+                  characterPerPage={characterPerPage}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  totalCharacters={totalCharacters}
+                />
+              </>
+            )}
           </div>
-          <Pagination
+          {/* <Pagination
             characterPerPage={characterPerPage}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
             totalCharacters={totalCharacters}
-          />
+          /> */}
         </>
       )}
     </div>

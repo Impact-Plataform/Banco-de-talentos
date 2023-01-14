@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { images } from '../assets/images';
-export const CharacterCard = ({ character, id }) => {
-  // console.log(character.url);
-  // console.log(id);
+export const CharacterCard = ({ character }) => {
+  // pega apenas o id do personagem
+  let id = character.url.substring(character.url.length - 3, character.url.length).replaceAll('/', '');
+
   return (
     <Link to={`/character/${id}`} className="character-card">
       <div className="card-image">

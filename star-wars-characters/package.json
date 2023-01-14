@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "@uiball/loaders": "^1.2.6",
     "axios": "^1.2.2",
