@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import sabre from '../../../assets/sabre.png'
 
 export const StyledCardUl = styled.ul`
 
@@ -7,7 +8,6 @@ export const StyledCardUl = styled.ul`
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         column-gap: 2rem;
         row-gap: 1rem;
-        background-color: red;
 
     li{
         display: flex;
@@ -19,14 +19,23 @@ export const StyledCardUl = styled.ul`
             height: 250px;
             border-radius: 1rem;
             margin-bottom: 2rem;
-            background-color: yellow;
-              
+            border: solid 3px white;
+            transition: box-shadow 0.1s;
+            color: white;
+            background-color: #00d9ff47;
+        }
+
+        .card:hover{
+            border: 3px solid #00d9ff;
+            color: #00d9ff;
+            box-shadow: 0px 0px 35px #00d9ff, 0px 0px 15px #00d9ffc0 inset;
         }
 
         span{
             font-weight: bold;
             font-size: 120%;
             text-align: center;
+            color: white
         }
         a{
             transition: all 0.3s;
