@@ -17,7 +17,6 @@ class Product extends Validate{
                         element.usdprice = (element.price/quotation.USD.bid).toFixed(2)
                         element.eurprice = (element.price/quotation.EUR.bid).toFixed(2)
                     })
-                    res.status(200).json(response)
                 }
                 res.status(200).json(response)
             }catch(e){
@@ -41,11 +40,11 @@ class Product extends Validate{
                         throw new Error(`o id ${req.params.id} não é númerico, a busca por id deve ser feita com id númerico.`)
                     }else{
                         const product = await ProductDbMethod.listProductById(req.params.id)
-                        product.usdprice = (product.price/quotation.USD.bid).toFixed(2)
-                        product.eurprice = (product.price/quotation.EUR.bid).toFixed(2)
                         if(!product){
                             throw new Error(`Nenhum produto encontrado com id ${req.params.id}`)
                         }else{
+                            product.usdprice = (product.price/quotation.USD.bid).toFixed(2)
+                            product.eurprice = (product.price/quotation.EUR.bid).toFixed(2)
                             res.status(200).json(product)
                         }
                     }
@@ -58,6 +57,9 @@ class Product extends Validate{
             const body = req.body
             const valid = this.isValid(...Object.values(body))
             try{
+                if([...Object.values(body)].length != 6){
+                    throw new Error("requisição quantidade de chaves e valores incorreta, revise a requisição")
+                }
                 if(valid){
                     const product = new ProductModel(...Object.values(body))
                     const response = await ProductDbMethod.insertProduct(product)
@@ -75,6 +77,9 @@ class Product extends Validate{
             const id = req.params.id
             const valid = this.isValid(...Object.values(body))
             try{
+                if([...Object.values(body)].length != 6){
+                    throw new Error("requisição quantidade de chaves e valores incorreta, revise a requisição")
+                }
                 const productId = await ProductDbMethod.listProductById(id)
                 if(!productId){
                     throw new Error(`o Produto de id ${id} não encontrado, verifique se o id está correto e tente novamente`)
@@ -87,7 +92,11 @@ class Product extends Validate{
                     throw new Error("Corpo da requisição preechido incorretamente, revise-o e tente novamente")
                 }
             }catch(e){
-                res.status(400).json(e.message)
+                if(e.message == `o Produto de id ${id} não encontrado, verifique se o id está correto e tente novamente`){
+                    res.status(404).json(e.message)
+                }else{
+                    res.status(400).json(e.message)
+                }
             }
         })
 
@@ -101,7 +110,11 @@ class Product extends Validate{
                 const response = await ProductDbMethod.deleteProduct(id)
                 res.status(200).json(response)
             }catch(e){
-                res.status(400).json(e.message)
+                if(e.message == `o id ${id} que está tentando deletar não pode ser encontrado`){
+                    res.status(404).json(e.message)
+                }else{
+                    res.status(400).json(e.message)
+                }
             }
             
         })
