@@ -1,24 +1,51 @@
 import styled from "styled-components";
 
 export const StyledDetails = styled.div`
-background-color: yellow;
 
-padding: 0 3rem;
+padding: 0 2rem;
   
   h1 {
-    margin: 3rem 0;
+    margin: 1rem 0;
+    font-size: 120%;
   }
 
-  .CardG {
+  .cardG {
     display: flex;
     align-items: center;
     justify-content: center;
     height: auto;
+    border-radius: 10px;
+    border: 3px solid #00d9ff;
+    color: white;
+    background-color: #142374dc;
+    box-shadow: 0px 0px 35px #00d9ff, 0px 0px 15px #00d9ffc0 inset;
   }
   .cardItem {
     width: 300px;
     border-radius: 1rem;
     margin-bottom: 2rem;
+    margin-top: 1rem;
+    
+   
+   }
+   
+  
+
+
+a{
+    color: white;
+    font-style: none;}
+a:hover{
+  color: lightblue;
+}
+
+
+  img{
+    margin-top: 1rem;
+    align-items: center;
+    width: 420px;
+    border-radius: 1rem;
+    
   }
   span {
     font-weight: normal;
@@ -26,17 +53,21 @@ padding: 0 3rem;
     margin-bottom: 1rem;
     line-height: 130%;
   }
-  .Info {
-    font-size: 100%;
-    opacity: 0.5;
-  }
+ 
   .details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 6rem;
     max-width: 50%;
+    
+    
   }
+
+  li{
+    list-style: none;
+  }
+
   button {
     background-color: #6654da;
     border: none;
@@ -47,22 +78,39 @@ padding: 0 3rem;
     margin-top: 1rem;
     font-size: 100%;
     transition: all .3s;
+    margin-bottom: 2rem;
   }
   button:hover {
     background-color: #5848c2;
   }
 
   @media screen and (max-width: 790px) {
-    .movie {
+
+    .cardItem{
+ 
+      padding: 0 0 0 0;
+      align-items: center;
+      text-align: center;
+    }
+    .cardG {
         flex-direction: column;
         width: 100%;    
-    }
-    .details{
-        margin-left: 0;
-        max-width: 100%;
         align-items: center;
     }
-
+    .details {
+        margin-left: 0;
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+       
+    }
+    Link{
+      display: flex;
+      align-items: center;
+    }
+    img{
+      width: 80%;
+    }
     }
 
 

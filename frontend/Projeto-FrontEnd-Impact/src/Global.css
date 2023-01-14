@@ -1,4 +1,6 @@
 
+
+
 *{
   margin: 0;
   padding: 0;
@@ -9,8 +11,10 @@
 }
 
 body{
-  background-image: url(./assets/space.jpg);
- 
+  background-image: url(./assets/starwarsIntro.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 

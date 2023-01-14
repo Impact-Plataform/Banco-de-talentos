@@ -31,18 +31,18 @@ i {
 }
 
 .botoesAncora {
-    border-color: #0fcbec;
+    
     color: rgb(255, 255, 255);
-    background-image: -webkit-linear-gradient(45deg, #0fcbec 50%, transparent 50%);
-    background-image: linear-gradient(45deg, #0fcbec 50%, transparent 50%);
-    background-position: 100%;
-    background-size: 400%;
-    -webkit-transition: background 300ms ease-in-out;
-    transition: background 300ms ease-in-out;
+    background-color: #142374dc;
+    transition: all 0.3s;
+   
 }
 
 .botoesAncora:hover {
     background-position: 0;
+    border: 3px solid #00d9ff;
+            color: #00d9ff;
+            box-shadow: 0px 0px 35px #00d9ff, 0px 0px 15px #00d9ffc0 inset;
 }
 
     

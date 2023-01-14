@@ -1,6 +1,7 @@
 import { StyledMain } from "./Style"
 import LogoStar from "../../assets/LStar.png"
 import { Card } from "../Cards/Card/Index"
+import { Link } from "react-router-dom"
 
 
 export const Main = () =>{
@@ -8,8 +9,8 @@ export const Main = () =>{
     
     
     <StyledMain>
-        <img src={LogoStar} alt="nave" className="nave" />
-        <Card/>
+        
+        <Link to={"/characters"}><button>START</button></Link>
     </StyledMain>
     
     )

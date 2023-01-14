@@ -4,12 +4,13 @@ export const StyledCard = styled.div`
     
     .card {
     position: relative;
-    width: 600px;
+    width: 50%;
     height: 390px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     transition: 0.5s;
+    background-color: lightcoral;
 }
 
 .card .circle {
@@ -29,7 +30,7 @@ export const StyledCard = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(10, 124, 255, 0.699);
+    background-color: rgba(15, 17, 19, 0.699);
     clip-path: circle(120px at center);
     transition: 0.5s;
 

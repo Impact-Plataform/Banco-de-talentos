@@ -19,10 +19,10 @@ export const StyledCardUl = styled.ul`
             height: 250px;
             border-radius: 1rem;
             margin-bottom: 2rem;
-            border: solid 3px white;
+            border: solid 3px lightblue;
             transition: box-shadow 0.1s;
-            color: white;
-            background-color: #00d9ff47;
+            color: whitesmoke;
+            background-color: #142374dc;
         }
 
         .card:hover{
