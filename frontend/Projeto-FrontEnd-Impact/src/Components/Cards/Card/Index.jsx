@@ -1,4 +1,5 @@
 import { StyledCard } from "./style"
+import { Link } from "react-router-dom"
 import sabre from "../../../assets/sabre.png"
 
 
@@ -16,7 +17,7 @@ export const Card = () =>{
                         personagens do filme Star Wars contendo suas informações. 
                         <br/>Para vizualização basta clicar em consultar!
                     </p>
-                    <button className="botaoExplorar">Consultar</button>
+                    <Link to="/characters"><button className="botaoExplorar">Consultar</button></Link>
                 </div>
             </div>
             <img src={sabre} alt="sabre"/>

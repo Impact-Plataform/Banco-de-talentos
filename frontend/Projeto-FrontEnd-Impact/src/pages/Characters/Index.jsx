@@ -10,7 +10,6 @@ export const Characters = () =>{
    
     <StyledCharacters> 
         <Header/>
-        
         <Container/>
         
     </StyledCharacters>

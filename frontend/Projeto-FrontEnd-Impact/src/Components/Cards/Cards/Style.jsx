@@ -5,8 +5,8 @@ export const StyledCardUl = styled.ul`
         list-style: none;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        column-gap: 3rem;
-        row-gap: 4rem;
+        column-gap: 2rem;
+        row-gap: 1rem;
         background-color: red;
 
     li{
