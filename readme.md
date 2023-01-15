@@ -3,7 +3,7 @@
 
 # Projeto Star Wars
 ### Resultado obtido:
-### Deploy do Projeto: [Projeto Star Wars](https://starwars-willian-alves-batista.netlify.app/)
+### Deploy do Projeto: [Projeto Star Wars](https://willian-alves-batista-frontend.vercel.app/)
 ![](./public/star-wars.gif)
 
 #### Habilidades que foram exigidas:
