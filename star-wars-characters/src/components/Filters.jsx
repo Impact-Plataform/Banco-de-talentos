@@ -1,4 +1,5 @@
-import React, { useContext, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import React, { useContext } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
 
 const genders = ['Female', 'Hermaphrodite', 'Male', 'N/A', 'None'];
@@ -10,28 +11,53 @@ const films = [
   'Attack of the Clones',
   'Revenge of the Sith',
 ];
+const species = [
+  'Human',
+  'Droid',
+  'Wookie',
+  'Rodian',
+  'Hutt',
+  "Yoda's species",
+  'Trandoshan',
+  'Mon Calamari',
+  'Ewok',
+  'Sullustan',
+  'Neimodian',
+  'Gungan',
+  'Toydarian',
+  'Dug',
+  "Twi'lek",
+  'Aleena',
+  'Vulptereen',
+  'Xexto',
+  'Toong',
+  'Cerean',
+  'Nautolan',
+  'Zabrak',
+  'Tholothian',
+  'Iktotchi',
+  'Quermian',
+  'Kel Dor',
+  'Chagrian',
+  'Geonosian',
+  'Mirialan',
+  'Clawdite',
+  'Besalisk',
+  'Kaminoan',
+  'Skakoan',
+  'Muun',
+  'Togruta',
+  'Kaleesh',
+  "Pau'an",
+];
 export const Filters = () => {
-  const { allCharacters, setFilteredCharacters } = useContext(CharacterContext);
-
-  const onChangeGenderSelected = event => {
-    console.log(event.target.value.toLowerCase());
-
-    if (event.target.value) {
-      const filteredResults = allCharacters.filter(character => {
-        return character.gender === event.target.value.toLowerCase();
-      });
-      console.log(filteredResults);
-      setFilteredCharacters(filteredResults);
-    } else {
-      setFilteredCharacters([]);
-    }
-  };
+  const { onChangeFilter } = useContext(CharacterContext);
 
   return (
     <>
       <div>
-        <label>Filter by gender</label>
-        <select onChange={onChangeGenderSelected} name="gender" id="gender">
+        <label>Filter by Gender</label>
+        <select name="gender" onChange={onChangeFilter}>
           <option value="">All</option>
           {genders.map(gender => (
             <option key={gender} value={gender}>
@@ -41,14 +67,29 @@ export const Filters = () => {
         </select>
       </div>
 
-      <select>
-        <option value="">Film</option>
-        {films.map(film => (
-          <option key={film} value={film}>
-            {film}
-          </option>
-        ))}
-      </select>
+      <div>
+        <label>Filter by Film</label>
+        <select name="film" onChange={onChangeFilter}>
+          <option value="">All</option>
+          {films.map(film => (
+            <option key={film} value={film}>
+              {film}
+            </option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label>Filter by Species</label>
+        <select name="specie" onChange={onChangeFilter}>
+          <option value="">All</option>
+          {species.map(specie => (
+            <option key={specie} value={specie}>
+              {specie}
+            </option>
+          ))}
+        </select>
+      </div>
     </>
   );
 };

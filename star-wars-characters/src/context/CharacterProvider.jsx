@@ -29,6 +29,33 @@ export const CharacterProvider = ({ children }) => {
   // Filter
   const [filteredCharacters, setFilteredCharacters] = useState([]);
 
+  const onChangeFilter = event => {
+    console.log(event.target.value.toLowerCase());
+
+    if (event.target.value) {
+      const filteredResults = allCharacters.filter(character => {
+        return (
+          (character.gender === event.target.value.toLowerCase() && event.target.name === 'gender') ||
+          character.movies.includes(event.target.value) ||
+          (event.target.name === 'film' && character.specie.includes(event.target.value)) ||
+          event.target.name === 'specie'
+        );
+      });
+      console.log('filtrados', filteredResults);
+      setFilteredCharacters([...filteredCharacters, ...filteredResults]);
+    } else {
+      const filteredResults = allCharacters.filter(character => {
+        return (
+          character.gender === event.target.value.toLowerCase() ||
+          character.movies.includes(event.target.value) ||
+          character.specie.includes(event.target.value)
+        );
+      });
+      setFilteredCharacters(...filteredResults);
+      return;
+    }
+  };
+
   return (
     <CharacterContext.Provider
       value={{
@@ -43,6 +70,7 @@ export const CharacterProvider = ({ children }) => {
         // filters
         filteredCharacters,
         setFilteredCharacters,
+        onChangeFilter,
       }}
     >
       {children}

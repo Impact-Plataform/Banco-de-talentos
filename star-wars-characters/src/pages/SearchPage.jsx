@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { CharacterCard } from '../components/CharacterCard';
@@ -10,9 +11,7 @@ export const SearchPage = () => {
   // capitaliza o nome
   const characterName = toCapitalize(location.state);
 
-  const filteredCharacters = allCharacters.filter(character =>
-    character.name.includes(characterName)
-  );
+  const filteredCharacters = allCharacters.filter(character => character.name.includes(characterName));
   console.log('filtered', filteredCharacters);
 
   return (
@@ -25,7 +24,7 @@ export const SearchPage = () => {
       </p>
       <div className="card-list-character container">
         {filteredCharacters.map((character, index) => (
-          <CharacterCard character={character} key={character.name} id={index + 1} />
+          <CharacterCard character={character} key={uuidv4()} />
         ))}
       </div>
     </div>
