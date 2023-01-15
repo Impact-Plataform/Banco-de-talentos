@@ -7,7 +7,7 @@ interface getPeopleInterface {
 export const getPeople = async ({ page = 1 }: getPeopleInterface) => {
   try {
     const result = await api.get(`/people/?page=${page}`);
-    console.log(result.data.results);
+    return result.data.results;
   } catch (error) {
     console.log(error);
   }
