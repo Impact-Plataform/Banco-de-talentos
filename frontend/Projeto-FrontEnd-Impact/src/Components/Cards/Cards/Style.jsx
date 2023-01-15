@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import sabre from '../../../assets/sabre.png'
+
 
 export const StyledCardUl = styled.ul`
 
@@ -8,11 +8,17 @@ export const StyledCardUl = styled.ul`
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         column-gap: 2rem;
         row-gap: 1rem;
+        width: 100%;
+        align-items: center;
+        justify-items: center;
+        
 
     li{
         display: flex;
         flex-direction: column;
         align-items: center;}
+
+      
 
     .card{
             width: 180px;

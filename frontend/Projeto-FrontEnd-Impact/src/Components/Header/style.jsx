@@ -34,7 +34,7 @@ i {
     
     color: rgb(255, 255, 255);
     background-color: #142374dc;
-    transition: all 0.3s;
+    transition: all 0.1s;
    
 }
 
