@@ -1,29 +1,48 @@
 import './style.css';
-import logo from '../../svg/logo.svg';
+
 import { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+
+import logo from '../../svg/logo.svg';
 import MenuMobile from './MenuMobile/MenuMobile';
 
 const Header = () => {
     const [isActive, setIsActive] = useState(false);
+
     const onClick = () => setIsActive(!isActive);
+
+    const navLinkStyles = ({ isActive }) => {
+        return {
+            fontWeight: isActive ? 'bold' : 'normal',
+            textDecoration: 'none',
+            fontSize: '2rem',
+            color: isActive ? '#faf6ed' : '#666',
+        };
+    };
 
     return (
         <>
             <header className="header">
                 <nav className="header__nav">
-                    <div className="header__logo">
+                    <Link to="/" className="header__logo">
                         <img src={logo} alt="Logo Star Wars" />
-                    </div>
+                    </Link>
 
                     <ul className="header__menu">
                         <li>
-                            <a href="">Início</a>
+                            <NavLink to="/" style={navLinkStyles}>
+                                Início
+                            </NavLink>
                         </li>
                         <li>
-                            <a href="">Sobre</a>
+                            <NavLink to="/about" style={navLinkStyles}>
+                                Sobre
+                            </NavLink>
                         </li>
                         <li>
-                            <a href="">Contato</a>
+                            <NavLink to="/contact" style={navLinkStyles}>
+                                Contato
+                            </NavLink>
                         </li>
                     </ul>
                 </nav>
@@ -34,7 +53,7 @@ const Header = () => {
                 ></div>
             </header>
 
-            <MenuMobile isActive={isActive}/>
+            <MenuMobile isActive={isActive} navLinkStyles={navLinkStyles}/>
         </>
     );
 };

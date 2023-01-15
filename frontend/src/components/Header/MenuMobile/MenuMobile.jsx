@@ -1,6 +1,7 @@
+import { NavLink } from 'react-router-dom';
 import './style.css';
 
-const MenuMobile = ({ isActive }) => {
+const MenuMobile = ({ isActive, navLinkStyles }) => {
     return (
         <>
             <div
@@ -12,13 +13,19 @@ const MenuMobile = ({ isActive }) => {
             >
                 <ul className="nav__mobile">
                     <li>
-                        <a href="">Início</a>
+                        <NavLink to="/" style={navLinkStyles}>
+                            Início
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="">Sobre</a>
+                        <NavLink to="/about" style={navLinkStyles}>
+                            Sobre
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="">Contato</a>
+                        <NavLink to="/contact" style={navLinkStyles}>
+                            Contato
+                        </NavLink>
                     </li>
                 </ul>
             </div>

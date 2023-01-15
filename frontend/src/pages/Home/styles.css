@@ -1,0 +1,13 @@
+.header__search {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.cards__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin: 1rem 0;
+    gap: 4.8rem;
+}
