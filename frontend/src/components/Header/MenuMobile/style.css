@@ -1,0 +1,43 @@
+.menu__mobile {
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(6, 9, 15, 0.8);
+    backdrop-filter: blur(8px);
+
+    position: absolute;
+    top: 0;
+    left: -100%;
+    z-index: 9;
+
+    transition: 0.7s ease;
+}
+
+.menu__mobile .nav__mobile {
+    margin-top: 80px;
+}
+
+.menu__mobile li {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 2.4rem 1.6rem 2.4rem 1.6rem;
+    border-bottom: 1px solid #151b26;
+
+    transition: 0.5s ease;
+}
+
+.menu__mobile.menu__mobile--show {
+    width: 100%;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+    transition: 0.7 ease;
+}

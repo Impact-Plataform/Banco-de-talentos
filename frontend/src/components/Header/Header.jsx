@@ -1,7 +1,12 @@
 import './style.css';
 import logo from '../../svg/logo.svg';
+import { useState } from 'react';
+import MenuMobile from './MenuMobile/MenuMobile';
 
 const Header = () => {
+    const [isActive, setIsActive] = useState(false);
+    const onClick = () => setIsActive(!isActive);
+
     return (
         <>
             <header className="header">
@@ -22,7 +27,14 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
+
+                <div
+                    className={isActive ? 'bx bx--active' : 'bx'}
+                    onClick={onClick}
+                ></div>
             </header>
+
+            <MenuMobile isActive={isActive}/>
         </>
     );
 };
