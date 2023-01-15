@@ -1,0 +1,50 @@
+.card {
+    position: relative;
+    max-width: 25rem;
+
+    border: 5px solid #faf6ed;
+    border-radius: 6px;
+    background-color: #faf6ed;
+
+    transition: 0.3s ease;
+}
+
+.card__img {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.card__img img {
+    transform: scale(1.05);
+    transition: 0.5 ease;
+}
+
+.card:hover .card__img img {
+    transform: scale(1.1);
+}
+
+.card:hover {
+    border: 5px solid #ffe300;
+    background-color: #ffe300;
+}
+
+.card__info {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    padding: 1.4rem;
+
+    width: 80%;
+    font-size: 2.5rem;
+    color: #333;
+
+    background-color: #ffe300;
+    box-shadow: 1px 1px 1.2px rgba(0, 0, 0, 0.067),
+        2.2px 2.2px 2.7px rgba(0, 0, 0, 0.098),
+        3.8px 3.8px 4.7px rgba(0, 0, 0, 0.12), 6px 6px 7.5px rgba(0, 0, 0, 0.14),
+        9.3px 9.3px 11.6px rgba(0, 0, 0, 0.16),
+        14.5px 14.5px 18.1px rgba(0, 0, 0, 0.182),
+        24px 24px 30px rgba(0, 0, 0, 0.213), 48px 48px 60px rgba(0, 0, 0, 0.28);
+    
+    transform: scale(1.05);
+}

@@ -1,15 +1,16 @@
-
+import './style.css';
+import Card from './Card/Card';
 
 const Home = () => {
-  return (
-    <>
-        <div className="container">
-            <section className="cards__list">
-
+    return (
+        <>
+            <section className="container">
+                <div className="cards__list">
+                    <Card />
+                </div>
             </section>
-        </div>
-    </>
-  )
-}
+        </>
+    );
+};
 
-export default Home
+export default Home;
