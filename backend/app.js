@@ -1,6 +1,8 @@
 import express from "express";
 import * as dotenv from "dotenv"
 import cors from "cors"
+import swaggerUi from "swagger-ui-express"
+import swaggerFile from "./src/documents/swagger.json" assert {type: "json"}
 import Product from "./src/Controller/product-controller.js"
 
 dotenv.config()
@@ -17,6 +19,7 @@ app.listen(port, ()=>{
 })
 app.use(cors())
 app.use(express.json())
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 Product.route(app)
 

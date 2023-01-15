@@ -27,6 +27,7 @@
     "node-fecth": "^0.0.1-security",
     "path": "^0.12.7",
     "sqlite3": "^5.1.4",
+    "swagger-ui-express": "^4.6.0",
     "url": "^0.11.0"
   },
   "type": "module",

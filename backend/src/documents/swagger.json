@@ -1,0 +1,597 @@
+{
+    "openapi": "3.0.0",
+    "info" : {
+        "title" : "Products API",
+        "description" : "API Rest criado para listar, criar, atualizar e deletar produtos com a cotação de preço em Real, Dolar Americano e Euro.",
+        "contact": {
+            "email": "jpbegiato@hotmail.com",
+            "url": "https://www.linkedin.com/in/joaopgbegiato",
+            "name": "João Paulo Gotardi Begiato"
+        },
+        "version" : "1.0.0"
+    },
+    "paths": {
+        "/Products":{
+            "post":{
+                "tags": ["Products"],
+                "summary": "Cria produtos",
+                "description": "método utilizado para criar novos produtos",
+                "requestBody" : {
+                    "required": true,
+                    "content" : {
+                        "application/json": {
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "$ref": "#/definitions/Products"
+                                },
+                                "example": {
+                                    "name" : "Laptop Positivo",
+                                    "descripiton" : "Computador portatil com 2gb de RAM",
+                                    "price" : 1500.86,
+                                    "color" : "Silver",
+                                    "weight" : "2 kg",
+                                    "height" : "183 cm"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "descripiton" : "created",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "message":"Laptop Positivo cadastrado com sucesso"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get":{
+                "tags": ["Products"],
+                "summary": "lista os produtos",
+                "description": "método utilizado para listar todos os produtos cadastrados",
+                "responses" : {
+                    "200": {
+                        "descripiton" : "lista todos os usuários",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "array",
+                                    "properties": {
+                                            "id": {
+                                                "type": "number"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "descripiton": {
+                                                "type": "string"
+                                            },
+                                            "price": {
+                                                "type": "number"
+                                            },
+                                            "color": {
+                                                "type": "string"
+                                            },
+                                            "weight": {
+                                                "type": "string"
+                                            },
+                                            "height": {
+                                                "type": "string"
+                                            },
+                                            "usdprice": {
+                                                "type": "string"
+                                            },
+                                            "eurprice": {
+                                                "type": "string"
+                                            }
+                                    },
+                                    "example":[
+                                        {
+                                            "id": 1,
+                                            "name": "Laptop Positivo",
+                                            "descripiton": "Computador portatil com 2gb de RAM",
+                                            "price": 1500,
+                                            "color": "Silver",
+                                            "weight": "2 kg",
+                                            "height": "183 cm",
+                                            "usdprice": "294.37",
+                                            "eurprice": "271.79"
+                                        },
+                                        {
+                                            "id": 4,
+                                            "name": "Laptop Positivo 3",
+                                            "descripiton": "Computador portatil com 2gb de RAM",
+                                            "price": 1500,
+                                            "color": "Silver",
+                                            "weight": "2 kg",
+                                            "height": "183 cm",
+                                            "usdprice": "294.37",
+                                            "eurprice": "271.79"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Products/{id}":{
+            "put":{
+                "tags": ["Products"],
+                "summary": "Atualiza produtos",
+                "description": "método utilizado para atualizar produtos aceessando-os pelo parametro de rota id",
+                "requestBody" : {
+                    "required": true,
+                    "content" : {
+                        "application/json": {
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "$ref": "#/definitions/Products"
+                                },
+                                "example": {
+                                    "name" : "Laptop Positivo",
+                                    "descripiton" : "Computador portatil com 2gb de RAM",
+                                    "price" : 1500.86,
+                                    "color" : "Silver",
+                                    "weight" : "2 kg",
+                                    "height" : "183 cm"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "descripiton" : "atualiza o registro",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "message":"registro de identificação 1 atualizado com sucesso"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "descripiton" : "registro que está tentando atualizar não pode ser encontrado.",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "message":"o Produto de id 02 não encontrado, verifique se o id está correto e tente novamente"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "descripiton" : "requisição realizada de maneira incorreta ou incompleta, podendo ter preenchidos valores de tipo incorreto (string no lugar de number e vice-versa) ou então quantidade incorreta de chaves (mais ou menos)",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "chavesIncorretas": {
+                                            "message":"requisição não pode ser resolvida, quantidade de chaves e valores incorreta, revise a requisição"
+                                        },
+                                        "corpoIncorreto" : {
+                                            "message" : "Corpo da requisição preechido incorretamente, revise-o e tente novamente"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do produto que será atualizado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ]
+            },
+            "get":{
+                "tags": ["Products"],
+                "summary": "lista os produtos",
+                "description": "método utilizado para listar os produtos cadastrados de maneira individual, acessando-os pelo id",
+                "responses" : {
+                    "200": {
+                        "descripiton" : "lista todos os usuários",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "array",
+                                    "properties": {
+                                            "id": {
+                                                "type": "number"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "descripiton": {
+                                                "type": "string"
+                                            },
+                                            "price": {
+                                                "type": "number"
+                                            },
+                                            "color": {
+                                                "type": "string"
+                                            },
+                                            "weight": {
+                                                "type": "string"
+                                            },
+                                            "height": {
+                                                "type": "string"
+                                            },
+                                            "usdprice": {
+                                                "type": "string"
+                                            },
+                                            "eurprice": {
+                                                "type": "string"
+                                            }
+                                    },
+                                    "example":[
+                                        {
+                                            "id": 1,
+                                            "name": "Laptop Positivo",
+                                            "descripiton": "Computador portatil com 2gb de RAM",
+                                            "price": 1500,
+                                            "color": "Silver",
+                                            "weight": "2 kg",
+                                            "height": "183 cm",
+                                            "usdprice": "294.37",
+                                            "eurprice": "271.79"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "descripiton" : "registro que está tentando listar não pode ser encontrado.",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "message":"Nenhum produto encontrado com id 2."
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "descripiton" : "o id passado não é um valor númerico.",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "message":"o id dois não é númerico, a busca por id deve ser feita com id númerico."
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do produto que será listado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ]
+            },
+            "delete":{
+                "tags": ["Products"],
+                "summary": "deleta o registro de um determinado produto",
+                "description": "método utilizado para deletar os produtos cadastrados de maneira individual, acessando-os pelo id",
+                "responses" : {
+                    "200": {
+                        "descripiton" : "deleta o produto",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "message":"registro de identificação 1 atualizado com sucesso"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "descripiton" : "registro que está tentando deletar não pode ser encontrado.",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example":{
+                                        "message":"o id 2 que está tentando deletar não pode ser encontrado"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do produto que será deletado",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ]
+            }
+        },
+        "/Currency":{
+            "get":{
+                "tags": ["Currency"],
+                "summary": "lista as cotações",
+                "description": "método utilizado para listar as cotações do real em diversas moedas",
+                "responses" : {
+                    "200": {
+                        "descripiton" : "lista todos os usuários",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "codein": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "high": {
+                                                "type": "string"
+                                            },
+                                            "low": {
+                                                "type": "string"
+                                            },
+                                            "varBid": {
+                                                "type": "string"
+                                            },
+                                            "pctChange":{
+                                                "type": "string"
+                                            },
+                                            "bid": {
+                                                "type": "string"
+                                            },
+                                            "ask": {
+                                                "type": "string"
+                                            },
+                                            "timestamp": {
+                                                "type": "string"
+                                            },
+                                            "create_date": {
+                                                "type": "string"
+                                            }
+                                    },
+                                    "example":{
+                                        "USD": {
+                                            "code": "USD",
+                                            "codein": "BRL",
+                                            "name": "Dólar Americano/Real Brasileiro",
+                                            "high": "5.1544",
+                                            "low": "5.0786",
+                                            "varBid": "-0.0121",
+                                            "pctChange": "-0.24",
+                                            "bid": "5.0956",
+                                            "ask": "5.0966",
+                                            "timestamp": "1673645400",
+                                            "create_date": "2023-01-13 18:30:00"
+                                        },
+                                        "USDT": {
+                                            "code": "USD",
+                                            "codein": "BRLT",
+                                            "name": "Dólar Americano/Real Brasileiro Turismo",
+                                            "high": "5.175",
+                                            "low": "5.105",
+                                            "varBid": "0.01",
+                                            "pctChange": "0.2",
+                                            "bid": "4.97",
+                                            "ask": "5.28",
+                                            "timestamp": "1673638740",
+                                            "create_date": "2023-01-13 16:39:00"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Currency/{Symbol}":{
+            "get":{
+                "tags": ["Currency"],
+                "summary": "lista uma cotação especifica",
+                "description": "método utilizado para listar as cotações do real em diversas moedas de maneira individual através de seu simbolo, exemplo: USD , EUR , etc...",
+                "responses" : {
+                    "200": {
+                        "descripiton" : "lista todos os usuários",
+                        "content" : {
+                            "application/json": {
+                                "schema":{
+                                    "type": "object",
+                                    "properties": {
+                                            "code": {
+                                                "type": "string"
+                                            },
+                                            "codein": {
+                                                "type": "string"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "high": {
+                                                "type": "string"
+                                            },
+                                            "low": {
+                                                "type": "string"
+                                            },
+                                            "varBid": {
+                                                "type": "string"
+                                            },
+                                            "pctChange":{
+                                                "type": "string"
+                                            },
+                                            "bid": {
+                                                "type": "string"
+                                            },
+                                            "ask": {
+                                                "type": "string"
+                                            },
+                                            "timestamp": {
+                                                "type": "string"
+                                            },
+                                            "create_date": {
+                                                "type": "string"
+                                            }
+                                    },
+                                    "example":{
+                                        "USD": {
+                                            "code": "USD",
+                                            "codein": "BRL",
+                                            "name": "Dólar Americano/Real Brasileiro",
+                                            "high": "5.1544",
+                                            "low": "5.0786",
+                                            "varBid": "-0.0121",
+                                            "pctChange": "-0.24",
+                                            "bid": "5.0956",
+                                            "ask": "5.0966",
+                                            "timestamp": "1673645400",
+                                            "create_date": "2023-01-13 18:30:00"
+                                        },
+                                        "USDT": {
+                                            "code": "USD",
+                                            "codein": "BRLT",
+                                            "name": "Dólar Americano/Real Brasileiro Turismo",
+                                            "high": "5.175",
+                                            "low": "5.105",
+                                            "varBid": "0.01",
+                                            "pctChange": "0.2",
+                                            "bid": "4.97",
+                                            "ask": "5.28",
+                                            "timestamp": "1673638740",
+                                            "create_date": "2023-01-13 16:39:00"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "Symbol",
+                        "in": "path",
+                        "description": "Sigla da moeda que deseja consultar",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        },
+                        "style": "simple"
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "Products": {
+            "type": "object",
+            "properties": {
+                "name" : {
+                    "type": "string"
+                },
+                "descripiton" : {
+                    "type": "string"
+                },
+                "price" : {
+                    "type": "number"
+                },
+                "color" : {
+                    "type": "string"
+                },
+                "weight" : {
+                    "type": "string"
+                },
+                "height" : {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

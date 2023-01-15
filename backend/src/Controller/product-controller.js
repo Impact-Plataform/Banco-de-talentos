@@ -49,7 +49,11 @@ class Product extends Validate{
                         }
                     }
                 }catch(e){
-                    res.status(404).json(e.message)
+                    if(e.message == `Nenhum produto encontrado com id ${req.params.id}`){
+                        res.status(404).json(e.message)
+                    }else{
+                        res.status(400).json(e.message)
+                    }
                 }
         })
 
@@ -78,7 +82,7 @@ class Product extends Validate{
             const valid = this.isValid(...Object.values(body))
             try{
                 if([...Object.values(body)].length != 6){
-                    throw new Error("requisição quantidade de chaves e valores incorreta, revise a requisição")
+                    throw new Error("requisição não pode ser resolvida, quantidade de chaves e valores incorreta, revise a requisição")
                 }
                 const productId = await ProductDbMethod.listProductById(id)
                 if(!productId){
