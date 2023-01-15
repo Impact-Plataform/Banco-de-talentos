@@ -6,6 +6,8 @@ import { ICharacter } from '../../types/Characters.types';
 import CharacterCard from './CharacterCard';
 import { handlePage } from '../../utils';
 import Image from 'next/image';
+import loadingGif from '../../../public/loading.gif';
+
 
 
 interface Props {
@@ -27,7 +29,7 @@ export default function CharactersList({ characters }: Props) {
     if (isLoading) {
       return(
         <CharactersListDiv isLoading={isLoading}>
-            <Image className="imggif" alt="hsshhss" src="https://i.giphy.com/media/SmYqlOh9GtnuAe4SwB/giphy.webp" width={100} height={50}/>
+            <Image className="imggif" alt="hsshhss" src={loadingGif} width={100} height={50}/>
             <h1>Loading data...</h1>
         </CharactersListDiv>
       );

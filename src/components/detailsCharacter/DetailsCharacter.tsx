@@ -15,6 +15,7 @@ import { getNamesVehicles } from '../../services/vehicles.services';
 import { DetailsCharacterContainer, ContainerImg, DescriptionContainer, Loading } from './detailsCharacter.style';
 import Starship from '../../assets/Starship';
 import Vehicle from '../../assets/Vehicle';
+import ship from '../../../public/starship.gif'; 
 
 
 export default function DetailsCharacter() {
@@ -53,7 +54,7 @@ export default function DetailsCharacter() {
     return(
       <Loading>
         <Image
-          src= "https://i.giphy.com/media/0mby9MpRJJlP0WoBT3/giphy.webp"
+          src={ship}
           alt="nave star wars" width={500} height={700}
         />
         <h1>Loading...</h1>
