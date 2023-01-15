@@ -20,11 +20,13 @@ export const FilterProvider = ({ children }: ProviderProps) => {
   const [dataFiltered, setDataFiltered] = useState<any[]>([]);
   console.log("dataFiltered -> ", dataFiltered);
 
-  const filterData = (word: string, filterFunction: (word: string) => any[]) => {
-    const filtered = filterFunction(word)
-    setDataFiltered(filtered)
-  }
-
+  const filterData = (
+    word: string,
+    filterFunction: (word: string) => any[]
+  ) => {
+    const filtered = filterFunction(word);
+    setDataFiltered(filtered);
+  };
 
   return (
     <filterContext.Provider value={{ dataFiltered, filterData }}>
