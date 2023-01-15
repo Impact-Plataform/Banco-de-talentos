@@ -1,7 +1,7 @@
 import { Routes } from "./routes";
 import { getPeople } from "./api/people";
 import { useEffect, useState } from "react";
-import { CharacterCardList } from "./components/CharacterCardList";
+import { Button, CharacterCardList } from "./components";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -16,6 +16,7 @@ function App() {
 
   return (
     <div>
+      <Button text="Next" onClick={() => {console.log("May the force be with you!")}}/>
       <CharacterCardList characters={characters} />
       <Routes />
     </div>
