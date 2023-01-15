@@ -4,7 +4,6 @@ import { ProviderProps } from "../interfaces/providerProps";
 interface FilterContextProps {
   dataFiltered: any[];
   filterData: (word: string, filterFunction: (word: string) => any[]) => void;
-  // filterData: (word: string) => void;
 }
 
 const filterContext = createContext<FilterContextProps>(
@@ -26,10 +25,6 @@ export const FilterProvider = ({ children }: ProviderProps) => {
     setDataFiltered(filtered)
   }
 
-  // const filterData = (word: string) => {
-  //   const wordLower = word.toLowerCase();
-  //   setDataFiltered([wordLower]);
-  // };
 
   return (
     <filterContext.Provider value={{ dataFiltered, filterData }}>
