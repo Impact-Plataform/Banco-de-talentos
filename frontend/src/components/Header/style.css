@@ -1,0 +1,35 @@
+.header {
+    width: 100%;
+    height: 8rem;
+
+    background-color: rgba(6, 9, 15, 0.4);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid #151b26;
+
+    position: fixed;
+    z-index: 100;
+}
+
+.header__nav {
+    max-width: 149rem;
+    height: 100%;
+    margin: auto;
+    padding: 1.6rem 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    
+    max-width: 10rem;
+    min-width: 9rem;
+}
+
+.header__menu {
+    display: flex;
+}
+
+.header__menu li {
+    margin-left: 2.4rem;
+}

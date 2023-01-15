@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Passion+One&display=swap');
+
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+    font-style: normal;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    position: relative;
+
+    font-size: 1.6rem;
+    color: #666;
+    background-color: #06090f;
+}
+
+.container {
+    max-width: 149rem;
+    margin: 0 auto;
+    padding: 12.8rem 2.4rem;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+svg,
+img {
+    width: 100%;
+}
+
+@media screen and (max-width: 960px) {
+    .container {
+        padding: 9.6rem 1.6rwm;
+    }
+}
