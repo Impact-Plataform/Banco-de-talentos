@@ -1,9 +1,9 @@
-import { ApiinfoProvider } from "./ApiData";
-import { FilterProvider } from "./filter";
+import { ApiinfoProvider } from "./providers/ApiData";
+import { FilterProvider } from "./providers/Filter";
 import { ProviderProps } from "./interfaces/providerProps";
-import { PaginationProvider } from "./Pagination";
+import { PaginationProvider } from "./providers/Pagination";
 
-export const ContextProvider = ({ children }: ProviderProps) => {
+export const IndexProvider = ({ children }: ProviderProps) => {
   return (
     <PaginationProvider>
       <ApiinfoProvider>
