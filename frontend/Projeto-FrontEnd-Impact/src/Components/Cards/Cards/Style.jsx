@@ -1,8 +1,15 @@
 import styled from 'styled-components';
 
 
-export const StyledCardUl = styled.ul`
+export const StyledCardUl = styled.div`
+    
 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ul{
         list-style: none;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -11,7 +18,7 @@ export const StyledCardUl = styled.ul`
         width: 100%;
         align-items: center;
         justify-items: center;
-        
+     }   
 
     li{
         display: flex;
@@ -45,6 +52,7 @@ export const StyledCardUl = styled.ul`
         }
         a{
             transition: all 0.3s;
+            text-decoration: none;
         }
         a:hover{
             transform: scale(1.1);
