@@ -5,7 +5,7 @@ import {
   useState,
   useEffect,
 } from "react";
-import { ProviderProps } from "./interfaces/providerProps";
+import { ProviderProps } from "../interfaces/providerProps";
 
 interface PaginationContextProps {
   paginationNumbers: number[];

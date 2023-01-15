@@ -7,8 +7,8 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-import { api } from "../services/api";
-import { ProviderProps } from "./interfaces/providerProps";
+import { api } from "../../services/api";
+import { ProviderProps } from "../interfaces/providerProps";
 import { usePageNumber } from "./Pagination";
 
 interface ContextProps {

@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { ProviderProps } from "./interfaces/providerProps";
+import { ProviderProps } from "../interfaces/providerProps";
 
 interface FilterContextProps {
   dataFiltered: any[];
