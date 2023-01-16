@@ -38,8 +38,8 @@ public class ProductService {
         Product product = productRepository.findById(id).orElseThrow();
         convertPriceToOtherPriceCurrency(product);
 
-        product.add(linkTo(methodOn(ProductController.class).getProductById(id)).withSelfRel());
-        product.add(linkTo(methodOn(ProductController.class).getProducts()).withRel("list of products"));
+        product.add(linkTo(methodOn(ProductController.class).findById(id)).withSelfRel());
+        product.add(linkTo(methodOn(ProductController.class).findAll()).withRel("list of products"));
         return product;
     }
 
@@ -48,7 +48,7 @@ public class ProductService {
         List<Product> products = productRepository.findAll();
         for (Product product : products) {
             UUID id = product.getId();
-            product.add(linkTo(methodOn(ProductController.class).getProductById(id)).withSelfRel());
+            product.add(linkTo(methodOn(ProductController.class).findById(id)).withSelfRel());
         }
         convertPricesToCorrencies(products);
         return products;

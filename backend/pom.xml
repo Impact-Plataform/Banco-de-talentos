@@ -15,6 +15,8 @@
     <description>Project for Spring Boot - Impact plataform -</description>
     <properties>
         <java.version>17</java.version>
+        <org.springdoc.version>2.0.2</org.springdoc.version>
+        <io.swagger.version>1.5.9</io.swagger.version>
     </properties>
     <dependencies>
 
@@ -27,13 +29,13 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webflux-api</artifactId>
-            <version>2.0.2</version>
+            <version>${org.springdoc.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
-            <version>2.0.2</version>
+            <version>${org.springdoc.version}</version>
         </dependency>
 
         <dependency>
@@ -46,7 +48,7 @@
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>1.5.9</version>
+            <version>${io.swagger.version}</version>
         </dependency>
 
         <dependency>
@@ -58,12 +60,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
-
+        
         <!-- spring data jpa -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,6 +78,15 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
+        </dependency>
+
+        <!--  for Lombok support -->
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
