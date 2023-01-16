@@ -11,7 +11,7 @@ import { Cache } from './utils/nodeCache';
 
 import swaggerDocument from  '../swagger.json';
 
-export const myCache = new NodeCache({ stdTTL: 10 });
+export const myCache = new NodeCache({ stdTTL: 60 });
 export const cache = new Cache();
 
 const app = express();

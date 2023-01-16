@@ -9,16 +9,16 @@ export class AxiosUtils {
 	}
   
 	transformArray(data: Record<string, Record<string, string>>) {
-		const teste: ICurrency[] = [];
+		const array: ICurrency[] = [];
   
 		for (const [key, value] of Object.entries(data)) {
-			teste.push({
+			array.push({
 				code: key,
 				name: value.name,
 				value: Number(value.ask)
 			});
 		}
   
-		return teste;
+		return array;
 	}
 }
