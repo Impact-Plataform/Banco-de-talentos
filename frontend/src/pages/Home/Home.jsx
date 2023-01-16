@@ -7,10 +7,12 @@ import getUrlId from '../../utils/getUrlId';
 
 import Card from './Card/Card';
 import SearchInput from './SearchInput/SearchInput';
+import Pagination from './Pagination/Pagination';
 
 const Home = () => {
     const [characters, setCharacters] = useState([]);
     const [inputSearch, setInputSearch] = useState('');
+    const [page, setPage] = useState(0);
 
     useEffect(() => {
         async function allPeoples() {
@@ -28,12 +30,14 @@ const Home = () => {
         allPeoples();
     }, []);
 
-    //Search
-    const filterSearch = characters.filter((item) => {
-        return item.name.toLowerCase().indexOf(inputSearch.toLowerCase()) !== -1;
+    const filter = characters.filter((item) => {
+        return item.name.toLowerCase().indexOf(inputSearch.toLowerCase()) !== -1
+            ? item
+            : '';
     });
 
-    const displayCharacters = inputSearch ? filterSearch : characters;
+    const usersPerPage = 10;
+    const pagesVisited = page * usersPerPage;
 
     return (
         <>
@@ -43,17 +47,25 @@ const Home = () => {
                     onChange={(search) => setInputSearch(search)}
                 />
 
+                <Pagination
+                    displayUsersPage={filter}
+                    usersPerPage={usersPerPage}
+                    setPage={setPage}
+                />
+
                 <div className="cards__list">
-                    {displayCharacters.map((character) => (
-                        <Card
-                            key={character.name}
-                            name={character.name}
-                            id={getUrlId(character.url)}
-                            imageUrl={`https://starwars-visualguide.com/assets/img/characters/${getUrlId(
-                                character.url,
-                            )}.jpg`}
-                        />
-                    ))}
+                    {filter
+                        .slice(pagesVisited, pagesVisited + usersPerPage)
+                        .map((character) => (
+                            <Card
+                                key={character.name}
+                                name={character.name}
+                                id={getUrlId(character.url)}
+                                imageUrl={`https://starwars-visualguide.com/assets/img/characters/${getUrlId(
+                                    character.url,
+                                )}.jpg`}
+                            />
+                        ))}
                 </div>
             </section>
         </>
