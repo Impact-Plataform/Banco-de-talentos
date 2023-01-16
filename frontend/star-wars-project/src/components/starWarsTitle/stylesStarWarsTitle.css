@@ -1,0 +1,23 @@
+.title {
+  max-width: 10px;
+  display: flex; */
+  flex-direction: column;
+
+  text-align: center;
+
+  color: var(--color-white);
+  text-shadow: 6px 6px 18px var(--color-orange-2);
+
+  font-size: var(--font-size-1);
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.title:hover {
+  color: var(--color-orange-2);
+  opacity: 0.8;
+  text-shadow: -6px -6px 18px var(--color-white);
+  transition: 0.6s; 
+}
+
