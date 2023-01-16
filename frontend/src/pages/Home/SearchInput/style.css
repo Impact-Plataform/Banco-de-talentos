@@ -1,0 +1,23 @@
+.search {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+.search__form input {
+    accent-color: #1b69d2;
+}
+
+input,
+select,
+option,
+textarea {
+    padding: 1rem 1.2rem;
+    background-color: #151b26;
+    border: 0;
+    border-radius: 4px;
+    color: #faf6ed;
+    width: 100%;
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 200;
+}
