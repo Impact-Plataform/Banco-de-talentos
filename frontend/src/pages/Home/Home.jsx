@@ -6,9 +6,11 @@ import api from '../../services/api';
 import getUrlId from '../../utils/getUrlId';
 
 import Card from './Card/Card';
+import SearchInput from './SearchInput/SearchInput';
 
 const Home = () => {
     const [characters, setCharacters] = useState([]);
+    const [inputSearch, setInputSearch] = useState('');
 
     useEffect(() => {
         async function allPeoples() {
@@ -26,11 +28,23 @@ const Home = () => {
         allPeoples();
     }, []);
 
+    //Search
+    const filterSearch = characters.filter((item) => {
+        return item.name.toLowerCase().indexOf(inputSearch.toLowerCase()) !== -1;
+    });
+
+    const displayCharacters = inputSearch ? filterSearch : characters;
+
     return (
         <>
             <section className="container">
+                <SearchInput
+                    value={inputSearch}
+                    onChange={(search) => setInputSearch(search)}
+                />
+
                 <div className="cards__list">
-                    {characters.map((character) => (
+                    {displayCharacters.map((character) => (
                         <Card
                             key={character.name}
                             name={character.name}
