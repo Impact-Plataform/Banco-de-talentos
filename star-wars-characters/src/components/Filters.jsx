@@ -1,95 +1,65 @@
-import { v4 as uuidv4 } from 'uuid';
+import Select from 'react-select';
+import { useEffect, useState } from 'react';
 import React, { useContext } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
+import { genderOptions, filmOptions, specieOptions } from '../helpers/data.js';
 
-const genders = ['Female', 'Hermaphrodite', 'Male', 'N/A', 'None'];
-const films = [
-  'A New Hope',
-  'The Empire Strikes Back',
-  'Return of the Jedi',
-  'The Phantom Menace',
-  'Attack of the Clones',
-  'Revenge of the Sith',
-];
-const species = [
-  'Human',
-  'Droid',
-  'Wookie',
-  'Rodian',
-  'Hutt',
-  "Yoda's species",
-  'Trandoshan',
-  'Mon Calamari',
-  'Ewok',
-  'Sullustan',
-  'Neimodian',
-  'Gungan',
-  'Toydarian',
-  'Dug',
-  "Twi'lek",
-  'Aleena',
-  'Vulptereen',
-  'Xexto',
-  'Toong',
-  'Cerean',
-  'Nautolan',
-  'Zabrak',
-  'Tholothian',
-  'Iktotchi',
-  'Quermian',
-  'Kel Dor',
-  'Chagrian',
-  'Geonosian',
-  'Mirialan',
-  'Clawdite',
-  'Besalisk',
-  'Kaminoan',
-  'Skakoan',
-  'Muun',
-  'Togruta',
-  'Kaleesh',
-  "Pau'an",
-];
 export const Filters = () => {
-  const { onChangeFilter } = useContext(CharacterContext);
+  const { allCharacters, setFilteredCharacters } = useContext(CharacterContext);
+  const [filterByGender, setFilterByGender] = useState([]);
+  const [filterByFilm, setFilterByFilm] = useState([]);
+  const [filterBySpecie, setFilterBySpecie] = useState([]);
 
+  const handleClickClear = event => {
+    // event.preventDefault();
+    setFilterByGender([]);
+    setFilterByFilm([]);
+    setFilterBySpecie([]);
+    setFilteredCharacters([]);
+  };
+
+  useEffect(() => {
+    if (!filterByGender.length && !filterByFilm.length && !filterBySpecie.length) return;
+
+    let filtered = allCharacters
+      .filter(character => (filterByGender.length ? filterByGender.includes(character.gender) : character))
+      .filter(character =>
+        filterByFilm.length ? filterByFilm.some(film => character.movies.includes(film)) : character
+      )
+      .filter(character =>
+        filterBySpecie.length ? filterBySpecie.some(specie => character.specie.includes(specie)) : character
+      );
+
+    setFilteredCharacters(filtered);
+  }, [filterByGender, filterByFilm, filterBySpecie]);
+
+  console.log('filter by gender', filterByGender);
+  console.log('filter by film', filterByFilm);
+  console.log('filter by specie', filterBySpecie);
   return (
     <>
-      <div>
-        <label>Filter by Gender</label>
-        <select name="gender" onChange={onChangeFilter}>
-          <option value="">All</option>
-          {genders.map(gender => (
-            <option key={gender} value={gender}>
-              {gender}
-            </option>
-          ))}
-        </select>
-      </div>
+      <Select
+        name="gender"
+        onChange={event => setFilterByGender([event.value])}
+        options={genderOptions}
+        defaultValue={genderOptions[0]}
+      />
+      <Select
+        name="film"
+        onChange={event => setFilterByFilm([event.value])}
+        options={filmOptions}
+        defaultValue={filmOptions[0]}
+      />
+      <Select
+        name="specie"
+        options={specieOptions}
+        onChange={event => setFilterBySpecie([event.value])}
+        defaultValue={specieOptions[0]}
+      />
 
-      <div>
-        <label>Filter by Film</label>
-        <select name="film" onChange={onChangeFilter}>
-          <option value="">All</option>
-          {films.map(film => (
-            <option key={film} value={film}>
-              {film}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      <div>
-        <label>Filter by Species</label>
-        <select name="specie" onChange={onChangeFilter}>
-          <option value="">All</option>
-          {species.map(specie => (
-            <option key={specie} value={specie}>
-              {specie}
-            </option>
-          ))}
-        </select>
-      </div>
+      <button type="submit" onClick={handleClickClear}>
+        Clear Filters
+      </button>
     </>
   );
 };

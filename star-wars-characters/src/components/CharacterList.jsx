@@ -1,12 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 import React, { useContext, useState } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
-import { Loader } from './Loader';
 import { CharacterCard } from './CharacterCard';
 import { Pagination } from './Pagination';
 
 export const CharacterList = () => {
-  const { allCharacters, loading, filteredCharacters } = useContext(CharacterContext);
+  const { allCharacters, filteredCharacters } = useContext(CharacterContext);
 
   // Logica das paginas
   const totalCharacters = allCharacters.length;
@@ -15,42 +14,30 @@ export const CharacterList = () => {
 
   const lastIndex = currentPage * characterPerPage;
   const firstIndex = lastIndex - characterPerPage;
-
+  console.log('recebi', filteredCharacters);
   return (
     <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className="card-list-character container">
-            {filteredCharacters.length ? (
-              <>
-                {filteredCharacters.map(character => (
-                  <CharacterCard character={character} key={uuidv4()} />
-                ))}
-              </>
-            ) : (
-              <>
-                {allCharacters
-                  .map(character => <CharacterCard character={character} key={uuidv4()} />)
-                  .slice(firstIndex, lastIndex)}
-                <Pagination
-                  characterPerPage={characterPerPage}
-                  currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
-                  totalCharacters={totalCharacters}
-                />
-              </>
-            )}
-          </div>
-          {/* <Pagination
-            characterPerPage={characterPerPage}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-            totalCharacters={totalCharacters}
-          /> */}
-        </>
-      )}
+      <div className="card-list-character container">
+        {filteredCharacters.length ? (
+          <>
+            {filteredCharacters.map(character => (
+              <CharacterCard character={character} key={uuidv4()} />
+            ))}
+          </>
+        ) : (
+          <>
+            {allCharacters
+              .map(character => <CharacterCard character={character} key={uuidv4()} />)
+              .slice(firstIndex, lastIndex)}
+            <Pagination
+              characterPerPage={characterPerPage}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              totalCharacters={totalCharacters}
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -6,13 +6,15 @@ import { useForm } from '../hook/useForm';
 
 export const CharacterProvider = ({ children }) => {
   const [allCharacters, setAllCharacters] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // Filter
+  const [filteredCharacters, setFilteredCharacters] = useState([]);
 
   // custom hook para formulario
   const { valueSearch, onInputChange, onResetForm } = useForm({
     valueSearch: '',
   });
-
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
@@ -24,38 +26,10 @@ export const CharacterProvider = ({ children }) => {
     })();
     setLoading(false);
   }, []);
-  console.log('to aqui', allCharacters);
 
-  // Filter
-  const [filteredCharacters, setFilteredCharacters] = useState([]);
+  console.log('cheguei to aqui', allCharacters);
 
-  const onChangeFilter = event => {
-    console.log(event.target.value.toLowerCase());
-
-    if (event.target.value) {
-      const filteredResults = allCharacters.filter(character => {
-        return (
-          (character.gender === event.target.value.toLowerCase() && event.target.name === 'gender') ||
-          character.movies.includes(event.target.value) ||
-          (event.target.name === 'film' && character.specie.includes(event.target.value)) ||
-          event.target.name === 'specie'
-        );
-      });
-      console.log('filtrados', filteredResults);
-      setFilteredCharacters([...filteredCharacters, ...filteredResults]);
-    } else {
-      const filteredResults = allCharacters.filter(character => {
-        return (
-          character.gender === event.target.value.toLowerCase() ||
-          character.movies.includes(event.target.value) ||
-          character.specie.includes(event.target.value)
-        );
-      });
-      setFilteredCharacters(...filteredResults);
-      return;
-    }
-  };
-
+  console.log('filtrados', filteredCharacters);
   return (
     <CharacterContext.Provider
       value={{
@@ -70,7 +44,6 @@ export const CharacterProvider = ({ children }) => {
         // filters
         filteredCharacters,
         setFilteredCharacters,
-        onChangeFilter,
       }}
     >
       {children}
