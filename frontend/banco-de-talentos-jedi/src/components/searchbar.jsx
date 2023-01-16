@@ -10,7 +10,7 @@ const SearchBar = ()=>{
     const nav = useNavigate()
     return(
     <form>
-        <label>Name:</label> <input type="text" onChange={(e)=>{
+        <label>Name:</label> <input className="inputTxt" type="text" onChange={(e)=>{
             const name = e.target.value.toLowerCase()
             if(ref.indexOf(name)>=0){
                 setId(ref.indexOf(name))

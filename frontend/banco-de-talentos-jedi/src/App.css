@@ -19,58 +19,13 @@ body{
   align-items: center;
 }
 
-.loading{
-  color: yellow;
-  font-family: "Jedi";
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-}
-
-.card{
-  color: yellow;
-  border-radius: 30px;
-  box-shadow: 1px 1px 10px 8px #d5df0d91;
-  margin: 1vw;
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-
-.container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-b{
+b, label{
   font-family: "Jedi";
 }
 
 p{
   margin: 1px;
   margin-left: 10px
-}
-
-.main{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 97vw;
-  height: auto;
-}
-
-main{
-  color: yellow;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 h1{
@@ -82,105 +37,9 @@ span{
   margin-top: 10px;
 }
 
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0  rgba(255, 0, 0, 0.5);
-  }
-
-  100% {
-    box-shadow: 0 0 0 20px rgba(255, 0, 0, 0);
-  }
-}
-
-.loadingAnimation{
-  width: 100px;
-  animation: pulse 2.0s linear infinite;
-  border-radius: 50%;
-}
-
-button{
-  background-color: #18242D;
-  color: yellow;
-  font-family: "Jedi";
-  border-radius: 30px;
-  border: 2px solid yellow;
-}
-
-button:hover{
-  background-color: yellow;
-  color: #18242D;
-  font-family: "Jedi";
-  border-radius: 30px;
-  border: 2px solid #18242D;
-  cursor: pointer;
-}
-
-.stardex{
-  color: yellow;
-  border-radius: 30px;
-  border: 1px solid yellow;
-  margin: 1vw;
-  width: 152px;
-  text-align: center;
-}
-
-.stardex:hover{
-  box-shadow: 1px 1px 10px 8px #d5df0d91;
-  cursor: pointer;
-}
-
-nav{
-  font-family: "Jedi";
-  display: flex;
-  justify-content: space-around;
-  margin: 10px 1px 30px 10vw
-}
-
 #root{
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.title{
-  margin: 0px;
-  font-size: 2.28em;
-  color: yellow
-}
-
-.Active{
-  background-color: yellow;
-  color: #18242D;
-  font-family: "Jedi";
-  border-radius: 30px;
-  border: 2px solid #18242D;
-}
-
-
-.gender{
-  background-color: #18242D;
-  color: white;
-  font-family: "Jedi";
-  border-radius: 30px;
-  border: 2px solid white;
-}
-
-.gactive, .gender:hover, .gactive:hover{
-  background-color: white;
-  color: #18242D;
-  font-family: "Jedi";
-  border-radius: 30px;
-  border: 2px solid silver;
-}
-
-.gactive:hover{
-  cursor: not-allowed;
-}
-
-.genderButton{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 300px;
 }

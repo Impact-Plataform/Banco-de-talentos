@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Jedi";
+    src: url(../assets/Starjedi.ttf);
+}
+
+@font-face {
+    font-family: "Jedi2";
+    src: url(../assets/Starjhol.ttf);
+}
+
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0  rgba(255, 0, 0, 0.5);
+    }      
+
+    100% {
+        box-shadow: 0 0 0 20px rgba(255, 0, 0, 0);
+    }
+}
+
+.loadingAnimation{
+    width: 100px;
+    animation: pulse 2.0s linear infinite;
+    border-radius: 50%;
+}
+
+.loading{
+    color: yellow;
+    font-family: "Jedi";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -30,7 +30,7 @@ const Card = () =>{
         <p><b>Skin Color: </b>{skin_color}</p>
         <p><b>Eye Color: </b>{eye_color}</p>
         <p><b>Movie Appearances: </b><br></br>{film[0]}  <br></br> {film[1]} <br></br> {film[2]} <br></br> {film[3]} <br></br> {film[4]} <br></br> {film[5]} <br></br> </p>
-        <div>
+        <div className="divButtons">
                 <Button label="Prev. Page" callback={()=>{
                     if(params.index != 0){
                         navigate(`/card/${params.index-1}`)
