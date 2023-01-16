@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const StyledDetails = styled.div`
 
 padding: 0 2rem;
+margin-top: 10px;
+
   
   h1 {
     margin: 1rem 0;
@@ -34,7 +36,7 @@ padding: 0 2rem;
 
 a{
     color: white;
-    font-style: none;}
+    text-decoration: none;}
 a:hover{
   color: lightblue;
 }
@@ -68,21 +70,6 @@ a:hover{
     list-style: none;
   }
 
-  button {
-    background-color: #6654da;
-    border: none;
-    cursor: pointer;
-    border-radius: 1rem;
-    color: white;
-    padding: 0.8rem 2rem;
-    margin-top: 1rem;
-    font-size: 100%;
-    transition: all .3s;
-    margin-bottom: 2rem;
-  }
-  button:hover {
-    background-color: #5848c2;
-  }
 
   @media screen and (max-width: 790px) {
 

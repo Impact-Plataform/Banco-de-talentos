@@ -5,6 +5,8 @@ import { StyledDetails } from "./Style";
 import { useState } from "react";
 import { useEffect } from "react";
 import Face from "../../assets/pngegg.png";
+import { Footer } from "../../Components/Footer/Index";
+import { Button } from "../../Components/Button/Index";
 
 console.log("hi lorena fora do Details")
 
@@ -48,11 +50,12 @@ export const Details = () => {
               <li>Filmes : <a href={`https://swapi.dev/api/people/${id}`}>{personagem.films}</a></li><br/>
               <li>Naves estelares: <a href={personagem.starships}>{personagem.starships}</a></li>
             </ul>
-            <Link to="/characters" ><button>Go back</button></Link>
+            <Link to="/characters" ><Button titulo={"Voltar"} margintop={"10px"} marginbottom={"10px"} border={"3px solid whitesmoke"}/></Link>
 
           </div>
         </div>
       </StyledDetails>
+      <Footer/>
     </>
   )
 

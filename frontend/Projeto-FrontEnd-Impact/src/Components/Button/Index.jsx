@@ -5,8 +5,14 @@ export const Button = ({ ...props }) =>{
     
     
     
-        <StyledButton onClick={props.onClick}>
+        <StyledButton backgroundColor={props.backgroundColor}
+        width={props.width}
+        margintop={props.margintop}
+        marginbottom={props.marginbottom}
+        border={props.border}
+        onClick={props.onClick}>
             {props.titulo}
+            
         </StyledButton>
        
     

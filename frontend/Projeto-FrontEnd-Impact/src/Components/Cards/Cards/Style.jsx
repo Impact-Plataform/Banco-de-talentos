@@ -36,6 +36,9 @@ export const StyledCardUl = styled.div`
             transition: box-shadow 0.1s;
             color: whitesmoke;
             background-color: #142374dc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .card:hover{

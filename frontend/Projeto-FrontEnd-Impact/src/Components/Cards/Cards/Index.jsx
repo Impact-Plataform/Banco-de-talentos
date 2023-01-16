@@ -10,7 +10,7 @@ export const Cards = () => {
     const [people, setPeople] = useState([]); // ATRIBUR A API UM ESTADO
     const [loading, setLoading] = useState(false); // CRIAR LOADING NA PAGE
 
-    const showMore = () => {
+    const showMore = () => { // SHOWMORE FUNÇÃO PARA INVOCAR A API QUANDO CLICAR NO BOTÃO. 
         console.log("clicando")
         atPage(page + 1)
       }
@@ -34,8 +34,8 @@ export const Cards = () => {
     return (
         <li key={people?.url}>
             <Link to={`/details/${String(people.url).split("/")[5]}`}><div className="card"><h1>{people?.name}</h1>
-                <p>Planeta :{people?.homeworld}</p>
-                <p>Pagina : {people?.url}</p>
+                <p>Aniversário :{people?.birth_year}</p>
+                <p>Gênero : {people?.gender}</p>
             </div></Link>
         </li>
 
