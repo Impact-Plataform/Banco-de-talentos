@@ -20,7 +20,8 @@ main{
     border-radius: 30px;
     border: 2px solid yellow;
     background-color: black;
-    color: yellow
+    color: yellow;
+    margin: 10px;
 }
 
 .inputTxt:focus-visible{
