@@ -9,6 +9,9 @@ export const Cards = () => {
     const [page, atPage] = useState(1); // PAGE PARA CRIAR PAGINAÇÃO. 
     const [people, setPeople] = useState([]); // ATRIBUR A API UM ESTADO
     const [loading, setLoading] = useState(false); // CRIAR LOADING NA PAGE
+    const [genero, setGenero] = useState([]); // SET O GENERO PARA FILTRAR
+
+    const Genero = people.filter(people => (people?.gender == `${genero}`)); // FILTRA POR GENERO
 
     const showMore = () => { // SHOWMORE FUNÇÃO PARA INVOCAR A API QUANDO CLICAR NO BOTÃO. 
         console.log("clicando")
@@ -30,17 +33,32 @@ export const Cards = () => {
     }
   }
 
+  // GERA UM MAP DOS ITENS DO ARRAY RETORNADO OS DADOS DELES. 
   const Cardpeople =   people.map(people => {
     return (
+        
         <li key={people?.url}>
-            <Link to={`/details/${String(people.url).split("/")[5]}`}><div className="card"><h1>{people?.name}</h1>
+            <Link to={`/details/${String(people.url).split("/")[5]}`/* FUNÇÃO PARA PEGAR O IF */}><div className="card"><h1>{people?.name}</h1>
                 <p>Aniversário :{people?.birth_year}</p>
                 <p>Gênero : {people?.gender}</p>
             </div></Link>
         </li>
-
+    
     )
 })
+
+ const CardGenero = Genero.map(people => { // GERA UM ARRAI DE GENEROS
+        return ( <li key={people?.url}>
+              <Link to={`/details/${String(people.url).split("/")[5]}`}><div className="card"><h1>{people?.name}</h1>
+                  <p>Aniversário :{people?.birth_year}</p>
+                  <p>Gênero : {people?.gender}</p>
+              </div></Link>
+          </li>)
+  })
+
+const Filtered = e  => { // PREVINIR O RECARREGAMENTO DE TELA
+  e.preventDefault();
+ }
 
 useEffect(() => {
     getApi()
@@ -62,6 +80,14 @@ useEffect(() => {
 
           :
         <StyledCardUl>
+        <form onSubmit={Filtered}>
+        <select name="Genero" value={genero} onChange={text => setGenero(text.target.value)}>
+                <option  value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="n/a">N/A</option>
+        </select>
+        <button type="submit">Enviar</button>
+        </form>
         <ul>
         {Cardpeople}
         </ul>

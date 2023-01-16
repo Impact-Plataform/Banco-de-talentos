@@ -48,6 +48,12 @@ i {
             box-shadow: 0px 0px 35px #00d9ff, 0px 0px 15px #00d9ffc0 inset;
 }
 
+@media screen and (max-width: 415px) {
+
+    height: auto;
+
+}
+
     
 
 `
