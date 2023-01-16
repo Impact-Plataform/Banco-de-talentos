@@ -2,7 +2,6 @@ import React from "react";
 import svg from "../../assets/images/stormtrooper.svg";
 
 const Modal = ({
-  idModal,
   nome,
   genero,
   altura,
@@ -15,6 +14,7 @@ const Modal = ({
   planeta,
   filmes,
 }) => {
+
   return (
     <div>
       <button
@@ -22,7 +22,6 @@ const Modal = ({
         className="btn btn-primary d-flex justify-content-center"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
-        key={idModal}
       >
         Ver mais
       </button>

@@ -31,26 +31,26 @@ const Section = () => {
     setPage(page - 1);
   };
 
+  console.log(array);
   return (
     <section className={style.section}>
       <div className="container-md">
         <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
           {array ? (
-            array.map((personagem, index) => {
+            array.map((personagem) => {
               return (
                 <Card
-                  key={index}
-                  id={personagem.index}
+                  key={personagem.url}
                   imageId={img}
                   nome={personagem.name}
-                  genero={personagem.gender}
+                  genero={personagem.gender == "n/a" ? "indisponível" : personagem.gender} 
                   altura={personagem.height}
-                  peso={personagem.mass}
-                  corDoCabelo={personagem.hair_color}
+                  peso={personagem.mass == "unknown" ? "indisponível" : personagem.mass}
+                  corDoCabelo={personagem.hair_color == "n/a" ? "Não possui" : personagem.hair_color}
                   corDosOlhos={personagem.eye_color}
-                  corDaPele={personagem.skin_color}
+                  corDaPele={personagem.skin_color == "unknown" ? "indisponível" : personagem.skin_color}
                   especie={personagem.species}
-                  anoDeNascimento={personagem.birth_year}
+                  anoDeNascimento={personagem.birth_year == "unknown" ? "indisponível" : personagem.birth_year}
                   planeta={personagem.homeworld}
                   filmes={personagem.films}
                 />
@@ -65,7 +65,6 @@ const Section = () => {
         <Pagination anterior={previousPage} proxima={nextPage} />
       </div>
     </section>
-    
   );
 };
 

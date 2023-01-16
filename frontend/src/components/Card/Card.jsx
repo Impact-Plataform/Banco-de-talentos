@@ -2,7 +2,6 @@ import React from "react";
 import Modal from "../Modal/Modal";
 
 const Card = ({
-  id,
   imageId,
   nome,
   genero,
@@ -15,10 +14,8 @@ const Card = ({
   anoDeNascimento,
   planeta,
   filmes,
+  url
 }) => {
-
-  const idModal = {id}
-
 
   return (
     
@@ -28,7 +25,7 @@ const Card = ({
           <img src={imageId} className="card-img-top" alt="personagens"/>
             <h5 className="card-title text-center">{nome}</h5>
             
-            <Modal idModal={id} nome={nome} genero={genero} altura={altura} peso={peso} corDoCabelo={corDoCabelo} corDosOlhos={corDosOlhos} CorDaPele={CorDaPele} especie={especie} anoDeNascimento={anoDeNascimento} planeta={planeta} filmes={filmes}/>
+            <Modal nome={nome} genero={genero} altura={altura} peso={peso} corDoCabelo={corDoCabelo} corDosOlhos={corDosOlhos} CorDaPele={CorDaPele} especie={especie} anoDeNascimento={anoDeNascimento} planeta={planeta} filmes={filmes}/>
           
           </div>
           
