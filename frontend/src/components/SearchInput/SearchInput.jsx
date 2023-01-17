@@ -20,7 +20,7 @@ const SearchInput = ({ value, onChange}) => {
             <option selected>Filtrar</option>
             <option value="1">Filmes</option>
             <option value="2">Espécies</option>
-            <option value="3">Genero</option>
+            <option value="3">Personagens</option>
             <option value="4">Naves estelares</option>
             <option value="5">Veículos</option>
             <option value="6">Planetas</option>

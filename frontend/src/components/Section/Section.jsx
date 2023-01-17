@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import api from "../../service/api";
 import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
-import Spinner from "../Spinner/Spinner";
 import style from "./Section.module.css";
 import img from "../../assets/images/personagens/19.jpg";
 
