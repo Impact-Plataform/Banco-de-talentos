@@ -1,5 +1,3 @@
-import './style.css';
-
 import { useState, useEffect } from 'react';
 
 import api from '../../services/api';
@@ -9,10 +7,14 @@ import Card from './Card/Card';
 import SearchInput from './SearchInput/SearchInput';
 import Pagination from './Pagination/Pagination';
 
+import './style.css';
+import Loader from './Loader/Loader';
+
 const Home = () => {
     const [characters, setCharacters] = useState([]);
     const [inputSearch, setInputSearch] = useState('');
     const [page, setPage] = useState(0);
+    const [IsLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         async function allPeoples() {
@@ -25,7 +27,10 @@ const Home = () => {
                     result.push(data);
                     setCharacters(result);
                 }
-            } catch (error) {}
+            } catch (error) {
+            } finally {
+                setIsLoading(false);
+            }
         }
         allPeoples();
     }, []);
@@ -47,26 +52,32 @@ const Home = () => {
                     onChange={(search) => setInputSearch(search)}
                 />
 
-                <Pagination
-                    displayUsersPage={filter}
-                    usersPerPage={usersPerPage}
-                    setPage={setPage}
-                />
+                {IsLoading ? null : (
+                    <Pagination
+                        displayUsersPage={filter}
+                        usersPerPage={usersPerPage}
+                        setPage={setPage}
+                    />
+                )}
 
-                <div className="cards__list">
-                    {filter
-                        .slice(pagesVisited, pagesVisited + usersPerPage)
-                        .map((character) => (
-                            <Card
-                                key={character.name}
-                                name={character.name}
-                                id={getUrlId(character.url)}
-                                imageUrl={`https://starwars-visualguide.com/assets/img/characters/${getUrlId(
-                                    character.url,
-                                )}.jpg`}
-                            />
-                        ))}
-                </div>
+                {IsLoading ? (
+                    <Loader />
+                ) : (
+                    <div className="cards__list">
+                        {filter
+                            .slice(pagesVisited, pagesVisited + usersPerPage)
+                            .map((character) => (
+                                <Card
+                                    key={character.name}
+                                    name={character.name}
+                                    id={getUrlId(character.url)}
+                                    imageUrl={`https://starwars-visualguide.com/assets/img/characters/${getUrlId(
+                                        character.url,
+                                    )}.jpg`}
+                                />
+                            ))}
+                    </div>
+                )}
             </section>
         </>
     );
