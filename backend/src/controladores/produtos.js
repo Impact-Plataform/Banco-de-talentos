@@ -11,7 +11,7 @@ const cadastrar = async (req, res) => {
   })
 
   if (nomeExistente) {
-    return res.status(403).json({
+    return res.status(400).json({
       mensagem: 'Já existe um produto com o nome informado!'
     })
   }
@@ -83,7 +83,7 @@ const listar = async (req, res) => {
     produtos = produtosAtualizados
 
     if (!produtos.length) {
-      return res.status(200).json({
+      return res.status(404).json({
         mensagem: 'Nenhum produto cadastrado!'
       })
     }
@@ -153,7 +153,7 @@ const editar = async (req, res) => {
 
       if (nomeExistente) {
         if (nomeExistente.id !== produtoExistente.id) {
-          return res.status(403).json({
+          return res.status(400).json({
             mensagem: 'Já existe um produto com o nome informado!'
           })
         }
