@@ -6,14 +6,17 @@ export const CharacterCard = ({ character }) => {
   let id = character.url.substring(character.url.length - 3, character.url.length).replaceAll('/', '');
 
   return (
-    <Link to={`/character/${id}`} className="character-card">
-      <div className="card-image">
+    <div className="character-card">
+      <div className="card-img">
         <img src={images.characters[character.name]} alt={`${character.name}`} />
       </div>
-      <div className="card-info">
-        <span className="character-id">{id}</span>
-        <h3>{character.name}</h3>
+      <div className="info">
+        <span className="id">{id}</span>
+        <h3 className="name">{character.name}</h3>
       </div>
-    </Link>
+      <Link to={`/character/${id}`}>
+        <button className="btn-more">Show More</button>
+      </Link>
+    </div>
   );
 };

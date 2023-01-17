@@ -8,7 +8,7 @@ export const Pagination = ({ characterPerPage, currentPage, setCurrentPage, tota
   }
   const onSpecificPage = number => setCurrentPage(number);
   return (
-    <nav className="pagination is-centered" role="navigation" aria-label="pagination">
+    <nav className="pagination" role="navigation" aria-label="pagination">
       <ul className="pagination-list">
         {pageNumbers.map(numberPage => (
           <li key={numberPage}>

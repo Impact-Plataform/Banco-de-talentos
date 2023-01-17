@@ -22,8 +22,8 @@ export const Navigation = () => {
           <img src={logoStarWars} alt="Logo Star Wars" />
         </Link>
 
-        <form onSubmit={onSearchSubmit}>
-          <div className="form-group">
+        <form className="navigation-search" onSubmit={onSearchSubmit}>
+          <div className="group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

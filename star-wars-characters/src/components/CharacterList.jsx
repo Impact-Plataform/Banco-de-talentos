@@ -16,8 +16,8 @@ export const CharacterList = () => {
   const firstIndex = lastIndex - characterPerPage;
   console.log('recebi', filteredCharacters);
   return (
-    <div>
-      <div className="card-list-character container">
+    <>
+      <div className="character-list container">
         {filteredCharacters.length ? (
           <>
             {filteredCharacters.map(character => (
@@ -29,15 +29,15 @@ export const CharacterList = () => {
             {allCharacters
               .map(character => <CharacterCard character={character} key={uuidv4()} />)
               .slice(firstIndex, lastIndex)}
-            <Pagination
-              characterPerPage={characterPerPage}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
-              totalCharacters={totalCharacters}
-            />
           </>
         )}
       </div>
-    </div>
+      <Pagination
+        characterPerPage={characterPerPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        totalCharacters={totalCharacters}
+      />
+    </>
   );
 };

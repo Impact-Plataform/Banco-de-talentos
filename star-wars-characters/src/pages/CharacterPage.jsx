@@ -26,14 +26,14 @@ export const CharacterPage = () => {
   }, []);
 
   return (
-    <div className="container main-character">
+    <div className="container character-page">
       {loading ? (
         <Loader />
       ) : (
         <>
-          <div className="container main-character">
+          <div className="container character-page">
             <h1>{character.name}</h1>
-            <div className="character-info">
+            <div className="info">
               <ul>
                 <li>height: {character.height}</li>
                 <li>mass: {character.mass}</li>
@@ -41,7 +41,7 @@ export const CharacterPage = () => {
                 <li>eye_color: {character.eye_color}</li>
                 <li>gender: {character.gender}</li>
               </ul>
-              <div className="character-image">
+              <div className="character-page-img">
                 <img src={images.characters[character.name]} alt={character.name} />
               </div>
             </div>

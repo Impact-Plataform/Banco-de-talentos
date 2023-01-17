@@ -1,5 +1,4 @@
 export const genderOptions = [
-  { value: '', label: 'Filter by Gender', isDisabled: true },
   { value: 'male', label: 'Male' },
   { value: 'female', label: 'Female' },
   { value: 'hermaphrodite', label: 'Hermaphrodite' },
@@ -7,7 +6,6 @@ export const genderOptions = [
   { value: 'n/a', label: 'N/A' },
 ];
 export const filmOptions = [
-  { value: '', label: 'Filter by Film', isDisabled: true },
   { value: 'A New Hope', label: 'A New Hope' },
   { value: 'The Empire Strikes Back', label: 'The Empire Strikes Back' },
   { value: 'Return of the Jedi', label: 'Return of the Jedi' },
@@ -17,7 +15,6 @@ export const filmOptions = [
   { value: 'The Force Awakens', label: 'The Force Awakens' },
 ];
 export const specieOptions = [
-  { value: '', label: 'Filter by Species', isDisabled: true },
   { value: 'Human', label: 'Human' },
   { value: 'Droid', label: 'Droid' },
   { value: 'Wookiee', label: 'Wookiee' },
@@ -55,3 +52,43 @@ export const specieOptions = [
   { value: 'Kaleesh', label: 'Kaleesh' },
   { value: "Pau'an", label: "Pau'an" },
 ];
+
+export const stylesSelect = {
+  option: (base, state) => ({
+    ...base,
+
+    color: '#fff',
+    fontSize: '16px',
+    backgroundColor: '#111',
+    borderBottom: '1px solid #fff',
+    padding: '2px 8px',
+    '&:hover': {
+      borderColor: '#FFE81F',
+    },
+  }),
+  control: (base, state) => ({
+    ...base,
+    background: '#111',
+    fontSize: '20px',
+
+    color: '#fff',
+    borderRadius: state.isFocused ? '2px 2px 0 0' : 1,
+    padding: '0px 30px 0 48px',
+    marginTop: '8px',
+
+    boxShadow: state.isFocused ? null : null,
+    '&:hover': {
+      borderColor: state.isFocused ? '#fff' : '#FFE81F',
+    },
+  }),
+  container: base => ({
+    ...base,
+    padding: 8,
+  }),
+
+  menuList: base => ({
+    ...base,
+
+    padding: 0,
+  }),
+};

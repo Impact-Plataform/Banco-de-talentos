@@ -1,65 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
 
-* {
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 body {
   margin: 0;
+  line-height: 1.6;
+  min-height: 100vh;
   background-color: #111;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  /* font-size: 100%; */
 }
+
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 24px auto;
 }
 
-div {
+/* div {
   border: 1px solid red;
-}
+} */
 
 /* header */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 44px;
-}
 
 .logo img {
   display: block;
-  width: 250px;
+  width: 350px;
+  margin-bottom: 24px;
 }
 
-header form {
+.navigation-search {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.navigation-search .group {
+  display: flex;
   gap: 16px;
-}
-
-.form-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   border: 2px solid #ffe81f;
   padding: 12px 24px;
   border-radius: 24px;
+  padding: 12px;
   background-color: #fff;
 }
 
-.form-group input {
+.group input {
   font-family: inherit;
-
   width: 300px;
   border: none;
   outline: none;
   font-size: 16px;
 }
 
-.icon-search {
-  width: 20px;
+.navigation-search .icon-search {
+  width: 24px;
   border: 20px;
   stroke: #ffe81f;
 }
@@ -83,56 +87,93 @@ header form {
   background-color: #ffe81f;
 }
 
+.filters {
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  text-align: center;
+}
+
+.filters button {
+  display: inline-block;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  padding: 8px 24px;
+  font-family: inherit;
+  color: #fff;
+  border: 2px solid #ffe81f;
+  background-color: #111;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+
 /* card list character */
-.card-list-character {
+.character-list {
+  margin-top: 24px;
+  max-width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 16px;
+  grid-row-gap: 32px;
+  justify-content: center;
+  padding: 0 16px;
 }
 
 .character-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  padding: 8px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
   cursor: pointer;
   text-decoration: none;
 }
 
-.card-image {
-  background-color: #444;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  height: 240px;
+.character-card .card-img {
+  padding: 0;
+  margin-top: 64px;
 }
 
-.card-image img {
-  /* width: 100%;
-  height: 100%; */
-
-  width: 160px;
-  height: 160px;
-
-  border-radius: 24%;
-  object-fit: cover;
-}
-
-.card-info {
-  padding: 16px;
-}
-
-.card-info h3 {
-  color: #333;
-}
-
-.character-id {
+.character-card .card-img img {
   display: block;
-  color: #888;
-  margin-bottom: 16px;
+
+  border: 2px solid #fff;
+  padding: 0;
+  width: 100%;
+}
+
+.character-card .info {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.character-card .name {
+  color: #fff;
+  letter-spacing: 2px;
+  margin-top: 64px;
+  font-size: 30px;
+}
+
+.character-card .id {
+  background-color: #ffe81f;
+  border-radius: 8px 0 8px;
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  font-size: 36px;
+  padding: 4px 12px;
+  color: #111;
 }
 
 /* character page */
 
-.main-character {
+.character-page {
   display: flex;
   flex-direction: column;
   padding: 0;
@@ -140,19 +181,19 @@ header form {
   margin-bottom: 12px;
 }
 
-.main-character h1 {
+.character-page h1 {
   font-size: 44px;
   color: #ffe81f;
   margin-left: 8px;
 }
 
-.character-info {
+.character-page .info {
   display: flex;
   justify-content: space-between;
   /* gap: 12px; */
 }
 
-.character-info ul {
+.character-page .info ul {
   padding: 32px;
   font-size: 20px;
 }
@@ -160,12 +201,12 @@ header form {
 .character-info li {
   margin-top: 12px;
 }
-.character-image {
+.character-page-img {
   height: 320px;
   padding: 8px;
 }
 
-.character-image img {
+.character-page-img img {
   width: 300px;
   height: 300px;
 
@@ -174,29 +215,27 @@ header form {
 }
 
 /* loader */
-.container-loader {
+.loader {
   display: flex;
   justify-content: center;
   margin: 160px 0;
 }
 
 /* pagination */
-.pagination {
+
+.pagination-list {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.pagination ul {
-  /* width: 360px; */
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+
+  gap: 16px;
   list-style: none;
+  margin: 0 auto;
+  margin-bottom: 8px;
 }
 
 .pagination-link {
   display: inline-block;
   padding: 8px;
+
   border: 2px solid #fff;
   color: #fff;
   cursor: pointer;
