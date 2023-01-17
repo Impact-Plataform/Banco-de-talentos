@@ -9,15 +9,13 @@ import img from "../../assets/images/personagens/19.jpg";
 const Section = () => {
   const [page, setPage] = useState(1);
   const [array, setArray] = useState([]);
-  const [loading, setLoading] = useState(false);
   
   useEffect(() => {
-    setLoading(true)
-    api
+      api
       .get(`/people/?page=${page}`)
       .then((response) => {
         setArray(response.data.results);
-      }, setLoading(false))
+      })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
@@ -25,19 +23,23 @@ const Section = () => {
 
   const nextPage = () => {
     setPage(page + 1);
+    if(page == 9){
+      return setPage(1);
+    }
   };
 
   const previousPage = () => {
     setPage(page - 1);
+    if(page == 1) {
+      return setPage(1);
+    }
   };
 
-  console.log(array);
   return (
     <section className={style.section}>
       <div className="container-md">
         <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
-          {array ? (
-            array.map((personagem) => {
+            {array.map((personagem) => {
               return (
                 <Card
                   key={personagem.url}
@@ -55,10 +57,7 @@ const Section = () => {
                   filmes={personagem.films}
                 />
               );
-            })
-          ) : (
-            <Spinner/>
-          )}
+            })}
         </div>
       </div>
       <div className="container-fluid p-2">
