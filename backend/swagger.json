@@ -1,0 +1,311 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Programa Jedi: Desafio Back-end",
+    "description": "Desafio desenvolvido pela Plataforma Impact para o processo seletivo do banco de talentos. Feito por Lucas Vinícius Santos de Lima, candidato a desenvolvedor back-end.",
+    "contact": {
+      "email": "limalucks@hotmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [{
+    "url": "http://localhost:3000/",
+    "description": "API de testes"
+  }],
+  "paths": {
+    "/Products": {
+      "post": {
+        "summary": "Cadastro de Produto",
+        "description": "Rota para a criação de produtos.",
+        "tags": ["Products"],
+        "requestBody": {
+          "content":{
+            "application/json": {
+              "schema":{
+                  "type": "object",
+                  "properties": {
+                  "nome": {"type": "string"},
+                  "descricao": {"type": "string"},
+                  "valorEmReal": {"type": "number"}
+                }
+              },
+              "examples": {
+                "product": {
+                  "value": {
+                    "nome": "TV",
+                    "descricao": "TV 50 polegadas LG",
+                    "valorEmReal": 1500
+                  }
+                }
+              }
+              }
+            }
+          },
+          "responses": {
+            "400": {
+              "description": "Já existe um produto com o nome informado!"
+            },
+            "403": {
+              "description": "Preencha todos os dados corretamente!"
+            },
+            "200":{
+              "description": "OK!",
+              "content":{
+                "application/json": {
+                  "schema":{
+                      "type": "object",
+                      "properties": {
+                      "nome": {"type": "string"},
+                      "id": {"type": "string"},
+                      "descricao": {"type": "string"},
+                      "valor": {
+                        "type": "object",
+                        "properties":{
+                        "BRL": {"type": "number"},
+                        "USD": {"type": "string"},
+                        "EUR": {"type": "string"}
+                        }
+                      }
+                    }
+                  }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Listar os produtos",
+        "description": "Rota para a listagem de todos os produtos.",
+        "tags": ["Products"],
+        "responses": {
+          "404": {
+            "description": "Nenhum produto cadastrado!"
+          },
+          "200":{
+            "description": "OK!",
+            "content":{
+              "application/json": {
+                "schema":{
+                    "type": "array",
+                    "items": {
+                      "properties":{
+                        "nome": {"type": "string"},
+                        "id": {"type": "string"},
+                        "descricao": {"type": "string"},
+                        "valor": {
+                          "type": "object",
+                          "properties":{
+                          "BRL": {"type": "number"},
+                          "USD": {"type": "string"},
+                          "EUR": {"type": "string"}
+                          }
+                        }
+                      }                     
+                  }
+                }
+            }
+          }
+        }
+      }
+      }
+    },
+    "/Products/{id}": {
+      "get": {
+        "summary": "Listar o produto",
+        "description": "Rota para a listagem de produto pelo ID.",
+        "tags": ["Products"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do produto",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Nenhum produto encontrado!"
+          },
+          "200":{
+            "description": "OK!",
+            "content":{
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": {
+                  "nome": {"type": "string"},
+                  "id": {"type": "string"},
+                  "descricao": {"type": "string"},
+                  "valor": {
+                    "type": "object",
+                    "properties":{
+                    "BRL": {"type": "number"},
+                    "USD": {"type": "string"},
+                    "EUR": {"type": "string"}
+                    }
+                  }
+                }
+                }
+            }
+          }
+        }
+      }
+      },
+      "put": {
+        "summary": "Editar o produto",
+        "description": "Rota para a edição de produto pelo ID.",
+        "tags": ["Products"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do produto",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content":{
+            "application/json": {
+              "schema":{
+                "type": "object",
+                "properties": {
+                "nome": {"type": "string"},
+                "descricao": {"type": "string"},
+                "valorEmReal": {"type": "number"}
+              }               
+              },
+              "examples": {
+                "product": {
+                  "value": {
+                    "nome": "TV",
+                    "descricao": "TV 25 polegadas Samsung",
+                    "valorEmReal": 1000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses":{
+          "400": {
+            "description": "Já existe um produto com o nome informado!"
+          },
+          "403": {
+            "description": "Preencha todos os campos!"
+          },
+          "404": {
+            "description": "Produto não encontrado!"
+          },
+          "200":{
+            "description": "Produto editado com sucesso!"
+        }          
+        }
+      },
+      "delete": {
+        "summary": "Excluir o produto",
+        "description": "Rota para a exclusão de produto pelo ID.",
+        "tags": ["Products"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do produto",
+            "required": true
+          }
+        ],
+        "responses":{
+          "404": {
+            "description": "Produto não encontrado, informe um id válido!"
+          },
+          "200":{
+            "description": "Produto excluído com sucesso!"
+        }          
+        }
+      }
+    },
+    "/Currency": {
+      "get": {
+        "summary": "Listar as cotações",
+        "description": "Rota para a listagem de todas as cotações.",
+        "tags": ["Currency"],
+        "responses":{
+          "200":{
+            "description": "OK!",
+            "content":{
+              "application/json": {
+                "schema":{
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "codigo": {"type": "string"},
+                      "nome": {"type": "string"},
+                      "maxima": {"type": "string"},
+                      "minima": {"type": "string"},
+                      "compra": {"type": "string"},
+                      "venda": {"type": "string"},
+                      "dataEhora": {"type": "string"}
+                    }
+                }
+                }
+                }
+            }
+          }
+        }          
+        }
+      },
+"/Currency/{symbol}": {
+  "get": {
+    "summary": "Listar a cotação pelo codigo",
+    "description": "Rota para a listagem da cotação pelo codigo.",
+    "tags": ["Currency"],
+    "parameters": [
+      {
+        "name": "symbol",
+        "in": "path",
+        "description": "codigo da moeda",
+        "required": true
+      }
+    ],
+    "responses":{
+      "404": {
+        "description": "Moeda não encontrada!"
+      },
+      "200":{
+        "description": "OK!",
+        "content":{
+          "application/json": {
+            "schema":{
+                "type": "object",
+                "properties": {
+                  "codigo": {"type": "string"},
+                  "nome": {"type": "string"},
+                  "maxima": {"type": "string"},
+                  "minima": {"type": "string"},
+                  "compra": {"type": "string"},
+                  "venda": {"type": "string"},
+                  "dataEhora": {"type": "string"}
+                }           
+            },
+            "examples": {
+              "Currency": {
+                "value": {
+                  "codigo": "USD",
+                  "nome": "Dólar Americano/Real Brasileiro",
+                  "maxima": "5.1572",
+                  "minima": "5.1069",
+                  "compra": "5.1102",
+                  "venda": "5.1111",
+                  "dataEhora": "2023-01-17 12:32:46"
+                }
+              }
+            }
+            }
+        }
+      }
+    }   
+  }
+}
+}
+}
+
