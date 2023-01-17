@@ -3,14 +3,14 @@ const rotasProdutos = express()
 const produtos = require('../controladores/produtos')
 
 //Cadastrar Produto
-rotasProdutos.post('/Product', produtos.cadastrar)
+rotasProdutos.post('/Products', produtos.cadastrar)
 //Listar Produto(s)
-rotasProdutos.get('/Product', produtos.listar)
+rotasProdutos.get('/Products', produtos.listar)
 //Detalhar Produto
-rotasProdutos.get('/Product/:id', produtos.detalhar)
+rotasProdutos.get('/Products/:id', produtos.detalhar)
 //Editar Produto
-rotasProdutos.put('/Product/:id', produtos.editar)
+rotasProdutos.put('/Products/:id', produtos.editar)
 //Excluir Produto
-rotasProdutos.delete('/Product/:id', produtos.excluir)
+rotasProdutos.delete('/Products/:id', produtos.excluir)
 
 module.exports = rotasProdutos
