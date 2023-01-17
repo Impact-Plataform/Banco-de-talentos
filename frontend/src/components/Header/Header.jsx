@@ -4,7 +4,6 @@ import bb8 from "../../assets/images/bb-8.svg";
 import logo from "../../assets/images/star-wars-logo.png";
 import style from "./Header.module.css";
 import SearchInput from "../SearchInput/SearchInput";
-import Card from "../Card/Card";
 
 const Header = () => {
   const [text, setText] = useState("");
@@ -13,6 +12,8 @@ const Header = () => {
   console.log(films, "os filmes");
   const [species, setSpecies] = useState([]);
   console.log(species, "as especies");
+  const [personagem, setPersonagem] = useState([]);
+  console.log(personagem, "o personagem");
   const [starships, setStarships] = useState([]);
   console.log(starships, "naves");
   const [vehicles, setVehicles] = useState([]);
@@ -29,7 +30,7 @@ const Header = () => {
     } else if (text && selecao == "2") {
       return buscaEspecies();
     } else if (text && selecao == "3") {
-      // buscaGenero;
+      return buscaPersonagem();
     } else if (text && selecao == "4") {
       return buscaNaves();
     } else if (text && selecao == "5") {
@@ -48,14 +49,6 @@ const Header = () => {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-      {films.map((filme, index)=> {
-        return (
-          <Card
-          key={index}
-          nome={filme.title}
-          />
-        )
-      })}
   };
 
   const buscaEspecies = () => {
@@ -63,6 +56,17 @@ const Header = () => {
       .get(`species/?search=${text}`)
       .then((response) => {
         setSpecies([response.data.results]);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  };
+
+  const buscaPersonagem = () => {
+    api
+      .get(`people/?search=${text}`)
+      .then((response) => {
+        setPersonagem([response.data.results]);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
