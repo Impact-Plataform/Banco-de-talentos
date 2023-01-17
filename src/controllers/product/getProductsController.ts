@@ -1,11 +1,18 @@
 import { Request, Response } from 'express';
 import { prismaClient } from '../../database/PrismaClient';
+import { PrismaProductRepository } from '../../repositories/prismaProductRepository';
+
+const prismaProductRepository = new PrismaProductRepository(prismaClient);
 
 export class GetProductsController {
 	async execute(req: Request, res: Response) {
 		const { firstCurrency, secondCurrency } = req.selectedCurrencies;
 
-		const products = await prismaClient.product.findMany();
+		const products = await prismaProductRepository.find();
+
+		if (!products) {
+			return res.status(404).json({message: 'Sem produtos cadastrados.'});
+		}
 
 		const result = [];
 

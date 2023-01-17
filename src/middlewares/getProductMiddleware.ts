@@ -2,6 +2,9 @@ import { Product } from '@prisma/client';
 import { NextFunction, Request, Response } from 'express';
 import { prismaClient } from '../database/PrismaClient';
 import { validateIdtype } from '../yupschemas/validateIdSchema';
+import { PrismaProductRepository } from '../repositories/prismaProductRepository';
+
+const prismaProductRepository = new PrismaProductRepository(prismaClient);
 
 export class GetProductMiddleware {
 	async execute (req: Request<Pick<Product, 'id'>>, res: Response, next: NextFunction) {
@@ -9,11 +12,7 @@ export class GetProductMiddleware {
 
 		await validateIdtype.validate({ id });
 
-		const existsProduct = await prismaClient.product.findUnique({
-			where: {
-				id: Number(id)
-			}
-		});
+		const existsProduct = await prismaProductRepository.findById(id);
 
 		if (!existsProduct) {
 			return res.status(404).json({message: 'Produto não encontrado'});
