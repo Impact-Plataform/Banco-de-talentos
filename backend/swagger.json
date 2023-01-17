@@ -13,7 +13,7 @@
     "description": "API de testes"
   }],
   "paths": {
-    "/Products": {
+    "/Product": {
       "post": {
         "summary": "Cadastro de Produto",
         "description": "Rota para a criação de produtos.",
@@ -21,7 +21,54 @@
         "requestBody": {
           "content":{
             "application/json": {
-              "schema":{}
+              "schema":{
+                  "type": "object",
+                  "properties": {
+                  "nome": {"type": "string"},
+                  "descricao": {"type": "string"},
+                  "valorEmReal": {"type": "number"}
+                }
+              },
+              "examples": {
+                "product": {
+                  "value": {
+                    "nome": "TV",
+                    "descricao": "TV 50 polegadas LG",
+                    "valorEmReal": 1500
+                  }
+                }
+              }
+              }
+            }
+          },
+          "responses": {
+            "400": {
+              "description": "Já existe um produto com o nome informado!"
+            },
+            "403": {
+              "description": "Preencha todos os dados corretamente!"
+            },
+            "200":{
+              "description": "OK!",
+              "content":{
+                "application/json": {
+                  "schema":{
+                      "type": "object",
+                      "properties": {
+                      "nome": {"type": "string"},
+                      "id": {"type": "string"},
+                      "descricao": {"type": "string"},
+                      "valor": {
+                        "type": "object",
+                        "properties":{
+                        "BRL": {"type": "number"},
+                        "USD": {"type": "string"},
+                        "EUR": {"type": "string"}
+                        }
+                      }
+                    }
+                  }
+              }
             }
           }
         }
@@ -30,27 +77,72 @@
         "summary": "Listar os produtos",
         "description": "Rota para a listagem de todos os produtos.",
         "tags": ["Products"],
-        "requestBody": {
-          "content":{
-            "application/json": {
-              "schema":{}
+        "responses": {
+          "404": {
+            "description": "Nenhum produto cadastrado!"
+          },
+          "200":{
+            "description": "OK!",
+            "content":{
+              "application/json": {
+                "schema":{
+                    "type": "object",
+                    "properties": {
+                    "produto1": {
+                      "type": "object"
+                    },
+                    "produto2": {
+                      "type": "object"
+                    }
+                  }
+                }
             }
           }
         }
       }
+      }
     },
-    "/Products/$ID": {
+    "/Product/{id}": {
       "get": {
         "summary": "Listar o produto",
         "description": "Rota para a listagem de produto pelo ID.",
         "tags": ["Products"],
-        "requestBody": {
-          "content":{
-            "application/json": {
-              "schema":{}
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id do produto",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Nenhum produto encontrado!"
+          },
+          "200":{
+            "description": "OK!",
+            "content":{
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "properties": {
+                  "nome": {"type": "string"},
+                  "id": {"type": "string"},
+                  "descricao": {"type": "string"},
+                  "valor": {
+                    "type": "object",
+                    "properties":{
+                    "BRL": {"type": "number"},
+                    "USD": {"type": "string"},
+                    "EUR": {"type": "string"}
+                    }
+                  }
+                }
+                }
             }
           }
         }
+      }
       },
       "put": {
         "summary": "Editar o produto",
@@ -107,3 +199,4 @@
 }
 }
 }
+
