@@ -1,5 +1,5 @@
 import React from "react";
-import vader from "../../assets/images/darth-vader.svg";
+import vader from "../../assets/images/icones/darth-vader.svg";
 import style from "./Pagination.module.css"
 
 const Pagination = ({anterior, proxima}) => {

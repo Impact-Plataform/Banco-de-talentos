@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import api from "../../service/api";
-import bb8 from "../../assets/images/bb-8.svg";
-import logo from "../../assets/images/star-wars-logo.png";
+import bb8 from "../../assets/images/icones/bb-8.svg";
+import logo from "../../assets/images/icones/star-wars-logo.png";
 import style from "./Header.module.css";
 import SearchInput from "../SearchInput/SearchInput";
 

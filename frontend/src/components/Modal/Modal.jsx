@@ -1,5 +1,5 @@
 import React from "react";
-import svg from "../../assets/images/stormtrooper.svg";
+import svg from "../../assets/images/icones/stormtrooper.svg";
 
 const Modal = ({
   nome,
