@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import { Button } from "../../Button/Index";
+import { GetPeople } from "../../../services/Api";
 
 export const Cards = () => {
 
@@ -11,27 +12,28 @@ export const Cards = () => {
     const [loading, setLoading] = useState(false); // CRIAR LOADING NA PAGE
     const [genero, setGenero] = useState([]); // SET O GENERO PARA FILTRAR
 
-    const Genero = people.filter(people => (people?.gender == `${genero}`)); // FILTRA POR GENERO
 
     const showMore = () => { // SHOWMORE FUNÇÃO PARA INVOCAR A API QUANDO CLICAR NO BOTÃO. 
         console.log("clicando")
         atPage(page + 1)
       }
 
-      const getApi = async () => {
 
+  useEffect(() => {
+    getPeoples()
+  }, [page])
 
-        setLoading(true)
-        try {
-            let res = await fetch(`https://swapi.dev/api/people/?page=${page}`)
-            let data = await res.json()
+    async function getPeoples(){
+      setLoading(true)
+        try{
+            const response = await GetPeople(page)
+            let data = response
             setPeople([...people, ...data.results])
             setLoading(false)
-        } 
-        catch (error) {
-      console.log(error)
+        }catch(e){
+            console.log(e)
+        }
     }
-  }
 
   // GERA UM MAP DOS ITENS DO ARRAY RETORNADO OS DADOS DELES. 
   const Cardpeople =   people.map(people => {
@@ -47,22 +49,6 @@ export const Cards = () => {
     )
 })
 
- const CardGenero = Genero.map(people => { // GERA UM ARRAI DE GENEROS
-        return ( <li key={people?.url}>
-              <Link to={`/details/${String(people.url).split("/")[5]}`}><div className="card"><h1>{people?.name}</h1>
-                  <p>Aniversário :{people?.birth_year}</p>
-                  <p>Gênero : {people?.gender}</p>
-              </div></Link>
-          </li>)
-  })
-
-const Filtered = e  => { // PREVINIR O RECARREGAMENTO DE TELA
-  e.preventDefault();
- }
-
-useEffect(() => {
-    getApi()
-  }, [page])
 
     return ( 
       <StyledCardUl>
@@ -80,14 +66,6 @@ useEffect(() => {
 
           :
         <StyledCardUl>
-        <form onSubmit={Filtered}>
-        <select name="Genero" value={genero} onChange={text => setGenero(text.target.value)}>
-                <option  value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="n/a">N/A</option>
-        </select>
-        <button type="submit">Enviar</button>
-        </form>
         <ul>
         {Cardpeople}
         </ul>
@@ -96,6 +74,11 @@ useEffect(() => {
         }
        
     </StyledCardUl>)
+
+
+const Genero = people.filter(people => (people?.gender == `${genero}`)); // FILTRA POR GENERO
+
+
 }
 
 

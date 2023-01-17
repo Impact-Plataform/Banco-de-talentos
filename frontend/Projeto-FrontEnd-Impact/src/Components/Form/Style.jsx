@@ -10,7 +10,7 @@ export const StyledForm = styled.div`
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
     column-gap: 10px;
     row-gap: 1rem;
     align-items: center;
