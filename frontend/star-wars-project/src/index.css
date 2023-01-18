@@ -153,3 +153,9 @@ body {
 
   font-family: "Inter", sans-serif;
 }
+
+button {
+  background: none;
+  border: none;
+  border-radius: 8px;
+}
