@@ -8,7 +8,6 @@ import "./stylesSearchByName.css";
 export const SearchByName = () => {
   const { data } = useAPiInfo();
   const { filterData } = useFilter();
-  const [search, setSearch] = useState<string>();
 
   const searchByName = (word: string) => {
     const lowerWord = word.toLowerCase();
