@@ -1,9 +1,8 @@
 import { Product } from '@prisma/client';
 import { Request, Response } from 'express';
-import { prismaClient } from '../../database/PrismaClient';
 import { PrismaProductRepository } from '../../repositories/prismaProductRepository';
 
-const prismaProductRepository = new PrismaProductRepository(prismaClient);
+const prismaProductRepository = new PrismaProductRepository();
 
 export class DeleteProductController {
 	async execute(req: Request<Pick<Product, 'id'>>, res: Response) {

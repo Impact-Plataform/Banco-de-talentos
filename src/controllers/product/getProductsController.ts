@@ -1,8 +1,7 @@
 import { Request, Response } from 'express';
-import { prismaClient } from '../../database/PrismaClient';
 import { PrismaProductRepository } from '../../repositories/prismaProductRepository';
 
-const prismaProductRepository = new PrismaProductRepository(prismaClient);
+const prismaProductRepository = new PrismaProductRepository();
 
 export class GetProductsController {
 	async execute(req: Request, res: Response) {

@@ -1,12 +1,11 @@
-import { PrismaClient, Product } from '@prisma/client';
+import { Product } from '@prisma/client';
 import { ProductRepository } from './productRepository';
+import { prismaClient } from '../database/PrismaClient';
 
 export class PrismaProductRepository implements ProductRepository {
 
-	constructor(private prismaClient: PrismaClient){}
-  
 	create(product: Omit<Product, 'id'>): Promise<Product> {
-		const registeredProduct  = this.prismaClient.product.create({
+		const registeredProduct = prismaClient.product.create({
 			data: {
 				amount: Number(product.amount),
 				name: product.name,
@@ -18,7 +17,7 @@ export class PrismaProductRepository implements ProductRepository {
 	}
   
 	findById(productId: number): Promise<Product | null> {
-		const product = this.prismaClient.product.findUnique({
+		const product = prismaClient.product.findUnique({
 			where: {
 				id: Number(productId)
 			}
@@ -28,7 +27,7 @@ export class PrismaProductRepository implements ProductRepository {
 	}
   
 	findByName(productName: string): Promise<Product | null> {
-		const product = this.prismaClient.product.findUnique({
+		const product = prismaClient.product.findUnique({
 			where: {
 				name: productName
 			}
@@ -38,13 +37,13 @@ export class PrismaProductRepository implements ProductRepository {
 	}
   
 	find(): Promise<Product[] | null> {
-		const products = this.prismaClient.product.findMany();
+		const products = prismaClient.product.findMany();
 
 		return products;
 	}
 
 	update(productId: number, product: Omit<Product, 'id'>): Promise<Product> {
-		const updatedProduct = this.prismaClient.product.update({
+		const updatedProduct = prismaClient.product.update({
 			data: {
 				amount: Number(product.amount),
 				name: product.name,
@@ -59,7 +58,7 @@ export class PrismaProductRepository implements ProductRepository {
 	}
 
 	delete(productId: number): Promise<Product> {
-		const product = this.prismaClient.product.delete({
+		const product = prismaClient.product.delete({
 			where: {
 				id: Number(productId)
 			}

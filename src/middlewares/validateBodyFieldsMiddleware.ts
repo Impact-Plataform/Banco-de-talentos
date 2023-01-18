@@ -1,10 +1,9 @@
 import { Product } from '@prisma/client';
 import { NextFunction, Request, Response } from 'express';
-import { prismaClient } from '../database/PrismaClient';
 import { PrismaProductRepository } from '../repositories/prismaProductRepository';
 import { validateBody } from '../yupschemas/productSchema';
 
-const prismaProductRepository = new PrismaProductRepository(prismaClient);
+const prismaProductRepository = new PrismaProductRepository();
 
 export class ValidateBodyFields {
 	async execute(req: Request<unknown, unknown, Omit<Product, 'id'>>, res: Response, next: NextFunction) {

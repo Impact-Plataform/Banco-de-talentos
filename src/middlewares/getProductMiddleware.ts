@@ -1,10 +1,9 @@
 import { Product } from '@prisma/client';
 import { NextFunction, Request, Response } from 'express';
-import { prismaClient } from '../database/PrismaClient';
 import { validateIdtype } from '../yupschemas/validateIdSchema';
 import { PrismaProductRepository } from '../repositories/prismaProductRepository';
 
-const prismaProductRepository = new PrismaProductRepository(prismaClient);
+const prismaProductRepository = new PrismaProductRepository();
 
 export class GetProductMiddleware {
 	async execute (req: Request<Pick<Product, 'id'>>, res: Response, next: NextFunction) {
