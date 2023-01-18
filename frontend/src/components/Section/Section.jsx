@@ -5,14 +5,14 @@ import Pagination from "../Pagination/Pagination";
 import style from "./Section.module.css";
 
 const Section = () => {
+  const [info, setInfo] = useState([]);
   const [page, setPage] = useState(1);
-  const [array, setArray] = useState([]);
-
+  
   useEffect(() => {
     api
       .get(`/people/?page=${page}`)
       .then((response) => {
-        setArray(response.data.results);
+        setInfo(response.data.results);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -37,7 +37,7 @@ const Section = () => {
     <section className={style.section}>
       <div className="container-md">
         <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
-          {array.map((personagem) => {
+          {info.map((personagem) => {
             return (
               <Card
                 key={personagem.url}
