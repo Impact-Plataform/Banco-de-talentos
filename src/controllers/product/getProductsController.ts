@@ -1,28 +1,15 @@
 import { Request, Response } from 'express';
 import { PrismaProductRepository } from '../../repositories/prismaProductRepository';
+import { GetProducts } from '../../use-cases/getProducts';
 
 const prismaProductRepository = new PrismaProductRepository();
+const getProducts =  new GetProducts(prismaProductRepository);
 
 export class GetProductsController {
 	async execute(req: Request, res: Response) {
-		const { firstCurrency, secondCurrency } = req.selectedCurrencies;
 
-		const products = await prismaProductRepository.find();
-
-		if (!products) {
-			return res.status(404).json({message: 'Sem produtos cadastrados.'});
-		}
-
-		const result = [];
-
-		for (const element of products) {
-			result.push({
-				...element,
-				valueUSD: firstCurrency ? (element.value * firstCurrency) : '' ,
-				valueEUR: secondCurrency ? (element.value * secondCurrency) : ''
-			});
-		}
+		const products = await getProducts.get();
 		
-		return res.json({products: result});
+		return res.json({products});
 	}
 }

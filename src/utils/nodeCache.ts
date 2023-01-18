@@ -25,4 +25,23 @@ export class Cache {
   
 		myCache.set('currencies', formatedAxiosData);
 	}
+
+	async getTwoCurrencies(firstCurrency: string, secondCurrency: string) {
+		const currencies = await this.find();
+
+		let firstCurrencyValue;
+		let secondCurrencyValue;
+
+		for (const currency of currencies) {
+			if (currency.code === firstCurrency.toUpperCase()) {
+				firstCurrencyValue = currency.value;
+			}
+
+			if (currency.code === secondCurrency.toUpperCase()) {
+				secondCurrencyValue = currency.value;
+			}
+		}
+
+		return { firstCurrencyValue, secondCurrencyValue };
+	}
 }
