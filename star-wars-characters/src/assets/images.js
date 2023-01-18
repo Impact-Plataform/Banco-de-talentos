@@ -5,10 +5,8 @@ export const images = {
       'https://lumiere-a.akamaihd.net/v1/images/luke-skywalker-main_fb34a1ff.jpeg?region=131%2C0%2C951%2C536',
     'Leia Organa':
       'https://lumiere-a.akamaihd.net/v1/images/leia-organa-feature-image_d0f5e9_056d9177.jpeg?region=0%2C0%2C1280%2C720',
-    'C-3PO':
-      'https://lumiere-a.akamaihd.net/v1/images/c-3po-main_417a2902.jpeg?region=176%2C0%2C951%2C536',
-    'R2-D2':
-      'https://lumiere-a.akamaihd.net/v1/images/r2-d2-main_f315b094.jpeg?region=273%2C0%2C951%2C536',
+    'C-3PO': 'https://lumiere-a.akamaihd.net/v1/images/c-3po-main_417a2902.jpeg?region=176%2C0%2C951%2C536',
+    'R2-D2': 'https://lumiere-a.akamaihd.net/v1/images/r2-d2-main_f315b094.jpeg?region=273%2C0%2C951%2C536',
     'Darth Vader':
       'https://lumiere-a.akamaihd.net/v1/images/darth-vader-main_4560aff7.jpeg?region=0%2C67%2C1280%2C720',
     'Owen Lars':
@@ -23,10 +21,8 @@ export const images = {
       'https://lumiere-a.akamaihd.net/v1/images/obi-wan-kenobi-main_3286c63c.jpeg?region=0%2C0%2C1280%2C721',
     'Anakin Skywalker':
       'https://lumiere-a.akamaihd.net/v1/images/anakin-skywalker-main_0326586e.png?region=220%2C0%2C951%2C536',
-    'Wilhuff Tarkin':
-      'https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-1qclb11_c3383245.jpeg',
-    Chewbacca:
-      'https://lumiere-a.akamaihd.net/v1/images/solo-db-chewie-on-falcon-gallery_7f6e39ec.jpeg',
+    'Wilhuff Tarkin': 'https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-1qclb11_c3383245.jpeg',
+    Chewbacca: 'https://lumiere-a.akamaihd.net/v1/images/solo-db-chewie-on-falcon-gallery_7f6e39ec.jpeg',
     'Han Solo':
       'https://lumiere-a.akamaihd.net/v1/images/han-solo-main_a4c8ff79.jpeg?region=0%2C0%2C1920%2C1080',
     Greedo:
@@ -42,8 +38,7 @@ export const images = {
       'https://lumiere-a.akamaihd.net/v1/images/emperor-palpatine-darth-sidious-main_3d82ddaa.jpeg?region=164%2C0%2C953%2C536',
     'Boba Fett':
       'https://lumiere-a.akamaihd.net/v1/images/boba-fett-main_a8fade4d.jpeg?region=203%2C34%2C1077%2C606',
-    'IG-88':
-      'https://lumiere-a.akamaihd.net/v1/images/ig_88_cdd5cc52.jpeg?region=0%2C95%2C2453%2C1375',
+    'IG-88': 'https://lumiere-a.akamaihd.net/v1/images/ig_88_cdd5cc52.jpeg?region=0%2C95%2C2453%2C1375',
     Bossk:
       'https://lumiere-a.akamaihd.net/v1/images/databank_bossk_01_169_c3c42fbe.jpeg?region=0%2C0%2C1560%2C878',
     'Lando Calrissian':
@@ -77,14 +72,12 @@ export const images = {
       'https://lumiere-a.akamaihd.net/v1/images/databank_ricolie_01_169_f175f81b.jpeg?region=0%2C0%2C1560%2C878',
     Watto:
       'https://lumiere-a.akamaihd.net/v1/images/databank_watto_01_169_ecd563f1.jpeg?region=0%2C0%2C1560%2C878',
-    Sebulba:
-      'https://lumiere-a.akamaihd.net/v1/images/sebulba_1f3fe180.jpeg?region=0%2C0%2C2453%2C1380',
+    Sebulba: 'https://lumiere-a.akamaihd.net/v1/images/sebulba_1f3fe180.jpeg?region=0%2C0%2C2453%2C1380',
     'Quarsh Panaka':
       'https://lumiere-a.akamaihd.net/v1/images/databank_captainpanaka_01_169_6a3ccac5.jpeg?region=0%2C0%2C1560%2C878',
     'Shmi Skywalker':
       'https://lumiere-a.akamaihd.net/v1/images/databank_shmiskywalkerlars_01_169_7449f0a8.jpeg?region=0%2C0%2C1560%2C878',
-    'Darth Maul':
-      'https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-jmgdo7_c969c086.jpeg',
+    'Darth Maul': 'https://lumiere-a.akamaihd.net/v1/images/open-uri20150608-27674-jmgdo7_c969c086.jpeg',
     'Bib Fortuna':
       'https://lumiere-a.akamaihd.net/v1/images/bib-fortuna-main_376ba1ba.jpeg?region=304%2C0%2C1778%2C1000',
     'Ayla Secura':
@@ -93,8 +86,7 @@ export const images = {
       'https://lumiere-a.akamaihd.net/v1/images/databank_rattstyerell_01_169_031aea6d.jpeg?region=0%2C0%2C1560%2C878',
     'Dud Bolt':
       'https://preview.redd.it/g7hfqk7sme851.jpg?auto=webp&s=7212a14733a46ff39c45164839f587de19032752',
-    Gasgano:
-      'https://lumiere-a.akamaihd.net/v1/images/gasgano_6f648f83.jpeg?region=0%2C48%2C2252%2C1267',
+    Gasgano: 'https://lumiere-a.akamaihd.net/v1/images/gasgano_6f648f83.jpeg?region=0%2C48%2C2252%2C1267',
     'Ben Quadinaros':
       'https://lumiere-a.akamaihd.net/v1/images/databank_benquadinaros_01_169_0c77b6a0.jpeg?region=0%2C0%2C1560%2C878',
     'Mace Windu':
@@ -126,10 +118,8 @@ export const images = {
       'https://lumiere-a.akamaihd.net/v1/images/luminara_c05b2971.jpeg?region=0%2C0%2C1601%2C901',
     'Barriss Offee':
       'https://lumiere-a.akamaihd.net/v1/images/Barriss-Offee-main-image_a4f0cc76.jpeg?region=87%2C0%2C1460%2C821',
-    Dormé:
-      'https://lumiere-a.akamaihd.net/v1/images/dorme-2_dd1590e9.jpeg?region=781%2C333%2C1186%2C667',
-    Dooku:
-      'https://lumiere-a.akamaihd.net/v1/images/Count-Dooku_4f552149.jpeg?region=0%2C0%2C1436%2C808',
+    Dormé: 'https://lumiere-a.akamaihd.net/v1/images/dorme-2_dd1590e9.jpeg?region=781%2C333%2C1186%2C667',
+    Dooku: 'https://lumiere-a.akamaihd.net/v1/images/Count-Dooku_4f552149.jpeg?region=0%2C0%2C1436%2C808',
     'Bail Prestor Organa':
       'https://lumiere-a.akamaihd.net/v1/images/obi-wan-kenobi-story-gallery-part-1-09_7d0d1480.jpeg?region=0%2C0%2C951%2C536',
     'Jango Fett':
@@ -144,23 +134,24 @@ export const images = {
       'https://lumiere-a.akamaihd.net/v1/images/the-bad-batch-bounty-lost-story-gallery-03_1878426f.jpeg?region=440%2C24%2C838%2C471',
     'Jocasta Nu':
       'https://lumiere-a.akamaihd.net/v1/images/jocasta-nu_a3b32f08.jpeg?region=18%2C0%2C2208%2C1242',
-    'R4-P17':
-      'https://lumiere-a.akamaihd.net/v1/images/r4-p17_19602f62.jpeg?region=314%2C0%2C1181%2C665',
+    'R4-P17': 'https://lumiere-a.akamaihd.net/v1/images/r4-p17_19602f62.jpeg?region=314%2C0%2C1181%2C665',
     'Wat Tambor':
       'https://lumiere-a.akamaihd.net/v1/images/databank_emirwattambor_01_169_9528ba0f.jpeg?region=53%2C0%2C1454%2C818',
-    'San Hill':
-      'https://lumiere-a.akamaihd.net/v1/images/san-hill_852a226d.jpeg?region=298%2C0%2C1175%2C661',
-    'Shaak Ti':
-      'https://lumiere-a.akamaihd.net/v1/images/shaak_ti_9523e7c7.jpeg?region=241%2C0%2C1438%2C809',
+    'San Hill': 'https://lumiere-a.akamaihd.net/v1/images/san-hill_852a226d.jpeg?region=298%2C0%2C1175%2C661',
+    'Shaak Ti': 'https://lumiere-a.akamaihd.net/v1/images/shaak_ti_9523e7c7.jpeg?region=241%2C0%2C1438%2C809',
     Grievous:
       'https://lumiere-a.akamaihd.net/v1/images/General-Grievous_c9df9cb5.jpeg?region=0%2C0%2C1200%2C675',
-    Tarfful:
-      'https://lumiere-a.akamaihd.net/v1/images/tarrful_f20d3412.jpeg?region=359%2C0%2C1136%2C639',
+    Tarfful: 'https://lumiere-a.akamaihd.net/v1/images/tarrful_f20d3412.jpeg?region=359%2C0%2C1136%2C639',
     'Raymus Antilles':
       'https://lumiere-a.akamaihd.net/v1/images/databank_captainantilles_01_169_75e05265.jpeg?region=0%2C0%2C1560%2C878',
     'Sly Moore':
       'https://lumiere-a.akamaihd.net/v1/images/sly-moore_6af90e66.jpeg?region=95%2C133%2C1116%2C628',
     'Tion Medon':
       'https://lumiere-a.akamaihd.net/v1/images/databank_tionmedon_01_169_bf78864d.jpeg?region=0%2C0%2C1560%2C878',
+    Finn: 'https://vignette.wikia.nocookie.net/starwars/images/a/af/Finn_TLJ_Collector%27s_Edition.png',
+    Rey: 'https://vignette.wikia.nocookie.net/starwars/images/f/f8/ReyTLJEntertainmentWeeklyNovember.png',
+    'Poe Dameron': 'https://vignette.wikia.nocookie.net/starwars/images/7/79/Poe_Dameron_TLJ.png',
+    BB8: 'https://vignette.wikia.nocookie.net/starwars/images/6/68/BB8-Fathead.png',
+    'Captain Phasma': 'https://vignette.wikia.nocookie.net/starwars/images/0/02/Phasma.png',
   },
 };

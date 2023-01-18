@@ -6,17 +6,42 @@ export const CharacterCard = ({ character }) => {
   let id = character.url.substring(character.url.length - 3, character.url.length).replaceAll('/', '');
 
   return (
-    <div className="character-card">
-      <div className="card-img">
-        <img src={images.characters[character.name]} alt={`${character.name}`} />
-      </div>
-      <div className="info">
-        <span className="id">{id}</span>
-        <h3 className="name">{character.name}</h3>
-      </div>
-      <Link to={`/character/${id}`}>
-        <button className="btn-more">Show More</button>
+    <div>
+      <Link className="btn-more" to={`/character/${id}`}>
+        Show More
       </Link>
+      <div className="character-card">
+        <span className="up"></span>
+
+        <img src={images.characters[character.name]} alt="" />
+        <div className="overlay">
+          <div className="title">
+            <h3>{character.name}</h3>
+            <span className="id">{id}</span>
+          </div>
+          <div className="status">
+            <ul>
+              <li>
+                <strong>Height:</strong> {character.height}.
+              </li>
+              <li>
+                <strong>Mass:</strong> {character.mass}.
+              </li>
+              <li>
+                <strong>Gender:</strong> {character.gender}.
+              </li>
+              <li>
+                <strong>Specie:</strong>{' '}
+                {/* // vai verificar se o personagem possui specie (alguns retornam null ou []) */}
+                {character.specie.length === 0 || !character.specie[0] ? 'Not Found' : character.specie}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
+{
+  /* <Link to={`/character/${id}`}></Link> */
+}
