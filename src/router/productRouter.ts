@@ -22,7 +22,7 @@ const validateProductId = new GetProductMiddleware();
 const currencyValues = new GetCurrencyValues();
 
 productRouter.get('/', currencyValues.get, getProducts.execute);
-productRouter.post('/', validateBodyFields.execute, registerProduct.execute);
+productRouter.post('/', registerProduct.execute);
 productRouter.get('/:id', validateProductId.execute, currencyValues.get, getProduct.execute);
 productRouter.put('/:id', validateProductId.execute,  validateBodyFields.execute, updateProduct.execute);
 productRouter.delete('/:id', validateProductId.execute, deleteProduct.execute);
