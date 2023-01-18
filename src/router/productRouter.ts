@@ -25,4 +25,4 @@ productRouter.get('/', getProducts.execute);
 productRouter.post('/', registerProduct.execute);
 productRouter.get('/:id', getProduct.execute);
 productRouter.put('/:id', updateProduct.execute);
-productRouter.delete('/:id', validateProductId.execute, deleteProduct.execute);
+productRouter.delete('/:id', deleteProduct.execute);
