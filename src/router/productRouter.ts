@@ -1,21 +1,13 @@
 import { Router } from 'express';
 
-import { createProductController } from '../controllers/product/createProductController';
-import { DeleteProductController } from '../controllers/product/deleteProductController';
-import { getProductByIdController } from '../controllers/product/getProductByIdController';
-import { GetProductsController } from '../controllers/product/getProductsController';
-import { UpdateProductController } from '../controllers/product/updateProductController';
+import { ProductController } from '../controllers/product/productController';
 
 export const productRouter = Router();
 
-const getProducts = new GetProductsController();
-const registerProduct = new createProductController();
-const getProduct = new getProductByIdController();
-const updateProduct = new UpdateProductController();
-const deleteProduct = new DeleteProductController();
+const productController = new ProductController();
 
-productRouter.get('/', getProducts.execute);
-productRouter.post('/', registerProduct.execute);
-productRouter.get('/:id', getProduct.execute);
-productRouter.put('/:id', updateProduct.execute);
-productRouter.delete('/:id', deleteProduct.execute);
+productRouter.get('/', productController.get);
+productRouter.post('/', productController.create);
+productRouter.get('/:id', productController.getById);
+productRouter.put('/:id', productController.update);
+productRouter.delete('/:id', productController.delete);
