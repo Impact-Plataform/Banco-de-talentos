@@ -1,18 +1,18 @@
 import { Product } from '@prisma/client';
 import { Request, Response } from 'express';
+import { PrismaProductRepository } from '../../repositories/prismaProductRepository';
+import { GetProduct } from '../../use-cases/getProduct';
+
+const prismaProductRepository = new PrismaProductRepository();
+const getProduct = new GetProduct(prismaProductRepository);
 
 export class getProductByIdController {
 	async execute(req: Request<Pick<Product, 'id'>>, res: Response) {
+		
+		const { id } = req.params;
 
-		const { firstCurrency, secondCurrency } = req.selectedCurrencies;
-		const product = req.product;
+		const product = await getProduct.get(id);
 
-		const result = {
-			...product,
-			valueUSD: firstCurrency ? (product.value * firstCurrency) : '' ,
-			valueEUR: secondCurrency ? (product.value * secondCurrency) : ''
-		};
-
-		return res.json({product: result});
+		return res.json({product});
 	}
 }
