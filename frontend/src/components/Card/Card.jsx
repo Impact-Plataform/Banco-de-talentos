@@ -30,20 +30,21 @@ const Card = ({
             alt="personagens"
           />
           <h5 className="card-title text-center">{nome}</h5>
-
-          <Modal
-            nome={nome}
-            genero={genero}
-            altura={altura}
-            peso={peso}
-            corDoCabelo={corDoCabelo}
-            corDosOlhos={corDosOlhos}
-            CorDaPele={CorDaPele}
-            especie={especie}
-            anoDeNascimento={anoDeNascimento}
-            planeta={planeta}
-            filmes={filmes}
-          />
+          <div className="container-md d-flex justify-content-center">
+            <Modal
+              nome={nome}
+              genero={genero}
+              altura={altura}
+              peso={peso}
+              corDoCabelo={corDoCabelo}
+              corDosOlhos={corDosOlhos}
+              CorDaPele={CorDaPele}
+              especie={especie}
+              anoDeNascimento={anoDeNascimento}
+              planeta={planeta}
+              filmes={filmes}
+            />
+          </div>
         </div>
       </div>
     </div>
