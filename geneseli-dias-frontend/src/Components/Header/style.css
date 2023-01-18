@@ -1,0 +1,37 @@
+.header {
+    width: 100%;
+    display: flex;
+    //justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    width: 130px;
+    margin-bottom: 500px;
+    margin-left: 30px;
+}
+
+.header-title {
+    font-size: 20px;
+    margin-bottom: 500px;
+    margin-left: 10px;
+    color: #f8c104;
+}
+
+.search-input {
+    width: 280px;
+    height: 10px;
+    text-align: left;
+    padding: 20px;
+    font-size: 2rem;
+    background-color: #1a1b1f;
+    outline: none;
+    border-radius: 20px;
+    border: 1px solid white;
+    margin-bottom: 500px;
+    margin-left: 130px;
+  }
+
+  ::placeholder {
+    font-size: 20px;
+  }
