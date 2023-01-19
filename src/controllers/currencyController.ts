@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 
-import { GetCurrencies } from '../../use-cases/currency/getCurrencies';
-import { GetCurrency } from '../../use-cases/currency/getCurrency';
+import { GetCurrencies } from '../use-cases/currency/getCurrencies';
+import { GetCurrency } from '../use-cases/currency/getCurrency';
 
 const getCurrencies = new GetCurrencies();
 const getCurrency = new GetCurrency();

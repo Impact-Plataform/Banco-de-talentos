@@ -1,13 +1,13 @@
 import { Product } from '@prisma/client';
 import { Request, Response } from 'express';
 
-import { PrismaProductRepository } from '../../repositories/prismaProductRepository';
+import { PrismaProductRepository } from '../repositories/prismaProductRepository';
 
-import { CreateProduct } from '../../use-cases/product/createProduct';
-import { DeleteProduct } from '../../use-cases/product/deleteProduct';
-import { GetProduct } from '../../use-cases/product/getProduct';
-import { GetProducts } from '../../use-cases/product/getProducts';
-import { UpdateProduct } from '../../use-cases/product/updateProduct';
+import { CreateProduct } from '../use-cases/product/createProduct';
+import { DeleteProduct } from '../use-cases/product/deleteProduct';
+import { GetProduct } from '../use-cases/product/getProduct';
+import { GetProducts } from '../use-cases/product/getProducts';
+import { UpdateProduct } from '../use-cases/product/updateProduct';
 
 const prismaProductRepository = new PrismaProductRepository();
 
