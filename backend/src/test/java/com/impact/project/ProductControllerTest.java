@@ -144,11 +144,8 @@ class ProductControllerTest {
     @Test
     public void createProductHttpBadRequest() throws Exception {
 
-
-        product.setName("Product2");
-        product.setDescription("description product2");
-        product.setPrice(BigDecimal.valueOf(500));
-
+        product.setId(UUID.fromString("e6ec75a3-cf21-4fa5-864f-2d6144f06b4c"));
+        
 
         mockMvc.perform(post("/api/products").contentType(APPLICATION_JSON_UTF8).content(objectMapper.writeValueAsString(product)).accept(APPLICATION_JSON_UTF8)).andExpect(status().is4xxClientError());
 
