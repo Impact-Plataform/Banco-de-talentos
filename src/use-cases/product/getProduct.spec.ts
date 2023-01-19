@@ -1,31 +1,38 @@
-import { currencyApi } from '../../utils/currencyApi';
-import { ProductRepository } from '../../repositories/productRepository';
+import { describe, expect, expectTypeOf, it } from 'vitest';
+import { InMemoryRepository } from '../../repositories/InMemoryRepository';
 import { NotFoundError } from '../../utils/apiErrors';
-import { validateIdtype } from '../../yupschemas/validateIdSchema';
+import { CreateProduct } from './createProduct';
+import { GetProduct } from './getProduct';
 
-export class GetProduct {
-	constructor(private productRepository: ProductRepository) {}
+describe('Validate use case "get product"', async () => {
 
-	async get(id: number) {
-		await validateIdtype.validate({ id });
+	const productRepository = new InMemoryRepository();
+	const createProduct = new CreateProduct(productRepository);
+	const getProduct = new GetProduct(productRepository);
 
-		const existsProduct = await this.productRepository.findById(id);
+	const productFields = {
+		name: 'Teclado',
+		value: 90,
+		amount: 15
+	};
 
-		if (!existsProduct) {
-			throw new NotFoundError('Produto não encontrado');
-		}
+	await createProduct.create(productFields);
 
-		const firstCurrency = 'USD';
-		const secondCurrency = 'EUR';
+	it('Should be able to return one product', async () => {
+		
+		const product = await getProduct.get(1);
 
-		const {firstCurrencyValue, secondCurrencyValue} = await currencyApi.getTwoCurrencies(firstCurrency, secondCurrency);
+		expectTypeOf(product).toBeObject();
+		expect(product).toHaveProperty('valueUSD');
+		expect(product).toHaveProperty('valueEUR');
+	});
 
-		const product = {
-			...existsProduct,
-			valueUSD: firstCurrencyValue ? (existsProduct.value * firstCurrencyValue) : '' ,
-			valueEUR: secondCurrencyValue ? (existsProduct.value * secondCurrencyValue) : ''
-		};
-
-		return product;
-	}
-}
+	it('Should not be able to return a non-existent product', async () => {
+		try {
+			await getProduct.get(2);
+		} catch (error) {
+			expect(error).toBeInstanceOf(NotFoundError);
+			expect(error).toHaveProperty('message', 'Produto não encontrado');
+		}		
+	});
+});
