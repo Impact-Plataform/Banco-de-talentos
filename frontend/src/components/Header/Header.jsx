@@ -1,30 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import api from "../../service/api";
 import bb8 from "../../assets/images/icones/bb-8.svg";
 import logo from "../../assets/images/icones/star-wars-logo.png";
 import style from "./Header.module.css";
 import SearchInput from "../SearchInput/SearchInput";
+import { StateContext } from "../../context/StateProvider";
 
 const Header = () => {
+  const { info, setInfo } = useContext(StateContext);
+
   const [text, setText] = useState("");
-  console.log(text);
-  const [films, setFilms] = useState([]);
-  console.log(films, "os filmes");
-  const [species, setSpecies] = useState([]);
-  console.log(species, "as especies");
-  const [personagem, setPersonagem] = useState([]);
-  console.log(personagem, "o personagem");
-  const [starships, setStarships] = useState([]);
-  console.log(starships, "naves");
-  const [vehicles, setVehicles] = useState([]);
-  console.log(vehicles);
-  const [planets, setPlanets] = useState([]);
-  console.log(planets);
 
   function select() {
     const s = document.getElementById("selecao");
     const selecao = s.options[s.selectedIndex].value;
-
     if (text && selecao == "1") {
       return buscaFilmes();
     } else if (text && selecao == "2") {
@@ -44,7 +33,7 @@ const Header = () => {
     api
       .get(`films/?search=${text}`)
       .then((response) => {
-        setFilms([response.data.results]);
+        setInfo(response.data.results);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -55,7 +44,7 @@ const Header = () => {
     api
       .get(`species/?search=${text}`)
       .then((response) => {
-        setSpecies([response.data.results]);
+        setInfo(response.data.results);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -66,18 +55,19 @@ const Header = () => {
     api
       .get(`people/?search=${text}`)
       .then((response) => {
-        setPersonagem([response.data.results]);
+        setInfo(response.data.results);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
+    console.log(info, "atualizado");
   };
 
   const buscaNaves = () => {
     api
       .get(`starships/?search=${text}`)
       .then((response) => {
-        setStarships([response.data.results]);
+        setInfo(response.data.results);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -88,7 +78,7 @@ const Header = () => {
     api
       .get(`vehicles/?search=${text}`)
       .then((response) => {
-        setVehicles([response.data.results]);
+        setInfo(response.data.results);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -99,7 +89,7 @@ const Header = () => {
     api
       .get(`planets/?search=${text}`)
       .then((response) => {
-        setPlanets([response.data.results]);
+        setInfo(response.data.results);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);

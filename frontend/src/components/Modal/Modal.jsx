@@ -50,7 +50,7 @@ const Modal = ({
             </div>
             <div className="modal-body">
               <p className="card-text">Gênero: <strong>{genero}</strong></p>
-              <p className="card-text">Altura: <strong>{altura} m </strong></p>
+              <p className="card-text">Altura: <strong>{altura} cm </strong></p>
               <p className="card-text">Peso: <strong>{peso} kg </strong></p>
               <p className="card-text">Cor do cabelo: <strong>{corDoCabelo}</strong></p>
               <p className="card-text">Cor dos olhos: <strong>{corDosOlhos}</strong></p>
