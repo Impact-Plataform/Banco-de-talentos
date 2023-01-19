@@ -151,7 +151,7 @@ Para atualizar o campo `name` incluir apenas o referido campo e o nome atualizad
 
 | Parâmetro   | Tipo       | Descrição                                   |
 | :---------- | :--------- | :------------------------------------------ |
-| `symbol`      | `string` | **Obrigatório**. O símbolo do produto que você quer buscar.|
+| `symbol`      | `string` | **Obrigatório**. O símbolo da moeda que você quer buscar.|
 
 Exemplo: USD, EUR e etc.
 
