@@ -28,12 +28,12 @@ A rota `Currency` tem seus dados recebidos através da requisição a API [Aweso
 
 ## Preparando o ambiente
 
-Primeiro, deve-se clonar este repositório a partir do terminal, ou da interface de um editor de código, com o comando abaixo:
+Primeiro, deve-se clonar este repositório a partir do terminal ou da interface de um editor de código com o comando abaixo:
 
 ```
 https://github.com/cxavier6/Banco-de-talentos.git
 ```
-Acessar a pasta da aplicação
+Acessar a pasta da aplicação na branch `camila=reis-backend`
 
 ```
 cd backend
