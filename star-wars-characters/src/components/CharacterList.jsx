@@ -17,7 +17,7 @@ export const CharacterList = () => {
   console.log('recebi', filteredCharacters);
   return (
     <>
-      <div className="character-list container">
+      <div className="grid-characters container">
         {filteredCharacters.length ? (
           <>
             {filteredCharacters.map(character => (

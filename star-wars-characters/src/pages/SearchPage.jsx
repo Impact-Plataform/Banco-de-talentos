@@ -16,13 +16,13 @@ export const SearchPage = () => {
 
   return (
     <div className="container">
-      <p className="p-search">
+      <p>
         <span>
           <strong>{filteredCharacters.length}</strong>{' '}
           {filteredCharacters.length < 2 ? 'character' : 'characters'}
         </span>
       </p>
-      <div className="card-list-character container">
+      <div className="grid-characters container">
         {filteredCharacters.map((character, index) => (
           <CharacterCard character={character} key={uuidv4()} />
         ))}

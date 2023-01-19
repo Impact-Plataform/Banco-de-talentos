@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import React, { useContext } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
 import { genderOptions, filmOptions, specieOptions, stylesSelect } from '../helpers/data.js';
+import '../assets/styles/Filters.css';
 
 export const Filters = () => {
   const { allCharacters, setFilteredCharacters } = useContext(CharacterContext);

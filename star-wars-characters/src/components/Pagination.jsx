@@ -1,4 +1,5 @@
 import React from 'react';
+import '../assets/styles/Pagination.css';
 
 export const Pagination = ({ characterPerPage, currentPage, setCurrentPage, totalCharacters }) => {
   const pageNumbers = [];
@@ -9,11 +10,11 @@ export const Pagination = ({ characterPerPage, currentPage, setCurrentPage, tota
   const onSpecificPage = number => setCurrentPage(number);
   return (
     <nav className="pagination" role="navigation" aria-label="pagination">
-      <ul className="pagination-list">
+      <ul className="list">
         {pageNumbers.map(numberPage => (
           <li key={numberPage}>
             <a
-              className={`pagination-link ${numberPage === currentPage ? 'is-current' : ''}`}
+              className={`link ${numberPage === currentPage ? 'is-current' : ''}`}
               onClick={() => onSpecificPage(numberPage)}
             >
               {numberPage}

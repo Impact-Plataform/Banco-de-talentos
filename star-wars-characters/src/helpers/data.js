@@ -320,8 +320,8 @@ export const stylesSelect = {
     color: '#fff',
     fontSize: '16px',
     backgroundColor: '#111',
-    borderBottom: '1px solid #fff',
-    padding: '2px 8px',
+    borderBottom: '1px solid #ffe81f',
+    padding: '2px 4px',
     '&:hover': {
       borderColor: '#FFE81F',
     },
@@ -330,11 +330,9 @@ export const stylesSelect = {
     ...base,
     background: '#111',
     fontSize: '20px',
-
+    margin: '8px',
     color: '#fff',
     borderRadius: state.isFocused ? '2px 2px 0 0' : 1,
-    padding: '0px 30px 0 48px',
-    marginTop: '8px',
 
     boxShadow: state.isFocused ? null : null,
     '&:hover': {
@@ -343,7 +341,9 @@ export const stylesSelect = {
   }),
   container: base => ({
     ...base,
-    padding: 8,
+    width: '300px',
+    marginTop: '8px',
+    padding: '0',
   }),
 
   menuList: base => ({

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { images } from '../assets/images';
+import '../assets/styles/CharacterCard.css';
+
 export const CharacterCard = ({ character }) => {
   // pega apenas o id do personagem
   let id = character.url.substring(character.url.length - 3, character.url.length).replaceAll('/', '');

@@ -4,6 +4,7 @@ import { CharacterContext } from '../context/CharacterContext';
 import { Loader } from '../components';
 import { images } from '../assets/images';
 import { charactersAbout } from '../helpers/data.js';
+import '../assets/styles/CharacterPage.css';
 
 export const CharacterPage = () => {
   const { allCharacters, getCharacterById } = useContext(CharacterContext);

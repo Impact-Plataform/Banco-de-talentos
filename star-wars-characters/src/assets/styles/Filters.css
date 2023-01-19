@@ -1,0 +1,27 @@
+.filters {
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  text-align: center;
+}
+
+.filters button {
+  display: inline-block;
+  border: none;
+  outline: none;
+  border-radius: 12px;
+  padding: 8px 24px;
+  font-family: inherit;
+  color: #fff;
+  border: 2px solid #ffe81f;
+  background-color: #111;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-top: 12px;
+}
+.filters button:hover {
+  color: #111;
+  background-color: #ffe81f;
+  border: 2px solid #fff;
+}

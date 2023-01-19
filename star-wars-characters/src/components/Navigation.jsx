@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { CharacterContext } from '../context/CharacterContext';
 import logoStarWars from '../assets/logo.svg';
+import '../assets/styles/Navigation.css';
 
 export const Navigation = () => {
   const { valueSearch, onInputChange, onResetForm } = useContext(CharacterContext);
@@ -17,12 +18,12 @@ export const Navigation = () => {
 
   return (
     <>
-      <header className="container">
+      <header className="container navigation">
         <Link to="/" className="logo">
           <img src={logoStarWars} alt="Logo Star Wars" />
         </Link>
 
-        <form className="navigation-search" onSubmit={onSearchSubmit}>
+        <form className="search" onSubmit={onSearchSubmit}>
           <div className="group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
