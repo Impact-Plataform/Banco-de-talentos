@@ -1,13 +1,13 @@
 ## Objetivo
 
-Desenvolver uma API REST que execute as seguintes operações em `Products` e `Currency`:
+Desenvolver uma API REST que execute as seguintes operações nas rotas `Products` e `Currency`:
 
 - Products:
  - [X] GET, POST, PATCH, DELETE
 - Currency: 
  - [X] GET
 
-A rota `Currency` tem seus dados recebidos através da requisição a API Awesome API.
+A rota `Currency` tem seus dados recebidos através da requisição a API [Awesome API](https://economia.awesomeapi.com.br/all).
 
 ## Tecnologias
 
@@ -91,7 +91,7 @@ As dependências necessárias instaladas para este projeto estão listadas abaix
  
  ## Rotas
  
-A partir da URL base pode-se executar as operações CRUD(Create, Read, Update e Delete) com os métodos HTTP: POST, GET, PATCH e DELETE.
+A partir da URL base `http://localhost:4000` pode-se executar as operações CRUD(Create, Read, Update e Delete) com os métodos HTTP: POST, GET, PATCH e DELETE.
  
  #### Retorna todos os produtos cadastrados
 
