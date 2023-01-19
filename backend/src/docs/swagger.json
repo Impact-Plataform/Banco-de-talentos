@@ -1,0 +1,322 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Produtos",
+        "description": "Essa API REST foi desenvolvida para performar a manipulação de Produtos através das rotas GET, POST, PATCH e DELETE e de Currency com a rota GET",
+        "contact": {
+            "email": "cxavier.reis@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:4000/",
+            "description": "API REST"
+        }
+    ], 
+    "paths": {
+        "/Products": {
+            "post": {
+                "summary": "Cadastro de produtos",
+                "description": "Rota responsável pelo cadastro de novos produtos",
+                "tags": ["Products"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Products"
+                            },
+                            "examples": {
+                                "product": {
+                                    "value": {
+                                        "name": "Watch Pro",
+                                        "category": "wearables",
+                                        "price_BRL": 2000
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Products"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Busca todos os produtos",
+                "description": "Rota responsável pela listagem de todos os produtos",
+                "tags": ["Products"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Products"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not found"
+                    } 
+                }
+            }      
+        },
+        "/Products/{id}": {
+            "get": {
+                "description": "Busca o produto pelo id",
+                "summary": "Busca um produto pelo id",
+                "tags": ["Products"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id do produto para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Products"
+                                }
+                            }
+                        }
+                    },
+                    "Error": {
+                        "description": "Product with id {id} not found"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            },
+            "patch": {
+                "description": "Atualiza o produto pelo id",
+                "summary": "Atualiza um produto pelo id",
+                "tags": ["Products"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id do produto para busca",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Products"
+                            },
+                            "examples": {
+                                "product": {
+                                    "value": {
+                                        "name": "Watch Pro 5",
+                                        "category": "wearables",
+                                        "price_BRL": 3000
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Products"
+                                }
+                            }
+                        }
+                    },
+                    "Error": {
+                        "description": "Product with id {id} not found"
+                    },
+                    "404": {
+                        "description": "Error updating product."
+                    }
+                }
+            },
+            "delete": {
+                "description": "Deleta o produto pelo id",
+                "summary": "Deleta um produto pelo id",
+                "tags": ["Products"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id do produto para busca",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product with id (id} deleted."
+                    },
+                    "Error": {
+                        "description": "Product with id {id} not found"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    }
+                }
+            }  
+        },
+        "/Currency": {
+            "get": {
+                "summary": "Busca todos as moedas",
+                "description": "Rota responsável pela listagem de todos as moedas",
+                "tags": ["Currency"],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Currency"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    } 
+                }
+            }      
+        },
+        "/Currency/{symbol}": {
+            "get": {
+                "description": "Busca a moeda pelo símbolo",
+                "summary": "Busca uma moeda pelo símbolo",
+                "tags": ["Currency"],
+                "parameters": [
+                    {
+                        "name": "symbol",
+                        "in": "path",
+                        "description": "Símbolo da moeda para busca (USD, EUR e etc)",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Currency"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Currency not found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Products": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "category": {
+                        "type": "string"
+                    },
+                    "price_BRL": {
+                        "type": "number"
+                    },
+                    "createdAt": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "type": "string"
+                    },
+                    "__v": {
+                        "type": "number"
+                    },
+                    "price_USD": {
+                        "type": "number"
+                    },
+                    "price_EUR": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Currency": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "codein": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "high": {
+                        "type": "number"
+                    },
+                    "low": {
+                        "type": "number"
+                    },
+                    "varBid": {
+                        "type": "number"
+                    },
+                    "pctChange": {
+                        "type": "number"
+                    },
+                    "bid": {
+                        "type": "number"
+                    },
+                    "ask": {
+                        "type": "number"
+                    },
+                    "timestamp": {
+                        "type": "number"
+                    },
+                    "create_date": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
