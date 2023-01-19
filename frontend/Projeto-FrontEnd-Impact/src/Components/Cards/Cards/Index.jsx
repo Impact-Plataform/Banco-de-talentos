@@ -7,16 +7,12 @@ import { GetPeople } from "../../../services/Api";
 import { CardLi } from "../CardLi/Index";
 
 
-
 export const Cards = ({ ReceiveDados }) => {
-  console.log("Abaixo o receive dados")
-  console.log(ReceiveDados)
 
   const [page, atPage] = useState(1); // PAGE PARA CRIAR PAGINAÇÃO. 
   const [people, setPeople] = useState([]); // ATRIBUR A API UM ESTADO
   const [loading, setLoading] = useState(false); // CRIAR LOADING NA PAGE
   let peopleFiltred = [];
-
 
   useEffect(() => {
     getPeoples()
@@ -38,31 +34,24 @@ export const Cards = ({ ReceiveDados }) => {
       console.log(e)
     }
   }
- 
+
   function setPeopleFiltred(genero = ReceiveDados[0], filmes = ReceiveDados[1], especies = ReceiveDados[2], nome = ReceiveDados[3]) {
-    // console.log("Tamanho people: "+ people.length)
-    // Filtrando por genero
+
     peopleFiltred = people
-    if(genero){
+    if (genero) {
       peopleFiltred = peopleFiltred.filter(person => person.gender == genero)
     }
     // Filtrando por Especie
-    if(nome){
+    if (nome) {
       peopleFiltred = peopleFiltred.filter(person => person.name.toLowerCase().includes(nome.toLowerCase()))
     }
-    if(especies){
+    if (especies) {
       peopleFiltred = peopleFiltred.filter(person => person.species.includes(especies))
     }
 
-    if(filmes){
+    if (filmes) {
       peopleFiltred = peopleFiltred.filter(person => person.films.includes(filmes))
     }
-    // people.forEach(person => {
-     
-    //   if (person.gender == genero) {
-    //     peopleFiltred.push(person)
-    //   }
-    // })
   }
   setPeopleFiltred()
 

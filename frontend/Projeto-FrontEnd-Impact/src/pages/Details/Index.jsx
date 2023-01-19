@@ -11,7 +11,6 @@ import { Button } from "../../Components/Button/Index";
 
 export const Details = () => {
 
-
   const { id } = useParams()
 
   const [personagem, setPersonagem] = useState({})
@@ -49,11 +48,11 @@ export const Details = () => {
     <>
       <Header />
       <StyledDetails>
-        <div className="cardG">
-          <div className="cardItem">
+        <div className="main__div">
+          <figure>
             <img src={Face} alt="" />
-          </div>
-          <div className="details">
+          </figure>
+          <section>
             <ul>
               <li> <h1>Nome: {personagem.name}</h1></li>
               <li> Altura: {personagem.height} </li>
@@ -67,7 +66,7 @@ export const Details = () => {
             </ul>
             <Link to="/characters" ><Button titulo={"Voltar"} margintop={"10px"} marginbottom={"10px"} border={"3px solid whitesmoke"} /></Link>
 
-          </div>
+          </section>
         </div>
       </StyledDetails>
       <Footer />

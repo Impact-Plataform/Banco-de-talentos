@@ -4,16 +4,16 @@ import { Main } from "../../Components/Main/Index.jsx";
 import { StyledHome } from "./style";
 
 
-export const Home = () =>{
-return(
+export const Home = () => {
+    return (
 
 
-<StyledHome>
-    <Header/>
-    <Main/>
-    <Footer/>
-</StyledHome>
+        <StyledHome>
+            <Header />
+            <Main />
+            <Footer />
+        </StyledHome>
 
-)
+    )
 }
 

@@ -9,14 +9,14 @@ export const Form = ({ SaveDados }) => {
   const [dadosFilms, setDadosFilms] = useState(undefined)
   const [dadosName, setDadosName] = useState(undefined)
   const [dadosSpecies, setDadosSpecies] = useState(undefined)
-  
 
-  function handleDados(){
+
+  function handleDados() {
 
     SaveDados([dadosGender, dadosFilms, dadosSpecies, dadosName])
   }
 
-  function ClearAll(){
+  function ClearAll() {
     setDadosGender(undefined)
     setDadosFilms(undefined)
     setDadosName(undefined)
@@ -24,7 +24,7 @@ export const Form = ({ SaveDados }) => {
     window.location.reload(true)
 
   }
-  
+
   // USE EFFECT PARA ASSIM QUE RENDERIZAR MONTAR OS OPTIONS COM OS FILMES E AS ESPECIES.
 
   useEffect(() => {
@@ -89,7 +89,7 @@ export const Form = ({ SaveDados }) => {
           <option value="n/a">n/a</option>
         </select>
 
-        <select name="Filmes"  onChange={e => setDadosFilms(e.target.value)}>
+        <select name="Filmes" onChange={e => setDadosFilms(e.target.value)}>
           {CardFilmes}
         </select>
 
@@ -103,6 +103,6 @@ export const Form = ({ SaveDados }) => {
       </form>
     </StyledForm>
   )
-  
+
 }
 

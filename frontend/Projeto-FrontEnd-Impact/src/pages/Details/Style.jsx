@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledDetails = styled.div`
+export const StyledDetails = styled.main`
 
 padding: 0 2rem;
 margin-top: 10px;
@@ -11,7 +11,7 @@ margin-top: 10px;
     font-size: 120%;
   }
 
-  .cardG {
+  .main__div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@ margin-top: 10px;
     background-color: #142374dc;
     box-shadow: 0px 0px 35px #00d9ff, 0px 0px 15px #00d9ffc0 inset;
   }
-  .cardItem {
+  figure {
     width: 300px;
     border-radius: 1rem;
     margin-bottom: 2rem;
@@ -56,7 +56,7 @@ a:hover{
     line-height: 130%;
   }
  
-  .details {
+  section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -73,7 +73,7 @@ a:hover{
 
   @media screen and (max-width: 790px) {
 
-    .cardItem{
+    figure{
  
       padding: 0 0 0 0;
       align-items: center;
@@ -84,7 +84,7 @@ a:hover{
         width: 100%;    
         align-items: center;
     }
-    .details {
+    section {
         margin-left: 0;
         max-width: 100%;
         text-align: center;

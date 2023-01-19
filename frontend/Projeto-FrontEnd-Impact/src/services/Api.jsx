@@ -1,32 +1,32 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: `https://swapi.dev/api/`,
+  baseURL: `https://swapi.dev/api/`,
 });
 
-export const GetPeople = async(page) => {
-  try{
+export const GetPeople = async (page) => {
+  try {
     const requisicao = await api.get(`people/?page=${page}`)
     return requisicao.data
-  }catch(e){
+  } catch (e) {
     console.log(e)
   }
 }
 
-export const GetFilms = async() => {
-  try{
+export const GetFilms = async () => {
+  try {
     const requisicao = await api.get(`films/`)
     return requisicao.data
-  }catch(e){
+  } catch (e) {
     console.log(e)
   }
 }
 
-export const GetSpecies = async() => {
-  try{
+export const GetSpecies = async () => {
+  try {
     const requisicao = await api.get(`species/`)
     return requisicao.data
-  }catch(e){
+  } catch (e) {
     console.log(e)
   }
 }

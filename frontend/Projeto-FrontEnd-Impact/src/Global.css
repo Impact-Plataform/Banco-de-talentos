@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -7,7 +7,7 @@
   vertical-align: baseline;
 }
 
-body{
+body {
   background-image: url(./assets/starwarsIntro.gif);
   background-size: cover;
   background-repeat: no-repeat;
@@ -16,14 +16,11 @@ body{
   flex-direction: column;
   justify-content: space-between;
   background-color: black
-
-  
-
 }
 
 @media screen and (max-width: 790px) {
 
-  body{
+  body {
     background-image: url(./assets/Skystar.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,4 +29,3 @@ body{
   }
 
 }
-

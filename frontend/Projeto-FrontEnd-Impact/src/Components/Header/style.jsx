@@ -14,7 +14,7 @@ export const StyledHeader = styled.header`
     margin-top: 10px;
     
 
-.botoesAncora {
+    .a__button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +41,7 @@ i {
 }
 
 
-.botoesAncora:hover {
+.a__button:hover {
     background-position: 0;
     border: 3px solid #00d9ff;
             color: #00d9ff;

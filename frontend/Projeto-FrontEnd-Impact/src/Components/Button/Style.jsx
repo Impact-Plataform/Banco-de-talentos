@@ -14,9 +14,9 @@ export const StyledButton = styled.button`
     font-size: 1em;
     cursor: pointer;
     color: ${props => props.color ? props.color : 'white'};
-    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : "#142374dc" };
+    background-color: ${(props) => props.backgroundColor ? props.backgroundColor : "#142374dc"};
     transition: all 0.1s;
-    border: ${(props) => props.border ? props.border : "none" };
+    border: ${(props) => props.border ? props.border : "none"};
     transition: all 0.1s;
     
     

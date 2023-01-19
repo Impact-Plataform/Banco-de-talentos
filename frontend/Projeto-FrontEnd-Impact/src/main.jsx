@@ -9,12 +9,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-  
-<BrowserRouter>
+
+  <BrowserRouter>
     <Routes>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/characters' element={<Characters/>}/>
-      <Route path='/details/:id' element={<Details/>}/>
+      <Route path='/' element={<Home />} />
+      <Route path='/characters' element={<Characters />} />
+      <Route path='/details/:id' element={<Details />} />
     </Routes>
   </BrowserRouter>
 )

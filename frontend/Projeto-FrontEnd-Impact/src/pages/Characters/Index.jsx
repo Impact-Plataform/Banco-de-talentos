@@ -8,24 +8,24 @@ import { Header } from "../../Components/Header/Index"
 import { StyledCharacters } from "./style"
 
 
-export const Characters = () =>{
+export const Characters = () => {
 
     const [dados, setDados] = useState([])
-    function handleUsers(user){
+    function handleUsers(user) {
         let newDados = user
         setDados(newDados)
 
     }
 
-    return(
-   
-    <StyledCharacters> 
-        <Header/>
-        <Form SaveDados={handleUsers}/>
-        <Cards ReceiveDados={dados} />
-        <Footer/>
-    </StyledCharacters>
-   
-    
+    return (
+
+        <StyledCharacters>
+            <Header />
+            <Form SaveDados={handleUsers} />
+            <Cards ReceiveDados={dados} />
+            <Footer />
+        </StyledCharacters>
+
+
     )
-    }
+}
