@@ -2,10 +2,19 @@ import ProductDbMethod from "../DAO/product-method.js";
 import ProductModel from "../Model/product-model.js";
 import Validate from "../Service/validate.js";
 import getQuotation from "../Service/fecthservice.js";
+import { LocalStorage } from "node-localstorage"
 
 ProductDbMethod.createTableProduct();
-const quotation = await getQuotation("https://economia.awesomeapi.com.br/all")
 
+const localStorage = new LocalStorage("./scratch");
+
+if( localStorage.getItem("quot") == undefined || localStorage.getItem("quot") == null){
+    let quot = await getQuotation("https://economia.awesomeapi.com.br/all")
+    quot = JSON.stringify(quot)
+    localStorage.setItem("quot", quot)
+}
+
+const quotation = JSON.parse(localStorage.getItem("quot"));
 
 class Product extends Validate{
     static route(app){
