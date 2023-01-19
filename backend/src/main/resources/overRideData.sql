@@ -1,0 +1,1 @@
+UPDATE product SET description = 'updated description' WHERE id = 'e6ec75a3-cf21-4fa5-864f-2d6144f06b4c';
