@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { StateContext } from "../../context/StateProvider";
 import api from "../../service/api";
 import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination";
 import style from "./Section.module.css";
 
 const Section = () => {
-  const [info, setInfo] = useState([]);
+  const { info, setInfo } = useContext(StateContext);
   const [page, setPage] = useState(1);
-  
+
   useEffect(() => {
     api
       .get(`/people/?page=${page}`)
@@ -35,49 +36,39 @@ const Section = () => {
 
   return (
     <section className={style.section}>
-      <div className="container-md">
-        <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
-          {info.map((personagem) => {
-            return (
-              <Card
-                key={personagem.url}
-                nome={personagem.name}
-                genero={
-                  personagem.gender == "n/a"
-                    ? "indisponível"
-                    : personagem.gender
-                }
-                altura={personagem.height}
-                peso={
-                  personagem.mass == "unknown"
-                    ? "indisponível"
-                    : personagem.mass
-                }
-                corDoCabelo={
-                  personagem.hair_color == "n/a"
-                    ? "Não possui"
-                    : personagem.hair_color
-                }
-                corDosOlhos={personagem.eye_color}
-                corDaPele={
-                  personagem.skin_color == "unknown"
-                    ? "indisponível"
-                    : personagem.skin_color
-                }
-                especie={personagem.species}
-                anoDeNascimento={
-                  personagem.birth_year == "unknown"
-                    ? "indisponível"
-                    : personagem.birth_year
-                }
-                planeta={personagem.homeworld}
-                filmes={personagem.films}
-                url={personagem.url}
-              />
-            );
-          })}
+      
+        <div className="container-md">
+          <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
+            {info.map((info) => {
+              return (
+                <Card
+                  key={info.url}
+                  nome={info.name || info.title}
+                  genero={info.gender}
+                  altura={info.height}
+                  peso={info.mass == "unknown" ? "indisponível" : info.mass}
+                  corDoCabelo={
+                    info.hair_color == "n/a" ? "Não possui" : info.hair_color
+                  }
+                  corDosOlhos={info.eye_color}
+                  corDaPele={
+                    info.skin_color
+                  }
+                  especie={info.species}
+                  anoDeNascimento={
+                    info.birth_year == "unknown"
+                      ? "indisponível"
+                      : info.birth_year
+                  }
+                  planeta={info.homeworld}
+                  filmes={info.films}
+                  url={info.url || info.url}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
+      
       <div className="container-fluid p-2">
         <Pagination anterior={previousPage} proxima={nextPage} />
       </div>
