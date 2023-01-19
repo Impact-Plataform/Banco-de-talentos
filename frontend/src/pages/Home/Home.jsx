@@ -1,41 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import api from '../../services/api';
+import useEndpoints from '../../hooks/useEndpoints';
 import getUrlId from '../../utils/getUrlId';
 
 import Card from './Card/Card';
 import SearchInput from './SearchInput/SearchInput';
 import Pagination from './Pagination/Pagination';
-
-import './style.css';
 import Loader from './Loader/Loader';
 
+import './style.css';
+
 const Home = () => {
-    const [characters, setCharacters] = useState([]);
+    const { peoples, isLoading } = useEndpoints();
     const [inputSearch, setInputSearch] = useState('');
     const [page, setPage] = useState(0);
-    const [IsLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        async function allPeoples() {
-            const result = [];
-            try {
-                for (let i = 1; i <= 83; i++) {
-                    if (i === 17) i++;
-                    const response = await api.get(`people/${+i}`);
-                    const data = await response.data;
-                    result.push(data);
-                    setCharacters(result);
-                }
-            } catch (error) {
-            } finally {
-                setIsLoading(false);
-            }
-        }
-        allPeoples();
-    }, []);
-
-    const filter = characters.filter((item) => {
+    const filter = peoples.filter((item) => {
         return item.name.toLowerCase().indexOf(inputSearch.toLowerCase()) !== -1
             ? item
             : '';
@@ -45,14 +25,14 @@ const Home = () => {
     const pagesVisited = page * usersPerPage;
 
     return (
-        <>
+        <>  
             <section className="container">
                 <SearchInput
                     value={inputSearch}
                     onChange={(search) => setInputSearch(search)}
                 />
 
-                {IsLoading ? null : (
+                {isLoading ? null : (
                     <Pagination
                         displayUsersPage={filter}
                         usersPerPage={usersPerPage}
@@ -60,7 +40,7 @@ const Home = () => {
                     />
                 )}
 
-                {IsLoading ? (
+                {isLoading ? (
                     <Loader />
                 ) : (
                     <div className="cards__list">
