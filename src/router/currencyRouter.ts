@@ -1,14 +1,10 @@
 import { Router } from 'express';
-import { GetCurenciesController } from '../controllers/currency/getCurrenciesController';
-import { GetCurencyController } from '../controllers/currency/getCurrencyController';
-import { ValidateCurrencysymbol } from '../middlewares/validateCurrencySymbol';
 
-const getCurencies = new GetCurenciesController();
-const getCurrency = new GetCurencyController();
+import { CurencyController } from '../controllers/currency/currencyController';
 
-const validateCurrencysymbol = new ValidateCurrencysymbol();
+const curencyController = new CurencyController();
 
 export const currencyRouter = Router();
 
-currencyRouter.get('/', getCurencies.execute);
-currencyRouter.get('/:symbol', validateCurrencysymbol.validate, getCurrency.execute);
+currencyRouter.get('/', curencyController.getCurrencies);
+currencyRouter.get('/:symbol', curencyController.getCurrency);

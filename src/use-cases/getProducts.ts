@@ -1,4 +1,4 @@
-import { cache } from '..';
+import { currencyApi } from '../utils/currencyApi';
 import { ProductRepository } from '../repositories/productRepository';
 import { NotFoundError } from '../utils/apiErrors';
 
@@ -16,7 +16,7 @@ export class GetProducts {
 		const secondCurrency = 'EUR';
 		const result = [];
 
-		const {firstCurrencyValue, secondCurrencyValue} = await cache.getTwoCurrencies(firstCurrency, secondCurrency);
+		const {firstCurrencyValue, secondCurrencyValue} = await currencyApi.getTwoCurrencies(firstCurrency, secondCurrency);
 
 		for (const element of products) {
 			result.push({

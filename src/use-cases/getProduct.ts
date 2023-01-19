@@ -1,4 +1,4 @@
-import { cache } from '..';
+import { currencyApi } from '../utils/currencyApi';
 import { ProductRepository } from '../repositories/productRepository';
 import { NotFoundError } from '../utils/apiErrors';
 import { validateIdtype } from '../yupschemas/validateIdSchema';
@@ -18,7 +18,7 @@ export class GetProduct {
 		const firstCurrency = 'USD';
 		const secondCurrency = 'EUR';
 
-		const {firstCurrencyValue, secondCurrencyValue} = await cache.getTwoCurrencies(firstCurrency, secondCurrency);
+		const {firstCurrencyValue, secondCurrencyValue} = await currencyApi.getTwoCurrencies(firstCurrency, secondCurrency);
 
 		const product = {
 			...existsProduct,
