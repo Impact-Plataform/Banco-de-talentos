@@ -35,7 +35,7 @@ export const CharacterPage = () => {
   }, []);
 
   return (
-    <div className="character-page">
+    <div className="container character-page">
       {loading ? (
         <Loader />
       ) : (
