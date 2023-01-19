@@ -1,36 +1,58 @@
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
 
 import { characters as characterImages } from '../../assets/images.json';
+import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter';
 import { Character } from '../../interfaces/character.interface';
-import { ObjectInterface } from '../../interfaces/object.interface';
+import { ObjectStringInterface } from '../../interfaces/object.interface';
 import { useDarkMode } from '../../providers/DarkMode';
 import { useFilms } from '../../providers/Films';
+import { useSpecies } from '../../providers/Species';
 
 interface CardProps {
   character: Character;
+  mode: 'complete' | 'simplified';
 }
 
-export function Card({ character }: CardProps) {
-  const { films } = useFilms();
+export function Card({ character, mode }: CardProps) {
   const { darkMode } = useDarkMode();
+  const { species } = useSpecies();
+  const { films } = useFilms();
 
   return (
-    <Link
-      to={`details/${character.name}`}
-      className="w-[80%] bg-gray-700 m-2 rounded-lg p-6"
+    <div
+      className={cx('rounded-lg flex flex-col p-2 m-2', {
+        'bg-gray-600': darkMode,
+        'bg-gray-200': !darkMode,
+      })}
     >
       <img
-        src={(characterImages as ObjectInterface)[character.name]}
+        src={(characterImages as ObjectStringInterface)[character.name]}
         alt={`${character.name}`}
         className="rounded-lg w-full"
       />
-      <div className="text-sw-yellow text-2xl font-semibold text-center mt-2 tracking-wide">
+      <div
+        className={cx(
+          'text-sw-yellow text-2xl font-semibold text-center my-2 tracking-wide',
+          { 'order-first': mode === 'complete' },
+        )}
+      >
         {character.name}
       </div>
-      <div className="mx-6">
+      <div className="mx-6 mt-2">
+        {mode === 'complete' && (
+          <>
+            <p>Gender: {capitalizeFirstLetter(character?.gender)}</p>
+            <p>Hair color: {capitalizeFirstLetter(character?.hair_color)}</p>
+            <p>Birth year: {capitalizeFirstLetter(character?.birth_year)}</p>
+            <p>
+              Specie:{' '}
+              {species?.find((specie) => specie.people.includes(character?.url as string))
+                ?.name || 'N/a'}
+            </p>
+          </>
+        )}
         <span
-          className={cx('text-lg font-semibold', {
+          className={cx('font-semibold', {
             'text-gray-200': darkMode,
           })}
         >
@@ -41,14 +63,12 @@ export function Card({ character }: CardProps) {
             ?.filter((film) => film.characters.includes(character.url))
             .map(
               (film, index) =>
-                index < 3 && (
-                  <div key={index} className={cx()}>
-                    {film.title}
-                  </div>
+                index < (mode === 'simplified' ? 3 : Number.MAX_VALUE) && (
+                  <p key={index}>{film.title}</p>
                 ),
             )}
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
