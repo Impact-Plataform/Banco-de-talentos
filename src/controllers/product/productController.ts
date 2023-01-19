@@ -3,11 +3,11 @@ import { Request, Response } from 'express';
 
 import { PrismaProductRepository } from '../../repositories/prismaProductRepository';
 
-import { CreateProduct } from '../../use-cases/createProduct';
-import { DeleteProduct } from '../../use-cases/deleteProduct';
-import { GetProduct } from '../../use-cases/getProduct';
-import { GetProducts } from '../../use-cases/getProducts';
-import { UpdateProduct } from '../../use-cases/updateProduct';
+import { CreateProduct } from '../../use-cases/product/createProduct';
+import { DeleteProduct } from '../../use-cases/product/deleteProduct';
+import { GetProduct } from '../../use-cases/product/getProduct';
+import { GetProducts } from '../../use-cases/product/getProducts';
+import { UpdateProduct } from '../../use-cases/product/updateProduct';
 
 const prismaProductRepository = new PrismaProductRepository();
 
