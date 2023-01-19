@@ -24,7 +24,7 @@ export function DarkModeProvider({ children }: DarkModeProps) {
         <div
           className={cx('h-full w-full fixed -z-10', {
             'bg-gray-900': darkMode,
-            'bg-gray-100': !darkMode,
+            'bg-gray-50': !darkMode,
           })}
         />
         {children}
