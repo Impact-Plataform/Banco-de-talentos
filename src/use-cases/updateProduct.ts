@@ -18,6 +18,10 @@ export class UpdateProduct {
 		}
     
 		await validateBody.validate(props);
+
+		if(Number(props.name)) {
+			throw new BadRequestError('name deve ser um tipo de `string`');
+		}
     
 		const existsProduct = await this.productRepository.findByName(props.name);
 

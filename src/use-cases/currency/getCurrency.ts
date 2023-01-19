@@ -11,6 +11,10 @@ export class GetCurrency {
 
 		await validateSymboltype.validate({symbol});
 
+		if(Number(symbol)) {
+			throw new BadRequestError('symbol deve ser um tipo de `string`');
+		}
+
 		const currencies = await currencyApi.getApiData();
 
 		const existsSymbol = currencies.find(currency => currency.code === symbol.toUpperCase());

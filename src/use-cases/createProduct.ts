@@ -9,6 +9,10 @@ export class CreateProduct {
 	async create(props: Omit<Product, 'id'>) {
 		await validateBody.validate(props);
 
+		if(Number(props.name)) {
+			throw new BadRequestError('name deve ser um tipo de `string`');
+		}
+
 		const existsProduct = await this.productRepository.findByName(props.name);
 
 		if(existsProduct) {
