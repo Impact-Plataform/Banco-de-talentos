@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import main from "./src/db/conn.js"
+import main from "./src/db/conn.js";
 import Currency from "./src/controllers/CurrencyController.js";
 import Products from "./src/controllers/ProductController.js";
 

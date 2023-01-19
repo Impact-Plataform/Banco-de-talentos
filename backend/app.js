@@ -1,5 +1,5 @@
 import * as dotenv from "dotenv";
-import swaggerUi from "swagger-ui-express"
+import swaggerUi from "swagger-ui-express";
 import swaggerDocs from "./src/docs/swagger.json" assert { type: "json" };
 
 import { app } from "./server.js";
