@@ -23,15 +23,15 @@ describe('Test Product Endpoints', () => {
 
     it("should list one product by its id", async () => {
         const res = await request(app)
-        .get("/Products/63c6feae39259caf2f38316f")
+        .get("/Products/63c6eec549b4b818d5e25aba")
         
         expect(res.statusCode).toBe(200)
-        expect(res.body.name).toBe("test-product")
+        expect(res.body.name).toBe("Product name 1")
       })
 
       it("should update a product", async () => {
         const res = await request(app)
-          .patch("/Products/63c6feae39259caf2f38316f")
+          .patch("/Products/63c9a7343f628c11751359f9")
           .send({
             name: "test-product 2",
             category: "test-category 2",
@@ -43,7 +43,7 @@ describe('Test Product Endpoints', () => {
 
       it("should delete a product", async () => {
         const res = await request(app)
-        .delete("/Products/63c6feae39259caf2f38316f")
+        .delete("/Products/63c9a7343f628c11751359f9")
 
         expect(res.statusCode).toBe(200)
       })
