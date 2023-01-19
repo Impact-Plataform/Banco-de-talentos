@@ -33,7 +33,7 @@ Primeiro, deve-se clonar este repositório a partir do terminal ou da interface 
 ```
 https://github.com/cxavier6/Banco-de-talentos.git
 ```
-Acessar a pasta da aplicação na branch `camila=reis-backend`
+Acessar a pasta da aplicação na branch `camila-reis-backend`
 
 ```
 cd backend
