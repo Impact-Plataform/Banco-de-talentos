@@ -22,7 +22,7 @@ describe('validate the product ID.', () => {
 			await validateIdtype.validate(productId);
 		} catch (error) {
 			expect(error).toBeInstanceOf(ValidationError);
-			expect(error).toHaveProperty('message', 'id deve ser um tipo de `number`, Mas o valor final foi: `NaN` (Elenco do valor `\"abc\"`).');
+			expect(error).toHaveProperty('message', 'id deve ser um tipo de `number`');
 		}
 	});
 

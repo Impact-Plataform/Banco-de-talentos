@@ -66,7 +66,7 @@ describe('validate the body of the request to register or update the product.', 
 			await validateBody.validate(reqBody);
 		} catch (error) {
 			expect(error).toBeInstanceOf(ValidationError);
-			expect(error).toHaveProperty('message', 'value deve ser um tipo de `number`, Mas o valor final foi: `NaN` (Elenco do valor `\"abc\"`).');
+			expect(error).toHaveProperty('message', 'value deve ser um tipo de `number`');
 		}
 	});
 
@@ -102,7 +102,7 @@ describe('validate the body of the request to register or update the product.', 
 			await validateBody.validate(reqBody);
 		} catch (error) {
 			expect(error).toBeInstanceOf(ValidationError);
-			expect(error).toHaveProperty('message', 'amount deve ser um tipo de `number`, Mas o valor final foi: `NaN` (Elenco do valor `\"abc\"`).');
+			expect(error).toHaveProperty('message', 'amount deve ser um tipo de `number`');
 		}
 	});
 
