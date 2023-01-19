@@ -147,6 +147,9 @@ table {
 
 body {
   max-width: 1920px;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 100vh;
 
   background: url("../public/stars-background.svg") no-repeat;
   background-size: cover;
@@ -154,7 +157,8 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-button {
+button,
+select {
   background: none;
   border: none;
   border-radius: 8px;
