@@ -22,10 +22,10 @@ export const StyledForm = styled.div`
         color: white;
         border-radius: 5px;
         text-align: center;
-        width: ${(props) => props.width ? props.width : '200px'};
+        width: ${(props) => props.width ? props.width : '150px'};
         height: ${props => props.height ? props.height : '30px'};
         transition: all 0.1s;
-        margin: 5px 5px;
+        margin: 5px;
    
     }
    

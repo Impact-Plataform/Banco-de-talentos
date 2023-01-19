@@ -24,11 +24,7 @@ export const Form = ({ SaveDados }) => {
     window.location.reload(true)
 
   }
-
   
-
-
-
   // USE EFFECT PARA ASSIM QUE RENDERIZAR MONTAR OS OPTIONS COM OS FILMES E AS ESPECIES.
 
   useEffect(() => {
@@ -102,7 +98,7 @@ export const Form = ({ SaveDados }) => {
         </select>
 
         <input type="text" onChange={e => setDadosName(e.target.value)} placeholder="Filtrar ou buscar nome" />
-        <Button onClick={handleDados} titulo={"Buscar"}></Button>
+        <Button width={"150px"} onClick={handleDados} titulo={"Buscar"}></Button>
         <input type="reset" onClick={ClearAll} value="Limpar dados" />
       </form>
     </StyledForm>
