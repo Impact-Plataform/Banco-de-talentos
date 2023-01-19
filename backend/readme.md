@@ -1,13 +1,13 @@
 ## Objetivo
 
-Desenvolver uma API REST que execute as seguintes operações em `Products` e `Currency`:
+Desenvolver uma API REST que execute as seguintes operações nas rotas `Products` e `Currency`:
 
 - Products:
  - [X] GET, POST, PATCH, DELETE
 - Currency: 
-  - [X] GET
+ - [X] GET
 
-A rota `Currency` tem seus dados recebidos através da requisição a API Awesome API.
+A rota `Currency` tem seus dados recebidos através da requisição a API [Awesome API](https://economia.awesomeapi.com.br/all).
 
 ## Tecnologias
 
@@ -28,12 +28,12 @@ A rota `Currency` tem seus dados recebidos através da requisição a API Awesom
 
 ## Preparando o ambiente
 
-Primeiro, deve-se clonar este repositório a partir do terminal, ou da interface de um editor de código, com o comando abaixo:
+Primeiro, deve-se clonar este repositório a partir do terminal ou da interface de um editor de código com o comando abaixo:
 
 ```
 https://github.com/cxavier6/Banco-de-talentos.git
 ```
-Acessar a pasta da aplicação
+Acessar a pasta da aplicação na branch `camila-reis-backend`
 
 ```
 cd backend
@@ -51,19 +51,19 @@ npm install
  ```
  npm start
  ```
- A seguinte mensagem aparecerá no terminal após a inicialização:
  
- ![image](https://user-images.githubusercontent.com/79461028/182654178-d3eaf28b-c071-49aa-8647-e074c375195f.png)
-
  Para iniciar a aplicação em ambiente de desenvolvimento, utilize o seguinte comando:
 
 ```
  npm run dev
  ```
+A seguinte mensagem aparecerá no terminal após a inicialização:
+ 
+ ![image](https://user-images.githubusercontent.com/79461028/213547291-ce08f9c8-9b9f-472a-ad3a-dd5f42da716b.png)
 
 
 ## Dependências
-As dependências necessárias instaladas para este projeto estão listadas abaixo e devem ser visualizadas no arquivo package.json.
+As dependências necessárias instaladas para este projeto estão listadas abaixo e podem ser visualizadas no arquivo package.json.
  
  ```javascript
  "dependencies": {
@@ -91,7 +91,7 @@ As dependências necessárias instaladas para este projeto estão listadas abaix
  
  ## Rotas
  
-A partir da URL base pode-se executar as operações CRUD(Create, Read, Update e Delete) com os métodos HTTP: POST, GET, PATCH e DELETE.
+A partir da URL base `http://localhost:4000` pode-se executar as operações CRUD(Create, Read, Update e Delete) com os métodos HTTP: POST, GET, PATCH e DELETE.
  
  #### Retorna todos os produtos cadastrados
 
@@ -173,8 +173,9 @@ A partir do framework Jest e o módulo supertest utilizados como dependências d
 Os testes encontrados na pasta `test` podem ser executados no terminal com o seguinte comando:
 
 ```
-npm run test
+npm test
 ```
 Caso todos os testes sejam bem-sucedidos, a seguinte mensagem deve aparecer no terminal:
 
-![image](https://user-images.githubusercontent.com/79461028/182672313-5f535afa-9f99-4276-9575-18c797ddec0e.png)
+![image](https://user-images.githubusercontent.com/79461028/213549039-bfdbef4a-d673-4535-9aad-db338d26d8dc.png)
+
