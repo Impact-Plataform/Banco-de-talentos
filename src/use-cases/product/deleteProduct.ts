@@ -1,6 +1,6 @@
-import { ProductRepository } from '../repositories/productRepository';
-import { NotFoundError } from '../utils/apiErrors';
-import { validateIdtype } from '../yupschemas/validateIdSchema';
+import { ProductRepository } from '../../repositories/productRepository';
+import { NotFoundError } from '../../utils/apiErrors';
+import { validateIdtype } from '../../yupschemas/validateIdSchema';
 
 export class DeleteProduct {
 	constructor(private productRepository: ProductRepository) {}

@@ -1,6 +1,6 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { InMemoryRepository } from '../repositories/InMemoryRepository';
-import { NotFoundError } from '../utils/apiErrors';
+import { InMemoryRepository } from '../../repositories/InMemoryRepository';
+import { NotFoundError } from '../../utils/apiErrors';
 import { CreateProduct } from './createProduct';
 import { DeleteProduct } from './deleteProduct';
 

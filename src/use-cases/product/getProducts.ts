@@ -1,6 +1,6 @@
-import { currencyApi } from '../utils/currencyApi';
-import { ProductRepository } from '../repositories/productRepository';
-import { NotFoundError } from '../utils/apiErrors';
+import { currencyApi } from '../../utils/currencyApi';
+import { ProductRepository } from '../../repositories/productRepository';
+import { NotFoundError } from '../../utils/apiErrors';
 
 export class GetProducts {
 	constructor(private productRepository: ProductRepository) {}

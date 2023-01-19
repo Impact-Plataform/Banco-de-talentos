@@ -1,7 +1,7 @@
 import { Product } from '@prisma/client';
-import { ProductRepository } from '../repositories/productRepository';
-import { BadRequestError } from '../utils/apiErrors';
-import { validateBody } from '../yupschemas/productSchema';
+import { ProductRepository } from '../../repositories/productRepository';
+import { BadRequestError } from '../../utils/apiErrors';
+import { validateBody } from '../../yupschemas/productSchema';
 
 export class CreateProduct {
 	constructor(private productRepository: ProductRepository) {}

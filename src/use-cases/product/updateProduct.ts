@@ -1,8 +1,8 @@
 import { Product } from '@prisma/client';
-import { ProductRepository } from '../repositories/productRepository';
-import { BadRequestError, NotFoundError } from '../utils/apiErrors';
-import { validateBody } from '../yupschemas/productSchema';
-import { validateIdtype } from '../yupschemas/validateIdSchema';
+import { ProductRepository } from '../../repositories/productRepository';
+import { BadRequestError, NotFoundError } from '../../utils/apiErrors';
+import { validateBody } from '../../yupschemas/productSchema';
+import { validateIdtype } from '../../yupschemas/validateIdSchema';
 
 export class UpdateProduct {
 	constructor(private productRepository: ProductRepository) {}

@@ -1,6 +1,6 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { InMemoryRepository } from '../repositories/InMemoryRepository';
-import { BadRequestError } from '../utils/apiErrors';
+import { InMemoryRepository } from '../../repositories/InMemoryRepository';
+import { BadRequestError } from '../../utils/apiErrors';
 import { CreateProduct } from './createProduct';
 
 describe('Validate use case "create product"', () => {
