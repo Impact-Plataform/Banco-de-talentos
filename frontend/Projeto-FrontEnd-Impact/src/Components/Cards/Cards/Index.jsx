@@ -51,7 +51,7 @@ export const Cards = ({ ReceiveDados }) => {
       peopleFiltred = peopleFiltred.filter(person => person.name.toLowerCase().includes(nome.toLowerCase()))
     }
     if(especies){
-      peopleFiltred = peopleFiltred.filter(person => person.species == especies)
+      peopleFiltred = peopleFiltred.filter(person => person.species.includes(especies))
     }
 
     if(filmes){

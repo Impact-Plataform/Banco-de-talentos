@@ -21,8 +21,11 @@ export const Form = ({ SaveDados }) => {
     setDadosFilms(undefined)
     setDadosName(undefined)
     setDadosSpecies(undefined)
+    window.location.reload(true)
 
   }
+
+  
 
 
 
@@ -74,7 +77,7 @@ export const Form = ({ SaveDados }) => {
 
       <option
 
-        value={especies.name} >{especies.name}
+        value={especies.url} >{especies.name}
       </option>
 
     )
@@ -84,7 +87,6 @@ export const Form = ({ SaveDados }) => {
   return (
     <StyledForm>
       <form action="" onSubmit={e => e.preventDefault()}>
-
         <select onChange={e => setDadosGender(e.target.value)} name="Filtros" label="Genêros">
           <option value="male">male</option>
           <option value="female">female</option>
