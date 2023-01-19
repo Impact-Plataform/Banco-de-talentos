@@ -15,17 +15,8 @@ const Card = ({
   filmes,
   url,
 }) => {
-  const idPerson = url.slice(29, -1);
-  const imgPerson = `../personagens/${idPerson}.jpg`;
-
-  const idFilme = url.slice(28, -1);
-  const imgFilm = `../filmes/${idFilme}.jpg`;
-
-  const idEspecies = url.slice(30, -1);
-  const imgEspecies = `../especies/${idEspecies}.jpg`;
-
-  const idVeiculo = url.slice(31, -1);
-  const imgVeiculo = `../veiculos/${idVeiculo}.jpg`;
+  const param = url.slice(22).replace(/.$/, "");
+  const idUnico = `../${param}.jpg`;
 
   return (
     <div className="col">
@@ -33,25 +24,27 @@ const Card = ({
         <div className="card-body p-2">
           <img
             style={{ height: 280 + "px" }}
-            src={imgPerson || imgFilm || imgEspecies || imgVeiculo}
+            src={idUnico}
             className="card-img-top mp-0"
             alt="imagem do card"
           />
           <h5 className="card-title text-center">{nome}</h5>
           <div className="container-md d-flex justify-content-center">
-            <Modal
-              nome={nome}
-              genero={genero}
-              altura={altura}
-              peso={peso}
-              corDoCabelo={corDoCabelo}
-              corDosOlhos={corDosOlhos}
-              CorDaPele={CorDaPele}
-              especie={especie}
-              anoDeNascimento={anoDeNascimento}
-              planeta={planeta}
-              filmes={filmes}
-            />
+            {param.slice(0, 6) == "people" ? (
+              <Modal
+                nome={nome}
+                genero={genero}
+                altura={altura}
+                peso={peso}
+                corDoCabelo={corDoCabelo}
+                corDosOlhos={corDosOlhos}
+                CorDaPele={CorDaPele}
+                especie={especie}
+                anoDeNascimento={anoDeNascimento}
+                planeta={planeta}
+                filmes={filmes}
+              />
+            ) : null}
           </div>
         </div>
       </div>
