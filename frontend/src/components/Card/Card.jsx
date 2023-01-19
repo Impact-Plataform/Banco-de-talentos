@@ -15,19 +15,27 @@ const Card = ({
   filmes,
   url,
 }) => {
-  const idFoto = url.slice(29, -1);
+  const idPerson = url.slice(29, -1);
+  const imgPerson = `../personagens/${idPerson}.jpg`;
 
-  const fotoCard = `../personagens/${idFoto}.jpg`;
+  const idFilme = url.slice(28, -1);
+  const imgFilm = `../filmes/${idFilme}.jpg`;
+
+  const idEspecies = url.slice(30, -1);
+  const imgEspecies = `../especies/${idEspecies}.jpg`;
+
+  const idVeiculo = url.slice(31, -1);
+  const imgVeiculo = `../veiculos/${idVeiculo}.jpg`;
 
   return (
     <div className="col">
       <div className="card h-100">
-        <div className="card-body">
+        <div className="card-body p-2">
           <img
             style={{ height: 280 + "px" }}
-            src={fotoCard}
-            className="card-img-top"
-            alt="personagens"
+            src={imgPerson || imgFilm || imgEspecies || imgVeiculo}
+            className="card-img-top mp-0"
+            alt="imagem do card"
           />
           <h5 className="card-title text-center">{nome}</h5>
           <div className="container-md d-flex justify-content-center">
