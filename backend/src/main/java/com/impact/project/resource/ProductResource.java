@@ -3,6 +3,7 @@ package com.impact.project.resource;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,13 +29,13 @@ public interface ProductResource<T> {
             responses = {@ApiResponse(description = "Success Operation", responseCode = "201"),
                     @ApiResponse(responseCode = "400", description = "Bad Request")})
     @PostMapping(value = "/products")
-    ResponseEntity<T> create(@RequestBody T t);
+    ResponseEntity<T> create(@Valid @RequestBody T t);
 
     @Operation(summary = "PUT a product", description = "Update a product created",
             responses = {@ApiResponse(description = "Success Operation", responseCode = "200"),
                     @ApiResponse(responseCode = "404", description = "Not found")})
     @PutMapping(value = "/products/{id}")
-    ResponseEntity<T> update(@PathVariable UUID id, @RequestBody T t);
+    ResponseEntity<T> update(@PathVariable UUID id,@Valid @RequestBody T t);
 
     @Operation(summary = "DELETE a product", description = "Deleted a product created",
             responses = {@ApiResponse(description = "Success Operation", responseCode = "204"),
