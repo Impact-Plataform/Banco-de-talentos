@@ -18,6 +18,16 @@ const getCharacters = async (url = PEOPLE_URL) => {
   }
 };
 
+export const getCharacterById = async id => {
+  try {
+    console.log('chamando o recurso people/id');
+    const response = await axios(`https://swapi.py4e.com/api/people/${id}`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const getMovieTitles = async (url = FILMS_URL) => {
   let films = {};
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { CharacterContext } from './CharacterContext';
-import { getAllData } from '../api/fetchData.js';
+import { getAllData, getCharacterById } from '../api/fetchData.js';
 import { useForm } from '../hook/useForm';
 
 export const CharacterProvider = ({ children }) => {
@@ -38,6 +38,7 @@ export const CharacterProvider = ({ children }) => {
         onInputChange,
         onResetForm,
         allCharacters,
+        getCharacterById,
         // Loader
         loading,
         setLoading,
