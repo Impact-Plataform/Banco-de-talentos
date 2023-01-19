@@ -38,34 +38,32 @@ export const Filters = () => {
   console.log('filter by film', filterByFilm);
   console.log('filter by specie', filterBySpecie);
   return (
-    <div className=" container filters">
-      <Select
-        name="gender"
-        className="select"
-        onChange={event => setFilterByGender([event.value])}
-        options={genderOptions}
-        // defaultValue={genderOptions[0]}
-        placeholder={'Filter By Gender'}
-        styles={stylesSelect}
-        autoFocus
-      />
-
-      <Select
-        name="film"
-        onChange={event => setFilterByFilm([event.value])}
-        options={filmOptions}
-        styles={stylesSelect}
-        placeholder={'Filter By Film'}
-      />
-
-      <Select
-        name="specie"
-        options={specieOptions}
-        styles={stylesSelect}
-        onChange={event => setFilterBySpecie([event.value])}
-        placeholder={'Filter By Specie'}
-      />
-
+    <div className="container filters">
+      <div className="select">
+        <Select
+          name="specie"
+          options={specieOptions}
+          styles={stylesSelect}
+          onChange={event => setFilterBySpecie([event.value])}
+          placeholder={'Filter By Specie'}
+        />
+        <Select
+          name="gender"
+          className="select"
+          onChange={event => setFilterByGender([event.value])}
+          options={genderOptions}
+          placeholder={'Filter By Gender'}
+          styles={stylesSelect}
+          autoFocus
+        />
+        <Select
+          name="film"
+          onChange={event => setFilterByFilm([event.value])}
+          options={filmOptions}
+          styles={stylesSelect}
+          placeholder={'Filter By Film'}
+        />
+      </div>
       <button type="submit" onClick={handleClickClear}>
         Clear Filters
       </button>

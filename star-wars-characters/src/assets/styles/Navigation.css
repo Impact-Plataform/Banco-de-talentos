@@ -1,7 +1,6 @@
 .navigation .logo {
   display: block;
   width: 350px;
-  margin-bottom: 24px;
 }
 
 .navigation .logo img {
@@ -15,14 +14,14 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px;
+  margin-bottom: 4px;
 }
 
 .search .group {
   display: flex;
-
   padding: 12px 24px;
   border-radius: 24px;
-  padding: 12px;
+
   background-color: #fff;
 }
 
@@ -31,7 +30,6 @@
   font-family: inherit;
   width: 100%;
   border: none;
-  outline: none;
   font-size: 16px;
 }
 

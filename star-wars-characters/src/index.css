@@ -19,22 +19,21 @@ body {
 .container {
   max-width: 1200px;
   display: flex;
-  padding: 8px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 16px auto;
+  margin: 4px auto;
 }
 
 .grid-characters {
-  margin-top: 24px;
+  margin-top: 220px;
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-column-gap: 12px;
-  grid-row-gap: 24px;
+  grid-row-gap: 32px;
   justify-content: center;
-  padding: 0 16px;
+  padding: 0 8px;
 }
 
 /* div {
