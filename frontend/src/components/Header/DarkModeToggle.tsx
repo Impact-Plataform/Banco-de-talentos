@@ -3,11 +3,15 @@ import { Moon, Sun } from 'phosphor-react';
 
 import { useDarkMode } from '../../providers/DarkMode';
 
-export function DarkModeToggle() {
+interface DarkModeToggleProps {
+  className: string;
+}
+
+export function DarkModeToggle({ className }: Partial<DarkModeToggleProps>) {
   const { darkMode, toggleDarkMode } = useDarkMode();
 
   return (
-    <label htmlFor="toggle" className="flex items-center cursor-pointer">
+    <label htmlFor="toggle" className={cx('flex items-center cursor-pointer', className)}>
       <div className="relative">
         <input
           type="checkbox"

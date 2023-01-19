@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export interface FilterProps {
+  [key: string]: string | undefined;
   films: string;
   gender: string;
   species: string;

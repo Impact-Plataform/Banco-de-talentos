@@ -1,63 +1,53 @@
 import cx from 'classnames';
+import { useState } from 'react';
 
+import { buildFilters } from '../../helpers/buildFilters';
 import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter';
 import { useCharacters } from '../../providers/Characters';
 import { useDarkMode } from '../../providers/DarkMode';
-import { useFilms } from '../../providers/Films';
-import { useSpecies } from '../../providers/Species';
 
-export function Filters() {
+interface FiltersProps {
+  className?: string;
+}
+
+export function Filters({ className }: FiltersProps) {
   const { darkMode } = useDarkMode();
-  const { films } = useFilms();
-  const { characters, changeFilters } = useCharacters();
-  const { species } = useSpecies();
+  const { changeFilters, filters } = useCharacters();
 
-  const optionsCSS = cx(cx({ 'bg-gray-900': darkMode }));
+  const allFilters = buildFilters();
+
+  const [filterToShow, setFilterToShow] = useState<string>(Object.keys(allFilters)[0]);
 
   return (
-    <div className="flex justify-between p-2">
+    <div
+      className={cx('flex rounded-md', className, {
+        'bg-gray-900': darkMode,
+        'bg-gray-100': !darkMode,
+      })}
+    >
       <select
-        name="Film"
-        id=""
-        className="bg-inherit"
-        onChange={({ target }) => changeFilters({ films: target.value })}
+        onChange={({ target }) => setFilterToShow(target.value)}
+        className="bg-inherit px-3 rounded-l-md"
       >
-        <option value="" defaultChecked className={optionsCSS}>
-          All films
-        </option>
-        {films?.map((film, index) => (
-          <option key={index} value={film.url} className={optionsCSS}>
-            {film.title}
+        {Object.keys(allFilters).map((filterType, index) => (
+          <option key={index} value={filterType} className="bg-inherit">
+            {capitalizeFirstLetter(filterType)}
           </option>
         ))}
       </select>
       <select
-        name=""
-        id=""
-        className="bg-inherit"
-        onChange={({ target }) => changeFilters({ gender: target.value })}
+        className="bg-inherit w-full px-3 rounded-r-md border-l-2 p-1 border-gray-800 ml-[1]"
+        onChange={({ target }) => changeFilters({ [filterToShow]: target.value })}
       >
-        <option value="" defaultChecked className={optionsCSS}>
-          All genders
-        </option>
-        {[...new Set(characters?.map(({ gender }) => gender))].map((gender, index) => (
-          <option key={index} value={gender} className={optionsCSS}>
-            {capitalizeFirstLetter(gender)}
-          </option>
-        ))}
-      </select>
-      <select
-        name="Film"
-        id=""
-        className="bg-inherit"
-        onChange={({ target }) => changeFilters({ species: target.value })}
-      >
-        <option value="" defaultChecked className={optionsCSS}>
-          All species
-        </option>
-        {species?.map((specie, index) => (
-          <option key={index} value={specie.url} className={optionsCSS}>
-            {specie.name}
+        <option value="">Select</option>
+        {allFilters[filterToShow]?.map(({ name, filter }, index) => (
+          <option
+            key={index}
+            defaultChecked={filters[filterToShow] === filter}
+            value={filter}
+            className="bg-inherit"
+          >
+            {capitalizeFirstLetter(name as string)}
           </option>
         ))}
       </select>

@@ -26,8 +26,8 @@ export function CharactersProvider({ children }: CharactersProps) {
 
   const addPage = () => setCurrentPage((prev) => prev + 1);
 
-  const changeFilters = (filters: Partial<FilterProps>) =>
-    setFilters((prev) => ({ ...prev, ...filters }));
+  const changeFilters = (filterToChange: Partial<FilterProps>) =>
+    setFilters((prev) => ({ ...prev, ...filterToChange }));
 
   useEffect(() => {
     getByPath('people', { page: search ? 1 : currentPage, search }).then(
@@ -52,7 +52,7 @@ export function CharactersProvider({ children }: CharactersProps) {
             ) || [],
         ),
     );
-    if ((charactersToShow as Array<Character>)?.length < 3) addPage();
+    if ((charactersToShow as [])?.length < 3) addPage();
   }, [filters, characters]);
 
   return (

@@ -25,7 +25,7 @@ export function SearchBar() {
     >
       <input
         type="search"
-        className="block bg-inherit p-1 rounded-md pl-6 w-96"
+        className="block bg-inherit p-1 rounded-md pl-6 w-full"
         placeholder="Search"
         value={char}
         onChange={({ target }) => setChar(target.value)}
