@@ -1,7 +1,7 @@
-import { GetFilms, GetPeople, GetSpecies } from "../../services/Api";
-import { StyledForm } from "./Style"
+import { GetFilms, GetPeople, GetSpecies } from "../../services/Api.jsx";
+import { StyledForm } from "./Style.jsx"
 import { useEffect, useState } from "react";
-import { Button } from "../Button/Index";
+import { Button } from "../Button/Index.jsx";
 
 export const Form = ({ SaveDados }) => {
 

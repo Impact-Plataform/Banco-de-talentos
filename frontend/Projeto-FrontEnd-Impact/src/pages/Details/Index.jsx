@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { Header } from "../../Components/Header/Index";
-import { StyledDetails } from "./Style";
+import { Header } from "../../Components/Header/Index.jsx";
+import { StyledDetails } from "./Style.jsx";
 import { useState } from "react";
 import { useEffect } from "react";
 import Face from "../../assets/pngegg.png";
-import { Footer } from "../../Components/Footer/Index";
-import { Button } from "../../Components/Button/Index";
+import { Footer } from "../../Components/Footer/Index.jsx";
+import { Button } from "../../Components/Button/Index.jsx";
 
 
 export const Details = () => {

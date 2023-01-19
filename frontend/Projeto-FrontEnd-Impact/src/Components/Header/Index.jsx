@@ -1,5 +1,4 @@
-import { Button } from "../Button/Index"
-import { StyledHeader } from "./style"
+import { StyledHeader } from "./style.jsx"
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai"
 import { FcWikipedia } from "react-icons/fc"
 export const Header = () => {

@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import "./Global.css"
-import { Home } from './pages/home/Index'
-import { Details } from './pages/Details/Index'
-import { Characters } from './pages/Characters/Index'
+import { Home } from './pages/home/Index.jsx'
+import { Details } from './pages/Details/Index.jsx'
+import { Characters } from './pages/Characters/Index.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 

@@ -1,9 +1,9 @@
 
 import { useState } from "react"
-import { Cards } from "../../Components/Cards/Cards/Index"
-import { Footer } from "../../Components/Footer/Index"
-import { Form } from "../../Components/Form/Index"
-import { Header } from "../../Components/Header/Index"
+import { Cards } from "../../Components/Cards/Cards/Index.jsx"
+import { Footer } from "../../Components/Footer/Index.jsx"
+import { Form } from "../../Components/Form/Index.jsx"
+import { Header } from "../../Components/Header/Index.jsx"
 
 import { StyledCharacters } from "./style"
 

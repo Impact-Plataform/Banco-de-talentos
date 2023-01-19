@@ -1,10 +1,10 @@
-import { StyledCardUl } from "./Style";
+import { StyledCardUl } from "./Style.jsx";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
-import { Button } from "../../Button/Index";
-import { GetPeople } from "../../../services/Api";
-import { CardLi } from "../CardLi/Index";
+import { Button } from "../../Button/Index.jsx";
+import { GetPeople } from "../../../services/Api.jsx";
+import { CardLi } from "../CardLi/Index.jsx";
 
 
 export const Cards = ({ ReceiveDados }) => {
