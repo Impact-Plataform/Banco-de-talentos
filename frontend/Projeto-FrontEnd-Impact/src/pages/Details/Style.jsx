@@ -79,7 +79,7 @@ a:hover{
       align-items: center;
       text-align: center;
     }
-    .cardG {
+    .main__div {
         flex-direction: column;
         width: 100%;    
         align-items: center;

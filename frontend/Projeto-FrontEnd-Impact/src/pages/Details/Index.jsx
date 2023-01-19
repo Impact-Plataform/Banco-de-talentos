@@ -50,7 +50,7 @@ export const Details = () => {
       <StyledDetails>
         <div className="main__div">
           <figure>
-            <img src={Face} alt="" />
+            <img src={Face} alt="Imagen-Star-Wars" />
           </figure>
           <section>
             <ul>
