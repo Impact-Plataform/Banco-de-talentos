@@ -60,7 +60,6 @@ const Header = () => {
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
       });
-    console.log(info, "atualizado");
   };
 
   const buscaNaves = () => {
