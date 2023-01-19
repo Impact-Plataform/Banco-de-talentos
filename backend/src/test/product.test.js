@@ -1,5 +1,5 @@
 import request from "supertest"
-import { app } from '../server.js'
+import { app } from "backend/server.js"
 
 describe('Test Product Endpoints', () => {
     it('should create a product', async () => { 
