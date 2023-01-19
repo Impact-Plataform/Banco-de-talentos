@@ -83,17 +83,21 @@ export const Form = ({ SaveDados }) => {
   return (
     <StyledForm>
       <form action="" onSubmit={e => e.preventDefault()}>
+
         <select onChange={e => setDadosGender(e.target.value)} name="Filtros" label="Genêros">
-          <option value="male">male</option>
-          <option value="female">female</option>
-          <option value="n/a">n/a</option>
+          <option selected disabled value="">Gênero</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="n/a">N/A</option>
         </select>
 
         <select name="Filmes" onChange={e => setDadosFilms(e.target.value)}>
+        <option selected disabled value="">Filme</option>
           {CardFilmes}
         </select>
 
         <select name="Especies" onChange={e => setDadosSpecies(e.target.value)}>
+        <option selected disabled value="">Espécie</option>
           {CardEspecies}
         </select>
 
