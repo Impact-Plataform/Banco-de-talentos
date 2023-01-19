@@ -1,12 +1,10 @@
 .loader__div {
-    height: 50rem;
-    width: 50rem;
+    height: 80rem;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto;
 }
 
 .loader__div p {

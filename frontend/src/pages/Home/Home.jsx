@@ -25,24 +25,20 @@ const Home = () => {
     const pagesVisited = page * usersPerPage;
 
     return (
-        <>  
-            <section className="container">
-                <SearchInput
-                    value={inputSearch}
-                    onChange={(search) => setInputSearch(search)}
-                />
-
-                {isLoading ? null : (
+        <>
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <section className="container">
+                    <SearchInput
+                        value={inputSearch}
+                        onChange={(search) => setInputSearch(search)}
+                    />
                     <Pagination
                         displayUsersPage={filter}
                         usersPerPage={usersPerPage}
                         setPage={setPage}
                     />
-                )}
-
-                {isLoading ? (
-                    <Loader />
-                ) : (
                     <div className="cards__list">
                         {filter
                             .slice(pagesVisited, pagesVisited + usersPerPage)
@@ -57,8 +53,8 @@ const Home = () => {
                                 />
                             ))}
                     </div>
-                )}
-            </section>
+                </section>
+            )}
         </>
     );
 };

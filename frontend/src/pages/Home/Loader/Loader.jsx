@@ -5,6 +5,7 @@ import logoLoader from '../../../svg/jedi-logo.svg';
 const Loader = () => {
     return (
         <>
+        <section className='container'>
             <div className="loader__div">
                 <img
                     src={logoLoader}
@@ -13,6 +14,7 @@ const Loader = () => {
                 />
                 <p>Carregando...</p>
             </div>
+        </section>
         </>
     );
 };
