@@ -9,19 +9,22 @@ import { CardLi } from "../CardLi/Index";
 
 
 export const Cards = ({ ReceiveDados }) => {
-  console.log("Esse aqui é o savedados")
+  console.log("Abaixo o receive dados")
   console.log(ReceiveDados)
+
   const [page, atPage] = useState(1); // PAGE PARA CRIAR PAGINAÇÃO. 
   const [people, setPeople] = useState([]); // ATRIBUR A API UM ESTADO
   const [loading, setLoading] = useState(false); // CRIAR LOADING NA PAGE
+  let peopleFiltred = [];
 
 
-useEffect(() => {
+  useEffect(() => {
     getPeoples()
   }, [page])
 
   const showMore = () => { // SHOWMORE FUNÇÃO PARA INVOCAR A API QUANDO CLICAR NO BOTÃO. 
-    atPage(page + 1)}
+    atPage(page + 1)
+  }
 
   async function getPeoples() {
     setLoading(true)
@@ -30,17 +33,46 @@ useEffect(() => {
       let data = response
       setPeople([...people, ...data.results])
       setLoading(false)
+
     } catch (e) {
       console.log(e)
     }
   }
+ 
+  function setPeopleFiltred(genero = ReceiveDados[0], filmes = ReceiveDados[1], especies = ReceiveDados[2], nome = ReceiveDados[3]) {
+    // console.log("Tamanho people: "+ people.length)
+    // Filtrando por genero
+    peopleFiltred = people
+    if(genero){
+      peopleFiltred = peopleFiltred.filter(person => person.gender == genero)
+    }
+    // Filtrando por Especie
+    if(nome){
+      peopleFiltred = peopleFiltred.filter(person => person.name.toLowerCase().includes(nome.toLowerCase()))
+    }
+    if(especies){
+      peopleFiltred = peopleFiltred.filter(person => person.species == especies)
+    }
 
-  const Cardpeople = people.map(people => {
+    if(filmes){
+      peopleFiltred = peopleFiltred.filter(person => person.films.includes(filmes))
+    }
+    // people.forEach(person => {
+     
+    //   if (person.gender == genero) {
+    //     peopleFiltred.push(person)
+    //   }
+    // })
+  }
+  setPeopleFiltred()
+
+  const Cardpeople = peopleFiltred.map(people => {
     return (
 
       <CardLi dados={people} />
     )
   })
+
 
   return (
     <StyledCardUl>

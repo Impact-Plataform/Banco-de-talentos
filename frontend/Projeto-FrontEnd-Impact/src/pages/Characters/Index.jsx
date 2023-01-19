@@ -1,7 +1,6 @@
 
 import { useState } from "react"
 import { Cards } from "../../Components/Cards/Cards/Index"
-import { Container } from "../../Components/Container"
 import { Footer } from "../../Components/Footer/Index"
 import { Form } from "../../Components/Form/Index"
 import { Header } from "../../Components/Header/Index"
