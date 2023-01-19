@@ -26,6 +26,7 @@ export const StyledButton = styled.button`
     border: 3px solid #00d9ff;
             color: #00d9ff;
             box-shadow: 0px 0px 35px #00d9ff, 0px 0px 15px #00d9ffc0 inset;
+            transform: scale(1.1);
 }
 
 

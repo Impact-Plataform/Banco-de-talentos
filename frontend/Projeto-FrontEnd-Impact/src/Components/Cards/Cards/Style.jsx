@@ -8,6 +8,8 @@ export const StyledCardUl = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
     ul{
         list-style: none;
@@ -18,6 +20,7 @@ export const StyledCardUl = styled.div`
         width: 100%;
         align-items: center;
         justify-items: center;
+        margin-bottom: 15px;
      }   
 
     li{

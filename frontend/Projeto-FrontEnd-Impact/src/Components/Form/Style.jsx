@@ -3,19 +3,18 @@ import styled from 'styled-components';
 
 export const StyledForm = styled.div`
     
-    height: 15vh;
+    height: auto;
     width: 100vw;
-    
     form{
     width: 100%;
     height: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(200px, 1fr));
-    column-gap: 10px;
-    row-gap: 1rem;
+    display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin-top: 10px;
+
     }
 
     input, select {
@@ -26,6 +25,7 @@ export const StyledForm = styled.div`
         width: ${(props) => props.width ? props.width : '200px'};
         height: ${props => props.height ? props.height : '30px'};
         transition: all 0.1s;
+        margin: 5px 5px;
    
     }
    
