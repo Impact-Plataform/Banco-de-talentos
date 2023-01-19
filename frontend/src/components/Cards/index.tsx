@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 import { useCharacters } from '../../providers/Characters';
 import { Card } from './Card';
@@ -18,9 +19,11 @@ export function Cards() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center pt-48">
+    <div className="flex flex-col items-center pt-52 px-3">
       {charactersToShow?.map((character, index) => (
-        <Card key={index} character={character} />
+        <Link key={index} to={`details/${character.name}`}>
+          <Card character={character} mode="simplified" />
+        </Link>
       ))}
       <div ref={loaderRef} />
     </div>
