@@ -29,7 +29,7 @@ Localize a pasta em que foi feito o Download ou clonagem do projeto e abra a pas
 npm install
 ```
 
-:exclamation: **Importante:** Para evitar ter que possuir um banco de dados instalado na máquina, foi utilizado o SQLite, e nele já estão cadastrado alguns produtos.
+:exclamation: **Importante:** Para evitar ter que possuir um banco de dados instalado na máquina, foi utilizado o SQLite, e nele já estão cadastrados alguns produtos.
 
 Agora, para compilar o projeto digite:
 
@@ -51,7 +51,7 @@ npm run dev
 
 ### A URL base da aplicação é `http://localhost:3000/`
 
-:arrow_forward: Agora é só abrir o API Client e testar as rotas da aplicação. Para saber mais detalhes sobre as rotas, com a aplicação em execução, confira a documentação através da rota <http://localhost:3000/api-doc>
+:arrow_forward: Agora é só abrir o API Client e testar as rotas da aplicação. Para saber mais detalhes sobre elas, `com a aplicação em execução`, confira a documentação através da URL base.
 
 ## :writing_hand: Orientações para testar o projeto
 
