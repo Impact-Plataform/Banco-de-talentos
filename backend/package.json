@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
     "start": "node ./dist/src/index.js",
     "dev": "ts-node-dev --respawn --transpile-only --exit-child ./src/index.ts",
     "test": "vitest"
