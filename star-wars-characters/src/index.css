@@ -42,6 +42,7 @@ body {
 
 .loader {
   display: flex;
-  margin: 228px;
   justify-content: center;
+  width: 300px;
+  margin: 228px auto;
 }
