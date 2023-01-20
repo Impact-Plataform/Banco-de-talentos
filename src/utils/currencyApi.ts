@@ -21,7 +21,7 @@ class CurrencyApi {
 
 	}
 
-	async getTwoCurrencies(firstCurrency: string, secondCurrency: string) {
+	async getTwoCurrencyValues(firstCurrency: string, secondCurrency: string) {
 		const currencies = await this.getApiData();
 
 		let firstCurrencyValue;

@@ -16,7 +16,7 @@ export class GetProducts {
 		const secondCurrency = 'EUR';
 		const result = [];
 
-		const {firstCurrencyValue, secondCurrencyValue} = await currencyApi.getTwoCurrencies(firstCurrency, secondCurrency);
+		const {firstCurrencyValue, secondCurrencyValue} = await currencyApi.getTwoCurrencyValues(firstCurrency, secondCurrency);
 
 		for (const element of products) {
 			result.push({

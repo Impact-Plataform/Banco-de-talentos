@@ -18,7 +18,7 @@ export class GetProduct {
 		const firstCurrency = 'USD';
 		const secondCurrency = 'EUR';
 
-		const {firstCurrencyValue, secondCurrencyValue} = await currencyApi.getTwoCurrencies(firstCurrency, secondCurrency);
+		const {firstCurrencyValue, secondCurrencyValue} = await currencyApi.getTwoCurrencyValues(firstCurrency, secondCurrency);
 
 		const product = {
 			...existsProduct,
