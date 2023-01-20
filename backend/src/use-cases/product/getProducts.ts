@@ -21,8 +21,8 @@ export class GetProducts {
 		for (const element of products) {
 			result.push({
 				...element,
-				valueUSD: firstCurrencyValue ? (element.value * firstCurrencyValue) : '' ,
-				valueEUR: secondCurrencyValue ? (element.value * secondCurrencyValue) : ''
+				valueUSD: firstCurrencyValue ? (element.value * firstCurrencyValue).toFixed(2) : '' ,
+				valueEUR: secondCurrencyValue ? (element.value * secondCurrencyValue).toFixed(2) : ''
 			});
 		}
 
