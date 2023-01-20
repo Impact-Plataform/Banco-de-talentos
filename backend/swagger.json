@@ -13,7 +13,7 @@
         "responses": {
           "200": {
             "content": {
-              "aplication/json": {
+              "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
@@ -39,7 +39,7 @@
         "requestBody": {
           "description": "Dados necessários para o cadastro de um produto.",
           "content": {
-            "aplication/json": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/createProduct"
               }
@@ -50,7 +50,7 @@
           "201": {
             "description": "Cadastro realizado com sucesso.",
             "content": {
-              "aplication/json": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/createProductResponse"
                 }
@@ -76,7 +76,7 @@
           "200": {
             "description": "Produto encontrado.",
             "content": {
-              "aplication/json": {
+              "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
@@ -102,7 +102,7 @@
         "requestBody": {
           "description": "Dados necessários para a atualização de um produto.",
           "content": {
-            "aplication/json": {
+            "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/updateProduct"
               }
@@ -118,7 +118,7 @@
           "200": {
             "description": "Produto atualizado.",
             "content": {
-              "aplication/json": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/updateProductResponse"
                 }
@@ -145,7 +145,7 @@
           "200": {
             "description": "Produto deletado.",
             "content": {
-              "aplication/json": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/deleteProductResponse"
                 }
@@ -168,7 +168,7 @@
         "responses": {
           "200": {
             "content": {
-              "aplication/json": {
+              "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
@@ -199,7 +199,7 @@
           "200": {
             "description": "Moeda encontrada.",
             "content": {
-              "aplication/json": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/listCurrencyResponse"
                 }
