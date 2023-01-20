@@ -239,17 +239,17 @@
           "value": {
             "type": "number",
             "description": "Valor em BRL do produto cadastrado.",
-            "example": 19.99
+            "example": 20
           },
           "valueUSD": {
             "type": "number",
             "description": "Valor em USD do produto cadastrado.",
-            "example": 99.95
+            "example": 3.84
           },
           "valueEUR": {
             "type": "number",
             "description": "Valor em EUR do produto cadastrado.",
-            "example": 90.99
+            "example": 3.57
           }
           
         }

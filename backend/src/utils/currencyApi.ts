@@ -47,7 +47,7 @@ class CurrencyApi {
 			array.push({
 				code: key,
 				name: value.name,
-				value: Number(value.ask)
+				value: Number(value.bid)
 			});
 		}
   
