@@ -7,29 +7,16 @@ import { charactersAbout } from '../helpers/data.js';
 import '../assets/styles/CharacterPage.css';
 
 export const CharacterPage = () => {
-  const { allCharacters, getCharacterById } = useContext(CharacterContext);
+  const { getCharacterById } = useContext(CharacterContext);
   const [loading, setLoading] = useState(true);
-
+  const [character, setCharacter] = useState({});
   let { id } = useParams();
 
-  const [character, setCharacter] = useState({});
-
-  // const getCharacterById = async id => {
-  //   const result = await allCharacters.filter(character => {
-  //     let url = `https://swapi.py4e.com/api/people/${id}/`;
-  //     return character.url === url;
-  //   });
-  //   return result;
-  // };
   const getCharacter = async id => {
     const data = await getCharacterById(id);
     setCharacter(data.data);
     setLoading(false);
   };
-  // const getCharacter = async id => {
-  //   const result = await getCharacterById(id);
-  //   setCharacter(result[0]);
-  // };
 
   useEffect(() => {
     getCharacter(id);

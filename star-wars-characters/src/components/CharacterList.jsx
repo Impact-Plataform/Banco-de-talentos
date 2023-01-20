@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { CharacterContext } from '../context/CharacterContext';
-
 import { AllCharacters } from './AllCharacters';
 import { FilteredCharacters } from './FilteredCharacters';
 

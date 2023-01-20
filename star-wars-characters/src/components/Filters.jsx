@@ -12,7 +12,7 @@ export const Filters = () => {
   const [filterBySpecie, setFilterBySpecie] = useState([]);
 
   const handleClickClear = event => {
-    // event.preventDefault();
+    event.preventDefault();
     setFilterByGender([]);
     setFilterByFilm([]);
     setFilterBySpecie([]);
@@ -34,9 +34,6 @@ export const Filters = () => {
     setFilteredCharacters(filtered);
   }, [filterByGender, filterByFilm, filterBySpecie]);
 
-  console.log('filter by gender', filterByGender);
-  console.log('filter by film', filterByFilm);
-  console.log('filter by specie', filterBySpecie);
   return (
     <div className="container filters">
       <div className="select">

@@ -22,11 +22,11 @@ export const SearchPage = () => {
           {filteredCharacters.length < 2 ? 'character' : 'characters'}
         </span>
       </p>
-      <div className="grid-characters container">
+      <main className="grid-characters container">
         {filteredCharacters.map((character, index) => (
           <CharacterCard character={character} key={uuidv4()} />
         ))}
-      </div>
+      </main>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { CharacterCard } from './CharacterCard';
 
 export const FilteredCharacters = () => {
   const { filteredCharacters } = useContext(CharacterContext);
+
   return (
     <div className="container grid-characters">
       {filteredCharacters.map(character => (

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Waveform } from '@uiball/loaders';
 
 export const Loader = () => {

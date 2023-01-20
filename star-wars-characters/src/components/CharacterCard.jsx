@@ -45,6 +45,3 @@ export const CharacterCard = ({ character }) => {
     </div>
   );
 };
-{
-  /* <Link to={`/character/${id}`}></Link> */
-}

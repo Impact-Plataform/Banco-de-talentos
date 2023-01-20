@@ -36,10 +36,6 @@ body {
   padding: 0 8px;
 }
 
-/* div {
-  border: 1px solid red;
-} */
-
 .loader {
   display: flex;
   justify-content: center;

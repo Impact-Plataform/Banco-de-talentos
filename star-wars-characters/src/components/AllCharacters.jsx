@@ -16,11 +16,11 @@ export const AllCharacters = () => {
 
   return (
     <>
-      <div className="container grid-characters">
+      <main className="container grid-characters">
         {allCharacters
           .map(character => <CharacterCard character={character} key={uuidv4()} />)
           .slice(firstIndex, lastIndex)}
-      </div>
+      </main>
       <Pagination
         characterPerPage={characterPerPage}
         currentPage={currentPage}

@@ -26,9 +26,6 @@ export const CharacterProvider = ({ children }) => {
     }, 4000);
   }, []);
 
-  console.log('cheguei to aqui', allCharacters);
-
-  console.log('filtrados', filteredCharacters);
   return (
     <CharacterContext.Provider
       value={{
