@@ -8,7 +8,7 @@ const Card = ({
   peso,
   corDoCabelo,
   corDosOlhos,
-  CorDaPele,
+  pele,
   especie,
   anoDeNascimento,
   planeta,
@@ -28,7 +28,7 @@ const Card = ({
             className="card-img-top mp-0"
             alt="imagem do card"
           />
-          <h5 className="card-title text-center">{nome}</h5>
+          <h5 className="card-title text-center" translate="no">{nome}</h5>
           <div className="container-md d-flex justify-content-center">
             {param.slice(0, 6) == "people" ? (
               <Modal
@@ -38,7 +38,7 @@ const Card = ({
                 peso={peso}
                 corDoCabelo={corDoCabelo}
                 corDosOlhos={corDosOlhos}
-                CorDaPele={CorDaPele}
+                pele={pele}
                 especie={especie}
                 anoDeNascimento={anoDeNascimento}
                 planeta={planeta}
