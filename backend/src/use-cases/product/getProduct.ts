@@ -22,8 +22,8 @@ export class GetProduct {
 
 		const product = {
 			...existsProduct,
-			valueUSD: firstCurrencyValue ? (existsProduct.value * firstCurrencyValue).toFixed(2) : '' ,
-			valueEUR: secondCurrencyValue ? (existsProduct.value * secondCurrencyValue).toFixed(2) : ''
+			valueUSD: firstCurrencyValue ? Number((existsProduct.value * firstCurrencyValue).toFixed(2)) : '' ,
+			valueEUR: secondCurrencyValue ? Number((existsProduct.value * secondCurrencyValue).toFixed(2)) : ''
 		};
 
 		return product;
