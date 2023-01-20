@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { CharacterContext } from './CharacterContext';
 import { getAllData, getCharacterById } from '../api/fetchData.js';
 import { useForm } from '../hook/useForm';
@@ -17,15 +16,14 @@ export const CharacterProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    (async () => {
+    setTimeout(async () => {
       console.log('------------- START ---------------');
       const characters = await getAllData();
 
       console.log('------------- STOP ---------------');
       setAllCharacters(characters);
-    })();
-
-    setLoading(false);
+      setLoading(false);
+    }, 4000);
   }, []);
 
   console.log('cheguei to aqui', allCharacters);
