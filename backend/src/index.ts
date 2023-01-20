@@ -9,16 +9,19 @@ import { currencyRouter } from './router/currencyRouter';
 import { productRouter } from './router/productRouter';
 
 import swaggerDocument from  '../swagger.json';
+import { redirect } from './middlewares/redirect';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/Products', productRouter);
 app.use('/Currency', currencyRouter);
+
+app.use('/', redirect);
 
 app.use(pageNotFoundMiddleware);
 
