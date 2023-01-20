@@ -5,13 +5,9 @@ import { validateSymboltype } from '../../yupschemas/validateSymbolSchema';
 export class GetCurrency {  
 	async get(symbol: string) {
 
-		if (Number(symbol)) {
-			throw new BadRequestError('Simbolo deve ser uma string');
-		}
-
 		await validateSymboltype.validate({symbol});
 
-		if(Number(symbol)) {
+		if (Number(symbol)) {
 			throw new BadRequestError('symbol deve ser um tipo de `string`');
 		}
 
