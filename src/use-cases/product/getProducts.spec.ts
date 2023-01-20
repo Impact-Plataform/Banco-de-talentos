@@ -27,7 +27,6 @@ describe('Validate use case "get products"', async () => {
 		expectTypeOf(products).toBeArray();
 		expect(products[0]).toHaveProperty('valueUSD');
 		expect(products[0]).toHaveProperty('valueEUR');
-		console.log(products);
 	});
 
 	it('Should not be able to return a non-existent product array', async () => {
