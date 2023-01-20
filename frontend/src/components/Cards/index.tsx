@@ -25,6 +25,7 @@ export function Cards() {
         'grid items-center pt-56 px-4 gap-4',
         'sm:pt-40 sm:grid-cols-2',
         'lg:pt-32 lg:grid-cols-3',
+        'xl:grid-cols-4',
       )}
     >
       {charactersToShow?.map((character, index) => (

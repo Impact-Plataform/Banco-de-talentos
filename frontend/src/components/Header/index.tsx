@@ -20,16 +20,16 @@ export function Header({ mode }: HeaderProps) {
         'lg:flex lg:justify-between': mode === 'complete',
       })}
     >
-      <div className={cx('flex flex-col', 'sm:flex-row sm:justify-between')}>
+      <div className={cx('flex flex-col w-full', 'sm:flex-row sm:justify-between')}>
         <div
           className={cx('w-14 hidden', 'sm:block', {
-            'lg:hidden': mode === 'complete',
+            'lg:order-last': mode === 'complete',
           })}
         />
         <Logo />
         <DarkModeToggle
           className={cx('self-end', 'sm:self-auto', {
-            'lg:order-first lg:pr-[100px]': mode === 'complete',
+            'lg:order-first': mode === 'complete',
           })}
         />
       </div>
