@@ -1,0 +1,21 @@
+.pagination .list {
+  display: flex;
+  gap: 10px;
+  padding: 24px;
+  list-style: none;
+  margin: 0 auto;
+  margin-bottom: 8px;
+}
+
+.pagination .link {
+  display: inline-block;
+  padding: 8px;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.is-current {
+  background-color: #ffe81f;
+  color: #111;
+}
