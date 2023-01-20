@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { images } from '../assets/images';
+import { toCapitalize } from '../helpers/helper.js';
 import '../assets/styles/CharacterCard.css';
 
 export const CharacterCard = ({ character }) => {
@@ -30,7 +31,7 @@ export const CharacterCard = ({ character }) => {
                 <strong>Mass:</strong> {character.mass}.
               </li>
               <li>
-                <strong>Gender:</strong> {character.gender}.
+                <strong>Gender:</strong> {toCapitalize(character.gender)}
               </li>
               <li>
                 <strong>Specie:</strong>{' '}
