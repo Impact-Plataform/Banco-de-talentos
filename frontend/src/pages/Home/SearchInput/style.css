@@ -1,10 +1,15 @@
 .search {
     max-width: 50rem;
     margin: 0 auto 5rem;
+
+}
+.search form{
+    border: 0.1rem solid;
+    border-radius: 4px;
 }
 
-.search__form input {
-    accent-color: #1b69d2;
+.search form:hover{
+    border: 0.1rem solid #ffe300;
 }
 
 input,
@@ -17,7 +22,7 @@ textarea {
     border-radius: 4px;
     color: #faf6ed;
     width: 100%;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
     font-weight: 200;
 }

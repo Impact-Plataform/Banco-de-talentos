@@ -7,6 +7,7 @@ import Card from './Card/Card';
 import SearchInput from './SearchInput/SearchInput';
 import Pagination from './Pagination/Pagination';
 import Loader from './Loader/Loader';
+import Filters from './Filters/Filters';
 
 import './style.css';
 
@@ -14,12 +15,34 @@ const Home = () => {
     const { peoples, isLoading } = useEndpoints();
     const [inputSearch, setInputSearch] = useState('');
     const [page, setPage] = useState(0);
-
-    const filter = peoples.filter((item) => {
-        return item.name.toLowerCase().indexOf(inputSearch.toLowerCase()) !== -1
-            ? item
-            : '';
+    const [filterSelect, setFilterSelect] = useState({
+        gender: '',
+        species: '',
+        films: '',
     });
+
+    const filter = peoples
+        .filter((item) =>
+            filterSelect.gender
+                ? item.gender.toLowerCase() ===
+                  filterSelect.gender.toLowerCase()
+                : item,
+        )
+        .filter((item) =>
+            filterSelect.species
+                ? item.species.includes(filterSelect.species)
+                : item,
+        )
+        .filter((item) =>
+            filterSelect.films ? item.films.includes(filterSelect.films) : item,
+        )
+        .filter((item) =>
+            inputSearch.name
+                ? filterSelect.gender ||
+                  filterSelect.species ||
+                  filterSelect.films
+                : item.name.toLowerCase().includes(inputSearch.toLowerCase()),
+        );
 
     const usersPerPage = 10;
     const pagesVisited = page * usersPerPage;
@@ -34,11 +57,20 @@ const Home = () => {
                         value={inputSearch}
                         onChange={(search) => setInputSearch(search)}
                     />
-                    <Pagination
-                        displayUsersPage={filter}
-                        usersPerPage={usersPerPage}
-                        setPage={setPage}
-                    />
+
+                    <div className="cards__controls">
+                        <Filters
+                            filterSelect={filterSelect}
+                            setFilterSelect={setFilterSelect}
+                        />
+
+                        <Pagination
+                            displayUsersPage={filter}
+                            usersPerPage={usersPerPage}
+                            setPage={setPage}
+                        />
+                    </div>
+
                     <div className="cards__list">
                         {filter
                             .slice(pagesVisited, pagesVisited + usersPerPage)

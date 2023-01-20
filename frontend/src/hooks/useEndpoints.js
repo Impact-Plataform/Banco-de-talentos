@@ -3,9 +3,10 @@ import getAllEndpoint from '../services/getAllEndpoints';
 
 function useEndpoints() {
     const [peoples, setPeoples] = useState([]);
+    const [genders, setGenders] = useState([]);
     const [species, setSpecies] = useState([]);
     const [films, setFilms] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         async function getAllPeoples() {
@@ -21,6 +22,13 @@ function useEndpoints() {
     }, []);
 
     useEffect(() => {
+        const allGenders = peoples.map((option) => {
+            return option.gender;
+        });
+        setGenders([...new Set(allGenders)]);
+    }, [peoples]);
+
+    useEffect(() => {
         async function getAllSpecies() {
             try {
                 const species = await getAllEndpoint('species/');
@@ -31,17 +39,18 @@ function useEndpoints() {
     }, []);
 
     useEffect(() => {
-        async function listFilms() {
+        async function getAlltFilms() {
             try {
                 const films = await getAllEndpoint('films/');
                 setFilms([...new Set(films)]);
             } catch (error) {}
         }
-        listFilms();
+        getAlltFilms();
     }, []);
 
     return {
         peoples,
+        genders,
         species,
         films,
         isLoading,

@@ -1,0 +1,42 @@
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.filters__item select {
+    cursor: pointer;
+    background-color: transparent;
+    border: 0.1rem solid;
+}
+
+.filters__item select:hover {
+    border: 0.1rem solid #ffe300;
+}
+
+.filters__clear {
+    max-width: 10rem;
+    margin-top: 2rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 12px 24px;
+    border: 0;
+    background: linear-gradient(224.78deg, #f5e257 8.12%, #ffe300 92.21%);
+    border-radius: 4px;
+    transition: 0.6s ease;
+}
+
+@media screen and (max-width: 595px) {
+    .filters {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filters__item {
+        width: 100%;
+    }
+}
