@@ -21,10 +21,11 @@ export function CharacterDetail() {
   return (
     <div>
       <Header mode="simplified" />
-      <div className="pt-36" />
-      <div className="w-[90%] sm:w-[80%] flex flex-col items-center m-auto rounded-md">
+      <div className="pt-36 sm:pt-32" />
+      <div className="w-[90%] sm:w-[90%] flex flex-col items-center m-auto rounded-md">
         {character && <Card mode="complete" character={character as Character} />}
       </div>
+      <div className="pt-32" />
       <Footer className="fixed bottom-0" />
     </div>
   );

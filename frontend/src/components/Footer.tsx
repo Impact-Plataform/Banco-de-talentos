@@ -12,13 +12,18 @@ export function Footer({ className }: FooterProps) {
 
   return (
     <footer
-      className={cx('w-full py-4 px-10 h-fit flex flex-col items-center', className, {
-        'bg-gray-800': darkMode,
-        'bg-gray-600': !darkMode,
-      })}
+      className={cx(
+        'w-full py-4 px-10 h-fit flex flex-col items-center',
+        'sm:flex sm:flex-row sm:justify-between',
+        className,
+        {
+          'bg-gray-800': darkMode,
+          'bg-gray-600': !darkMode,
+        },
+      )}
     >
       <p className="">SWAPI Client</p>
-      <div className="flex flex-row justify-between w-full mt-2">
+      <div className={cx('flex flex-row justify-between w-fit mt-2', 'sm:flex-col')}>
         <a
           href="https://www.linkedin.com/in/filipefpaulo/"
           className="flex flex-row"

@@ -18,7 +18,7 @@ export function SearchBar() {
   return (
     <form
       onSubmit={onSubmit}
-      className={cx('relative rounded-md', {
+      className={cx('relative rounded-md h-fit', 'sm:w-[270px]', {
         'bg-gray-900': darkMode,
         'bg-gray-100': !darkMode,
       })}

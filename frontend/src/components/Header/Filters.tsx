@@ -20,7 +20,7 @@ export function Filters({ className }: FiltersProps) {
 
   return (
     <div
-      className={cx('flex rounded-md', className, {
+      className={cx('flex rounded-md h-fit', 'sm:w-[270px]', className, {
         'bg-gray-900': darkMode,
         'bg-gray-100': !darkMode,
       })}

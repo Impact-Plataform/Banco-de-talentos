@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -19,9 +20,15 @@ export function Cards() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center pt-52 px-3">
+    <div
+      className={cx(
+        'grid items-center pt-56 px-4 gap-4',
+        'sm:pt-40 sm:grid-cols-2',
+        'lg:pt-32 lg:grid-cols-3',
+      )}
+    >
       {charactersToShow?.map((character, index) => (
-        <Link key={index} to={`details/${character.name}`}>
+        <Link key={index} to={`details/${character.name}`} className={cx('h-full')}>
           <Card character={character} mode="simplified" />
         </Link>
       ))}
