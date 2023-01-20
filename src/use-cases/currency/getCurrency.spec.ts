@@ -6,7 +6,7 @@ describe('Validate use case "get currency"', async () => {
 
 	const getCurrency = new GetCurrency();
 
-	it('Should be able to return one curreny', async () => {
+	it('Should be able to return one currency', async () => {
 		
 		const currency = await getCurrency.get('usd');
 
