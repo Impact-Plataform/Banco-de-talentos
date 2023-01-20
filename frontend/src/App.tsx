@@ -6,7 +6,7 @@ export function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/details/:characterName" element={<CharacterDetail />} />
+      <Route path="/:characterName" element={<CharacterDetail />} />
     </Routes>
   );
 }

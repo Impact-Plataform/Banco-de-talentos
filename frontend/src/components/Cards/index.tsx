@@ -28,7 +28,7 @@ export function Cards() {
       )}
     >
       {charactersToShow?.map((character, index) => (
-        <Link key={index} to={`details/${character.name}`} className={cx('h-full')}>
+        <Link key={index} to={`${character.name}`} className={cx('h-full')}>
           <Card character={character} mode="simplified" />
         </Link>
       ))}
