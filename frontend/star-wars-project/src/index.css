@@ -151,8 +151,8 @@ body {
   margin: 0 auto;
   min-height: 100vh;
 
-  background: url("../public/stars-background.svg") no-repeat;
-  background-size: cover;
+  background: url("../public/stars-background.jpg") repeat;
+  background-size: fit-content;
 
   font-family: "Inter", sans-serif;
 }
