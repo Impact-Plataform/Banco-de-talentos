@@ -77,7 +77,7 @@ const Home = () => {
                             .map((character) => (
                                 <Card
                                     key={character.name}
-                                    name={character.name}
+                                    infos={character}
                                     id={getUrlId(character.url)}
                                     imageUrl={`https://starwars-visualguide.com/assets/img/characters/${getUrlId(
                                         character.url,
