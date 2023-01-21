@@ -22,8 +22,8 @@ function useEndpoints() {
     }, []);
 
     useEffect(() => {
-        const allGenders = peoples.map((option) => {
-            return option.gender;
+        const allGenders = peoples.map((people) => {
+            return people.gender;
         });
         setGenders([...new Set(allGenders)]);
     }, [peoples]);

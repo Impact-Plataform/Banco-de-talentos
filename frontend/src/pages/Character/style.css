@@ -1,12 +1,18 @@
 .character__box {
     display: flex;
     gap: 4rem;
+
     background-color: #faf6ed;
-    color:#333;
+    border-radius: 6px;
+    color: #333;
 }
 
 .character__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 2.4rem 0;
+    margin: 0 auto;
 }
 
 .character__img {
@@ -14,17 +20,21 @@
 }
 
 .character__img img {
-    width: 38rem;
-    margin: auto;
+    min-width: 38rem;
+    height: 100%;
+
+    border: 4px solid #faf6ed;
+    border-radius: 6px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.51);
 }
 
 .character__info > div {
-    margin: 3.2rem 3.2rem 3.2rem 0;
+    margin: 3.2rem 0;
 }
 
 .character__title {
     font-family: 'Passion one', sans-serif;
-    font-size: 7.4rem;
+    font-size: 9rem;
     font-weight: normal;
 }
 
@@ -54,15 +64,37 @@
     gap: 3.2rem;
 }
 
-.character__films___list div{
-    width: 12rem;
-    height: 16rem;
-}
-.character__films___list img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 16px;
-    border: 1px solid #faf6ed;
+@media screen and (max-width: 1020px) {
+    .character__title {
+        font-size: 7rem;
+    }
 }
 
+@media screen and (max-width: 852px) {
+    .character__box {
+        flex-direction: column;
+        align-items: center;
+        gap: unset;
+    }
+
+    .character__img {
+        width: auto;
+        margin: 2rem;
+    }
+
+    .character__img img {
+        min-width: unset;
+    }
+
+    .character__detail___item {
+        display: block;
+    }
+
+    .character__info {
+        padding: 0 2rem 2rem;
+    }
+
+    .character__title {
+        font-size: 6rem;
+    }
+}

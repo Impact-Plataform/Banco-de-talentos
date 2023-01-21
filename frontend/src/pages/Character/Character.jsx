@@ -1,7 +1,7 @@
+import FilmCard from './FilmCard/FilmCard';
 import './style.css';
 
 const Character = () => {
-
     return (
         <>
             <section className="container">
@@ -14,38 +14,31 @@ const Character = () => {
                         <h2 className="character__title">Nome do personagem</h2>
 
                         <div className="character__detail">
-                            <div className='character__detail___item'>
-                                <label>Ano de nascimento</label>
-                                <span>Info</span>
+                            <div className="character__detail___item">
+                                <label>Planeta natal</label>
+                                <span>Planeta</span>
                             </div>
 
-                            <div className='character__detail___item'>
+                            <div className="character__detail___item">
                                 <label>Ano de nascimento</label>
-                                <span>Info</span>
+                                <span>Ano</span>
                             </div>
 
-                            <div className='character__detail___item'>
-                                <label>Ano de nascimento</label>
-                                <span>Info</span>
+                            <div className="character__detail___item">
+                                <label>Gênero</label>
+                                <span>Gênero</span>
+                            </div>
+
+                            <div className="character__detail___item">
+                                <label>Altura</label>
+                                <span>Altura</span>
                             </div>
                         </div>
-                        <div className='character__films'>
+                        <div className="character__films">
                             <h4>Filmes</h4>
-                            <div className='character__films___list'>
-                                <div className='rocharacter__films___item'>
-                                    <img src="" alt="" />
-                                    <label>Nome do filme</label>
-                                </div>
 
-                                <div className='rocharacter__films___item'>
-                                    <img src="" alt="" />
-                                    <label>Nome do filme</label>
-                                </div>
-                                
-                                <div className='rocharacter__films___item'>
-                                    <img src="" alt="" />
-                                    <label>Nome do filme</label>
-                                </div>
+                            <div className="character__films___list">
+                                <FilmCard />
                             </div>
                         </div>
                     </div>
