@@ -1,4 +1,4 @@
-# Desafio para integrar o banco de talentos como Desenvolvedor Front-end
+<!-- # Desafio para integrar o banco de talentos como Desenvolvedor Front-end
 
 Este desafio tem como objetivo te avaliar como desenvolvedor Front-end.
 
@@ -16,10 +16,10 @@ O que esperamos aprender com você com este desafio:
 ## Descrição do Desafio
   O objetivo desse desafio é construir catalogo com Cards de informações sobre personagens de Star Wars (Um card para cada personagem)
   Você deve buscar essas informações usando a Api publica [SWAPI](https://swapi.dev/)
-  
+
 ## Requisitos
-Funcionalidades que devem ser desenvolvidas: 
-  - O usuário deverá poder filtrar os personagens por: 
+Funcionalidades que devem ser desenvolvidas:
+  - O usuário deverá poder filtrar os personagens por:
     - Genero
     - Especie
     - Filme em que aparece
@@ -31,7 +31,7 @@ Funcionalidades que devem ser desenvolvidas:
 ## Diferencial
 
   - Utilizar alguma metodologia para a organização de seu CSS (BEMCSS, OOCSS, SMACSS... o que preferir :D);
-  - Escolha uma lib para criação de interfaces de usuário (React, Angular ou Vue); 
+  - Escolha uma lib para criação de interfaces de usuário (React, Angular ou Vue);
 
 ## Considerações
 
@@ -55,4 +55,14 @@ Funcionalidades que devem ser desenvolvidas:
 Tem alguma dúvida relacionada ao processo? Abra um [issue](https://github.com/Impact-Plataform/Banco-de-talentos/issues) e teremos prazer em ajudar.
 
 ## Obrigado!
-Agradecemos sua participação no desafio. Boa sorte! 😄
+Agradecemos sua participação no desafio. Boa sorte! 😄 -->
+
+# Desafio para integrar o banco de talentos como Desenvolvedor Front-end
+
+Desafio realizado com React, Vite e TypeScript para a parte lógica. Também utilizei Tailwind para estilização e um pacote chamado `classnames` para conseguir passar estilos do tailwind condicionados com estados da aplicação.
+
+## Como rodar o projeto
+
+Para rodar o projeto, basta clonar o repositório e rodar o comando `yarn` para instalar as dependências. Após isso, basta rodar o comando `yarn dev` para iniciar o servidor de desenvolvimento.
+
+Para rodar uma versão de produção, basta rodar o comando `yarn build` e depois `yarn serve` para iniciar o servidor de produção.
