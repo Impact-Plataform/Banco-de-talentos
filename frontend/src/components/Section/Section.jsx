@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect} from "react";
 import { StateContext } from "../../context/StateProvider";
 import api from "../../service/api";
 import Card from "../Card/Card";
@@ -36,23 +36,18 @@ const Section = () => {
               <Card
                 key={info.url}
                 nome={info.name || info.title}
-                genero={
-                  info.gender == "male"
-                    ? "masculino"
-                    : "indefinido" && info.gender == "female"
-                    ? "feminino"
-                    : "indefinido"
-                }
+                genero={info.gender}
                 altura={info.height}
                 peso={info.mass}
                 corDoCabelo={info.hair_color}
                 corDosOlhos={info.eye_color}
                 pele={info.skin_color}
-                especie={info.species}
+                especie={info.name}
                 anoDeNascimento={info.birth_year}
                 planeta={info.homeworld}
-                filmes={info.films}
+                filmes={info.films + ""}
                 url={info.url || info.url}
+                id={info.url.slice(-3).replace(/\//g, "")}
               />
             );
           })}

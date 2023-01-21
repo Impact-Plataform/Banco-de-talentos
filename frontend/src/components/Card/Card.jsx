@@ -14,6 +14,7 @@ const Card = ({
   planeta,
   filmes,
   url,
+  id,
 }) => {
   const param = url.slice(22).replace(/.$/, "");
   const idUnico = `../${param}.jpg`;
@@ -28,7 +29,9 @@ const Card = ({
             className="card-img-top mp-0"
             alt="imagem do card"
           />
-          <h5 className="card-title text-center" translate="no">{nome}</h5>
+          <h5 className="card-title text-center" translate="no">
+            {nome}
+          </h5>
           <div className="container-md d-flex justify-content-center">
             {param.slice(0, 6) == "people" ? (
               <Modal
@@ -43,6 +46,7 @@ const Card = ({
                 anoDeNascimento={anoDeNascimento}
                 planeta={planeta}
                 filmes={filmes}
+                idModal={id}
               />
             ) : null}
           </div>

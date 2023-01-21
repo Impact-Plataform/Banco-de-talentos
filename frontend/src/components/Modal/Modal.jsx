@@ -13,6 +13,7 @@ const Modal = ({
   anoDeNascimento,
   planeta,
   filmes,
+  idModal,
 }) => {
   return (
     <div>
@@ -20,14 +21,14 @@ const Modal = ({
         type="button"
         className="btn btn-primary d-flex justify-content-center"
         data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
+        data-bs-target={"#" + idModal.toString()}
       >
         Ver mais
       </button>
 
       <div
         className="modal fade"
-        id="staticBackdrop"
+        id={idModal}
         data-bs-backdrop="static"
         data-bs-keyboard="true"
         tabIndex="-1"
@@ -37,7 +38,11 @@ const Modal = ({
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
             <div className="modal-header">
-              <h1 className="modal-title fs-5" id="staticBackdropLabel" translate="no">
+              <h1
+                className="modal-title fs-5"
+                id="staticBackdropLabel"
+                translate="no"
+              >
                 {nome}
               </h1>
               <button
@@ -49,44 +54,44 @@ const Modal = ({
             </div>
             <div className="modal-body">
               <p className="card-text">
-                Gênero: <strong>{genero}</strong>
+                Gender: <strong>{genero}</strong>
               </p>
               <p className="card-text">
-                Altura: <strong>{altura} cm </strong>
+                Height: <strong>{altura} cm </strong>
               </p>
               <p className="card-text">
-                Peso: <strong>{peso} kg </strong>
+                Mass: <strong>{peso} kg </strong>
               </p>
               <p className="card-text">
-                Cor do cabelo: <strong>{corDoCabelo}</strong>
+                Hair color: <strong>{corDoCabelo}</strong>
               </p>
               <p className="card-text">
-                Cor dos olhos: <strong>{corDosOlhos}</strong>
+                Eye color: <strong>{corDosOlhos}</strong>
               </p>
               <p className="card-text">
-                Pele: <strong>{pele}</strong>
+                Skin color: <strong>{pele}</strong>
               </p>
               <p className="card-text">
-                Espécie: <strong>{especie}</strong>
+                Specie: <strong>{especie}</strong>
               </p>
               <p className="card-text">
-                Ano de Nascimento: <strong>{anoDeNascimento}</strong>
+                Birth year: <strong>{anoDeNascimento} *</strong>
               </p>
-              <p className="fst-italic">
-                O ano de nascimento do personagem, usa o padrão do universo de
+              <p className="card-text">
+                Homeworld: <strong>{planeta}</strong>
+              </p>
+              <p className="card-text">
+                Films: <strong>{filmes}</strong>
+              </p>
+            </div>
+            <div className="modal-footer d-flex flex-column p-0">
+            <p className="fst-italic" style={{ fontSize: 13 + "px", textAlign: "justify"}}>
+                * O ano de nascimento do personagem, usa o padrão do universo de
                 <strong> BBY</strong> ou <strong>ABY </strong>- Antes da Batalha
                 de Yavin ou Após a Batalha de Yavin. A Batalha de Yavin é uma
                 batalha que ocorre no final do episódio IV de Star Wars: Uma
                 Nova Esperança.
               </p>
-              <p className="card-text">
-                Planeta Natal: <strong>{planeta}</strong>
-              </p>
-              <p className="card-text">
-                Filmes em que aparece: <strong>{filmes}</strong>
-              </p>
-            </div>
-            <div className="modal-footer">
               <img
                 src={svg}
                 alt="icone stormtrooper"
