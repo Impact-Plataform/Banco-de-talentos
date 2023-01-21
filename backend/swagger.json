@@ -1,0 +1,409 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de produtos",
+    "description": "Documentação da API do desafio para integrar o banco de talentos como Desenvolvedor Back-end.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/products": {
+      "get":{
+        "tags": ["Products"],
+        "description": "Listagem de todos os produtos cadastrados.",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "products": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/listProductResponse"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sem produtos cadastrados."
+          }
+        }
+      },
+      "post": {
+        "tags": ["Products"],
+        "description": "Cadastro de produtos.",
+        "requestBody": {
+          "description": "Dados necessários para o cadastro de um produto.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Cadastro realizado com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createProductResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Valores inválidos ou produto já cadastrado."
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "tags": ["Products"],
+        "description": "Busca de um produto por ID.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto encontrado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "product": {
+                      "$ref": "#/components/schemas/listProductResponse"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Produto não encontrado."
+          },
+          "400": {
+            "description": "ID inválido."
+          }
+        }
+      },
+      "put": {
+        "tags": ["Products"],
+        "description": "Atualização de um produto.",
+        "requestBody": {
+          "description": "Dados necessários para a atualização de um produto.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updateProduct"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto atualizado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updateProductResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Produto não encontrado."
+          },
+          "400": {
+            "description": "ID ou campos inválidos."
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Products"],
+        "description": "Deletar um produto.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto deletado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deleteProductResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Produto não encontrado."
+          },
+          "400": {
+            "description": "ID inválido."
+          }
+        }
+      }
+    },
+    "/currency": {
+      "get":{
+        "tags": ["Currency"],
+        "description": "Listagem de todas as cotações das moedas.",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "currencies": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/listCurrencyResponse"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/currency/{symbol}": {
+      "get": {
+        "tags": ["Currency"],
+        "description": "Busca de uma moeda pelo símbolo.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/symbolParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Moeda encontrada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/listCurrencyResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Moeda não encontrada."
+          },
+          "400": {
+            "description": "Símbolo inválido."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "listProductResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "Id do produto cadastrado.",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do produto cadastrado.",
+            "example": "Carregador"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Quantidade do produto cadastrado.",
+            "example": 25
+          },
+          "value": {
+            "type": "number",
+            "description": "Valor em BRL do produto cadastrado.",
+            "example": 20
+          },
+          "valueUSD": {
+            "type": "number",
+            "description": "Valor em USD do produto cadastrado.",
+            "example": 3.84
+          },
+          "valueEUR": {
+            "type": "number",
+            "description": "Valor em EUR do produto cadastrado.",
+            "example": 3.57
+          }
+          
+        }
+      },
+      "listCurrencyResponse": {
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Código da moeda.",
+                "example": "USD"
+              },
+              "name": {
+                "type": "string",
+                "description": "Nome da moeda.",
+                "example": "Dólar Americano/Real Brasileiro"
+              },
+              "value": {
+                "type": "number",
+                "description": "Valor da moeda em BRL.",
+                "example": 5.99
+              }     
+            }
+          }
+        }
+      },
+      "createProduct": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome do produto a ser cadastrado.",
+            "example": "Carregador"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Quantidade de produtos a ser cadastrado.",
+            "example": 25
+          },
+          "value": {
+            "type": "number",
+            "description": "Valor do produto a ser cadastrado.",
+            "example": 19
+          }
+        }
+      },
+      "createProductResponse": {
+        "type": "object",
+        "properties": {
+         "product": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Id do produto cadastrado.",
+              "example": 2
+            },
+            "name": {
+              "type": "string",
+              "description": "Nome do produto cadastrado.",
+              "example": "Carregador"
+            },
+            "amount": {
+              "type": "number",
+              "description": "Quantidade do produto cadastrado.",
+              "example": 25
+            },
+            "value": {
+              "type": "number",
+              "description": "Valor do produto cadastrado.",
+              "example": 19.99
+            }
+          }
+         }
+        }
+      },
+      "updateProduct": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome do produto a ser cadastrado.",
+            "example": "Carregador usb"
+          },
+          "amount": {
+            "type": "number",
+            "description": "Quantidade de produtos a ser cadastrado.",
+            "example": 20
+          },
+          "value": {
+            "type": "number",
+            "description": "Valor do produto a ser cadastrado.",
+            "example": 29.99
+          }
+        }
+      },
+      "updateProductResponse": {
+        "type": "object",
+        "properties": {
+         "product": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number",
+              "description": "Id do produto cadastrado.",
+              "example": 2
+            },
+            "name": {
+              "type": "string",
+              "description": "Nome do produto cadastrado.",
+              "example": "Carregador usb"
+            },
+            "amount": {
+              "type": "number",
+              "description": "Quantidade do produto cadastrado.",
+              "example": 20
+            },
+            "value": {
+              "type": "number",
+              "description": "Valor do produto cadastrado.",
+              "example": 29.99
+            }
+          }
+         }
+        }
+      },
+      "deleteProductResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Produto deletado com sucesso"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "idParam": {
+        "name": "id",
+        "in": "path",
+        "description": "ID do produto.",
+        "required": true,
+        "type": "number"
+      },
+      "symbolParam": {
+        "name": "symbol",
+        "in": "path",
+        "description": "Simbolo da moeda.",
+        "required": true,
+        "type": "string"
+      }
+    }
+  }
+}
