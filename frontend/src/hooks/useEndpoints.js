@@ -6,7 +6,7 @@ function useEndpoints() {
     const [genders, setGenders] = useState([]);
     const [species, setSpecies] = useState([]);
     const [films, setFilms] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         async function getAllPeoples() {

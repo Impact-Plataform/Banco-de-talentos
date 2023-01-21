@@ -1,0 +1,68 @@
+.character__box {
+    display: flex;
+    gap: 4rem;
+    background-color: #faf6ed;
+    color:#333;
+}
+
+.character__info {
+    padding: 2.4rem 0;
+}
+
+.character__img {
+    width: 48rem;
+}
+
+.character__img img {
+    width: 38rem;
+    margin: auto;
+}
+
+.character__info > div {
+    margin: 3.2rem 3.2rem 3.2rem 0;
+}
+
+.character__title {
+    font-family: 'Passion one', sans-serif;
+    font-size: 7.4rem;
+    font-weight: normal;
+}
+
+.character__detail___item {
+    display: inline-block;
+    margin-right: 6.4rem;
+    margin-top: 2rem;
+}
+
+.character__detail label {
+    font-size: 1.4rem;
+    color: #333;
+    display: block;
+}
+
+.character__detail span {
+    font-size: 2.2rem;
+}
+
+.character__films h4 {
+    font-size: 2.4rem;
+    margin-bottom: 2.4rem;
+}
+
+.character__films___list {
+    display: flex;
+    gap: 3.2rem;
+}
+
+.character__films___list div{
+    width: 12rem;
+    height: 16rem;
+}
+.character__films___list img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 1px solid #faf6ed;
+}
+
