@@ -3,15 +3,16 @@ import { useParams } from 'react-router-dom';
 
 import useEndpoints from '../../hooks/useEndpoints';
 import api from '../../services/api';
-import getUrlId from '../../utils/getUrlId';
 
-import FilmCard from './FilmCard/FilmCard';
+import CaharacterDetail from './CharacterDetail/CaharacterDetail';
+import Loader from '../../components/Loader/Loader';
+
 import './style.css';
 
 const Character = () => {
     const { id } = useParams();
     const [character, setCharacter] = useState([]);
-    const { films, planets, isLoading } = useEndpoints();
+    const { films, planets, species, isLoading } = useEndpoints();
 
     useEffect(() => {
         async function fetchCharacter() {
@@ -26,65 +27,31 @@ const Character = () => {
 
     return (
         <>
-            <section className="container">
-                <div className="character__box">
-                    <div className="character__img">
-                        <img
-                            src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
-                            alt={`imagem do personagem${character.name}`}
-                        />
-                    </div>
-
-                    <div className="character__info">
-                        <h2 className="character__title">{character.name}</h2>
-
-                        <div className="character__detail">
-                            <div className="character__detail___item">
-                                <label>Planeta natal</label>
-                                {planets.map(
-                                    (planet) =>
-                                        character.homeworld.includes(
-                                            planet.url,
-                                        ) && <span key={planet.name}>{planet.name}</span>,
-                                )}
-                            </div>
-
-                            <div className="character__detail___item">
-                                <label>Ano de nascimento</label>
-                                <span>{character.birth_year}</span>
-                            </div>
-
-                            <div className="character__detail___item">
-                                <label>Gênero</label>
-                                <span>{character.gender}</span>
-                            </div>
-
-                            <div className="character__detail___item">
-                                <label>Altura</label>
-                                <span>{character.height}</span>
-                            </div>
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <section className="container">
+                    <div className="character__box">
+                        <div className="character__img">
+                            <img
+                                src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+                                alt={`imagem do personagem${character.name}`}
+                            />
                         </div>
-                        <div className="character__films">
-                            <h4>Filmes</h4>
 
-                            <div className="character__films___list">
-                                {films.map(
-                                    (film) =>
-                                        character.films.includes(film.url) && (
-                                            <FilmCard
-                                                key={film.title}
-                                                title={film.title}
-                                                imageUrl={`https://starwars-visualguide.com/assets/img/films/${getUrlId(
-                                                    film.url,
-                                                )}.jpg`}
-                                            />
-                                        ),
-                                )}
-                            </div>
+                        <div className="character__info">
+                            <h2 className="character__title">
+                                {character.name}
+                            </h2>
+                            <CaharacterDetail
+                                characterDetail={character}
+                                planetsDetail={planets}
+                                speciesDetail={species}
+                            />
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            )}
         </>
     );
 };
