@@ -1,6 +1,6 @@
 import { getPeople } from "../../api/people";
 import { useEffect, useState } from "react";
-import { Button, CharacterCardList } from "../../components";
+import { Button, CharacterCardList, Input } from "../../components";
 import { Pagination } from "./styles";
 
 export const Home = () => {
@@ -45,6 +45,10 @@ export const Home = () => {
 
   return (
     <>
+      <Input
+        placeholder="Type a character name"
+        onChange={(e) => console.log(e.target.value)}
+      />
       <CharacterCardList characters={characters} />
       <Pagination>
         <Button text="Previous" onClick={handlePreviousPage} />
