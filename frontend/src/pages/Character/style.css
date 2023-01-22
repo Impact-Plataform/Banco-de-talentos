@@ -1,22 +1,13 @@
 .character__box {
     display: flex;
-    gap: 4rem;
 
     background-color: #faf6ed;
     border-radius: 6px;
     color: #333;
 }
 
-.character__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 2.4rem 0;
-    margin: 0 auto;
-}
-
 .character__img {
-    width: 48rem;
+    width: 38rem;
 }
 
 .character__img img {
@@ -28,31 +19,18 @@
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.51);
 }
 
-.character__info > div {
-    margin: 5rem 0;
+.character__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.4rem 0;
+    margin: 0 auto;
 }
 
 .character__title {
     font-family: 'Passion one', sans-serif;
     font-size: 9rem;
     font-weight: normal;
-}
-
-.character__detail___item {
-    display: inline-block;
-    margin-right: 6.4rem;
-    margin-top: 2rem;
-}
-
-.character__detail label {
-    font-size: 1.6rem;
-    color: #333;
-    display: block;
-}
-
-.character__detail span {
-    font-size: 2.2rem;
-    font-weight: 600;
 }
 
 .character__films h4 {
@@ -65,17 +43,10 @@
     gap: 3.2rem;
 }
 
-@media screen and (max-width: 1020px) {
-    .character__title {
-        font-size: 7rem;
-    }
-}
-
-@media screen and (max-width: 852px) {
+@media screen and (max-width: 1052px) {
     .character__box {
         flex-direction: column;
         align-items: center;
-        gap: unset;
     }
 
     .character__img {
@@ -87,15 +58,13 @@
         min-width: unset;
     }
 
-    .character__detail___item {
-        display: block;
+    .character__title {
+        font-size: 6.5rem;
+        text-align: center;
     }
 
     .character__info {
-        padding: 0 2rem 2rem;
-    }
-
-    .character__title {
-        font-size: 6rem;
+        padding: unset;
+        margin: 0 2rem 2rem;
     }
 }
