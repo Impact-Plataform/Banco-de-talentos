@@ -6,6 +6,7 @@ function useEndpoints() {
     const [genders, setGenders] = useState([]);
     const [species, setSpecies] = useState([]);
     const [films, setFilms] = useState([]);
+    const [planets, setPlanets] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -34,7 +35,7 @@ function useEndpoints() {
                 const species = await getAllEndpoint('species/');
                 setSpecies([...new Set(species)]);
             } catch (error) {}
-        }
+        } 
         getAllSpecies();
     }, []);
 
@@ -48,11 +49,22 @@ function useEndpoints() {
         getAlltFilms();
     }, []);
 
+    useEffect(() => {
+        async function getAlltPlanets() {
+            try {
+                const planets = await getAllEndpoint('planets/');
+                setPlanets([...new Set(planets)]);
+            } catch (error) {}
+        }
+        getAlltPlanets();
+    }, []);
+
     return {
         peoples,
         genders,
         species,
         films,
+        planets,
         isLoading,
     };
 }
