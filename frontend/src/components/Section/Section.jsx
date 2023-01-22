@@ -49,7 +49,7 @@ const Section = () => {
                 especie={info.species == "" ? "human" : info.species}
                 anoDeNascimento={info.birth_year}
                 planeta={info.homeworld}
-                filmes={info.films.toString() + ""}
+                filmes={info.films}
                 url={info.url}
                 id={info.url.slice(-3).replace(/\//g, "")}
               />
