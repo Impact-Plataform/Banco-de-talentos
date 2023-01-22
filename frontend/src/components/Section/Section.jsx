@@ -46,10 +46,10 @@ const Section = () => {
                 corDoCabelo={info.hair_color}
                 corDosOlhos={info.eye_color}
                 pele={info.skin_color}
-                especie={info.species}
+                especie={info.species == "" ? "human" : info.species}
                 anoDeNascimento={info.birth_year}
                 planeta={info.homeworld}
-                filmes={info.films + ""}
+                filmes={info.films.toString() + ""}
                 url={info.url}
                 id={info.url.slice(-3).replace(/\//g, "")}
               />

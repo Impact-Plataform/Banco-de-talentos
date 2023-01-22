@@ -85,10 +85,10 @@ const Modal = ({
               <img src={ballon} alt="icone de calendário" /> Birth year: <strong>{anoDeNascimento} *</strong>
               </p>
               <p className="card-text">
-              <img src={activity} alt="icone de digital" />  Specie: <strong>{especie}</strong>
+              <img src={activity} alt="icone de atividade" />  Specie: <strong>{especie}</strong>
               </p>
               <p className="card-text">
-              <img src={globe} alt="icone de globo" /> Homeworld: <strong>{planeta}</strong>
+              <img src={globe} alt="icone do planeta" /> Homeworld: <strong>{planeta}</strong>
               </p>
               <p className="card-text">
               <img src={film} alt="icone de filme" /> Films: <strong>{filmes}</strong>
