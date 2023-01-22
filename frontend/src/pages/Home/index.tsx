@@ -7,6 +7,17 @@ export const Home = () => {
   const [characters, setCharacters] = useState([]);
   const [nextPage, setNextPage] = useState<any>(null);
   const [previousPage, setPreviousPage] = useState<any>(null);
+  const [searchName, setSearchName] = useState("");
+
+  const handleSearch = async () => {
+    const charactersResponse = await getPeople({
+      page: 1,
+      search: searchName,
+    });
+    setCharacters(charactersResponse?.characters);
+    setNextPage(charactersResponse?.nextPage);
+    setPreviousPage(charactersResponse?.previousPage);
+  };
 
   const handleCharacters = async () => {
     const charactersResponse = await getPeople({
@@ -47,8 +58,9 @@ export const Home = () => {
     <>
       <Input
         placeholder="Type a character name"
-        onChange={(e) => console.log(e.target.value)}
+        onChange={(e) => setSearchName(e.target.value)}
       />
+      <Button text="Search" onClick={handleSearch}/>
       <CharacterCardList characters={characters} />
       <Pagination>
         <Button text="Previous" onClick={handlePreviousPage} />
