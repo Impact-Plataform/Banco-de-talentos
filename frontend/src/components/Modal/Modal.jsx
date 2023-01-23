@@ -32,8 +32,9 @@ const Modal = ({
         className="btn btn-primary d-flex justify-content-center"
         data-bs-toggle="modal"
         data-bs-target={"#" + idModal.toString()}
+        style={{fontFamily: "jedi"}}
       >
-        Ver mais
+        ver mais
       </button>
 
       <div
@@ -95,13 +96,13 @@ const Modal = ({
               </p>
             </div>
             <div className="modal-footer d-flex flex-column p-0">
-            <p className="fst-italic" style={{ fontSize: 13 + "px", textAlign: "justify"}}>
+            <h6 className="fst-italic" style={{ fontSize: 13 + "px", textAlign: "justify"}}>
                 * O ano de nascimento do personagem usa o padrão do universo de
                 <strong> BBY</strong> ou <strong>ABY </strong>- Antes da Batalha
                 de Yavin ou Após a Batalha de Yavin. A Batalha de Yavin é uma
                 batalha que ocorre no final do episódio IV de Star Wars: Uma
                 Nova Esperança.
-              </p>
+              </h6>
               <img
                 src={svg}
                 alt="icone stormtrooper"

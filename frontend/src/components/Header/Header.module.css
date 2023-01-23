@@ -10,3 +10,6 @@
     width: 50%;
     display: flex;
 }
+.container button {
+    font-family: jedi;
+}
