@@ -1,9 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: { appDir: true },
+  experimental: { 
+    appDir: true,
+    optimizeCss: true, 
+  },
   compiler: {
-    styledComponents: true
+    styledComponents: {
+      ssr: true
+    }
   },
   images: {
     remotePatterns: [
