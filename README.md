@@ -9,10 +9,6 @@
 
 <br>
 
-<p align="center">
-  <img alt="Imagem de apresentação do Projeto Jedi." src=".github/desafio-jedi.png" width="100%">
-</p>
-
 ## 💻 Projeto
 
 O desafio Jedi tem como objetivo avaliar o
