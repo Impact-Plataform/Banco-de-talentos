@@ -1,6 +1,6 @@
 import React from "react";
 
-const Pagination = ({ anterior, proxima, page }) => {
+const Pagination = ({ anterior, proxima, page, limit }) => {
   return (
     <nav aria-label="Page navigation">
       <ul className="pagination justify-content-center mb-0 p-3">
@@ -22,7 +22,7 @@ const Pagination = ({ anterior, proxima, page }) => {
             {page}
           </a>
         </li>
-        {page == 9 ? (
+        {page == `${limit}` ? (
           <li className="page-item disabled">
             <a className="page-link bg-warning" href="#" onClick={proxima}>
               Fim

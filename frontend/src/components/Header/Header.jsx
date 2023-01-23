@@ -5,6 +5,7 @@ import logo from "../../assets/images/icones/star-wars-logo.png";
 import style from "./Header.module.css";
 import SearchInput from "../SearchInput/SearchInput";
 import { StateContext } from "../../context/StateProvider";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { info, setInfo } = useContext(StateContext);
@@ -98,15 +99,17 @@ const Header = () => {
   return (
     <nav className="navbar bg-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand">
+        <Link className="navbar-brand" to={"/"}>
           <img src={logo} className={style.logo} />
-        </a>
-        <div className={style.container}>
-          <SearchInput value={text} onChange={(search) => setText(search)} />
-          <button className="btn btn-success" type="submit" onClick={select}>
-            Buscar
-          </button>
-        </div>
+        </Link>
+        {info == !info ? null : (
+          <div className={style.container}>
+            <SearchInput value={text} onChange={(search) => setText(search)} />
+            <button className="btn btn-success" type="submit" onClick={select}>
+              Buscar
+            </button>
+          </div>
+        )}
         <img src={bb8} alt="icone personagem bb-8" className={style.svg} />
       </div>
     </nav>
