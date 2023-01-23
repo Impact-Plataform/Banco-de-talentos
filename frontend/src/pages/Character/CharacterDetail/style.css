@@ -1,0 +1,48 @@
+.character__detail {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 30rem);
+    justify-content: center;
+    justify-items: center;
+    margin-top: 5rem;
+}
+
+.character__detail___item {
+    display: flex;
+    align-items: center;
+
+    width: 25rem;
+    padding: 0.6rem 0.6rem 0.6rem 0;
+    margin: 20px 0 0;
+}
+
+.character__detail___icon {
+    width: 8rem;
+    display: inline-block;
+    margin-right: 1rem;
+    filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25));
+}
+
+.character__detail label {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    display: block;
+}
+
+.character__detail span {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1370px) {
+    .character__detail {
+        grid-template-columns: repeat(2, 30rem);
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .character__detail {
+        grid-template-columns: repeat(1, 30rem);
+    }
+}
