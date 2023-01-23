@@ -10,11 +10,16 @@ const About = () => {
                         <h1 className="about__title">Desafio Jedi</h1>
                         <p className="about__text">
                             O desafio Jedi tem como objetivo avaliar o
-                            cohecimento e habilidades como desenvolvedor
-                            Front-end. A apçicação foi desenvolvida para
-                            demonstrar na prática uma SPA, consultas em API,
-                            React Hooks e demais conceitos de React.js. veja
-                            mais informações clicando logo abaixo...
+                            conhecimento e habilidades como desenvolvedor
+                            Front-end. A aplicação foi desenvolvida para
+                            demonstrar na prática uma SPA, consultas na API,
+                            React Hooks e demais conceitos de React.js. Nela
+                            encontra-se uma lista de personagens, podendo
+                            pesquisar pelo nome, filtrar gêneros, espécies e
+                            filmes em que aparece. Ao clicar no personagem, será
+                            redirecionado para uma página interna com mais
+                            detalhes do mesmo. Saiba mais clicando no botão
+                            abaixo...
                         </p>
                         <a
                             href="https://github.com/jeanwilker/Banco-de-talentos/tree/jean-wilker-frontend/frontend"

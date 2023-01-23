@@ -11,18 +11,3 @@
 .search form:hover{
     border: 0.1rem solid #ffe300;
 }
-
-input,
-select,
-option,
-textarea {
-    padding: 1rem 1.2rem;
-    background-color: #151b26;
-    border: 0;
-    border-radius: 4px;
-    color: #faf6ed;
-    width: 100%;
-    font-size: 1.6rem;
-    line-height: 2.6rem;
-    font-weight: 200;
-}

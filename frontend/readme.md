@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+<h1 align="center"> Desafio Jedi</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="#-projeto">Desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-instalação">Instalação</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-deploy">Deploy</a>
+</p>
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+<p align="center">
+  <img alt="Imagem de apresentação do Projeto Jedi." src=".github/desafio-jedi.png" width="100%">
+</p>
 
-### `npm start`
+## 💻 Projeto
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+O desafio Jedi tem como objetivo avaliar o
+conhecimento e habilidades como desenvolvedor
+Front-end. A aplicação foi desenvolvida para
+demonstrar na prática uma SPA, consultas na API,
+React Hooks e demais conceitos de React.js. Nela encontra-se uma lista de personagens, podendo pesquisar pelo nome, filtrar gêneros, espécies e filmes em que aparece. Ao clicar no personagem, será redirecionado para uma página interna com mais detalhes do mesmo.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🚀 Tecnologias
 
-### `npm test`
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![React.js](https://img.shields.io/badge/-React.js-0D1117?style=for-the-badge&logo=react&labelColor=0D1117)
 
-### `npm run build`
+![JavaScript](https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&labelColor=0D1117&textColor=0D1117)&nbsp;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![CSS](https://img.shields.io/badge/-CSS-0D1117?style=for-the-badge&logo=CSS3&logoColor=1572B6&labelColor=0D1117)&nbsp;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![HTML](https://img.shields.io/badge/-HTML5-0D1117?style=for-the-badge&logo=html5&logoColor=E34F26&labelColor=0D1117)&nbsp; <br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## instalação
 
-### `npm run eject`
+**1 - Pré requisitos:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Ter a versão mais atual do Node instalada ([Node](https://nodejs.org/en/download/))
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**2 - Clonar o repositório:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+$ git clone git@github.com:jeanwilker/Banco-de-talentos.git
+$ cd Banco-de-talentos
+$ git checkout jean-wilker-frontend
+$ cd frontend
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**3 - Instalar dependências:**
 
-## Learn More
+```sh
+$ npm install
+```
+**4 - Iniciar a aplicação:**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+$ npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔖 Deploy
 
-### Code Splitting
+Você pode testar a aplicação através [DESSE LINK]().
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
