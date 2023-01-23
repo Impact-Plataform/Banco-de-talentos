@@ -1,58 +1,66 @@
-# Desafio para integrar o banco de talentos como Desenvolvedor Front-end
+<h1 align="center"> Desafio Jedi</h1>
 
-Este desafio tem como objetivo te avaliar como desenvolvedor Front-end.
+<p align="center">
+  <a href="#-projeto">Desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-install">Install</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-deploy">Deploy</a>
+</p>
 
-## Sobre o desafio
-Este é um desafio, não um teste de faculdade, então há várias respostas corretas.
+<br>
 
-Daremos a você alguns requisitos que devem ser cumpridos e pelos quais você será avaliado, mas você é livre para escolher um método de solução.
+<p align="center">
+  <img alt="Imagem de apresentação do Projeto Jedi." src=".github/desafio-jedi.png" width="100%">
+</p>
 
-O que esperamos aprender com você com este desafio:
+## 💻 Projeto
 
-- Seu estilo de trabalho.
-- Como você pensa e resolve problemas.
-- Como você se comunica.
+O desafio Jedi tem como objetivo avaliar o
+conhecimento e habilidades como desenvolvedor
+Front-end. A aplicação foi desenvolvida para
+demonstrar na prática uma SPA, consultas na API,
+React Hooks e demais conceitos de React.js. Nela encontra-se uma lista de personagens, podendo pesquisar pelo nome, filtrar gêneros, espécies e filmes em que aparece. Ao clicar no personagem, será redirecionado para uma página interna com mais detalhes do mesmo.
 
-## Descrição do Desafio
-  O objetivo desse desafio é construir catalogo com Cards de informações sobre personagens de Star Wars (Um card para cada personagem)
-  Você deve buscar essas informações usando a Api publica [SWAPI](https://swapi.dev/)
-  
-## Requisitos
-Funcionalidades que devem ser desenvolvidas: 
-  - O usuário deverá poder filtrar os personagens por: 
-    - Genero
-    - Especie
-    - Filme em que aparece
-  - Pesquisa por nome
-  - Paginação para navegar entre os cartões
-  - Informações adicionais ao clicar nos cartões dos personagens
-  - Uma página interna com mais detalhes dos personagens (use sua criatividade);
+## 🚀 Tecnologias
 
-## Diferencial
+Esse projeto foi desenvolvido com as seguintes tecnologias:
 
-  - Utilizar alguma metodologia para a organização de seu CSS (BEMCSS, OOCSS, SMACSS... o que preferir :D);
-  - Escolha uma lib para criação de interfaces de usuário (React, Angular ou Vue); 
+![React.js](https://img.shields.io/badge/-React.js-0D1117?style=for-the-badge&logo=react&labelColor=0D1117)
 
-## Considerações
+![JavaScript](https://img.shields.io/badge/-JavaScript-0D1117?style=for-the-badge&logo=javascript&labelColor=0D1117&textColor=0D1117)&nbsp;
 
-  - Não limitaremos sua escolha de ferramentas ou bibliotecas. Mas faça escolhas que atendam às suas necessidades. Não há necessidade de usar uma bazuca para matar uma formiga, mas o objetivo do desafio é avaliar suas habilidades.
-  - Tente escrever o melhor código possível. Vai facilitar nossa vida na hora de avaliar sua solução.
-  - Não se esqueça de documentar o processo necessário para buildar e executar seu aplicativo. Ou então como vamos avaliar seu trabalho se não podemos iniciar o projeto em nossas máquinas?
+![CSS](https://img.shields.io/badge/-CSS-0D1117?style=for-the-badge&logo=CSS3&logoColor=1572B6&labelColor=0D1117)&nbsp;
 
-## Critérios de avaliação
+![HTML](https://img.shields.io/badge/-HTML5-0D1117?style=for-the-badge&logo=html5&logoColor=E34F26&labelColor=0D1117)&nbsp; <br>
 
-  - Seu código será avaliado por: semântica, organização, estrutura, legibilidade, tamanho, entre outros fatores.
-  - O histórico do `git` será avaliado.
-  - Responsividade;
-  - Reaproveitamento de código;
+## ⚙️ Install
 
-## Como submeter seu projeto
-  1. Efetue o fork deste repositório e crie um branch com o seu nome, sobrenome e qual teste você está submetendo. (exemplo: fulano-dasilva-frontend);
-  2. Após finalizar o desafio, crie um Pull Request;
-  3. Aguarde algum contribuidor realizar o code review;
+**1 - Pré requisitos:**
 
-## Dúvidas?
-Tem alguma dúvida relacionada ao processo? Abra um [issue](https://github.com/Impact-Plataform/Banco-de-talentos/issues) e teremos prazer em ajudar.
+Ter a versão mais atual do Node instalada ([Node](https://nodejs.org/en/download/))
 
-## Obrigado!
-Agradecemos sua participação no desafio. Boa sorte! 😄
+**2 - Clonar o repositório:**
+
+```sh
+$ git clone git@github.com:jeanwilker/Banco-de-talentos.git
+$ cd Banco-de-talentos
+$ git checkout jean-wilker-frontend
+$ cd frontend
+```
+
+**3 - Instalar dependências:**
+
+```sh
+$ npm install
+```
+**4 - Iniciar a aplicação:**
+
+```sh
+$ npm start
+```
+
+## 🔖 Deploy
+
+Você pode testar a aplicação através [DESSE LINK](https://desafio-jedi-wilker.netlify.app/).
+
+---

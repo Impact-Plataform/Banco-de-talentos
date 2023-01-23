@@ -1,0 +1,130 @@
+.header {
+    width: 100%;
+    height: 8rem;
+
+    background-color: rgba(6, 9, 15, 0.4);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid #151b26;
+
+    position: fixed;
+    z-index: 100;
+}
+
+.header__nav {
+    max-width: 149rem;
+    height: 100%;
+    margin: auto;
+    padding: 1.6rem 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    
+    max-width: 10rem;
+    min-width: 9rem;
+}
+
+.header__menu {
+    display: flex;
+}
+
+.header__menu li {
+    margin-left: 2.4rem;
+}
+
+.bx {
+    width: 4rem;
+    height: 4rem;
+
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 2.4rem;
+
+    display: none;
+    position: relative;
+}
+
+.bx::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 40%;
+
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+
+    width: 70%;
+    height: 2px;
+    display: block;
+    transition: 0.5s ease;
+
+    background-color: #d8dbe3;
+}
+
+.bx::before {
+    content: '';
+    position: absolute;
+    top: 65%;
+    left: 60%;
+
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+
+    width: 70%;
+    height: 2px;
+    transition: 0.5s ease;
+
+    background-color: #d8dbe3;
+}
+
+.bx.bx--active::after {
+    content: '';
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(135deg);
+    border-radius: 2px;
+
+    width: 70%;
+    height: 2px;
+
+    background-color: #d8dbe3;
+}
+
+.bx.bx--active::before {
+    content: '';
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(-315deg);
+    border-radius: 2px;
+
+    width: 70%;
+    height: 2px;
+    display: block;
+
+    background-color: #d8dbe3;
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__nav {
+        margin: unset;
+    }
+
+    .bx {
+        display: block;
+    }
+
+    .header__menu {
+        display: none;
+    }
+
+}

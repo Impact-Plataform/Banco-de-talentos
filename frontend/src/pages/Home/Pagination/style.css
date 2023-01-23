@@ -1,0 +1,28 @@
+.pagination__bttns {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination__bttns a {
+    padding: 1rem;
+    margin: 0.4rem;
+
+    color: #faf6ed;
+
+    cursor: pointer;
+}
+
+.pagination__bttns a:hover {
+    color: #ffe300;
+}
+
+.pagination--active a {
+    color: #ffe300;
+}
+
+
+@media screen and (max-width: 768px) {
+    .pagination__bttns {
+        margin-bottom: 2rem;
+    }
+}

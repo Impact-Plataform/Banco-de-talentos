@@ -1,0 +1,102 @@
+.card {
+    position: relative;
+    max-width: 25rem;
+
+    border: 5px solid #faf6ed;
+    border-radius: 6px;
+    background-color: #faf6ed;
+
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    border: 5px solid #ffe300;
+    background-color: #ffe300;
+}
+
+.card__img {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.card__img img {
+    transform: scale(1.05);
+    transition: 0.5s ease;
+}
+
+.card:hover .card__img img {
+    transform: scale(1.1);
+}
+
+.card__intro {
+    position: absolute;
+    bottom: -12rem;
+    width: 100%;
+
+    transition: 0.5s ease;
+}
+
+.card:hover .card__intro {
+    bottom: 0;
+}
+
+.card__title {
+    position: absolute;
+    z-index: 2;
+
+    bottom: 14.5rem;
+    padding: 1.5rem;
+    width: 85%;
+
+    background-color: #faf6ed;
+    box-shadow: 15px 15px 19px -8px rgba(0, 0, 0, 0.56);
+}
+
+.card:hover .card__title {
+    background-color: #ffe300;
+}
+
+.card__info___name {
+    font-family: 'Passion one';
+    font-weight: normal;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.card__info {
+    padding: 4.5rem 1.5rem 0 1.5rem;
+    background: linear-gradient(
+        hsl(0 0% 0% / 0),
+        hsl(20 0% 0% / 0.35) 20%,
+        hsl(0 0% 0% / 1)
+    );
+}
+
+.card__info p {
+    padding-bottom: 1.3rem;
+
+    font-size: 1.6rem;
+    color: #faf6ed;
+}
+
+.card__info p span{
+   font-weight: bold;
+}
+
+.card__info___link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    border-radius: 4px;
+    background: linear-gradient(224.78deg, #f5e257 8.12%, #ffe300 92.21%);
+
+    padding: 0.5rem 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.card__info___link:hover {
+    background: #faf6ed;
+}

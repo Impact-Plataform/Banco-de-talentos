@@ -1,0 +1,84 @@
+.character__box {
+    display: flex;
+
+    background-color: #faf6ed;
+    border-radius: 6px;
+    color: #333;
+}
+
+.character__img {
+    width: 38rem;
+}
+
+.character__img img {
+    min-width: 38rem;
+    height: 100%;
+
+    border: 4px solid #faf6ed;
+    border-radius: 6px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.51);
+}
+
+.character__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.4rem 0;
+    margin: 0 auto;
+}
+
+.character__title {
+    font-family: 'Passion one', sans-serif;
+    font-size: 9rem;
+    font-weight: normal;
+}
+
+.character__films h4 {
+    font-size: 3.5rem;
+    margin: 10rem 0 1rem 0;
+    color: #faf6ed;
+
+    position: relative;
+}
+
+.character__films h4::after {
+    content: "";
+    width: 100%;
+    height: .4rem;
+    background: linear-gradient(224.78deg, #f5e257 8.12%, #ffe300 92.21%);;
+
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;  
+}
+
+.character__films___list {
+    display: flex;
+    gap: 3.2rem;
+}
+
+@media screen and (max-width: 1052px) {
+    .character__box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .character__img {
+        width: auto;
+        margin: 2rem;
+    }
+
+    .character__img img {
+        min-width: unset;
+    }
+
+    .character__title {
+        font-size: 6.5rem;
+        text-align: center;
+    }
+
+    .character__info {
+        padding: unset;
+        margin: 0 2rem 2rem;
+    }
+}

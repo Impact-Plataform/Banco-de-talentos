@@ -1,0 +1,13 @@
+.search {
+    max-width: 50rem;
+    margin: 0 auto 5rem;
+
+}
+.search form{
+    border: 0.1rem solid;
+    border-radius: 4px;
+}
+
+.search form:hover{
+    border: 0.1rem solid #ffe300;
+}
