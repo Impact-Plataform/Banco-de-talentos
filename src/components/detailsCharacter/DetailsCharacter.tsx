@@ -83,7 +83,7 @@ export default function DetailsCharacter() {
               <p>Gender:<span>{` ${character?.gender}`}</span></p>
               <p>Height:<span>{` ${character?.height} cm`}</span></p>
               <p>Mass:<span>{` ${character?.mass} Kg`}</span></p>
-              <p>Skin Colore:<span>{` ${character?.skin_color}`}</span></p>
+              <p>Skin Color:<span>{` ${character?.skin_color}`}</span></p>
               <p>Eye Color:<span>{` ${character?.eye_color}`}</span></p>
               <p>Hair Color:<span>{` ${character?.hair_color}`}</span></p>
             </section>
