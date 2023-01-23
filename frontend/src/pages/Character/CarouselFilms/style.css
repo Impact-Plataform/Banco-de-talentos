@@ -1,0 +1,29 @@
+
+.carousel__films {
+    cursor: grab;
+    overflow: hidden;
+}
+
+.carousel__films___inner {
+    display: flex;
+    align-items: center;
+    gap: 7rem;
+}
+
+.carousel__films__card {
+    min-width: 26rem;
+    height: 100%;
+
+    padding-top: 4rem;
+}
+
+.carousel__films__card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    border-radius: 16px;
+    border: 2px solid #faf6ed;
+
+    pointer-events: none;
+}
