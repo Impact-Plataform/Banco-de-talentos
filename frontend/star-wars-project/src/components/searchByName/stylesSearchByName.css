@@ -11,10 +11,11 @@
 }
 
 .search-by-name__input {
+  width: 95%;
   background: none;
   border: none;
   outline: none;
-  padding: 8px 0 8px 8px;
+  padding: 16px 0 16px 8px;
   color: var(--color-white);
   font-weight: 600;
 }
@@ -30,7 +31,7 @@
   cursor: pointer;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 801px) {
   .search-by-name__box {
     width: 542px;
   }
