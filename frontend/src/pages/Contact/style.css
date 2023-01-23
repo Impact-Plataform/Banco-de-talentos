@@ -1,0 +1,66 @@
+.contact {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.contact__form,
+.contact__info {
+    margin: 1.6rem;
+    padding: 1.6rem 0;
+}
+
+.contact__form h3 {
+    font-size: 6rem;
+    font-weight: 300;
+    color: #faf6ed;
+}
+
+.contact__form input,
+textarea {
+    margin-top: 2rem;
+}
+
+.contact__btn {
+    margin-top: 2rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.6rem;
+    text-align: center;
+    padding: 12px 24px;
+    border: 0;
+    background: linear-gradient(224.78deg, #f5e257 8.12%, #ffe300 92.21%);
+    border-radius: 4px;
+    transition: 0.6s ease;
+}
+
+.contact__info h5 {
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: #faf6ed;
+    margin-top: 4rem;
+}
+
+.contact__info h6 {
+    margin: 4rem 0 1rem;
+
+    font-size: 1.8rem;
+    font-weight: 100;
+    color: #faf6ed;
+}
+
+.contact__networks {
+    display: flex;
+    gap: 2rem;
+}
+
+
+
+
+@media screen and (max-width: 960px) {
+    .contact {
+        flex-direction: column;
+        gap: unset;
+    }
+}

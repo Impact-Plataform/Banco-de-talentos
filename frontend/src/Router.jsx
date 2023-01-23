@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Header from '././components/Header/Header';
-import Character from './pages/Character/Character';
 import Home from './pages/Home/Home';
+import Character from './pages/Character/Character';
+import Contact from './pages/Contact/Contact';
 
 const Router = () => {
     return (
@@ -12,6 +13,7 @@ const Router = () => {
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/character/:id" element={<Character />}/>
+                    <Route path="/contact" element={<Contact />}/>
                 </Routes>
             </BrowserRouter>
         </>
