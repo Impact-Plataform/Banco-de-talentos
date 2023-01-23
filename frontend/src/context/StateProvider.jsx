@@ -4,13 +4,28 @@ export const StateContext = createContext();
 
 const StateProvider = ({ children }) => {
   const [info, setInfo] = useState([]);
-  const [page, setPage] = useState(1);
+  const [people, setPeople] = useState([]);
+  const [films, setFilms] = useState([]);
+  const [species, setSpecies] = useState([]);
+  const [starships, setStarships] = useState([]);
+  const [vehicles, setVehicles] = useState([]);
+  const [planets, setPlanets] = useState([]);
 
   const context = {
     info: info,
     setInfo: setInfo,
-    page: page,
-    setPage : setPage
+    people: people,
+    setPeople: setPeople,
+    films: films,
+    setFilms: setFilms,
+    species: species,
+    setSpecies: setSpecies,
+    starships: starships,
+    setStarships: setStarships,
+    vehicles: vehicles,
+    setVehicles: setVehicles,
+    planets: planets,
+    setPlanets: setPlanets,
   };
 
   return (
