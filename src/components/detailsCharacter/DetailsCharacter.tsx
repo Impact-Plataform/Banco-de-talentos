@@ -75,17 +75,17 @@ export default function DetailsCharacter() {
           <div>
             <h1>{ character?.name }</h1>
             <section>
-              <p>Planeta natal:<span>{` ${character?.homeworld}`}</span></p>
-              <p>Ano de nascimento:<span>{` ${character?.birth_year}`}</span></p>
+              <p>Homeworld:<span>{` ${character?.homeworld}`}</span></p>
+              <p>Birth Year:<span>{` ${character?.birth_year}`}</span></p>
               { (character?.species === "Sem informação")? "" : (
-                <p>Espécie<span>{` ${character?.species}`}</span></p>
+                <p>Specie<span>{` ${character?.species}`}</span></p>
               ) }
-              <p>Gênero:<span>{` ${character?.gender}`}</span></p>
-              <p>Altura:<span>{` ${character?.height} cm`}</span></p>
-              <p>Massa:<span>{` ${character?.mass} Kg`}</span></p>
-              <p>Cor da pele:<span>{` ${character?.skin_color}`}</span></p>
-              <p>Cor dos olhos:<span>{` ${character?.eye_color}`}</span></p>
-              <p>Cor do cabelo:<span>{` ${character?.hair_color}`}</span></p>
+              <p>Gender:<span>{` ${character?.gender}`}</span></p>
+              <p>Height:<span>{` ${character?.height} cm`}</span></p>
+              <p>Mass:<span>{` ${character?.mass} Kg`}</span></p>
+              <p>Skin Colore:<span>{` ${character?.skin_color}`}</span></p>
+              <p>Eye Color:<span>{` ${character?.eye_color}`}</span></p>
+              <p>Hair Color:<span>{` ${character?.hair_color}`}</span></p>
             </section>
           </div>
         </DescriptionContainer>
@@ -112,7 +112,7 @@ export default function DetailsCharacter() {
           </ul>
         </div>
           <div className="containerFilms">
-            <h2>Filmes</h2>
+            <h2>Films</h2>
             <div className="containerFilmsImgs">
               { character?.films.map((film) => (
                 <div className="containerImgs" key={ uuidv4() }>
