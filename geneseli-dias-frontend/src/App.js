@@ -1,25 +1,18 @@
-import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import Container from './Components/Container';
-import Header from './Components/Header';
-//import Home from './pages/Home';
-//import ModalDetails from './pages/ModalDetails';
-//import KnowMore from './pages/KnowMore';
-
-
-
+import { Route, Switch } from 'react-router-dom';
+import MainPage from './Pages/MainPage';
+import MovieDetails from './Pages/MovieDetails';
 
 function App() {
+
   return (
     <div className="App">
-       <Router>
-          <Container>
-            <Header />
-
-          </Container>          
-             
-       </Router>
-       
+      <main className="movies-body">
+        <Switch>
+          <Route path="/" exact component={MainPage} />
+          <Route path="/:id" component={MovieDetails} />
+        </Switch>
+      </main>
     </div>
   );
 }
