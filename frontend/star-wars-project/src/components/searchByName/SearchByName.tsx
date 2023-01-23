@@ -10,9 +10,8 @@ export const SearchByName = () => {
   const { filterData } = useFilter();
 
   const searchByName = (word: string) => {
-    const lowerWord = word.toLowerCase();
     const filterByName = data.filter((character) =>
-      character.name.toLowerCase().includes(lowerWord)
+      character.name.toLowerCase().includes(word)
     );
 
     return filterByName;
