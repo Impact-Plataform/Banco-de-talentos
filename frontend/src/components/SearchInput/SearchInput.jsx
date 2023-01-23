@@ -22,7 +22,7 @@ const SearchInput = ({ value, onChange}) => {
             <option value="2">Espécies</option>
             <option value="3">Personagens</option>
             <option value="4">Naves estelares</option>
-            <option value="5">Veículos</option>
+            <option value="5">veículos</option>
             <option value="6">Planetas</option>
           </select>
         </form>
