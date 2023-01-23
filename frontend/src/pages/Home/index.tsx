@@ -1,7 +1,12 @@
 import { getPeople } from "../../api/people";
 import { useEffect, useState } from "react";
 import { Button, CharacterCardList, Input } from "../../components";
-import { Pagination } from "./styles";
+import {
+  Container,
+  Pagination,
+  SearchStyle,
+  WrapperCharacterCardList,
+} from "./styles";
 
 export const Home = () => {
   const [characters, setCharacters] = useState([]);
@@ -55,17 +60,21 @@ export const Home = () => {
   }, []);
 
   return (
-    <>
-      <Input
-        placeholder="Type a character name"
-        onChange={(e) => setSearchName(e.target.value)}
-      />
-      <Button text="Search" onClick={handleSearch}/>
-      <CharacterCardList characters={characters} />
+    <Container>
+      <SearchStyle>
+        <Input
+          placeholder="Type a character name"
+          onChange={(e) => setSearchName(e.target.value)}
+        />
+        <Button text="Search" onClick={handleSearch} />
+      </SearchStyle>
+      <WrapperCharacterCardList>
+        <CharacterCardList characters={characters} />
+      </WrapperCharacterCardList>
       <Pagination>
         <Button text="Previous" onClick={handlePreviousPage} />
         <Button text="Next" onClick={handleNextPage} />
       </Pagination>
-    </>
+    </Container>
   );
 };

@@ -3,15 +3,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: inline-block;
-  width: 200px;
-  background-color: ${colors.logo.letter};
-  border: 2px solid ${colors.logo.background};
+  width: 180px;
+  padding: 10px;
+  background-color: ${colors.logo.background};
+  border: 2px solid ${colors.logo.letter};
   border-radius: 5px;
 `;
 
 export const InputStyled = styled.input`
+  text-align: center;
   border: none;
   outline: none;
+  color: ${colors.logo.letter};
   background-color: transparent;
   width: 100%auto;
 `;
