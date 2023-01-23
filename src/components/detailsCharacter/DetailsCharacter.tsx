@@ -3,7 +3,7 @@ import useSWR from 'swr';
 import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { notFound, usePathname } from 'next/navigation';
 import { ICharacter, ICharacterDetails } from '../../types/Characters.types';
 import { fetcherCharacterId, getNamePlanet } from '../../services/characters.services';
 import { getNameFilms } from '../../services/films.services';
@@ -44,7 +44,8 @@ export default function DetailsCharacter() {
 
 
   useEffect(() => {
-    newObjectCharacter(getCharacter.data);
+    if (!getCharacter.data && !getCharacter.isLoading) return notFound();
+    newObjectCharacter(getCharacter.data);  
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [getCharacter.isLoading])
 
