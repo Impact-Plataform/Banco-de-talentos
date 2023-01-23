@@ -24,7 +24,7 @@ export const FilterProvider = ({ children }: ProviderProps) => {
     word: string,
     filterFunction: (word: string) => any[]
   ) => {
-    const filtered = filterFunction(word.toLowerCase());
+    const filtered = filterFunction(word.toLowerCase().trim());
     setDataFiltered(filtered);
   };
 
