@@ -159,6 +159,7 @@ body {
 
 button,
 select {
+  text-transform: uppercase;
   background: none;
   border: none;
   border-radius: 8px;
