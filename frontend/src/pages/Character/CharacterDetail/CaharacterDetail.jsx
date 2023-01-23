@@ -14,7 +14,7 @@ const CaharacterDetail = ({ planetsDetail, characterDetail, speciesDetail }) => 
                 {planetsDetail.map(
                     (planet) =>
                         characterDetail.homeworld.includes(planet.url) && (
-                            <li className="character__detail___item">
+                            <li key={planet.name} className="character__detail___item">
                                 <img
                                     className="character__detail___icon"
                                     src={planetIcon}
@@ -44,7 +44,7 @@ const CaharacterDetail = ({ planetsDetail, characterDetail, speciesDetail }) => 
                 {speciesDetail.map(
                     (spc) =>
                         characterDetail.species.includes(spc.url) && (
-                            <li className="character__detail___item">
+                            <li key={spc.name} className="character__detail___item">
                                 <img
                                     className="character__detail___icon"
                                     src={speciesIcon}

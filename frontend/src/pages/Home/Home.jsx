@@ -6,10 +6,11 @@ import getUrlId from '../../utils/getUrlId';
 import Card from './Card/Card';
 import SearchInput from './SearchInput/SearchInput';
 import Pagination from './Pagination/Pagination';
-import Loader from './Loader/Loader';
+
 import Filters from './Filters/Filters';
 
 import './style.css';
+import Loader from '../../components/Loader/Loader';
 
 const Home = () => {
     const { peoples, isLoading } = useEndpoints();

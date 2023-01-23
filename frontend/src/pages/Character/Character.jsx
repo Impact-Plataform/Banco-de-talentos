@@ -8,6 +8,7 @@ import CaharacterDetail from './CharacterDetail/CaharacterDetail';
 import Loader from '../../components/Loader/Loader';
 
 import './style.css';
+import CarouselFilms from './CarouselFilms/CarouselFilms';
 
 const Character = () => {
     const { id } = useParams();
@@ -49,6 +50,14 @@ const Character = () => {
                                 speciesDetail={species}
                             />
                         </div>
+                    </div>
+                    
+                    <div className="character__films">
+                        <h4>Filmes</h4>
+                        <CarouselFilms
+                            filmsList={films}
+                            characterFilms={character}
+                        />
                     </div>
                 </section>
             )}

@@ -1,6 +1,6 @@
 import './style.css';
 
-import logoLoader from '../../../svg/jedi-logo.svg';
+import logoLoader from '../../svg/jedi-logo.svg';
 
 const Loader = () => {
     return (
