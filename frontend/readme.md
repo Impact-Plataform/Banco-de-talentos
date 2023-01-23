@@ -61,6 +61,6 @@ $ npm start
 
 ## 🔖 Deploy
 
-Você pode testar a aplicação através [DESSE LINK]().
+Você pode testar a aplicação através [DESSE LINK](https://desafio-jedi-wilker.netlify.app/).
 
 ---
