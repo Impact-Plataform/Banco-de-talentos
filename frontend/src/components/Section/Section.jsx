@@ -31,30 +31,38 @@ const Section = () => {
     <section className={style.section}>
       <div className="container-md h-100">
         <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
-          {info.map((info) => {
-            return (
-              <Card
-                key={info.url}
-                nome={info.name || info.title}
-                genero={info.gender}
-                altura={
-                  info.height == "unknown" ? "unavailable" : info.height + " cm"
-                }
-                peso={
-                  info.mass == "unknown" ? "unavailable" : info.mass + " kg"
-                }
-                corDoCabelo={info.hair_color}
-                corDosOlhos={info.eye_color}
-                pele={info.skin_color}
-                especie={info.species == "" ? "human" : info.species}
-                anoDeNascimento={info.birth_year}
-                planeta={info.homeworld}
-                filmes={info.films}
-                url={info.url}
-                id={info.url.slice(-3).replace(/\//g, "")}
-              />
-            );
-          })}
+          {info == "" ? (
+            <div className="d-flex justify-content-center text-center w-100">
+              <h5>Nenhum resultado encontrado!</h5>
+            </div>
+          ) : (
+            info.map((info) => {
+              return (
+                <Card
+                  key={info.url}
+                  nome={info.name || info.title}
+                  genero={info.gender}
+                  altura={
+                    info.height == "unknown"
+                      ? "unavailable"
+                      : info.height + " cm"
+                  }
+                  peso={
+                    info.mass == "unknown" ? "unavailable" : info.mass + " kg"
+                  }
+                  corDoCabelo={info.hair_color}
+                  corDosOlhos={info.eye_color}
+                  pele={info.skin_color}
+                  especie={info.species == "" ? "human" : info.species}
+                  anoDeNascimento={info.birth_year}
+                  planeta={info.homeworld}
+                  filmes={info.films}
+                  url={info.url}
+                  id={info.url.slice(-3).replace(/\//g, "")}
+                />
+              );
+            })
+          )}
         </div>
       </div>
 
