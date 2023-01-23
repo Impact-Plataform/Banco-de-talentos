@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+model Users {
+  id           String   @id @default(cuid())
+  username     String
+  password     String
+  createdAt    DateTime @default(now())
+  collectionId String
+
+  collection Collection @relation(fields: [collectionId], references: [id])
+
+  Decks   Deck[]
+  Friends Friend[]
+}
+
+model Collection {
+  id String @id @default(cuid())
+
+  cardsOwned Cards[]
+  ownerId    Users[]
+}
+
+model Cards {
+  collectionId String
+  cardDefId    String @id
+
+  collecion Collection @relation(fields: [collectionId], references: [id])
+}
+
+model Deck {
+  id      String  @id @default(cuid())
+  name    String
+  cards   String?
+  ownerId String
+
+  owner Users @relation(fields: [ownerId], references: [id])
+}
+
+model Friend {
+  id       String @id @default(cuid())
+  ownerId  String
+  friendId String
+  status   String @default("accepted")
+
+  owner Users @relation(fields: [ownerId], references: [id])
+}
