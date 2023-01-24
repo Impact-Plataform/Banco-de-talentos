@@ -4,23 +4,28 @@ import MovieCard from '../../components/MovieCard';
 import MovieHeader from '../../components/MovieHeader';
 
 function MainPage() {
-    const [personagens, setPersonagens] = useState([]);
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
     fetch("https://swapi.dev/api/people/?page=2")
       .then((response) => response.json())
-      .then((data) => setPersonagens(data.results));
+      .then((data) => setCharacters(data.results));
   }, []);
 
   return (
-    <div className="App">
-      <h1>Star Wars</h1>
-      <ul>
-        {personagens.map((personagem) => (
-          <li key={personagem.name}>{personagem.name}</li>
-        ))}
-      </ul>
+    <div className="main-page">
+        <h1>Star Wars</h1>
+        <ul>
+          {characters.map((character) => (
+            <li key={character.name}>{character.name}</li>
+          ))}
+        </ul>    
+      
     </div>
+
   );
+  
 }
+
+
 export default MainPage;
