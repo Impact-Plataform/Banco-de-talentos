@@ -1,13 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Card from '../../components/Card/Card';
-import Pagination from '../../components/Pagination/Pagination';
-import { StateContext } from '../../context/StateProvider';
-import api from '../../service/api';
+import React, { useContext, useEffect, useState } from "react";
+import Card from "../../components/Card/Card";
+import Pagination from "../../components/Pagination/Pagination";
+import { StateContext } from "../../context/StateProvider";
+import api from "../../service/api";
 
 const Personagens = () => {
-  const {info,setInfo, people, setPeople, films, species, vehicles, planets} = useContext(StateContext)
+  const {
+    info,
+    setInfo,
+    people,
+    setPeople,
+    films,
+    species,
+    vehicles,
+    planets,
+  } = useContext(StateContext);
   const [page, setPage] = useState(1);
-  
+
   useEffect(() => {
     api
       .get(`/people/?page=${page}`)
@@ -54,7 +63,9 @@ const Personagens = () => {
                   corDoCabelo={info.hair_color}
                   corDosOlhos={info.eye_color}
                   pele={info.skin_color}
-                  especie={info.species == species.url ? species.url.name : info.species}
+                  especie={
+                    info.species == !info.species ? "human" : info.species
+                  }
                   anoDeNascimento={info.birth_year}
                   planeta={info.homeworld}
                   filmes={info.films}
@@ -68,10 +79,15 @@ const Personagens = () => {
       </div>
 
       <div className="container-fluid p-3 bg-tertiary h-auto">
-        <Pagination anterior={previousPage} proxima={nextPage} page={page} limit={9}/>
+        <Pagination
+          anterior={previousPage}
+          proxima={nextPage}
+          page={page}
+          limit={9}
+        />
       </div>
     </section>
   );
-}
+};
 
-export default Personagens
+export default Personagens;

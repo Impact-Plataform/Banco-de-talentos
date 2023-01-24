@@ -1,11 +1,10 @@
-import React, { useContext, useEffect } from 'react'
-import Card from '../../components/Card/Card';
-import Pagination from '../../components/Pagination/Pagination';
-import { StateContext } from '../../context/StateProvider';
-import api from '../../service/api';
+import React, { useContext, useEffect } from "react";
+import Card from "../../components/Card/Card";
+import { StateContext } from "../../context/StateProvider";
+import api from "../../service/api";
 
 const Filmes = () => {
-  const { info, setInfo, films, setFilms} = useContext(StateContext);
+  const { info, setInfo, films, setFilms } = useContext(StateContext);
 
   useEffect(() => {
     api
@@ -19,7 +18,6 @@ const Filmes = () => {
       });
   }, []);
 
-
   return (
     <section>
       <div className="container-md h-100">
@@ -32,26 +30,26 @@ const Filmes = () => {
             info.map((info) => {
               return (
                 <Card
-                key={info.url}
-                nome={info.name || info.title}
-                genero={info.gender}
-                altura={
-                  info.height == "unknown"
-                    ? "unavailable"
-                    : info.height + " cm"
-                }
-                peso={
-                  info.mass == "unknown" ? "unavailable" : info.mass + " kg"
-                }
-                corDoCabelo={info.hair_color}
-                corDosOlhos={info.eye_color}
-                pele={info.skin_color}
-                especie={info.species == "" ? "human" : info.species}
-                anoDeNascimento={info.birth_year}
-                planeta={info.homeworld}
-                filmes={info.films}
-                url={info.url}
-                id={info.url.slice(-3).replace(/\//g, "")}
+                  key={info.url}
+                  nome={info.name || info.title}
+                  genero={info.gender}
+                  altura={
+                    info.height == "unknown"
+                      ? "unavailable"
+                      : info.height + " cm"
+                  }
+                  peso={
+                    info.mass == "unknown" ? "unavailable" : info.mass + " kg"
+                  }
+                  corDoCabelo={info.hair_color}
+                  corDosOlhos={info.eye_color}
+                  pele={info.skin_color}
+                  especie={info.species == "" ? "human" : info.species}
+                  anoDeNascimento={info.birth_year}
+                  planeta={info.homeworld}
+                  filmes={info.films}
+                  url={info.url}
+                  id={info.url.slice(-3).replace(/\//g, "")}
                 />
               );
             })
@@ -60,6 +58,6 @@ const Filmes = () => {
       </div>
     </section>
   );
-}
+};
 
-export default Filmes
+export default Filmes;

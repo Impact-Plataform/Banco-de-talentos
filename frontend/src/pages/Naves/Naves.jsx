@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Card from '../../components/Card/Card';
-import Pagination from '../../components/Pagination/Pagination';
-import { StateContext } from '../../context/StateProvider';
-import api from '../../service/api';
+import React, { useContext, useEffect, useState } from "react";
+import Card from "../../components/Card/Card";
+import Pagination from "../../components/Pagination/Pagination";
+import { StateContext } from "../../context/StateProvider";
+import api from "../../service/api";
 
 const Naves = () => {
-  const { info, setInfo, starships, setStarships} = useContext(StateContext);
+  const { info, setInfo, starships, setStarships } = useContext(StateContext);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -39,26 +39,26 @@ const Naves = () => {
             info.map((info) => {
               return (
                 <Card
-                key={info.url}
-                nome={info.name || info.title}
-                genero={info.gender}
-                altura={
-                  info.height == "unknown"
-                    ? "unavailable"
-                    : info.height + " cm"
-                }
-                peso={
-                  info.mass == "unknown" ? "unavailable" : info.mass + " kg"
-                }
-                corDoCabelo={info.hair_color}
-                corDosOlhos={info.eye_color}
-                pele={info.skin_color}
-                especie={info.species == "" ? "human" : info.species}
-                anoDeNascimento={info.birth_year}
-                planeta={info.homeworld}
-                filmes={info.films}
-                url={info.url}
-                id={info.url.slice(-3).replace(/\//g, "")}
+                  key={info.url}
+                  nome={info.name || info.title}
+                  genero={info.gender}
+                  altura={
+                    info.height == "unknown"
+                      ? "unavailable"
+                      : info.height + " cm"
+                  }
+                  peso={
+                    info.mass == "unknown" ? "unavailable" : info.mass + " kg"
+                  }
+                  corDoCabelo={info.hair_color}
+                  corDosOlhos={info.eye_color}
+                  pele={info.skin_color}
+                  especie={info.species == "" ? "human" : info.species}
+                  anoDeNascimento={info.birth_year}
+                  planeta={info.homeworld}
+                  filmes={info.films}
+                  url={info.url}
+                  id={info.url.slice(-3).replace(/\//g, "")}
                 />
               );
             })
@@ -67,10 +67,15 @@ const Naves = () => {
       </div>
 
       <div className="container-fluid p-3 bg-tertiary h-auto">
-        <Pagination anterior={previousPage} proxima={nextPage} page={page} limit={4}/>
+        <Pagination
+          anterior={previousPage}
+          proxima={nextPage}
+          page={page}
+          limit={4}
+        />
       </div>
     </section>
   );
-}
+};
 
-export default Naves
+export default Naves;

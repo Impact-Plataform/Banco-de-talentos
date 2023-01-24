@@ -5,7 +5,7 @@ import { StateContext } from "../../context/StateProvider";
 import api from "../../service/api";
 
 const Veiculos = () => {
-  const { info, setInfo, vehicles, setVehicles} = useContext(StateContext);
+  const { info, setInfo, vehicles, setVehicles } = useContext(StateContext);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -67,7 +67,12 @@ const Veiculos = () => {
       </div>
 
       <div className="container-fluid p-3 bg-tertiary h-auto">
-        <Pagination anterior={previousPage} proxima={nextPage} page={page} limit={4}/>
+        <Pagination
+          anterior={previousPage}
+          proxima={nextPage}
+          page={page}
+          limit={4}
+        />
       </div>
     </section>
   );

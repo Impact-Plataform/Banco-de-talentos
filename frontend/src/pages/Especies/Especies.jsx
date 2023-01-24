@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Card from '../../components/Card/Card';
-import Pagination from '../../components/Pagination/Pagination';
-import { StateContext } from '../../context/StateProvider';
-import api from '../../service/api';
+import React, { useContext, useEffect, useState } from "react";
+import Card from "../../components/Card/Card";
+import Pagination from "../../components/Pagination/Pagination";
+import { StateContext } from "../../context/StateProvider";
+import api from "../../service/api";
 
 const Especies = () => {
-  const { info, setInfo, species, setSpecies} = useContext(StateContext);
+  const { info, setInfo, species, setSpecies } = useContext(StateContext);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
@@ -67,10 +67,15 @@ const Especies = () => {
       </div>
 
       <div className="container-fluid p-3 bg-tertiary h-auto">
-        <Pagination anterior={previousPage} proxima={nextPage} page={page} limit={4}/>
+        <Pagination
+          anterior={previousPage}
+          proxima={nextPage}
+          page={page}
+          limit={4}
+        />
       </div>
     </section>
   );
-}
+};
 
-export default Especies
+export default Especies;
