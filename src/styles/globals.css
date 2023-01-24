@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Poppins, sans-serif;
+}
+
+html,
+body {
+  background: rgb(27, 26, 23);
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.div-btn {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  padding: 50px;
+}
+
+.not-found {
+  text-align: center;
+  margin-top: 50px;
+  color: #F0A500;
+  font-size: 30px;
+  font-weight: bold
+}
