@@ -120,7 +120,7 @@ const Header = () => {
 
         <button
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#modalHelp"
         >
@@ -128,26 +128,26 @@ const Header = () => {
         </button>
 
         <div
-          class="modal fade"
+          className="modal fade"
           id="modalHelp"
-          tabindex="-1"
+          tabIndex="-1"
           aria-labelledby="ModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="ModalLabel">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id="ModalLabel">
                   Informações importantes:
                 </h1>
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 ></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <p>
                   Todos os dados de Star Wars que você sempre quis: Planetas,
                   Naves Espaciais, Veículos, Pessoas, Filmes e Espécies.
@@ -174,11 +174,11 @@ const Header = () => {
                   </li>
                 </ul>
               </div>
-              <div class="modal-footer">
+              <div className="modal-footer">
                 <p>“Que a força esteja com você”...</p>
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-bs-dismiss="modal"
                 >
                   Fechar
