@@ -1,4 +1,5 @@
 import React from 'react'
+import style from './SearchInput.module.css'
 
 const SearchInput = ({ value, onChange}) => {
 
@@ -7,16 +8,16 @@ const SearchInput = ({ value, onChange}) => {
   }
 
   return (
-    <form className="d-flex justify-content-center w-50" role="search">
+    <form className="d-flex justify-content-center" role="search">
           <input
-            className="form-control me-2 w-50"
+            className="form-control me-2"
             type="search"
             placeholder="Pesquisar"
             aria-label="Search"
             value={value}
             onChange={handleChange}
           />
-           <select className="form-select me-2 w-50" aria-label="Select" id="selecao">
+           <select className="form-select me-2" aria-label="Select" id="selecao">
             <option value="empty">Filtrar</option>
             <option value="1">Filmes</option>
             <option value="2">Espécies</option>

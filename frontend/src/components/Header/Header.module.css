@@ -13,3 +13,15 @@
 .container button {
     font-family: jedi;
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        width: 80%;
+    }
+    .container button {
+        width: 50%;
+        align-self: center;
+    }
+}
