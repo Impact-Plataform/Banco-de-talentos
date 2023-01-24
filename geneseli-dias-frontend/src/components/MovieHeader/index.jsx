@@ -1,5 +1,5 @@
 import React from 'react';
-import ImgLogo from '../../assets/logo.png';
+import ImgLogo from '../../assets/logo-star-wars.png';
 
 
 function MovieHeader({setMovies, movies}) {
