@@ -27,8 +27,15 @@ const Header = () => {
       return buscaVeiculos();
     } else if (text && selecao == "6") {
       return buscaPlanetas();
+    } else if (text && selecao == "7") {
+      return buscaGenero();
     }
   }
+
+  const buscaGenero = () => {
+    const person = setInfo(info.filter((pers) => pers.gender == `${text}`));
+    return person;
+  };
 
   const buscaFilmes = () => {
     api
@@ -98,7 +105,7 @@ const Header = () => {
 
   return (
     <nav className="navbar bg-tertiary">
-      <div className="container-fluid">
+      <div className="container-fluid d-flex justify-content-center">
         <Link className="navbar-brand" to={"/"}>
           <img src={logo} className={style.logo} />
         </Link>
@@ -110,6 +117,76 @@ const Header = () => {
             </button>
           </div>
         )}
+
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#modalHelp"
+        >
+          Ajuda?
+        </button>
+
+        <div
+          class="modal fade"
+          id="modalHelp"
+          tabindex="-1"
+          aria-labelledby="ModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalLabel">
+                  Informações importantes:
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Todos os dados de Star Wars que você sempre quis: Planetas,
+                  Naves Espaciais, Veículos, Pessoas, Filmes e Espécies.
+                </p>
+                <ul>
+                  <li>
+                    <p>
+                      A busca deverá ser feita em inglês para obter os
+                      resultados corretos exemplo: "attack of the clones",
+                      "human", "female".
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      A busca por gênero está disponível somente na rota de
+                      personagens.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Você poderá selecionar uma nova rota na página inicial
+                      clicando na logo "Star Wars"
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <p>“Que a força esteja com você”...</p>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Fechar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
         <img src={bb8} alt="icone personagem bb-8" className={style.svg} />
       </div>
     </nav>
