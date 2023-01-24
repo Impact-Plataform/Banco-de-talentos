@@ -164,3 +164,7 @@ select {
   border-radius: 8px;
   cursor: pointer;
 }
+
+button {
+  text-transform: uppercase;
+}
