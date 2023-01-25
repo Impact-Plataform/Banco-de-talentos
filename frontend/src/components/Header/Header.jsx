@@ -12,6 +12,11 @@ const Header = () => {
 
   const [text, setText] = useState("");
 
+  function limparCache() {
+    setInfo([]);
+    setText("");
+  }
+
   function select() {
     const s = document.getElementById("selecao");
     const selecao = s.options[s.selectedIndex].value;
@@ -107,16 +112,16 @@ const Header = () => {
     <nav className="navbar bg-tertiary">
       <div className="container-fluid d-flex justify-content-center">
         <Link className="navbar-brand" to={"/"}>
-          <img src={logo} className={style.logo} />
+          <img onClick={limparCache} src={logo} className={style.logo} />
         </Link>
-        {info == !info ? null : (
-          <div className={style.container}>
-            <SearchInput value={text} onChange={(search) => setText(search)} />
-            <button className="btn btn-success" type="submit" onClick={select}>
-              Buscar
-            </button>
-          </div>
-        )}
+
+        <div className={style.container}>
+          <SearchInput value={text} onChange={(search) => setText(search)} />
+
+          <button className="btn btn-success" type="submit" onClick={select}>
+            Buscar
+          </button>
+        </div>
 
         <button
           type="button"
