@@ -1,31 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
-import MovieCard from '../../components/MovieCard';
-import MovieHeader from '../../components/MovieHeader';
+import Card from "../../components/Card";
+import Header from "../../components/Header";
 
 function MainPage() {
   const [characters, setCharacters] = useState([]);
 
+  const fetchCharacters = async () => {
+    const { data } = await axios.get("https://swapi.dev/api/people/");
+
+    setCharacters(data.results);
+  };
+
   useEffect(() => {
-    fetch("https://swapi.dev/api/people/?page=2")
-      .then((response) => response.json())
-      .then((data) => setCharacters(data.results));
+    fetchCharacters();
   }, []);
 
   return (
     <div className="main-page">
-        <h1>Star Wars</h1>
-        <ul>
-          {characters.map((character) => (
-            <li key={character.name}>{character.name}</li>
-          ))}
-        </ul>    
-      
+      <Header />
+      <Card movieData={characters} />
     </div>
-
   );
-  
 }
-
 
 export default MainPage;
