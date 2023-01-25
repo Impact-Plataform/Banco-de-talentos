@@ -16,6 +16,7 @@ const SearchInput = ({ value, onChange }) => {
         value={value}
         onChange={handleChange}
       />
+
       <select className="form-select me-2" aria-label="Select" id="selecao">
         <option value="empty">Filtrar</option>
         <option value="1">Filmes</option>
