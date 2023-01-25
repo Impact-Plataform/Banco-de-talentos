@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 import Pagination from "../../components/Pagination/Pagination";
+import Spinner from "../../components/Spinner/Spinner";
 import { StateContext } from "../../context/StateProvider";
 import api from "../../service/api";
 
@@ -15,7 +16,9 @@ const Personagens = () => {
     vehicles,
     planets,
   } = useContext(StateContext);
+
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     api
@@ -23,6 +26,7 @@ const Personagens = () => {
       .then((response) => {
         setPeople(response.data.results);
         setInfo(response.data.results);
+        setLoading(true);
       })
       .catch((err) => {
         console.error("ops! ocorreu um erro" + err);
@@ -41,11 +45,13 @@ const Personagens = () => {
     <section>
       <div className="container-md h-100">
         <div className="row row-cols-1 row-cols-md-5 g-3 p-3">
-          {info == "" ? (
+          {info.length == 0 && loading == false && <Spinner />}
+          {info.length == 0 && loading == true && (
             <div className="d-flex justify-content-center text-center w-100">
               <h5>Nenhum resultado encontrado!</h5>
             </div>
-          ) : (
+          )}
+          {info.length > 0 &&
             info.map((info) => {
               return (
                 <Card
@@ -73,19 +79,20 @@ const Personagens = () => {
                   id={info.url.slice(-3).replace(/\//g, "")}
                 />
               );
-            })
-          )}
+            })}
         </div>
       </div>
 
-      <div className="container-fluid p-3 bg-tertiary h-auto">
-        <Pagination
-          anterior={previousPage}
-          proxima={nextPage}
-          page={page}
-          limit={9}
-        />
-      </div>
+      {info.length > 1 && (
+        <div className="container-fluid p-3 bg-tertiary h-auto">
+          <Pagination
+            anterior={previousPage}
+            proxima={nextPage}
+            page={page}
+            limit={9}
+          />
+        </div>
+      )}
     </section>
   );
 };
