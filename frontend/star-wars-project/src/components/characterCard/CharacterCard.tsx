@@ -7,7 +7,7 @@ interface CharacterCardProps {
   name: string;
   height: number;
   mass: number;
-  specie: string[];
+  specie: string;
   gender: string;
 }
 
@@ -18,13 +18,12 @@ export const CharacterCard = ({
   specie,
   gender,
 }: CharacterCardProps) => {
-  const [characterSpecie, setCharacterSpecie] = useState<string>("unknown");
-  console.log(characterSpecie);
-  // useEffect(() => {
-  //   specie.map((item) => {
-  //     api.get(getEndpoint(item)).then((res) => ());
-  //   });
-  // }, []);
+  const [specieName, setSpecieName] = useState("Unknown");
+
+  useEffect(() => {
+    specie &&
+      api.get(getEndpoint(specie)).then((res) => setSpecieName(res.data.name));
+  }, []);
 
   return (
     <li className="card__container">
@@ -42,7 +41,7 @@ export const CharacterCard = ({
       </div>
       <div className="card__info">
         <h3 className="card__info__title">specie:</h3>
-        <h4 className="card__info__value">{specie}</h4>
+        <h4 className="card__info__value">{specieName}</h4>
       </div>
       <div className="card__info">
         <h3 className="card__info__title">Gender:</h3>
