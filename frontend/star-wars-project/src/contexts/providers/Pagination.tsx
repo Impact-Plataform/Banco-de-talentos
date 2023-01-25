@@ -1,10 +1,4 @@
-import {
-  ReactNode,
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-} from "react";
+import { createContext, useContext, useState } from "react";
 import { ProviderProps } from "../interfaces/providerProps";
 
 interface PaginationContextProps {

@@ -1,10 +1,9 @@
 import axios from "axios";
-import { createContext, useContext, useState, useEffect, useMemo } from "react";
+import { createContext, useContext, useState, useMemo } from "react";
 import { api } from "../../services/api";
 import { getEndpoint } from "../../utils/getEndpoint";
 import { ProviderProps } from "../interfaces/providerProps";
 import { useAPiInfo } from "./ApiData";
-import { usePageNumber } from "./Pagination";
 
 interface SpeciesProps {
   url: string;
@@ -31,8 +30,6 @@ export const SpeciesProvider = ({ children }: ProviderProps) => {
   const [speciesInPage, setSpeciesInPage] = useState<SpeciesProps[]>([
     { url: "", name: "Unknown" },
   ]);
-
-  const { selectedPaginationNumber } = usePageNumber();
 
   useMemo(() => {
     if (data.length > 0) {
