@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
-import { getEndpoint } from "../../utils/getEndpointimport { ModalCharacterInfos } from "../modalCharacterInfos/ModalCharacterInfos";
+import { getEndpoint } from "../../utils/getEndpoint";
+import { ModalCharacterInfos } from "../modalCharacterInfos/ModalCharacterInfos";
 import "./stylesCharacterCard.css";
 
 interface CharacterCardProps {
