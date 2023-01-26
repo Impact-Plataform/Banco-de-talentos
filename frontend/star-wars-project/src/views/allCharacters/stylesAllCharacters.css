@@ -1,0 +1,22 @@
+.all-characters__container {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 52px;
+}
+
+.all-characters__list {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+@media (min-width: 800px) {
+  .all-characters__list {
+    justify-content: left;
+    align-items: left;
+  }
+}
