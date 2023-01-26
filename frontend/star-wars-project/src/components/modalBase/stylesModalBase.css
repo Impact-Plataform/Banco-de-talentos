@@ -8,7 +8,7 @@
 .modal__close-button {
   width: 44px;
   height: 44px;
-  margin-bottom: 22px;
+  margin-bottom: 32px;
   border-radius: 50%;
   font-weight: 700;
   font-size: 28px;
@@ -19,8 +19,5 @@
 
 .modal__close-button:hover {
   background-color: var(--color-white);
-  color: var(--color-white);
-  text-shadow: 2px 2px 6px var(--color-orange-1);
-
-  box-shadow: 2px 2px 16px 4px var(--color-orange-2);
+  box-shadow: 2px 2px 16px 6px var(--color-gray-1);
 }
