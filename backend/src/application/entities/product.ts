@@ -9,6 +9,12 @@ interface productProps {
   createdAt: Date
 }
 
+interface updatedProps {
+  name: string
+  price: number
+  quantity: number
+}
+
 export class Product {
   private readonly props: productProps
   private readonly _id: string
@@ -50,10 +56,4 @@ export class Product {
     this.props.price = price
     this.props.quantity = quantity
   }
-}
-
-interface updatedProps {
-  name: string
-  price: number
-  quantity: number
 }
