@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { getFirstName } from "../../utils/getFirstName";
 import { ModalBase } from "../modalBase/ModalBase";
 import "./stylesModalCharacterInfos.css";
 
@@ -44,7 +45,9 @@ export const ModalCharacterInfos = ({
           <h3 className="info__title">Eye color:</h3>
           <h4 className="info__value">{eye_color}</h4>
         </div>
-        <button className="modal-character-info__button">{name} Profile</button>
+        <button className="modal-character-info__button">
+          {getFirstName(name)}'s Profile
+        </button>
       </section>
     </ModalBase>
   );
