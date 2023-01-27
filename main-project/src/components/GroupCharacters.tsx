@@ -37,7 +37,7 @@ export function GroupCharacters() {
 	return (
 		<div>
 			<div className="flex justify-evenly">
-				<div className="flex justify-between w-full">
+				<div className="flex justify-evenly w-full">
 					<PaginationButton
 						title="anterior"
 						callback={() => {
@@ -65,24 +65,6 @@ export function GroupCharacters() {
 					<p>Eye color: {character.eye_color}</p>
 				</div>
 			))}
-
-			<div className="flex justify-evenly">
-				<button
-					onClick={() => {
-						setPagination(pagination - 1)
-					}}
-				>
-					anterior
-				</button>
-
-				<button
-					onClick={() => {
-						setPagination(pagination + 1)
-					}}
-				>
-					próxima
-				</button>
-			</div>
 		</div>
 	)
 }
