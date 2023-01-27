@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Filter } from "../filters/Filters";
-import { SearchByName } from "../searchByName/SearchByName";
-import { StarWarsTitle } from "../starWarsTitle/StarWarsTitle";
+import { SearchByName } from "./searchByName/SearchByName";
+import { StarWarsTitle } from "./starWarsTitle/StarWarsTitle";
 import "./stylesHeader.css";
 
 interface HeaderProps {
