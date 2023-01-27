@@ -13,6 +13,8 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
   const { name, species, gender } = character;
   const [modalOpen, setModalOpen] = useState(false);
 
+  const openCharacterinfosModal = () => setModalOpen(true);
+
   useEffect(() => {
     species[0] &&
       api
@@ -34,7 +36,7 @@ export const CharacterCard = ({ character }: CharacterCardProps) => {
         <h3 className="card__info__title">Gender:</h3>
         <h4 className="card__info__value">{gender}</h4>
       </div>
-      <button className="card__button" onClick={() => setModalOpen(true)}>
+      <button className="card__button" onClick={openCharacterinfosModal}>
         SEE MORE
       </button>
       <ModalCharacterInfos
