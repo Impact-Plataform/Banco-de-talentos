@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { adaptNameToUrl } from "../../utils/adaptNameToUrl";
 import { getFirstName } from "../../utils/getFirstName";
 import { ModalBase } from "../modalBase/ModalBase";
 import "./stylesModalCharacterInfos.css";
@@ -17,6 +19,13 @@ export const ModalCharacterInfos = ({
   specieName,
 }: ModalCharacterInfosProps) => {
   const { name, height, mass, gender, eye_color } = character;
+
+  const navigate = useNavigate();
+
+  const navigateToCharacterPage = () => {
+    const characterNameParam = adaptNameToUrl(name);
+    navigate(`/profile/${characterNameParam}`);
+  };
 
   return (
     <ModalBase closeModal={closeModal} isOpen={modalOpen}>
@@ -45,7 +54,10 @@ export const ModalCharacterInfos = ({
           <h3 className="info__title">Eye color:</h3>
           <h4 className="info__value">{eye_color}</h4>
         </div>
-        <button className="modal-character-info__button">
+        <button
+          className="modal-character-info__button"
+          onClick={navigateToCharacterPage}
+        >
           {getFirstName(name)}'s Profile
         </button>
       </section>
