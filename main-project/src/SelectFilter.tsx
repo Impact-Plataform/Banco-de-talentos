@@ -19,7 +19,9 @@ export default function SelectFilter({
 			<select name={name} className="bg-black text-[10px]">
 				<option value="">all</option>
 				{options.map((optionItem) => (
-					<option key={nanoid()}>{optionItem}</option>
+					<option key={nanoid()} value={optionItem}>
+						{optionItem}
+					</option>
 				))}
 			</select>
 		</div>
