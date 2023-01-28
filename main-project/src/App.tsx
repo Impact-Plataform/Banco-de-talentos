@@ -1,5 +1,6 @@
 import { Filters } from './components/Filters'
 import { GroupCharacters } from './components/GroupCharacters'
+import { GroupPaginationButtons } from './components/GroupPaginationButtons'
 import { Header } from './components/Header'
 import { SearchBar } from './components/SearchBar'
 
@@ -9,6 +10,7 @@ function App() {
 			<Header />
 			<SearchBar />
 			<Filters />
+			<GroupPaginationButtons />
 			<GroupCharacters />
 		</div>
 	)
