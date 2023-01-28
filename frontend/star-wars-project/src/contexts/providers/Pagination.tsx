@@ -6,6 +6,7 @@ interface PaginationContextProps {
   selectedPaginationNumber: number;
   nextPage: () => void;
   previousPage: () => void;
+  setPageNumber: (item: number) => void 
 }
 
 const PaginationContext = createContext<PaginationContextProps>(
@@ -22,6 +23,7 @@ export const PaginationProvider = ({ children }: ProviderProps) => {
   const paginationNumbers = [1, 2, 3, 4, , 5, 6, 7, 8] as number[];
   const [number, setNumber] = useState<number>(0);
 
+  const setPageNumber = (item: number) => setNumber(item - 1);
   const selectedPaginationNumber: number = paginationNumbers[number];
 
   const previousPage = () => {
@@ -38,6 +40,7 @@ export const PaginationProvider = ({ children }: ProviderProps) => {
         paginationNumbers,
         previousPage,
         nextPage,
+        setPageNumber
       }}
     >
       {children}
