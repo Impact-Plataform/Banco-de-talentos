@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { People, IPeople } from 'swapi-ts'
+import { People, IPeople, Species } from 'swapi-ts'
 
 type valuesSchemaFav = {
 	characters?: IPeople[] | []
@@ -7,6 +7,7 @@ type valuesSchemaFav = {
 	previous?: string | null
 	next?: string | null
 	setPagination?: any
+	speciesNames?: string[]
 }
 
 type ProviderProps = {
@@ -20,12 +21,12 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [pagination, setPagination] = useState(1)
 	const [next, setNext] = useState<string | null>('')
 	const [previous, setPrevious] = useState<string | null>('')
+	const [speciesNames, setSpeciesNames] = useState<string[]>([])
 
 	useEffect(() => {
 		async function loadData() {
 			const getPeople = await People.getPage(pagination)
 			setCharacters(getPeople.results)
-			console.log('primeiro get ', getPeople)
 			setPrevious(getPeople.previous)
 			setNext(getPeople.next)
 		}
@@ -33,12 +34,22 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		loadData()
 	}, [pagination])
 
+	useEffect(() => {
+		async function loadSpecies() {
+			const getSpecies = (await Species.find()).resources
+			const dadosTratados = getSpecies.map(({ value }) => value.name)
+			setSpeciesNames(dadosTratados)
+		}
+		loadSpecies()
+	}, [])
+
 	const valoresParaPassar = {
 		characters,
 		pagination,
 		next,
 		previous,
 		setPagination,
+		speciesNames,
 	}
 
 	return (
