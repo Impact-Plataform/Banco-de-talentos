@@ -8,6 +8,10 @@ type valuesSchemaFav = {
 	next?: string | null
 	setPagination?: any
 	speciesNames?: string[]
+	searchByName?: string
+	setSearchByName?: any
+	noDataFound?: string | null
+	setNoDataFound?: any
 }
 
 type ProviderProps = {
@@ -22,17 +26,33 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [next, setNext] = useState<string | null>('')
 	const [previous, setPrevious] = useState<string | null>('')
 	const [speciesNames, setSpeciesNames] = useState<string[]>([])
+	const [searchByName, setSearchByName] = useState('')
+	const [noDataFound, setNoDataFound] = useState<string | null>(null)
 
 	useEffect(() => {
 		async function loadData() {
-			const getPeople = await People.getPage(pagination)
-			setCharacters(getPeople.results)
-			setPrevious(getPeople.previous)
-			setNext(getPeople.next)
+			if (searchByName === '') {
+				const getPeople = await People.getPage(pagination)
+				setCharacters(getPeople.results)
+				setPrevious(getPeople.previous)
+				setNext(getPeople.next)
+			}
+			if (searchByName.length >= 3) {
+				const getSearchByName = await People.findBySearch([searchByName])
+				if (getSearchByName.resources.length === 0) {
+					setCharacters([])
+					setNoDataFound('no data found with this search :(')
+				} else {
+					const dadosTratados = getSearchByName.resources.map(
+						(item) => item.value
+					)
+					setCharacters(dadosTratados)
+				}
+			}
 		}
 
 		loadData()
-	}, [pagination])
+	}, [pagination, searchByName])
 
 	useEffect(() => {
 		async function loadSpecies() {
@@ -50,6 +70,10 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		previous,
 		setPagination,
 		speciesNames,
+		searchByName,
+		setSearchByName,
+		noDataFound,
+		setNoDataFound,
 	}
 
 	return (
