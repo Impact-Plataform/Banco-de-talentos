@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState, useMemo } from "react";
+import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import { api } from "../../services/api";
 import { getEndpoint } from "../../utils/getEndpoint";
 import { ProviderProps } from "../interfaces/providerProps";
@@ -31,7 +31,7 @@ export const SpeciesProvider = ({ children }: ProviderProps) => {
     { url: "", name: "Unknown" },
   ]);
 
-  useMemo(() => {
+  useEffect(() => {
     if (data.length > 0) {
       const charactersWithSpecie: any[] = data.filter(
         (item) => item.species.length > 0
@@ -57,7 +57,7 @@ export const SpeciesProvider = ({ children }: ProviderProps) => {
       });
       setSpeciesInPage(finalSpecies);
     }
-  }, [data.length]);
+  }, [data]);
 
   return (
     <SpeciesContext.Provider value={{ speciesInPage }}>
