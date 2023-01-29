@@ -23,7 +23,7 @@ export const ApiinfoProvider = ({ children }: ProviderProps) => {
     api
       .get(`/people/?page=${selectedPaginationNumber}`)
       .then((res) => setData(res.data.results));
-  }, []);
+  }, [selectedPaginationNumber]);
 
   return (
     <ApiInfoContext.Provider value={{ data }}>
