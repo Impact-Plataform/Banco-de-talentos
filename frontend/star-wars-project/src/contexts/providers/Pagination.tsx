@@ -6,7 +6,7 @@ interface PaginationContextProps {
   selectedPaginationNumber: number;
   nextPage: () => void;
   previousPage: () => void;
-  setPageNumber: (item: number) => void 
+  setPageNumber: (item: number) => void;
 }
 
 const PaginationContext = createContext<PaginationContextProps>(
@@ -20,17 +20,25 @@ export const usePageNumber = () => {
 };
 
 export const PaginationProvider = ({ children }: ProviderProps) => {
-  const paginationNumbers = [1, 2, 3, 4, , 5, 6, 7, 8] as number[];
+  const paginationNumbers = [1, 2, 3, 4, 5, 6, 7, 8] as number[];
   const [number, setNumber] = useState<number>(0);
 
-  const setPageNumber = (item: number) => setNumber(item - 1);
   const selectedPaginationNumber: number = paginationNumbers[number];
+
+  const scroolToBegin = () => setTimeout(() => window.scrollTo(0, -100), 100);
+
+  const setPageNumber = (item: number) => {
+    scroolToBegin();
+    setNumber(item - 1);
+  };
 
   const previousPage = () => {
     number > 0 && setNumber(number - 1);
+    number > 0 && scroolToBegin();
   };
   const nextPage = () => {
-    number < 7 && setNumber(number + 1);
+    scroolToBegin();
+    number < 7 ? setNumber(number + 1) : setNumber(0);
   };
 
   return (
@@ -40,7 +48,7 @@ export const PaginationProvider = ({ children }: ProviderProps) => {
         paginationNumbers,
         previousPage,
         nextPage,
-        setPageNumber
+        setPageNumber,
       }}
     >
       {children}
