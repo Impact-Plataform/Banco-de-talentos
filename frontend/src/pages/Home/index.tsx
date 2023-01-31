@@ -10,6 +10,7 @@ import {
 
 export const Home = () => {
   const [characters, setCharacters] = useState([]);
+  const [page, setPage] = useState(1);
   const [nextPage, setNextPage] = useState<any>(null);
   const [previousPage, setPreviousPage] = useState<any>(null);
   const [searchName, setSearchName] = useState("");
@@ -32,6 +33,7 @@ export const Home = () => {
     const charactersResponse = await getPeople({
       page: 1,
     });
+    setPage(1);
     setCharacters(charactersResponse?.characters);
     setNextPage(charactersResponse?.nextPage);
     setPreviousPage(charactersResponse?.previousPage);
@@ -42,8 +44,9 @@ export const Home = () => {
     if (previousPage) {
       setLoadingCharacters(true);
       const charactersResponse = await getPeople({
-        page: previousPage.split("=")[1],
+        page: page - 1,
       });
+      setPage(page - 1);
       setCharacters(charactersResponse?.characters);
       setNextPage(charactersResponse?.nextPage);
       setPreviousPage(charactersResponse?.previousPage);
@@ -55,8 +58,9 @@ export const Home = () => {
     if (nextPage) {
       setLoadingCharacters(true);
       const charactersResponse = await getPeople({
-        page: nextPage.split("=")[1],
+        page: page + 1,
       });
+      setPage(page + 1);
       setCharacters(charactersResponse?.characters);
       setNextPage(charactersResponse?.nextPage);
       setPreviousPage(charactersResponse?.previousPage);
