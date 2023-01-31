@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
+import img from "./img/skystars.png";
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
+  background-image: url(${img});
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 `;
-
 
 export const SearchStyle = styled.div`
   display: flex;

@@ -11,4 +11,11 @@ export const Container = styled.div`
   border: 2px solid ${colors.logo.letter};
   text-align: center;
   user-select: none;
+  cursor: pointer;
+  :hover {
+    background-color: transparent;
+    color: ${colors.logo.letter};
+    opacity: 0.4;
+    transition: all 0.3s;
+  }
 `;

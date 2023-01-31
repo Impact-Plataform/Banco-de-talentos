@@ -3,7 +3,7 @@ export const colors = {
     letter: "#FFE81F",
     background: "#000000",
   },
-  button: {
-    background: "#2E557C"
+  spinner: {
+    circle: "rgb(150,200,10, 0.3)"
   }
 };

@@ -1,6 +1,6 @@
 import { getPeople } from "../../api/people";
 import { useEffect, useState } from "react";
-import { Button, CharacterCardList, Input } from "../../components";
+import { Button, CharacterCardList, Input, Spinner } from "../../components";
 import {
   Container,
   Pagination,
@@ -13,8 +13,10 @@ export const Home = () => {
   const [nextPage, setNextPage] = useState<any>(null);
   const [previousPage, setPreviousPage] = useState<any>(null);
   const [searchName, setSearchName] = useState("");
+  const [loadingCharacters, setLoadingCharacters] = useState(false);
 
   const handleSearch = async () => {
+    setLoadingCharacters(true);
     const charactersResponse = await getPeople({
       page: 1,
       search: searchName,
@@ -22,36 +24,43 @@ export const Home = () => {
     setCharacters(charactersResponse?.characters);
     setNextPage(charactersResponse?.nextPage);
     setPreviousPage(charactersResponse?.previousPage);
+    setLoadingCharacters(false);
   };
 
   const handleCharacters = async () => {
+    setLoadingCharacters(true);
     const charactersResponse = await getPeople({
       page: 1,
     });
     setCharacters(charactersResponse?.characters);
     setNextPage(charactersResponse?.nextPage);
     setPreviousPage(charactersResponse?.previousPage);
+    setLoadingCharacters(false);
   };
 
   const handlePreviousPage = async () => {
     if (previousPage) {
+      setLoadingCharacters(true);
       const charactersResponse = await getPeople({
         page: previousPage.split("=")[1],
       });
       setCharacters(charactersResponse?.characters);
       setNextPage(charactersResponse?.nextPage);
       setPreviousPage(charactersResponse?.previousPage);
+      setLoadingCharacters(false);
     }
   };
 
   const handleNextPage = async () => {
     if (nextPage) {
+      setLoadingCharacters(true);
       const charactersResponse = await getPeople({
         page: nextPage.split("=")[1],
       });
       setCharacters(charactersResponse?.characters);
       setNextPage(charactersResponse?.nextPage);
       setPreviousPage(charactersResponse?.previousPage);
+      setLoadingCharacters(false);
     }
   };
 
@@ -68,9 +77,13 @@ export const Home = () => {
         />
         <Button text="Search" onClick={handleSearch} />
       </SearchStyle>
-      <WrapperCharacterCardList>
-        <CharacterCardList characters={characters} />
-      </WrapperCharacterCardList>
+      {loadingCharacters ? (
+        <Spinner />
+      ) : (
+        <WrapperCharacterCardList>
+          <CharacterCardList characters={characters} />
+        </WrapperCharacterCardList>
+      )}
       <Pagination>
         <Button text="Previous" onClick={handlePreviousPage} />
         <Button text="Next" onClick={handleNextPage} />
