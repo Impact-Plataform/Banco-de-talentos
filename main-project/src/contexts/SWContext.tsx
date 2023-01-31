@@ -12,6 +12,10 @@ type valuesSchemaFav = {
 	setSearchByName?: any
 	noDataFound?: string | null
 	setNoDataFound?: any
+	filterType?: 'genderFilter' | 'speciesFilter' | 'filmsFilter' | 'all'
+	setFilterType?: any
+	filterValue?: string
+	setFilterValue?: any
 }
 
 type ProviderProps = {
@@ -28,10 +32,26 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [speciesNames, setSpeciesNames] = useState<string[]>([])
 	const [searchByName, setSearchByName] = useState('')
 	const [noDataFound, setNoDataFound] = useState<string | null>(null)
+	const [filterType, setFilterType] = useState<
+		'all' | 'genderFilter' | 'speciesFilter' | 'filmsFilter'
+	>('all')
+	const [filterValue, setFilterValue] = useState<string>('all')
 
 	useEffect(() => {
 		async function loadData() {
-			if (searchByName === '') {
+			console.log('filters ', filterType, filterValue)
+			if (filterValue !== 'all') {
+				const getAllPeople = await People.find()
+
+				if (filterType === 'genderFilter') {
+					const filtradosPorGenero = getAllPeople.resources
+						.filter(({ value }) => value.gender === filterValue)
+						.map((item) => item.value)
+					setCharacters(filtradosPorGenero)
+				}
+			}
+
+			if (searchByName === '' && filterValue === 'all') {
 				const getPeople = await People.getPage(pagination)
 				setCharacters(getPeople.results)
 				setPrevious(getPeople.previous)
@@ -52,7 +72,7 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		}
 
 		loadData()
-	}, [pagination, searchByName])
+	}, [pagination, searchByName, filterValue, filterType])
 
 	useEffect(() => {
 		async function loadSpecies() {
@@ -74,6 +94,10 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		setSearchByName,
 		noDataFound,
 		setNoDataFound,
+		filterType,
+		setFilterType,
+		filterValue,
+		setFilterValue,
 	}
 
 	return (
