@@ -12,6 +12,7 @@ describe("Products route behavior", () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: "Smartphone",
         description: "dual-chip, display 6'6, octa-core",
+        category: "electronic",
         price: 400,
       });
       product = { ...body };
@@ -25,6 +26,7 @@ describe("Products route behavior", () => {
     it("should fail if the new product don't have title", async () => {
       const { body, status } = await agent.post(BASE_URL).send({
         description: "dual-chip, display 6'6, octa-core",
+        category: "electronic",
         price: 400,
       });
 
@@ -36,6 +38,7 @@ describe("Products route behavior", () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: 850,
         description: "dual-chip, display 6'6, octa-core",
+        category: "electronic",
         price: 400,
       });
 
@@ -46,6 +49,7 @@ describe("Products route behavior", () => {
     it("should fail if the new product don't have description", async () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: "Smartphone",
+        category: "electronic",
         price: 400,
       });
 
@@ -57,6 +61,7 @@ describe("Products route behavior", () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: "Smartphone",
         description: 999,
+        category: "electronic",
         price: 400,
       });
 
@@ -64,10 +69,34 @@ describe("Products route behavior", () => {
       expect(body.message).toBe("Descrição é um atributo do tipo string");
     });
 
+    it("should fail if the new product don't have category", async () => {
+      const { body, status } = await agent.post(BASE_URL).send({
+        title: "Smartphone",
+        description: "dual-chip, display 6'6, octa-core",
+        price: 400,
+      });
+
+      expect(status).toBe(400);
+      expect(body.message).toBe("Categoria é um atributo obrigatório");
+    });
+
+    it("should fail if the new product category ins't string type", async () => {
+      const { body, status } = await agent.post(BASE_URL).send({
+        title: "Smartphone",
+        description: 999,
+        category: 859,
+        price: 400,
+      });
+
+      expect(status).toBe(400);
+      expect(body.message).toBe("Categoria é um atributo do tipo string");
+    });
+
     it("should fail if the new product don't have price", async () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: "Smartphone",
         description: "dual-chip, display 6'6, octa-core",
+        category: "electronic",
       });
 
       expect(status).toBe(400);
@@ -78,6 +107,7 @@ describe("Products route behavior", () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: "Smartphone",
         description: "dual-chip, display 6'6, octa-core",
+        category: "electronic",
         price: "400",
       });
 
