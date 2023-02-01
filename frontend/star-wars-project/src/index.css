@@ -157,6 +157,10 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+main {
+  min-height: 100vh;
+}
+
 button,
 select {
   background: none;
