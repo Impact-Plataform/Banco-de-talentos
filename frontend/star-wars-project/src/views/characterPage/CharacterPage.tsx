@@ -5,6 +5,7 @@ import { useAPiInfo } from "../../contexts/providers/ApiData";
 import { getCharacterName } from "../../utils/getCharacterName";
 import { Header } from "../../components/header/Header";
 import { ChosenCharacterInfo } from "../../components/choosenCharacterInfo/ChosenCharacterInfo";
+import { Footer } from "../../components/footer/Footer";
 
 export const CharacterPage = () => {
   const { data } = useAPiInfo();
@@ -20,17 +21,17 @@ export const CharacterPage = () => {
     }
   }, [data.length]);
 
-  console.log("choosen character --->", characterProfile);
-
   return (
     <>
       <Header isCharacterPage />
-      {characterProfile ? (
-        <ChosenCharacterInfo character={characterProfile} />
-      ) : (
-        <h1 style={{ color: "white" }}>loading...</h1>
-      )}
-      scroolToBegin();
+      <main className="character-info__container">
+        {characterProfile ? (
+          <ChosenCharacterInfo character={characterProfile} />
+        ) : (
+          <h1 style={{ color: "white" }}>loading...</h1>
+        )}
+      </main>
+      <Footer />
     </>
   );
 };
