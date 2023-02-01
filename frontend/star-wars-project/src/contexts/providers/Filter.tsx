@@ -1,5 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { ProviderProps } from "../interfaces/providerProps";
+import { useAPiInfo } from "./ApiData";
 
 interface FilterContextProps {
   dataFiltered: any[];
@@ -17,8 +18,13 @@ export const useFilter = () => {
 };
 
 export const FilterProvider = ({ children }: ProviderProps) => {
+  const { data } = useAPiInfo();
+
+  useEffect(() => {
+    setDataFiltered([]);
+  }, [data]);
+
   const [dataFiltered, setDataFiltered] = useState<any[]>([]);
-  console.log("dataFiltered -> ", dataFiltered);
 
   const filterData = (
     word: string,
