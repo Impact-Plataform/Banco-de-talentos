@@ -35,6 +35,11 @@ export const ChosenCharacterInfo = ({
           .then((res) => setSpecieName(res.data.name))
       : setSpecieName("Unknown");
 
+    homeworld.length > 0
+      ? api
+          .get(getEndpoint(homeworld))
+          .then((res) => setHomeWorldName(res.data.name))
+      : setSpecieName("unknown");
   }, []);
 
   return (
@@ -64,12 +69,12 @@ export const ChosenCharacterInfo = ({
         <h4 className="character-info__value">{eye_color}</h4>
       </div>
       <div className="character-info__info">
-        <h3 className="character-info__title">Mass:</h3>
-        <h4 className="character-info__value">{mass}</h4>
+        <h3 className="character-info__title">Height:</h3>
+        <h4 className="character-info__value">{height} cm</h4>
       </div>
-      <div className="character__info">
-        <h3 className="character__info__title">Height:</h3>
-        <h4 className="character__info__value">{height} cm</h4>
+      <div className="character-info__info">
+        <h3 className="character-info__title">Mass:</h3>
+        <h4 className="character-info__value">{mass} kg</h4>
       </div>
     </main>
   );
