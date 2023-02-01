@@ -1,22 +1,19 @@
-.all-characters__container {
+.all-characters__container,
+.all-characters__list {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-characters__container {
+  flex-flow: column nowrap;
   margin-bottom: 52px;
+  gap: 52px;
 }
 
 .all-characters__list {
   width: 100%;
-  display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
   gap: 20px;
   flex: 1;
-}
-
-@media (min-width: 800px) {
-  .all-characters__list {
-    justify-content: left;
-    align-items: left;
-  }
 }
