@@ -17,8 +17,6 @@ describe("Products route behavior", () => {
       });
       product = { ...body };
 
-      console.log(body);
-
       expect(status).toBe(201);
       expect(body.title).toBe("Smartphone");
     });

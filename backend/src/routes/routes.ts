@@ -1,6 +1,7 @@
 import { Router } from "express";
+import productRoutes from "./productsRouter";
 const routes = Router();
 
-routes.use("/todo", (req, res) => res.status(200).send());
+routes.use("/products", productRoutes);
 
 export { routes };
