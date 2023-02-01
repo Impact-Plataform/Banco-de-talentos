@@ -1,5 +1,6 @@
 .character-info__container,
-.character-info__info {
+.character-info__info,
+.character-info_movies_container {
   display: flex;
   align-items: center;
 }
@@ -30,6 +31,31 @@
   font-size: var(--font-size-4);
 }
 
+.character-info__info--movies {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.character-info__title--movie {
+  text-align: center;
+}
+
+.character-info_movies_container {
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.character-info--movie_title {
+  color: #fd29;
+  text-align: center;
+}
+
+.character-info--movie-comma {
+  color: #fff;
+  font-weight: 700;
+}
+
 @media (min-width: 801px) {
   .character-info__container {
     align-items: flex-start;
@@ -50,5 +76,11 @@
     width: 400px;
     text-align: right;
     font-size: 36px;
+  }
+
+  .character-info__info--movies {
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
   }
 }
