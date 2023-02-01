@@ -1,22 +1,22 @@
 import "./stylesCharacterPage.css";
-import { useState, useMemo, useEffect } from "react";
+import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { useAPiInfo } from "../../contexts/providers/ApiData";
 import { getCharacterName } from "../../utils/getCharacterName";
 import { Header } from "../../components/header/Header";
+import { ChosenCharacterInfo } from "../../components/choosenCharacterInfo/ChosenCharacterInfo";
 
 export const CharacterPage = () => {
-  const [characterProfile, setCharacterProfile] = useState<any>();
   const { data } = useAPiInfo();
   const { character } = useParams();
   const characterName = character ? getCharacterName(character) : "";
 
-  useEffect(() => {
+  const characterProfile = useMemo(() => {
     if (data.length > 0) {
       const filterChoosenCharacter = data.filter((character2) => {
         return character2.name.toLowerCase() === characterName;
       });
-      setCharacterProfile(filterChoosenCharacter[0]);
+      return filterChoosenCharacter[0];
     }
   }, [data.length]);
 
@@ -24,8 +24,13 @@ export const CharacterPage = () => {
 
   return (
     <>
-      <Header />
-      <h1>{characterProfile && characterProfile.name}</h1>;
+      <Header isCharacterPage />
+      {characterProfile ? (
+        <ChosenCharacterInfo character={characterProfile} />
+      ) : (
+        <h1 style={{ color: "white" }}>loading...</h1>
+      )}
+      scroolToBegin();
     </>
   );
 };
