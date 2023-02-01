@@ -26,7 +26,6 @@
 }
 
 .info__value {
-  /* max-width: 24ch; */
   max-heihgt: 1ch;
   white-space: nowrap;
   text-align: start;
