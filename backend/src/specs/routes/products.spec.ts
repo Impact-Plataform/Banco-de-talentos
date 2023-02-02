@@ -1,4 +1,5 @@
 import supertest from "supertest";
+import { prisma } from "../../../prisma";
 import { app } from "../../app";
 
 const agent = supertest(app);
@@ -6,6 +7,10 @@ const agent = supertest(app);
 describe("Products route behavior", () => {
   const BASE_URL = "/products";
   let product;
+
+  beforeAll(async () => {
+    prisma.products.deleteMany();
+  });
 
   describe("When creating a new product...", () => {
     it("should create a new product successful", async () => {
@@ -81,7 +86,7 @@ describe("Products route behavior", () => {
     it("should fail if the new product category ins't string type", async () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: "Smartphone",
-        description: 999,
+        description: "dual-chip, display 6'6, octa-core",
         category: 859,
         price: 400,
       });
