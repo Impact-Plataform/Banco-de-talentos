@@ -10,7 +10,7 @@ describe("Products route behavior", () => {
   let product: Products;
 
   beforeAll(async () => {
-    prisma.products.deleteMany();
+    await prisma.products.deleteMany({});
   });
 
   describe("When creating a new product...", () => {
@@ -117,6 +117,19 @@ describe("Products route behavior", () => {
 
       expect(status).toBe(400);
       expect(body.message).toBe("Preço é um atributo do tipo number");
+    });
+  });
+
+  describe("When updating a product", () => {
+    it("should update successful", async () => {
+      product.price = 250;
+
+      const { status, body } = await agent
+        .put(`${BASE_URL}/${product.id}`)
+        .send(product);
+
+      expect(status).toBe(200);
+      expect(body.price).toBe(250);
     });
   });
 });
