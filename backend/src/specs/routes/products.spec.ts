@@ -1,3 +1,4 @@
+import { Products } from "@prisma/client";
 import supertest from "supertest";
 import { prisma } from "../../../prisma";
 import { app } from "../../app";
@@ -6,7 +7,7 @@ const agent = supertest(app);
 
 describe("Products route behavior", () => {
   const BASE_URL = "/products";
-  let product;
+  let product: Products;
 
   beforeAll(async () => {
     prisma.products.deleteMany();

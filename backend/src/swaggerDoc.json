@@ -23,27 +23,62 @@
     }
   ],
   "paths": {
-    "/": {
-      "get": {
-        "summary": "todo endpoint",
-        "description": "This endpoint return a message test",
-        "tags": ["test"],
+    "/products": {
+      "post": {
+        "summary": "create product",
+        "description": "This endpoint create a new product",
+        "tags": [
+          "Products"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "examples": {
+                "product": {
+                  "value": {
+                    "title": "Teclado mecânco",
+                    "description": "USB, personalizável",
+                    "category": "periféricos",
+                    "price": 222
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
-          "200": {
-            "description": "ok"
+          "201": {
+            "description": "created"
+          },
+          "400": {
+            "description": "bad request"
           }
         }
       }
     }
   },
-
   "components": {
     "schemas": {
-      "test": {
+      "Product": {
         "type": "object",
         "properties": {
-          "msg": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
             "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
           }
         }
       }
