@@ -5,6 +5,7 @@ import { PaginationComponent } from "../../components/paginationComponent/Pagina
 import { useAPiInfo } from "../../contexts/providers/ApiData";
 import { useFilter } from "../../contexts/providers/Filter";
 import "./stylesAllCharacters.css";
+import { motion } from "framer-motion";
 
 export const AllCharacters = () => {
   const { data } = useAPiInfo();
@@ -13,7 +14,11 @@ export const AllCharacters = () => {
   const generalData = dataFiltered.length > 0 ? dataFiltered : data;
 
   return (
-    <>
+    <motion.div
+      initial={{ x: 1000 }}
+      animate={{ x: 0 }}
+      exit={{ x: -window.innerWidth }}
+    >
       <Header />
       <main className="all-characters__container">
         <ul className="all-characters__list">
@@ -24,6 +29,6 @@ export const AllCharacters = () => {
         <PaginationComponent />
       </main>
       <Footer />
-    </>
+    </motion.div>
   );
 };

@@ -7,6 +7,8 @@ import { Header } from "../../components/header/Header";
 import { ChosenCharacterInfo } from "../../components/choosenCharacterInfo/ChosenCharacterInfo";
 import { Footer } from "../../components/footer/Footer";
 
+import { motion } from "framer-motion";
+
 export const CharacterPage = () => {
   const { data } = useAPiInfo();
   const { character } = useParams();
@@ -22,7 +24,11 @@ export const CharacterPage = () => {
   }, [data.length]);
 
   return (
-    <>
+    <motion.div
+      initial={{ x: 1000 }}
+      animate={{ x: 0 }}
+      exit={{ x: window.innerWidth }}
+    >
       <Header isCharacterPage />
       <main className="character-info__container">
         {characterProfile ? (
@@ -32,6 +38,6 @@ export const CharacterPage = () => {
         )}
       </main>
       <Footer />
-    </>
+    </motion.div>
   );
 };
