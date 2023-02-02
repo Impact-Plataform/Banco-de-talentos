@@ -6,6 +6,7 @@ import { useAPiInfo } from "../../contexts/providers/ApiData";
 import { useFilter } from "../../contexts/providers/Filter";
 import "./stylesAllCharacters.css";
 import { motion } from "framer-motion";
+import { Spinner } from "../../components/spinner/Spinner";
 
 export const AllCharacters = () => {
   const { data } = useAPiInfo();
@@ -21,11 +22,15 @@ export const AllCharacters = () => {
     >
       <Header />
       <main className="all-characters__container">
-        <ul className="all-characters__list">
-          {generalData.map((character) => {
-            return <CharacterCard character={character} />;
-          })}
-        </ul>
+        {data.length > 0 ? (
+          <ul className="all-characters__list">
+            {generalData.map((character) => {
+              return <CharacterCard character={character} />;
+            })}
+          </ul>
+        ) : (
+          <Spinner />
+        )}
         <PaginationComponent />
       </main>
       <Footer />
