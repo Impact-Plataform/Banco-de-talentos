@@ -7,7 +7,7 @@ const createProduct = new CreateProductController();
 const updateProduct = new UpdateProductController();
 
 productRoutes
-  .post("/", ProductsValidation.handle, createProduct.handle)
-  .put("/:id", updateProduct.handle);
+  .post("/", ProductsValidation.handleCreate, createProduct.handle)
+  .put("/:id", ProductsValidation.handleUpdate, updateProduct.handle);
 
 export default productRoutes;

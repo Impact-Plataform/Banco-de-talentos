@@ -131,5 +131,25 @@ describe("Products route behavior", () => {
       expect(status).toBe(200);
       expect(body.price).toBe(250);
     });
+
+    it("should fail if property haven't right type", async () => {
+      let wrongProduct = { ...product, price: "250" };
+      const { status, body } = await agent
+        .put(`${BASE_URL}/${product.id}`)
+        .send(wrongProduct);
+
+      expect(status).toBe(400);
+      expect(body.message).toBe("Preço é um atributo do tipo number");
+    });
+
+    it("should fail if id ins't correct", async () => {
+      product.category = "Generic";
+      const { body, status } = await agent
+        .put(`${BASE_URL}/-852`)
+        .send(product);
+
+      expect(status).toBe(400);
+      expect(body.message).toBe("Produto não encontrado");
+    });
   });
 });
