@@ -55,7 +55,10 @@ export const ModalCharacterInfos = ({
         </div>
         <button
           className="modal-character-info__button"
-          onClick={navigateToCharacterPage}
+          onClick={() => {
+            navigateToCharacterPage();
+            closeModal();
+          }}
         >
           {getFirstName(name)}'s Profile
         </button>
