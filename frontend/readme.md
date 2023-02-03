@@ -96,3 +96,12 @@ This application uses react with typescript, css for styles and context API to s
     * for classes i use convention naming [kebab-case](https://www.theserverside.com/definition/Kebab-case). ex: character-info__container
   
 # [Views](#sumary)
+
+## All characters
+![All characters Page image](https://github.com/leonardo-cabral67/Banco-de-talentos/blob/leonardo-cabral-frontend-and-backend/frontend/star-wars-project/src/assets/characters-page.png?raw=true)
+
+## Modal with more informations about the character
+![character-modal image](https://github.com/leonardo-cabral67/Banco-de-talentos/blob/leonardo-cabral-frontend-and-backend/frontend/star-wars-project/src/assets/character-modal.png?raw=true)
+
+## Profile Character Page
+![Profile Character Page image](https://github.com/leonardo-cabral67/Banco-de-talentos/blob/leonardo-cabral-frontend-and-backend/frontend/star-wars-project/src/assets/chosen-character-page.png?raw=true)
