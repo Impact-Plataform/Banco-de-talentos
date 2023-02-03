@@ -52,14 +52,10 @@ This application uses react with typescript.
     "react-router-dom": "^6.7.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@types/react-modal": "^3.13.1",
     "@vitejs/plugin-react": "^2.2.0",
-    "jsdom": "^21.0.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.3",
     "vitest": "^0.27.1"
