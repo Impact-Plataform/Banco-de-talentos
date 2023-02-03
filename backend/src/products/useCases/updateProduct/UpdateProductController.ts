@@ -4,11 +4,12 @@ import { UpdateProductUseCase } from "./UpdateProductUseCase";
 
 export class UpdateProductController {
   async handle(
-    req: Request<{}, {}, UpdateProductDTO>,
+    req: Request<{ id: string }, {}, UpdateProductDTO>,
     res: Response,
     next: NextFunction
   ) {
-    const { id, title, description, category, price } = req.body;
+    const { title, description, category, price } = req.body;
+    const id = Number(req.params.id);
     const updateProduct = new UpdateProductUseCase();
 
     const product = await updateProduct.execute({
