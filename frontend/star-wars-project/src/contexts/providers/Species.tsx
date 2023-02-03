@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useState, useMemo, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../../services/api";
 import { getEndpoint } from "../../utils/getEndpoint";
 import { ProviderProps } from "../interfaces/providerProps";

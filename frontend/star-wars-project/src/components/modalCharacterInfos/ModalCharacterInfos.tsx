@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { adaptNameToUrl } from "../../utils/adaptNameToUrl";
 import { getFirstName } from "../../utils/getFirstName";

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { useAPiInfo } from "../../../contexts/providers/ApiData";
 import { useFilter } from "../../../contexts/providers/Filter";
