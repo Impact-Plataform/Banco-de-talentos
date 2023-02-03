@@ -1,4 +1,6 @@
-## [Sumary](#sumary)
+# Star Wars Characters 
+
+## [Sumary](#sumary) 
 * [About this application](#about-this-application)
 * [Funcionalities](#funcionalities)
 * [SWAPI](#swapi)
@@ -13,34 +15,37 @@
 * [Views](#views)
 
 
-# About This Application
+# [About This Application](#sumary)
 
-This appliaction consists in show all characters from Star Wars and some informations about then. You can see a lot of informations in all characters page and you can get in character page and see just his informations. All informations have been taken from: [SWAPI](#swapi). 
-This application uses react with typescript. 
+This appliaction consists in show all characters from Star Wars and some informations about then.
 
-<img src="https://user-images.githubusercontent.com/102761201/214153299-ceb6658d-9789-4211-ac7e-253ec98f78c0.png" />
+You can see a lot of characers informations at all characters page and you can get in character page and see just a chosen one informations. 
 
-[back to sumary](#sumary)
+All informations have been taken from: [SWAPI](#swapi). 
 
-# Funcionalities
+This application uses react with typescript, css for styles and context API to state management. 
+
+
+
+# [Funcionalities](#sumary)
   * Filter Characters by name
   * Filter By specie, movie or gender
   * See more informations about the character in a modal and at his own informations page.
 
-[back to sumary](#sumary)
 
-# SWAPI
+# [SWAPI](#sumary)
   This is a API from Star wars with a lot informations about people, species, films, vehicles, starships and planets.
   You can see more at [SWAPI documentation](https://swapi.dev/documentation)
   
-  [back to sumary](#sumary)
 
-# Figma layout Reference
+
+# [Figma layout Reference](#sumary)
   The layout reference of this application has been made by me.
   You can access it just clicking [here](https://www.figma.com/file/CDVndimwKlsLynWiBcZyGF/front-end-impact-test?node-id=7%3A14&t=pID3se3DLVp4mDeS-1)
   
-  [back to sumary](#sumary)
-# Dependencies
+
+# [Dependencies](#sumary)
+
 ```JSON
  "dependencies": {
     "axios": "^1.2.2",
@@ -69,18 +74,25 @@ This application uses react with typescript.
  * [react modal](https://reactcommunity.org/react-modal/) - make modals
  * [react-router-dom](https://reactrouter.com/en/main) - routes of aplication
  
-[back to sumary](#sumary)
-# How to run locally
-[back to sumary](#sumary)
-# Application architecture
-[back to sumary](#sumary)
-# Application standards
-[back to sumary](#sumary)
+
+# [How to run it locally](#sumary)
+1. You need have nodejs installed in your machine.
+2. Fork or clone this repository.
+3. You need to run 'npm run dev' in terminal.  
+
+# [Application standards](#sumary)
+  
   ## Conventional Commits
+    This application uses conventional commits to standardize commit messages. You can know more [here](https://www.conventionalcommits.org/en/v1.0.0/)
   ## File names
+
+    * If you open the project, you can see that i difficultly use 'index' name to my files.
+    * Components have this structure: component
+                                          |-Component.tsx
+                                          |-stylesComponent.css
+    * I choose this approach because it is better to code, because you don't confuse diffent files named 'index'.
   ## Block element modifier 
-  ##
-# Views
-[back to sumary](#sumary)
-#
-#
+    * It is always good organize css classes names. So i choose using BEM. It consists in name classes using the rule 'block__element--modifier'.
+    * for classes i use convention naming [kebab-case](https://www.theserverside.com/definition/Kebab-case). ex: character-info__container
+  
+# [Views](#sumary)
