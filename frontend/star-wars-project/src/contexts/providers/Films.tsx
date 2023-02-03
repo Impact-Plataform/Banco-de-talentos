@@ -39,7 +39,6 @@ export const FilmsProvider = ({ children }: ProviderProps) => {
     }
   }, [allFilms.length]);
 
-  console.log("films ------>", films);
   return (
     <FilmsContext.Provider value={{ films }}>{children}</FilmsContext.Provider>
   );

@@ -54,7 +54,6 @@ export const ChosenCharacterInfo = ({
       });
   }, []);
 
-  console.log("filmsName --->", filmsNames);
   return (
     <main className="character-info__container">
       <div className="character-info__info">

@@ -10,7 +10,6 @@ export const PaginationComponent = () => {
     nextPage,
     paginationNumbers,
   } = usePageNumber();
-  console.log(paginationNumbers);
   return (
     <section className="pagination__container">
       <div className="pagination_arrow_container" onClick={previousPage}>
