@@ -123,6 +123,32 @@
             "description": "internal server error"
           }
         }
+      },
+      "delete": {
+        "summary": "delete product",
+        "description": "This endpoint delete a product",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "product id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "no content response"
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
       }
     }
   },
