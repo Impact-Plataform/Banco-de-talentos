@@ -68,9 +68,71 @@
             "description": "internal server error"
           }
         }
+      },
+      "get": {
+        "summary": "get all products",
+        "description": "This endpoint get all products",
+        "tags": [
+          "Products"
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
       }
     },
     "/products/{id}": {
+      "get": {
+        "summary": "get a product by id",
+        "description": "This endpoint get a product",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "product id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      },
       "put": {
         "summary": "update product",
         "description": "This endpoint update a product",
