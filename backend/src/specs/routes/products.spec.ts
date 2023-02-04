@@ -11,6 +11,14 @@ describe("Products route behavior", () => {
 
   beforeAll(async () => {
     await prisma.products.deleteMany({});
+    await prisma.products.create({
+      data: {
+        title: "USB Camera",
+        description: "4.0 mpx",
+        category: "perifericos",
+        price: 59,
+      },
+    });
   });
 
   describe("When creating a new product...", () => {
@@ -120,7 +128,30 @@ describe("Products route behavior", () => {
     });
   });
 
-  describe("When updating a product", () => {
+  describe("when getting a product...", () => {
+    it("should return all products", async () => {
+      const { body, status } = await agent.get(BASE_URL);
+
+      expect(status).toBe(200);
+      expect(body).toHaveLength(2);
+    });
+
+    it("should return a product by id", async () => {
+      const { body, status } = await agent.get(`${BASE_URL}/${product.id}`);
+
+      expect(status).toBe(200);
+      expect(body.description).toBe(product.description);
+    });
+
+    it("should fail if id ins't correct", async () => {
+      const { body, status } = await agent.get(`${BASE_URL}/-96`);
+
+      expect(status).toBe(400);
+      expect(body.message).toBe("Produto não encontrado");
+    });
+  });
+
+  describe("When updating a product...", () => {
     it("should update successful", async () => {
       product.price = 250;
 
@@ -153,7 +184,7 @@ describe("Products route behavior", () => {
     });
   });
 
-  describe("when deleting a product", () => {
+  describe("when deleting a product...", () => {
     test("should delete a product successful", async () => {
       const { status } = await agent.delete(`${BASE_URL}/${product.id}`);
 
