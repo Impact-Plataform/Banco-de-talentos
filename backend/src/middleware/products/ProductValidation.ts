@@ -82,4 +82,20 @@ export class ProductsValidation {
       next(error);
     }
   }
+
+  static async handleGet(
+    req: Request<{ id: string }, {}, {}>,
+    res: Response,
+    next: NextFunction
+  ) {
+    const id = Number(req.params.id);
+    try {
+      const productExists = await prisma.products.findUnique({ where: { id } });
+
+      if (!productExists) throw new AppError("Produto não encontrado");
+      next();
+    } catch (error) {
+      next(error);
+    }
+  }
 }
