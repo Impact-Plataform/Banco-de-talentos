@@ -152,4 +152,19 @@ describe("Products route behavior", () => {
       expect(body.message).toBe("Produto não encontrado");
     });
   });
+
+  describe("when deleting a product", () => {
+    test("should delete a product successful", async () => {
+      const { status } = await agent.delete(`${BASE_URL}/${product.id}`);
+
+      expect(status).toBe(204);
+    });
+
+    it("should fail if product doesn't exists", async () => {
+      const { status, body } = await agent.delete(`${BASE_URL}/-98`);
+
+      expect(status).toBe(400);
+      expect(body.message).toBe("Produto não encontrado");
+    });
+  });
 });
