@@ -9,7 +9,7 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/server.js\"",
     "build": "npx tsc",
     "start": "node dist/server.js",
-    "test": "jest --forceExit"
+    "test": "jest --runInBand --forceExit"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",

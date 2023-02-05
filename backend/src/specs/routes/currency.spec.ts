@@ -31,7 +31,7 @@ describe("currency route behavior", () => {
       const { status, body } = await agent.get(`${BASE_URL}/foo`);
 
       expect(status).toBe(400);
-      expect(body.code).toBe("Moeda não encontrada");
+      expect(body.message).toBe("Moeda não encontrada");
     });
   });
 });
