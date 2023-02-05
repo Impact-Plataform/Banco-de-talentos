@@ -30,6 +30,8 @@ export class ProductsValidation {
       if (typeof price !== "number")
         throw new AppError("Preço é um atributo do tipo number");
 
+      if (price < 0) throw new AppError("Preço não pode ser menor que zero");
+
       next();
     } catch (error) {
       next(error);
@@ -59,6 +61,9 @@ export class ProductsValidation {
 
       if (price && typeof price !== "number")
         throw new AppError("Preço é um atributo do tipo number");
+
+      if (price && price < 0)
+        throw new AppError("Preço não pode ser menor que zero");
 
       next();
     } catch (error) {
