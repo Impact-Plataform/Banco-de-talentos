@@ -10,7 +10,7 @@ export class ProductsValidation {
     res: Response,
     next: NextFunction
   ) {
-    const { title, description, category, price } = req.body;
+    const { title, description, category, brlPrice } = req.body;
 
     try {
       if (!title) throw new AppError("Título é um atributo obrigatório");
@@ -26,11 +26,11 @@ export class ProductsValidation {
       if (typeof category !== "string")
         throw new AppError("Categoria é um atributo do tipo string");
 
-      if (!price) throw new AppError("Preço é um atributo obrigatório");
-      if (typeof price !== "number")
+      if (!brlPrice) throw new AppError("Preço é um atributo obrigatório");
+      if (typeof brlPrice !== "number")
         throw new AppError("Preço é um atributo do tipo number");
 
-      if (price < 0) throw new AppError("Preço não pode ser menor que zero");
+      if (brlPrice < 0) throw new AppError("Preço não pode ser menor que zero");
 
       next();
     } catch (error) {
@@ -44,7 +44,7 @@ export class ProductsValidation {
     next: NextFunction
   ) {
     const id = Number(req.params.id);
-    const { title, description, category, price } = req.body;
+    const { title, description, category, brlPrice } = req.body;
 
     try {
       const productExists = await prisma.products.findUnique({ where: { id } });
@@ -59,10 +59,10 @@ export class ProductsValidation {
       if (category && typeof category !== "string")
         throw new AppError("Categoria é um atributo do tipo string");
 
-      if (price && typeof price !== "number")
+      if (brlPrice && typeof brlPrice !== "number")
         throw new AppError("Preço é um atributo do tipo number");
 
-      if (price && price < 0)
+      if (brlPrice && brlPrice < 0)
         throw new AppError("Preço não pode ser menor que zero");
 
       next();

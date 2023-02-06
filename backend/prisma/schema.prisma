@@ -15,5 +15,5 @@ model Products {
   title       String
   description String
   category    String
-  price       Int
+  brlPrice    Int
 }

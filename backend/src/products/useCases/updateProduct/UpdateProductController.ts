@@ -8,7 +8,7 @@ export class UpdateProductController {
     res: Response,
     next: NextFunction
   ) {
-    const { title, description, category, price } = req.body;
+    const { title, description, category, brlPrice } = req.body;
     const id = Number(req.params.id);
     const updateProduct = new UpdateProductUseCase();
 
@@ -17,7 +17,7 @@ export class UpdateProductController {
       title,
       description,
       category,
-      price,
+      brlPrice,
     });
 
     return res.status(200).json(product);

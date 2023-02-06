@@ -2,13 +2,13 @@ interface Currency {
   code: String;
   codein: String;
   name: String;
-  high: Number;
-  low: Number;
-  pctChange: Number;
-  bid: Number;
-  ask: Number;
-  timestamp: Number;
-  create_date: Date;
+  high: String;
+  low: String;
+  pctChange: String;
+  bid: String;
+  ask: String;
+  timestamp: String;
+  create_date: String;
 }
 
 export interface ICurrency {

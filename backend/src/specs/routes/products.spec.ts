@@ -16,7 +16,7 @@ describe("Products route behavior", () => {
         title: "USB Camera",
         description: "4.0 mpx",
         category: "eletronic",
-        price: 159,
+        brlPrice: 159,
       },
     });
   });
@@ -27,7 +27,7 @@ describe("Products route behavior", () => {
         title: "Smartphone",
         description: "dual-chip, display 6'6, octa-core",
         category: "electronic",
-        price: 1400,
+        brlPrice: 1400,
       });
       product = { ...body };
 
@@ -39,7 +39,7 @@ describe("Products route behavior", () => {
       const { body, status } = await agent.post(BASE_URL).send({
         description: "dual-chip, display 6'6, octa-core",
         category: "electronic",
-        price: 1400,
+        brlPrice: 1400,
       });
 
       expect(status).toBe(400);
@@ -51,7 +51,7 @@ describe("Products route behavior", () => {
         title: 850,
         description: "dual-chip, display 6'6, octa-core",
         category: "electronic",
-        price: 1400,
+        brlPrice: 1400,
       });
 
       expect(status).toBe(400);
@@ -62,7 +62,7 @@ describe("Products route behavior", () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: "Smartphone",
         category: "electronic",
-        price: 1400,
+        brlPrice: 1400,
       });
 
       expect(status).toBe(400);
@@ -74,7 +74,7 @@ describe("Products route behavior", () => {
         title: "Smartphone",
         description: 999,
         category: "electronic",
-        price: 1400,
+        brlPrice: 1400,
       });
 
       expect(status).toBe(400);
@@ -85,7 +85,7 @@ describe("Products route behavior", () => {
       const { body, status } = await agent.post(BASE_URL).send({
         title: "Smartphone",
         description: "dual-chip, display 6'6, octa-core",
-        price: 1400,
+        brlPrice: 1400,
       });
 
       expect(status).toBe(400);
@@ -97,7 +97,7 @@ describe("Products route behavior", () => {
         title: "Smartphone",
         description: "dual-chip, display 6'6, octa-core",
         category: 859,
-        price: 1400,
+        brlPrice: 1400,
       });
 
       expect(status).toBe(400);
@@ -120,7 +120,7 @@ describe("Products route behavior", () => {
         title: "Smartphone",
         description: "dual-chip, display 6'6, octa-core",
         category: "electronic",
-        price: "400",
+        brlPrice: "400",
       });
 
       expect(status).toBe(400);
@@ -132,7 +132,7 @@ describe("Products route behavior", () => {
         title: "Smartphone",
         description: "dual-chip, display 6'6, octa-core",
         category: "electronic",
-        price: -950,
+        brlPrice: -950,
       });
 
       expect(status).toBe(400);
@@ -165,18 +165,18 @@ describe("Products route behavior", () => {
 
   describe("When updating a product...", () => {
     it("should update successful", async () => {
-      product.price = 1250;
+      product.brlPrice = 1250;
 
       const { status, body } = await agent
         .put(`${BASE_URL}/${product.id}`)
         .send(product);
 
       expect(status).toBe(200);
-      expect(body.price).toBe(1250);
+      expect(body.brlPrice).toBe(1250);
     });
 
     it("should fail if property haven't right type", async () => {
-      let wrongProduct = { ...product, price: "250" };
+      let wrongProduct = { ...product, brlPrice: "250" };
       const { status, body } = await agent
         .put(`${BASE_URL}/${product.id}`)
         .send(wrongProduct);
@@ -186,7 +186,7 @@ describe("Products route behavior", () => {
     });
 
     it("should fail if product price is negative", async () => {
-      let wrongProduct = { ...product, price: -988 };
+      let wrongProduct = { ...product, brlPrice: -988 };
       const { body, status } = await agent
         .put(`${BASE_URL}/${product.id}`)
         .send(wrongProduct);

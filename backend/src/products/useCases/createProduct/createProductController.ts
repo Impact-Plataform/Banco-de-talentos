@@ -8,13 +8,13 @@ export class CreateProductController {
     res: Response,
     next: NextFunction
   ) {
-    const { title, description, price, category } = req.body;
+    const { title, description, brlPrice, category } = req.body;
     const createProduct = new CreateProductUseCase();
 
     const product = await createProduct.execute({
       title,
       description,
-      price,
+      brlPrice,
       category,
     });
 

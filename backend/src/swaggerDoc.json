@@ -62,6 +62,14 @@
         ],
         "parameters": [
           {
+            "schema": {
+              "properties": {
+                "symbol": {
+                  "type": "string"
+                }
+              },
+              "example": "USD"
+            },
             "name": "symbol",
             "in": "path",
             "description": "currency symbol",
@@ -173,6 +181,7 @@
         ],
         "parameters": [
           {
+            "schema": {},
             "name": "id",
             "in": "path",
             "description": "product id",
@@ -207,6 +216,7 @@
         ],
         "parameters": [
           {
+            "schema": {},
             "name": "id",
             "in": "path",
             "description": "product id",
@@ -260,6 +270,7 @@
         ],
         "parameters": [
           {
+            "schema": {},
             "name": "id",
             "in": "path",
             "description": "product id",
@@ -297,7 +308,13 @@
           "category": {
             "type": "string"
           },
-          "price": {
+          "brlPrice": {
+            "type": "number"
+          },
+          "eurPrice": {
+            "type": "number"
+          },
+          "usdPrice": {
             "type": "number"
           }
         }

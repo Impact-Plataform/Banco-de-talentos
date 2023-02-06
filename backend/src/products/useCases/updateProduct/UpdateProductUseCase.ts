@@ -2,14 +2,20 @@ import { prisma } from "../../../../prisma";
 import { UpdateProductDTO } from "../../DTO/updateProductDTO";
 
 export class UpdateProductUseCase {
-  async execute({ id, description, title, category, price }: UpdateProductDTO) {
+  async execute({
+    id,
+    description,
+    title,
+    category,
+    brlPrice,
+  }: UpdateProductDTO) {
     const product = await prisma.products.update({
       where: { id },
       data: {
         title,
         description,
         category,
-        price,
+        brlPrice,
       },
     });
     return product;
