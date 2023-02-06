@@ -23,6 +23,72 @@
     }
   ],
   "paths": {
+    "/currency": {
+      "get": {
+        "summary": "get all currency",
+        "description": "This endpoint get all currency",
+        "tags": [
+          "currency"
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/currency"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/currency/{symbol}": {
+      "get": {
+        "summary": "get a currency by symbol",
+        "description": "This endpoint get a currency",
+        "tags": [
+          "currency"
+        ],
+        "parameters": [
+          {
+            "name": "symbol",
+            "in": "path",
+            "description": "currency symbol",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/currency"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
     "/products": {
       "post": {
         "summary": "create product",
@@ -232,6 +298,44 @@
             "type": "string"
           },
           "price": {
+            "type": "number"
+          }
+        }
+      },
+      "currency": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "code": {
+            "type": "string"
+          },
+          "codein": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "high": {
+            "type": "number"
+          },
+          "low": {
+            "type": "number"
+          },
+          "pctChange": {
+            "type": "number"
+          },
+          "bid": {
+            "type": "number"
+          },
+          "ask": {
+            "type": "number"
+          },
+          "timestamp": {
+            "type": "number"
+          },
+          "create_date": {
             "type": "number"
           }
         }
