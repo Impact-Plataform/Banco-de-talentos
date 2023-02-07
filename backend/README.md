@@ -13,7 +13,7 @@ Para executar o projeto, utilize as ferramentas descritas na sessão _Ferramenta
 
 **< via download do repositório >**
 
-- Faça download do repositório;
+- Faça download do repositório `git remote add origin https://github.com/Moreira-Edu/Banco-de-talentos.git`;
 - descompacte o arquivo;
 - abra a pasta _backend_ com sua IDE de preferência;
 - instale as dependências com um gerenciador de pacotes
