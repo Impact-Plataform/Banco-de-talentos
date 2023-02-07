@@ -25,7 +25,8 @@ Para executar o projeto, utilize as ferramentas descritas na sessão _Ferramenta
 
 - crie uma pasta;
 - abra sua IDE de preferência, no terminal digite o comando `git init`;
-- conecte-se ao repositório com o comando `git remote add origin https://github.com/Moreira-Edu/Banco-de-talentos.git`;
+- faça um fork do repositório `https://github.com/Moreira-Edu/Banco-de-talentos.git`;
+- conecte-se ao repositório com o comando `git remote add origin https://github.com/<github-user>/Banco-de-talentos.git`;
 - feito a conexão, digite o comando `git pull origin eduardo-moreira-backend`;
 - navegue até a pasta _backend_;
 - instale as dependências com um gerenciador de pacotes
