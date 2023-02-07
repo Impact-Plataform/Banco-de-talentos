@@ -1,19 +1,21 @@
 import { nanoid } from 'nanoid'
 import { useContext } from 'react'
-import { SWContext } from './contexts/SWContext'
+import { SWContext, FiltersContentSchema } from './contexts/SWContext'
 
 type SelectFilterProps = {
-	options: string[]
-	name: string
-	label?: string
+	name: 'all' | 'genderFilter' | 'speciesFilter' | 'filmsFilter'
+	label: string
+	content?: FiltersContentSchema[]
+	options?: string[]
 }
 
 export default function SelectFilter({
-	options,
 	name,
 	label,
+	content,
+	options,
 }: SelectFilterProps) {
-	const { setFilterType, setFilterValue } = useContext(SWContext)
+	const { setFilterType, setFilterValue, filterValue } = useContext(SWContext)
 
 	return (
 		<div className="flex flex-col">
@@ -24,6 +26,7 @@ export default function SelectFilter({
 				name={name}
 				className="bg-black text-[10px]"
 				id={name}
+				value={filterValue}
 				onChange={(event) => {
 					event.preventDefault()
 					if (event.target.value === 'all') {
@@ -36,12 +39,19 @@ export default function SelectFilter({
 				}}
 			>
 				<option value="all">all</option>
-				<option value="all">all</option>
-				{options.map((optionItem) => (
-					<option key={nanoid()} value={optionItem}>
-						{optionItem}
-					</option>
-				))}
+				{content &&
+					content.map((item) => (
+						<option key={nanoid()} value={item.url}>
+							{item.name}
+						</option>
+					))}
+
+				{options &&
+					options.map((option) => (
+						<option key={nanoid()} value={option}>
+							{option}
+						</option>
+					))}
 			</select>
 		</div>
 	)

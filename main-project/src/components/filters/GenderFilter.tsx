@@ -5,7 +5,7 @@ export function GenderFilter() {
 		<SelectFilter
 			name="genderFilter"
 			label="gender"
-			options={['male', 'female', 'n/a']}
+			options={['female', 'male', 'n/a']}
 		/>
 	)
 }
