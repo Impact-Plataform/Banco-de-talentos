@@ -1,5 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { People, IPeople, Species } from 'swapi-ts'
+import { People, IPeople, Species, Films } from 'swapi-ts'
+
+export type FiltersContentSchema = {
+	name: string
+	url: string
+}
 
 type valuesSchemaFav = {
 	characters?: IPeople[] | []
@@ -7,7 +12,6 @@ type valuesSchemaFav = {
 	previous?: string | null
 	next?: string | null
 	setPagination?: any
-	speciesNames?: string[]
 	searchByName?: string
 	setSearchByName?: any
 	noDataFound?: string | null
@@ -16,6 +20,8 @@ type valuesSchemaFav = {
 	setFilterType?: any
 	filterValue?: string
 	setFilterValue?: any
+	species?: FiltersContentSchema[]
+	films?: FiltersContentSchema[]
 }
 
 type ProviderProps = {
@@ -29,7 +35,8 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [pagination, setPagination] = useState(1)
 	const [next, setNext] = useState<string | null>('')
 	const [previous, setPrevious] = useState<string | null>('')
-	const [speciesNames, setSpeciesNames] = useState<string[]>([])
+	const [species, setSpecies] = useState<FiltersContentSchema[]>([])
+	const [films, setFilms] = useState<FiltersContentSchema[]>([])
 	const [searchByName, setSearchByName] = useState('')
 	const [noDataFound, setNoDataFound] = useState<string | null>(null)
 	const [filterType, setFilterType] = useState<
@@ -39,7 +46,6 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 
 	useEffect(() => {
 		async function loadData() {
-			console.log('filters ', filterType, filterValue)
 			if (filterValue !== 'all') {
 				const getAllPeople = await People.find()
 
@@ -48,6 +54,23 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 						.filter(({ value }) => value.gender === filterValue)
 						.map((item) => item.value)
 					setCharacters(filtradosPorGenero)
+				}
+				if (filterType === 'speciesFilter') {
+					const filtradosPorEspecie = getAllPeople.resources
+						.filter((item) => item.value.species[0] === filterValue)
+						.map((item) => item.value)
+					setCharacters(filtradosPorEspecie)
+				}
+				if (filterType === 'filmsFilter') {
+					const filtradosPorFilme = getAllPeople.resources
+						.filter((item) => {
+							for (let i = 0; i < item.value.films.length; i++) {
+								if (item.value.films[i] === filterValue) return item.value
+							}
+						})
+						.map((item) => item.value)
+
+					setCharacters(filtradosPorFilme)
 				}
 			}
 
@@ -77,10 +100,23 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	useEffect(() => {
 		async function loadSpecies() {
 			const getSpecies = (await Species.find()).resources
-			const dadosTratados = getSpecies.map(({ value }) => value.name)
-			setSpeciesNames(dadosTratados)
+			const dadosTratados = getSpecies.map(({ value }) => {
+				return { name: value.name, url: value.url }
+			})
+			setSpecies(dadosTratados)
 		}
 		loadSpecies()
+	}, [])
+
+	useEffect(() => {
+		async function loadFilmsList() {
+			const getFilms = (await Films.find()).resources
+			const dadosTratados = getFilms.map(({ value }) => {
+				return { name: value.title, url: value.url }
+			})
+			setFilms(dadosTratados)
+		}
+		loadFilmsList()
 	}, [])
 
 	const valoresParaPassar = {
@@ -89,7 +125,7 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		next,
 		previous,
 		setPagination,
-		speciesNames,
+		species,
 		searchByName,
 		setSearchByName,
 		noDataFound,
@@ -98,6 +134,7 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		setFilterType,
 		filterValue,
 		setFilterValue,
+		films,
 	}
 
 	return (
