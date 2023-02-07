@@ -1,0 +1,362 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Products Manager",
+    "version": "1.0.0",
+    "description": "A simple api products manager",
+    "contact": {
+      "email": "ml.ri7u@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Development server"
+    },
+    {
+      "url": "TODO",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/currency": {
+      "get": {
+        "summary": "get all currency",
+        "description": "This endpoint get all currency",
+        "tags": [
+          "currency"
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/currency"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/currency/{symbol}": {
+      "get": {
+        "summary": "get a currency by symbol",
+        "description": "This endpoint get a currency",
+        "tags": [
+          "currency"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "properties": {
+                "symbol": {
+                  "type": "string"
+                }
+              },
+              "example": "USD"
+            },
+            "name": "symbol",
+            "in": "path",
+            "description": "currency symbol",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/currency"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/products": {
+      "post": {
+        "summary": "create product",
+        "description": "This endpoint create a new product",
+        "tags": [
+          "Products"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "examples": {
+                "product": {
+                  "value": {
+                    "title": "Teclado mecânco",
+                    "description": "USB, personalizável",
+                    "category": "periféricos",
+                    "brlPrice": 222
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      },
+      "get": {
+        "summary": "get all products",
+        "description": "This endpoint get all products",
+        "tags": [
+          "Products"
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Product"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "summary": "get a product by id",
+        "description": "This endpoint get a product",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "schema": {},
+            "name": "id",
+            "in": "path",
+            "description": "product id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      },
+      "put": {
+        "summary": "update product",
+        "description": "This endpoint update a product",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "schema": {},
+            "name": "id",
+            "in": "path",
+            "description": "product id",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Product"
+              },
+              "examples": {
+                "product": {
+                  "value": {
+                    "title": "Teclado mecânco",
+                    "description": "USB, personalizável",
+                    "category": "periféricos",
+                    "brlPrice": 221
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "delete product",
+        "description": "This endpoint delete a product",
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "schema": {},
+            "name": "id",
+            "in": "path",
+            "description": "product id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "no content response"
+          },
+          "400": {
+            "description": "bad request"
+          },
+          "500": {
+            "description": "internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "brlPrice": {
+            "type": "number"
+          },
+          "eurPrice": {
+            "type": "number"
+          },
+          "usdPrice": {
+            "type": "number"
+          }
+        }
+      },
+      "currency": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "codein": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "high": {
+            "type": "string"
+          },
+          "low": {
+            "type": "string"
+          },
+          "pctChange": {
+            "type": "string"
+          },
+          "bid": {
+            "type": "string"
+          },
+          "ask": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          },
+          "create_date": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
