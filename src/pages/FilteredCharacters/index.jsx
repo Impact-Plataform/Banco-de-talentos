@@ -1,47 +1,41 @@
-import { Text, Flex } from "@chakra-ui/react";
+import { Text, Flex, VStack } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import { MenuNav } from "../../components/MenuNav";
 import axios from "axios";
 import { Card } from "../../components/Card";
 import { useApi } from "../../contexts/ApiProvider";
 import { RadioComponent } from "../../components/RadioComponent";
+import { SelectComponent } from "../../components/SelectComponent";
+import { FilterComponent } from "../../components/FilterComponent";
+import { SpinnerComponent } from "../../components/SpinnerComponent";
+
+
 
 export const FilteredCharacters = () => {
-  const { selectedValue, selectedValueSpecie, setCharacters } = useApi();
+  const { selectedValue, selectedValueSpecie, movies,
+    species, setSelectedValue, setSelectedValueSpecie, selectedGender, setSelectedGender, getAllDataFromApi, characters, setCharacters} = useApi();
 
   const [selectedFilm, setSelectedFilm] = useState("");
   const [selectedSpecies, setSelectedSpecies] = useState("");
-  const [selectedGender, setSelectedGender] = useState("");
+  const [loading, setLoading] = useState(true)
+  
   const [allPeople, setAllPeople] = useState([]);
-  //const [filteredCharacters, setFilteredCharacters] = useState("");
+ // const [filteredCharacters, setFilteredCharacters] = useState([]);
 
- 
-  const getDataFromApi = async (url, pageNumber) => {
-    const response = await axios.get(`${url}?page=${pageNumber}`);
-    return response.data;
-  };
-
-  const getAllDataFromApi = async (url) => {
-    let pageNumber = 1;
-    let allData = [];
-    while (true) {
-      const data = await getDataFromApi(url, pageNumber);
-      if (!data.next) {
-        allData = allData.concat(data.results);
-        break;
-      }
-      allData = allData.concat(data.results);
-      pageNumber++;
-    }
-    return allData;
-  };
 
   const getRelatedData = async (urls) => {
     const promises = urls.map(async (url) => {
       const response = await axios.get(url);
       return response.data;
     });
-    return Promise.all(promises);
+    const relatedData = await Promise.all(promises);
+    const filteredData = relatedData.map((data) => {
+      if (data.hasOwnProperty("name")) {
+        return data.name;
+      }
+      return data;
+    });
+    return filteredData;
   };
 
   const apiUrl = "https://swapi.dev/api/people/";
@@ -56,9 +50,11 @@ export const FilteredCharacters = () => {
             ...person.vehicles,
             ...person.starships,
             ...person.species,
+            person.homeworld,
           ]);
           return {
             ...person,
+            homeworld: relatedData[relatedData.length - 1],
             films: relatedData.slice(0, person.films.length),
             vehicles: relatedData.slice(
               person.films.length,
@@ -80,78 +76,76 @@ export const FilteredCharacters = () => {
                 person.species.length
             ),
           };
-        })
+        }),
+        
+        
       );
       setAllPeople(peopleWithRelatedData);
+      setLoading(false)
+     
+
+    
     }
     fetchData();
   }, []);
   console.log(allPeople);
+ 
+
+ /* const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+    setFilteredCharacters(allPeople.filter((character) => character.films.some(film => film.title === event.target.value)));
+};*/
+
+
   const filteredCharacters = allPeople.filter((character) => {
     return (
       character.films.some(film => film.title === selectedValue) ||
-      character.species.some((specie) => specie.name === selectedValueSpecie)
-      //character.gender === selectedGender
+      character.species.includes(selectedValueSpecie)||
+      character.gender === selectedGender
       
     );
         
   });
+   /*const filteredCharacters = allPeople.filter((character) => {
+    return (
+      character.films.some(film => film.title === selectedValue) ||
+      character.species.some((specie) => specie.name === selectedValueSpecie) ||
+      character.gender === selectedGender
+    );
+  });
+  setFilteredCharacters(filteredCharacters);
+}, [selectedValue, selectedValueSpecie, selectedGender]);*/
+
   console.log(selectedValue);
-  console.log(filteredCharacters);
+ 
+
   
+ /* const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+  const handleChangeSpecie = (event) => {
+    setSelectedValueSpecie(event.target.value);
+  };*/
+  console.log(selectedGender)
+  console.log(selectedValueSpecie)
+
 
   return (
-    <div>
-      
-
-      <div>
-        <input
-          type="radio"
-          id="male"
-          value="male"
-          checked={selectedGender === "male"}
-          onChange={(e) => setSelectedGender(e.target.value)}
-        />
-        <label htmlFor="male">Male</label>
-
-        <input
-          type="radio"
-          id="female"
-          value="female"
-          checked={selectedGender === "female"}
-          onChange={(e) => setSelectedGender(e.target.value)}
-        />
-        <label htmlFor="female">Female</label>
-
-        <input
-          type="radio"
-          id="unkown"
-          value="n/a"
-          checked={selectedGender === "n/a"}
-          onChange={(e) => setSelectedGender(e.target.value)}
-        />
-        <label htmlFor="female">Unkown</label>
-
-        <input
-          type="radio"
-          id="all"
-          value=""
-          checked={!selectedGender}
-          onChange={(e) => setSelectedGender(e.target.value)}
-        />
-        <label htmlFor="all">All</label>
+  
         <Flex alignItems={"center"} direction={"column"} w={"100%"}>
         <MenuNav />
-        <Flex direction={'row'} wrap={'wrap'} w={1300} justifyContent={'center'}>
+        <FilterComponent allPeople={allPeople} setFilteredCharacters={characters}/>
+        {loading? <SpinnerComponent/> :     filteredCharacters.length === 0 ? <Text mt={10}>Escolha um dos filtros para achar os personagens correspondentes!</Text> :  <Flex  wrap={'wrap'} maxW={1300} justifyContent={'center'}>
         {filteredCharacters.map((character) => (
             
-                <Card character={character} />  
+                <Card character={character} key={character.name} />  
         ))}
-        </Flex>
+  
+        </Flex> }
+    
+       
         </Flex>
      
-      </div>
-      <RadioComponent/>
-    </div>
+    
   );
 };

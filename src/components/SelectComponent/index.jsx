@@ -10,8 +10,11 @@ export const SelectComponent = ({ options, placeholder, onChange }) => {
         cursor={"pointer"}
         placeholder={placeholder}
         onChange={onChange}
+        bg={'yellow.600'}
+        mr={2}
+        fontWeight={'bold'}
       >
-        {options.map((option, index) => (
+        {options.map((option) => (
           <option
             key={option.name || option.title}
             value={option.name || option.title}

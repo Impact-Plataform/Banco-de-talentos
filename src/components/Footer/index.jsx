@@ -63,7 +63,7 @@ export const Footer = () => {
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}>
       <Container
-        bg={'#101210'}
+        bg={'#1F1C1C'}
         as={Stack}
         maxW={'6xl'}
         py={4}
@@ -72,7 +72,7 @@ export const Footer = () => {
         justify={{ base: 'center', md: 'space-between' }}
         align={{ base: 'center', md: 'center' }}>
         <Logo />
-        <Text>© 2022 Chakra Templates. All rights reserved</Text>
+        <Text>© 2023 StarWars. All rights reserved</Text>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Twitter'} href={'#'}>
             <FaTwitter />

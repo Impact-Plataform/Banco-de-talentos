@@ -28,11 +28,11 @@ import { useState, useEffect } from "react";
 import { InputComponent } from "../InputComponent";
 import { SelectComponent } from "../SelectComponent";
 
-
 const NavLink = ({ children, setIsHomePage, currentPage }) => (
   <Link
     px={2}
     py={1}
+    fontSize={'xl'}
     color={"white"}
     rounded={"md"}
     _hover={{
@@ -41,20 +41,19 @@ const NavLink = ({ children, setIsHomePage, currentPage }) => (
       fontSize: "bold",
     }}
     href={children.link}
-    onClick= {() => {
-        if (currentPage === children.link) {
-          setIsHomePage(children.page)
-        }
-      }}
+    onClick={() => {
+      if (currentPage === children.link) {
+        setIsHomePage(children.page);
+      }
+    }}
   >
     {children.name}
   </Link>
 );
 
-
 const Links = [
   { name: "Home", link: "/", page: true },
-  { name: "Todos os personagens", link: "/people", page: true},
+  { name: "Todos os personagens", link: "/people", page: true },
   { name: "Filtros", link: "/filter", page: false },
 ];
 
@@ -74,13 +73,13 @@ export const MenuNav = () => {
 
   const [isHomePage, setIsHomePage] = useState(false);
 
-useEffect(() => {
-  Links.forEach(link => {
-    if (link.link === window.location.pathname) {
-      setIsHomePage(link.page);
-    }
-  });
-}, []);
+  useEffect(() => {
+    Links.forEach((link) => {
+      if (link.link === window.location.pathname) {
+        setIsHomePage(link.page);
+      }
+    });
+  }, []);
 
   console.log(isHomePage);
 
@@ -96,7 +95,6 @@ useEffect(() => {
       <Flex
         bg={"#111010"}
         px={4}
-        mb="5"
         direction={"column"}
         alignItems={"center"}
         w={"100%"}
@@ -111,53 +109,28 @@ useEffect(() => {
             onClick={isOpen ? onClose : onOpen}
           />
 
-          <Img src={logo} alt="logo" h="32px" />
+          <Img src={logo} alt="logo" h="42px" />
         </Flex>
 
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
-            {Links.map((link, index) => (
-            <NavLink key={index} _activeLink={{color: 'yellow'}}>{link}</NavLink>
-          ))}
-          {isHomePage? <InputComponent /> : 
-          <>
-             <SelectComponent
-                   options={movies}
-                   placeholder="Filmes"
-                   onChange={handleChange}
-                 />
-                 <SelectComponent
-                   options={species}
-                   placeholder="Espécies"
-                   onChange={handleChangeSpecie}
-                 />
-          </>
-                 }
- 
+              {Links.map((link, index) => (
+                <NavLink key={index} _activeLink={{ color: "yellow" }}>
+                  {link}
+                </NavLink>
+              ))}
+              {isHomePage ? <InputComponent /> : null}
             </Stack>
           </Box>
         ) : null}
         <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
           {Links.map((link, index) => (
-            <NavLink key={index} _activeLink={{color: 'yellow'}}>{link}</NavLink>
+            <NavLink key={index} _activeLink={{ color: "yellow" }}>
+              {link}
+            </NavLink>
           ))}
-          {isHomePage? <InputComponent /> : 
-          <>
-             <SelectComponent
-                   options={movies}
-                   placeholder="Filmes"
-                   onChange={handleChange}
-                 />
-                 <SelectComponent
-                   options={species}
-                   placeholder="Espécies"
-                   onChange={handleChangeSpecie}
-                 />
-          </>
-                 }
- 
-          
+          {isHomePage ? <InputComponent /> : null}
         </HStack>
       </Flex>
     </>
