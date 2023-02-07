@@ -86,11 +86,16 @@ _Deleção do produto_
 
 Rotas utilizadas pela aplicação web para executar metodos de **POST** e **GET** no banco de dados. Onde o retorno de cada uma das funções estara contido em uma sessão para renderização de páginas web.
 
-| Nome                            | Funcionalidade                                                             |
-| ------------------------------- | -------------------------------------------------------------------------- |
-| `GET` /listarProdutos ou moedas | Informa todos os produtos registrados no banco. Ou moedas coletadas da API |
-| `POST` /insereProdutos          | Insere um novo produto.                                                    |
-| `PUT` /atualizaProduto          | Atualiza o produto.                                                        |
+| nome                   | Funcionalidade                                                 |
+| ---------------------- | -------------------------------------------------------------- |
+| `GET` /products        | Informa todos os produtos registrados no banco.                |
+| `GET` /products/id     | Informa um produto selecionado pelo ID                         |
+| `POST` /products       | Insere um novo produto.                                        |
+| `PUT` /products/id     | Atualiza o produto.                                            |
+| `DELETE`/products/id   | Delete o produto.                                              |
+|                        |                                                                |
+| `GET` /currency        | Informa todos as moedas registradas na API de moedas ou cache. |
+| `GET` /currency/symbol | Informa uma moeda selecionada pelo código de moeda             |
 
 ## Conceitos básicos
 
