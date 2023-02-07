@@ -5,5 +5,5 @@ interface ProductProps {
 }
 
 export class Product {
-  constructor(private props:ProductProps) {}
+  constructor(private props: ProductProps) {}
 }
