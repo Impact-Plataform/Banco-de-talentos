@@ -18,7 +18,7 @@
       "description": "Development server"
     },
     {
-      "url": "http://todo.com",
+      "url": "TODO",
       "description": "Production server"
     }
   ],
@@ -116,7 +116,7 @@
                     "title": "Teclado mecânco",
                     "description": "USB, personalizável",
                     "category": "periféricos",
-                    "price": 222
+                    "brlPrice": 222
                   }
                 }
               }
@@ -235,7 +235,7 @@
                     "title": "Teclado mecânco",
                     "description": "USB, personalizável",
                     "category": "periféricos",
-                    "price": 221
+                    "brlPrice": 221
                   }
                 }
               }
@@ -323,7 +323,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number"
+            "type": "string"
           },
           "code": {
             "type": "string"
@@ -335,25 +335,25 @@
             "type": "string"
           },
           "high": {
-            "type": "number"
+            "type": "string"
           },
           "low": {
-            "type": "number"
+            "type": "string"
           },
           "pctChange": {
-            "type": "number"
+            "type": "string"
           },
           "bid": {
-            "type": "number"
+            "type": "string"
           },
           "ask": {
-            "type": "number"
+            "type": "string"
           },
           "timestamp": {
-            "type": "number"
+            "type": "string"
           },
           "create_date": {
-            "type": "number"
+            "type": "string"
           }
         }
       }
