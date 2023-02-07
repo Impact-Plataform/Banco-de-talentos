@@ -1,4 +1,4 @@
-import SelectFilter from '../../SelectFilter'
+import SelectFilter from '../SelectFilter'
 import { useContext } from 'react'
 import { SWContext } from '../../contexts/SWContext'
 

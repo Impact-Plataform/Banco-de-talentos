@@ -5,9 +5,9 @@ import { SpeciesFilter } from './filters/SpeciesFilter'
 export function Filters() {
 	return (
 		<div className="flex">
-			<span className="font-bold text-xs">Filter by:</span>
+			<span className="font-bold text-[11px]">Filter by:</span>
 
-			<div className="mx-2 flex justify-evenly w-full">
+			<div className="mx-1 flex justify-evenly w-full gap-2">
 				<GenderFilter />
 				<SpeciesFilter />
 				<FilmsFilter />

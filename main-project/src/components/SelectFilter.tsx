@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid'
 import { useContext } from 'react'
-import { SWContext, FiltersContentSchema } from './contexts/SWContext'
+import { SWContext, FiltersContentSchema } from '../contexts/SWContext'
 
 type SelectFilterProps = {
 	name: 'all' | 'genderFilter' | 'speciesFilter' | 'filmsFilter'
@@ -24,7 +24,7 @@ export default function SelectFilter({
 			</label>
 			<select
 				name={name}
-				className="bg-black text-[10px]"
+				className="bg-black text-[10px] max-w-[70px]"
 				id={name}
 				value={filterValue}
 				onChange={(event) => {

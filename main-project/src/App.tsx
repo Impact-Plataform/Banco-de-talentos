@@ -12,6 +12,7 @@ function App() {
 			<Filters />
 			<GroupPaginationButtons />
 			<GroupCharacters />
+			<GroupPaginationButtons />
 		</div>
 	)
 }

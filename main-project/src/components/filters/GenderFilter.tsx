@@ -1,4 +1,4 @@
-import SelectFilter from '../../SelectFilter'
+import SelectFilter from '../SelectFilter'
 
 export function GenderFilter() {
 	return (

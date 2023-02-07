@@ -9,7 +9,7 @@ export function PaginationButton({ title, callback }: PaginationButtonProps) {
 			onClick={() => {
 				callback()
 			}}
-			className="border border-white bg-transparent text-xs"
+			className="border border-white bg-transparent text-xs py-1 px-2 rounded-md"
 		>
 			{title}
 		</button>
