@@ -97,6 +97,8 @@ Rotas utilizadas pela aplicação web para executar metodos de **POST** e **GET*
 |                        |                                                                |
 | `GET` /currency        | Informa todos as moedas registradas na API de moedas ou cache. |
 | `GET` /currency/symbol | Informa uma moeda selecionada pelo código de moeda             |
+|                        |                                                                |
+| `GET` /docs            | Rota para visualização da documentação da API                  |
 
 ## Conceitos básicos
 
