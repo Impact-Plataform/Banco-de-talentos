@@ -14,7 +14,6 @@ export const Container = styled.div`
   :hover {
     background-color: ${colors.logo.letter};
     color: ${colors.logo.background};
-    opacity: 0.8;
     transition: all 0.3s;
   }
 `;

@@ -13,7 +13,14 @@ export const CharacterCardList = ({
   return (
     <Container>
       {characters.map((character) => {
-        return <CharacterCard key={character.url} name={character.name} />;
+        const id = character.url
+          .split("/")
+          .filter((e) => e !== "")
+          .pop() as string;
+
+        return (
+          <CharacterCard key={character.url} id={id} name={character.name} />
+        );
       })}
     </Container>
   );

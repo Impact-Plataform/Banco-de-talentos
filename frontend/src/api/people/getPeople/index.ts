@@ -5,7 +5,10 @@ interface getPeopleInterface {
   search?: string;
 }
 
-export const getPeople = async ({ page = 1, search = ""}: getPeopleInterface) => {
+export const getPeople = async ({
+  page = 1,
+  search = "",
+}: getPeopleInterface) => {
   try {
     const result = await api.get(`/people/?page=${page}&search=${search}`);
     return {

@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 180px;
   padding: 10px;
   background-color: ${colors.logo.background};
-  border: 2px solid ${colors.logo.letter};
+  border: 1px solid ${colors.logo.letter};
   border-radius: 5px;
 `;
 

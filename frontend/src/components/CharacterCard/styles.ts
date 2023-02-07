@@ -6,16 +6,18 @@ export const Container = styled.div`
   width: 200px;
   padding: 10px;
   border-radius: 30px;
-  background-color: ${colors.logo.background};
+  background-color: transparent;
   color: ${colors.logo.letter};
   border: 2px solid ${colors.logo.letter};
+  opacity: 0.4;
   text-align: center;
   user-select: none;
   cursor: pointer;
   :hover {
-    background-color: transparent;
+    background-color: ${colors.logo.background};
     color: ${colors.logo.letter};
-    opacity: 0.4;
+    border: 2px solid ${colors.logo.letter};
+    opacity: 1 ;
     transition: all 0.3s;
   }
 `;
