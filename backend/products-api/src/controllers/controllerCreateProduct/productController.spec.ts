@@ -17,7 +17,7 @@ describe("Controller Create Product", () => {
   const productUseCase = new CreateProduct(repository);
   const controllerProduct = new ProductController(productUseCase);
 
-  test("returns a status code 201 when it creates a product", async () => {
+  test("it should returns a status code 201 when creates a product", async () => {
     const createProduct = await controllerProduct.create(request);
     expect(createProduct.statusCode).toBe(201);
   });
