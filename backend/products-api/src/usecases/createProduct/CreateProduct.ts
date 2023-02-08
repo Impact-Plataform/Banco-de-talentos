@@ -1,4 +1,4 @@
-import { Product } from "../../entities/product/Product";
+import { Product } from "../../entities/Product";
 import { IProductRepository } from "../../repositories/ports/IProductRepository";
 
 interface CreateProductRequest {

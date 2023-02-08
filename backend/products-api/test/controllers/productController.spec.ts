@@ -1,8 +1,8 @@
-import { Product } from "../../entities/product/Product";
-import { InMemoryProductRepo } from "../../repositories/inMemoryProductRepo/InMemoryProductRepo";
-import { CreateProduct } from "../../usecases/createProduct/CreateProduct";
-import { RequestHTTP } from "../ports/requestHttp";
-import { ProductController } from "./ProductController";
+import { Product } from "../../src/entities/Product";
+import { InMemoryProductRepo } from "../../src/repositories/InMemoryProductRepo";
+import { CreateProduct } from "../../src/usecases/createProduct/CreateProduct";
+import { RequestHTTP } from "../../src/controllers/ports/requestHttp";
+import { ProductController } from "../../src/controllers/ProductController";
 
 describe("Controller Create Product", () => {
   const request: RequestHTTP = {

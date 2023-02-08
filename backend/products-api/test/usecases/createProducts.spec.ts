@@ -1,6 +1,6 @@
-import { Product } from "../../entities/product/Product";
-import { InMemoryProductRepo } from "../../repositories/inMemoryProductRepo/InMemoryProductRepo";
-import { CreateProduct } from "./CreateProduct";
+import { Product } from "../../src/entities/Product";
+import { InMemoryProductRepo } from "../../src/repositories/InMemoryProductRepo";
+import { CreateProduct } from "../../src/usecases/createProduct/CreateProduct";
 
 describe("Create Product usecase", () => {
   const product = {

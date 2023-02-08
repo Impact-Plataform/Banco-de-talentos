@@ -1,4 +1,4 @@
-import { Product } from "./Product";
+import { Product } from "../../src/entities/Product";
 
 describe("Product Model", () => {
   const product = new Product({

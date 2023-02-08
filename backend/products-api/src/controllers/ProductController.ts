@@ -1,7 +1,7 @@
-import { CreateProduct } from "../../usecases/createProduct/CreateProduct";
-import { HttpResponse } from "../ports/httpResponse";
-import { RequestHTTP } from "../ports/requestHttp";
-import { clientError, create } from "../utils/httpHelpers";
+import { CreateProduct } from "../usecases/createProduct/CreateProduct";
+import { HttpResponse } from "./ports/httpResponse";
+import { RequestHTTP } from "./ports/requestHttp";
+import { clientError, create } from "./utils/httpHelpers";
 
 export class ProductController {
   constructor(private createProduct: CreateProduct) {}
