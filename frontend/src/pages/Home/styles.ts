@@ -1,17 +1,19 @@
 import styled from "styled-components";
-
-import img from "./img/skystars.png";
+import { colors } from "../../components/styles";
+import MyGif from "./pastaGif/swgif.gif"
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(${img});
+  background-image: url(${MyGif});
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 98%;
+  background-color: ${colors.logo.background};
   height: 100vh;
+  width: 100vw;
 `;
 
 export const SearchStyle = styled.div`
@@ -32,3 +34,5 @@ export const Pagination = styled.div`
 export const WrapperCharacterCardList = styled.div`
   width: 80%;
 `;
+
+

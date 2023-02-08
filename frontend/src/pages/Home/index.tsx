@@ -1,6 +1,6 @@
 import { getPeople } from "../../api/people";
 import { useEffect, useState } from "react";
-import { Button, CharacterCardList, Input, Spinner } from "../../components";
+import { Button, CharacterCardList, Input, Spinner, Title } from "../../components";
 import {
   Container,
   Pagination,
@@ -74,6 +74,7 @@ export const Home = () => {
 
   return (
     <Container>
+      <Title />
       <SearchStyle>
         <Input
           placeholder="Type a character name"

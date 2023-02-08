@@ -9,7 +9,7 @@ export const Container = styled.div`
   background-color: transparent;
   color: ${colors.logo.letter};
   border: 2px solid ${colors.logo.letter};
-  opacity: 0.4;
+  opacity: 0.5;
   text-align: center;
   user-select: none;
   cursor: pointer;
@@ -17,7 +17,7 @@ export const Container = styled.div`
     background-color: ${colors.logo.background};
     color: ${colors.logo.letter};
     border: 2px solid ${colors.logo.letter};
-    opacity: 1 ;
+    opacity: 1;
     transition: all 0.3s;
   }
 `;

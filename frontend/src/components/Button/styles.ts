@@ -4,7 +4,7 @@ import { colors } from "../styles";
 export const Container = styled.div`
   display: inline-block;
   padding: 10px;
-  background-color: ${colors.logo.background};
+  background-color: transparent;
   color: ${colors.logo.letter};
   text-align: center;
   border-radius: 5px;
