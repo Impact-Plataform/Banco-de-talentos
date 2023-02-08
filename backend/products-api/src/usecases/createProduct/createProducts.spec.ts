@@ -10,10 +10,22 @@ describe("Create Product usecase", () => {
   };
 
   test("it should be possible create a product", async () => {
-    const repository = new InMemoryProductRepo();
+    const products: Product[] = [];
+    const repository = new InMemoryProductRepo(products);
     const productUsecase = new CreateProduct(repository);
     const createProduct = await productUsecase.execute(product);
 
     expect(createProduct).toBeInstanceOf(Product);
+  });
+
+  test("it should not be possible create a product with same name", async () => {
+    const products: Product[] = [];
+    const repository = new InMemoryProductRepo([]);
+    const productUsecase = new CreateProduct(repository);
+
+    const product1 = await productUsecase.execute(product);
+    const product2 = await productUsecase.execute(product);
+
+    expect(product2).toBe(false);
   });
 });
