@@ -1,15 +1,21 @@
 import { HttpResponse } from "../ports/httpResponse";
 
-export const create = (bodyMessage: any): HttpResponse => {
+const httpHelperBase = (
+  statusCodeNumber: number,
+  bodyMessage: any
+): HttpResponse => {
   return {
-    statusCode: 201,
+    statusCode: statusCodeNumber,
     body: bodyMessage,
   };
 };
 
+export const create = (bodyMessage: any): HttpResponse => {
+  const createResponse = httpHelperBase(201, bodyMessage);
+  return createResponse;
+};
+
 export const clientError = (bodyMessage: any): HttpResponse => {
-  return {
-    statusCode: 400,
-    body: bodyMessage,
-  };
+  const createResponse = httpHelperBase(400, bodyMessage);
+  return createResponse;
 };
