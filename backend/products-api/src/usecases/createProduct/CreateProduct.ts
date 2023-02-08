@@ -7,7 +7,7 @@ interface CreateProductRequest {
   description: string;
 }
 
-type ResponseCreateProduct = Promise<Product | boolean>;
+type ResponseCreateProduct = Promise<Product | false>;
 
 export class CreateProduct {
   constructor(private repository: IProductRepository) {}
@@ -17,7 +17,14 @@ export class CreateProduct {
     price,
     description,
   }: CreateProductRequest): ResponseCreateProduct {
+    const productAlreadyExists = await this.repository.findProductByName(name);
+
+    if (productAlreadyExists) {
+      return false;
+    }
+
     const product = new Product({ name, price, description });
+    await this.repository.create(product);
 
     return product;
   }
