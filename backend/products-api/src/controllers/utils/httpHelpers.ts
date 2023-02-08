@@ -6,3 +6,10 @@ export const create = (bodyMessage: any): HttpResponse => {
     body: bodyMessage,
   };
 };
+
+export const clientError = (bodyMessage: any): HttpResponse => {
+  return {
+    statusCode: 400,
+    body: bodyMessage,
+  };
+};
