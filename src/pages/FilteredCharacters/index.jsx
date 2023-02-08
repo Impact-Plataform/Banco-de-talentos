@@ -1,27 +1,25 @@
-import { Text, Flex, VStack } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import { MenuNav } from "../../components/MenuNav";
 import axios from "axios";
 import { Card } from "../../components/Card";
 import { useApi } from "../../contexts/ApiProvider";
-import { RadioComponent } from "../../components/RadioComponent";
-import { SelectComponent } from "../../components/SelectComponent";
 import { FilterComponent } from "../../components/FilterComponent";
 import { SpinnerComponent } from "../../components/SpinnerComponent";
-
-
+import { Footer } from "../../components/Footer";
 
 export const FilteredCharacters = () => {
-  const { selectedValue, selectedValueSpecie, movies,
-    species, setSelectedValue, setSelectedValueSpecie, selectedGender, setSelectedGender, getAllDataFromApi, characters, setCharacters} = useApi();
+  const {
+    selectedValue,
+    selectedValueSpecie,
+    selectedGender,
+    getAllDataFromApi,
+    characters,
+  } = useApi();
 
-  const [selectedFilm, setSelectedFilm] = useState("");
-  const [selectedSpecies, setSelectedSpecies] = useState("");
-  const [loading, setLoading] = useState(true)
-  
+  const [loading, setLoading] = useState(true);
+
   const [allPeople, setAllPeople] = useState([]);
- // const [filteredCharacters, setFilteredCharacters] = useState([]);
-
 
   const getRelatedData = async (urls) => {
     const promises = urls.map(async (url) => {
@@ -76,76 +74,44 @@ export const FilteredCharacters = () => {
                 person.species.length
             ),
           };
-        }),
-        
-        
+        })
       );
       setAllPeople(peopleWithRelatedData);
-      setLoading(false)
-     
-
-    
+      setLoading(false);
     }
     fetchData();
   }, []);
-  console.log(allPeople);
- 
-
- /* const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-    setFilteredCharacters(allPeople.filter((character) => character.films.some(film => film.title === event.target.value)));
-};*/
-
 
   const filteredCharacters = allPeople.filter((character) => {
     return (
-      character.films.some(film => film.title === selectedValue) ||
-      character.species.includes(selectedValueSpecie)||
-      character.gender === selectedGender
-      
-    );
-        
-  });
-   /*const filteredCharacters = allPeople.filter((character) => {
-    return (
-      character.films.some(film => film.title === selectedValue) ||
-      character.species.some((specie) => specie.name === selectedValueSpecie) ||
+      character.films.some((film) => film.title === selectedValue) ||
+      character.species.includes(selectedValueSpecie) ||
       character.gender === selectedGender
     );
   });
-  setFilteredCharacters(filteredCharacters);
-}, [selectedValue, selectedValueSpecie, selectedGender]);*/
-
-  console.log(selectedValue);
- 
-
-  
- /* const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
-  const handleChangeSpecie = (event) => {
-    setSelectedValueSpecie(event.target.value);
-  };*/
-  console.log(selectedGender)
-  console.log(selectedValueSpecie)
-
 
   return (
-  
-        <Flex alignItems={"center"} direction={"column"} w={"100%"}>
-        <MenuNav />
-        <FilterComponent allPeople={allPeople} setFilteredCharacters={characters}/>
-        {loading? <SpinnerComponent/> :     filteredCharacters.length === 0 ? <Text mt={10}>Escolha um dos filtros para achar os personagens correspondentes!</Text> :  <Flex  wrap={'wrap'} maxW={1300} justifyContent={'center'}>
-        {filteredCharacters.map((character) => (
-            
-                <Card character={character} key={character.name} />  
-        ))}
-  
-        </Flex> }
-    
-       
+    <Flex alignItems={"center"} direction={"column"} w={"100%"}>
+      <MenuNav />
+      <FilterComponent
+        allPeople={allPeople}
+        setFilteredCharacters={characters}
+      />
+      {loading ? (
+        <SpinnerComponent />
+      ) : filteredCharacters.length === 0 ? (
+        <Text mt={10}>
+          Escolha um dos filtros para achar os personagens correspondentes!
+        </Text>
+      ) : (
+        <Flex wrap={"wrap"} maxW={1300} justifyContent={"center"}>
+          {filteredCharacters.map((character) => (
+            <Card character={character} key={character.name} />
+          ))}
         </Flex>
-     
-    
+      )}
+
+      <Footer />
+    </Flex>
   );
 };

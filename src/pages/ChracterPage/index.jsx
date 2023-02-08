@@ -9,13 +9,10 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import {
-  FcAssistant,
-  FcDonate,
   FcInTransit,
   FcClapperboard,
   FcElectronics,
   FcDownRight,
-  FcDown,
 } from "react-icons/fc";
 import { Footer } from "../../components/Footer";
 import { MenuNav } from "../../components/MenuNav";
@@ -60,20 +57,20 @@ export const CharacterPage = ({ location }) => {
         w={"100%"}
         h={{ base: "100%", sm: "400px", lg: "500px" }}
       />
-      <Text fontSize={25} m={5}>
+      <Text fontSize={25} m={5} color={'yellow.600'}>
         {character.name}
       </Text>
       <Box p={4}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={2}>
           <Feature
             icon={<Icon as={FcElectronics} w={10} h={10} />}
             title={"Naves"}
             text={
               character.starships.length > 0 ? (
                 character.starships.map((starship, index) => (
-                  <HStack>
+                  <HStack key={index}>
                     <FcDownRight />
-                    <Text key={index}>{typeof starship === 'string' ? starship : starship.name}</Text>
+                    <Text >{typeof starship === 'string' ? starship : starship.name}</Text>
                   </HStack>
                 ))
               ) : (
@@ -85,9 +82,9 @@ export const CharacterPage = ({ location }) => {
             icon={<Icon as={FcClapperboard} w={10} h={10} />}
             title={"Filmes"}
             text={character.films.map((film, index) => (
-              <HStack>
+              <HStack key={index}>
                 <FcDownRight />
-                <Text key={index}>{typeof film === 'string' ? film : film.title}</Text>
+                <Text >{typeof film === 'string' ? film : film.title}</Text>
               </HStack>
             ))}
           />
@@ -97,9 +94,9 @@ export const CharacterPage = ({ location }) => {
             text={
               character.vehicles.length > 0 ? (
                 character.vehicles.map((vehicle, index) => (
-                  <HStack>
+                  <HStack key={index}>
                     <FcDownRight />
-                    <Text key={index}>
+                    <Text >
                         {typeof vehicle === 'string' ? vehicle : vehicle.name}
                         </Text>
                   </HStack>

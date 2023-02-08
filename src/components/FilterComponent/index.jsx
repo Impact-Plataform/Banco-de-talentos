@@ -16,7 +16,7 @@ export const FilterComponent = () => {
       };
 
     return (
-        <Flex bg={'gray.700'} w={'100%'} justifyContent={'space-around'} h={100} alignItems={'center'} direction={['column', 'column', 'row']}>
+        <Flex bg={'gray.700'} w={'100%'} justifyContent={'space-around'} minH={100} alignItems={'center'} direction={['column', 'column', 'column','row']}>
         <Flex alignItems={'left'} direction={'column'}>
             <Text fontSize={'xl'} fontWeight={'bold.600'}>Filmes:</Text>
             <SelectComponent

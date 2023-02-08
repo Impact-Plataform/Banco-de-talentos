@@ -27,9 +27,6 @@ import {
   CgHomeAlt,
 } from "react-icons/cg";
 import { useHistory } from "react-router-dom";
-import { CharacterPage } from "../../pages/ChracterPage";
-import { FilteredCharacters } from "../../pages/FilteredCharacters";
-
 
 const Feature = ({ text, icon, iconBg }) => {
   return (
@@ -52,16 +49,15 @@ const Feature = ({ text, icon, iconBg }) => {
 export const ModalInfo = ({ character }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   let history = useHistory();
-  let id =  encodeURIComponent(character.name);
+  let id = encodeURIComponent(character.name);
 
   const handleClick = () => {
     history.push({
-        pathname: `/character/${id}`,
-        state: { character }
-      });
-   
-  }
- 
+      pathname: `/character/${id}`,
+      state: { character },
+    });
+  };
+
   return (
     <>
       <Button
@@ -70,7 +66,7 @@ export const ModalInfo = ({ character }) => {
         bg="white"
         _hover={{ bg: "yellow.500" }}
       >
-        View more
+        Saiba mais
         <BsArrowUpRight />
       </Button>
 
@@ -146,11 +142,12 @@ export const ModalInfo = ({ character }) => {
             <Button colorScheme="yellow" mr={3} onClick={onClose}>
               Fechar
             </Button>
-            <Button  onClick={handleClick} colorScheme="teal">Visite a página</Button>
+            <Button onClick={handleClick} colorScheme="teal">
+              Visite a página
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
     </>
   );
-  
 };

@@ -6,33 +6,27 @@ import {
   Link,
   IconButton,
   useDisclosure,
-  useColorModeValue,
   Stack,
-  Button,
   Img,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  Text,
-  Select,
-  Option,
-  Radio,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { useApi } from "../../contexts/ApiProvider/index";
-import { Movies } from "../Movies";
-import { AiOutlineArrowDown } from "react-icons/ai";
+
 import { useState, useEffect } from "react";
 import { InputComponent } from "../InputComponent";
-import { SelectComponent } from "../SelectComponent";
 
-const NavLink = ({ children, setIsHomePage, currentPage }) => (
+import { NavLink } from "react-router-dom";
+
+const NavLinks = ({ children, setIsHomePage, currentPage }) => (
   <Link
     px={2}
     py={1}
-    fontSize={'xl'}
+    as={NavLink}
+    exact
+    _activeLink={{
+      color: "yellow.500",
+      textDecoration: "underline",
+    }}
+    fontSize={"xl"}
     color={"white"}
     rounded={"md"}
     _hover={{
@@ -40,7 +34,7 @@ const NavLink = ({ children, setIsHomePage, currentPage }) => (
       color: "gray.700",
       fontSize: "bold",
     }}
-    href={children.link}
+    to={children.link}
     onClick={() => {
       if (currentPage === children.link) {
         setIsHomePage(children.page);
@@ -60,17 +54,6 @@ const Links = [
 export const MenuNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const {
-    getCharacters,
-    movies,
-    species,
-    PeopleList,
-    selectedValue,
-    setSelectedValue,
-    selectedValueSpecie,
-    setSelectedValueSpecie,
-  } = useApi();
-
   const [isHomePage, setIsHomePage] = useState(false);
 
   useEffect(() => {
@@ -81,15 +64,6 @@ export const MenuNav = () => {
     });
   }, []);
 
-  console.log(isHomePage);
-
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
-  const handleChangeSpecie = (event) => {
-    setSelectedValueSpecie(event.target.value);
-  };
-
   return (
     <>
       <Flex
@@ -99,7 +73,7 @@ export const MenuNav = () => {
         alignItems={"center"}
         w={"100%"}
       >
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        <Flex h={16} alignItems={"center"}>
           <IconButton
             size={"md"}
             bg={"gray.700"}
@@ -107,6 +81,8 @@ export const MenuNav = () => {
             aria-label={"Open Menu"}
             display={{ md: "none" }}
             onClick={isOpen ? onClose : onOpen}
+            mr={"90%"}
+            ml={"-50%"}
           />
 
           <Img src={logo} alt="logo" h="42px" />
@@ -116,9 +92,7 @@ export const MenuNav = () => {
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link, index) => (
-                <NavLink key={index} _activeLink={{ color: "yellow" }}>
-                  {link}
-                </NavLink>
+                <NavLinks key={index}>{link}</NavLinks>
               ))}
               {isHomePage ? <InputComponent /> : null}
             </Stack>
@@ -126,9 +100,7 @@ export const MenuNav = () => {
         ) : null}
         <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
           {Links.map((link, index) => (
-            <NavLink key={index} _activeLink={{ color: "yellow" }}>
-              {link}
-            </NavLink>
+            <NavLinks key={index}>{link}</NavLinks>
           ))}
           {isHomePage ? <InputComponent /> : null}
         </HStack>
