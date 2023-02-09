@@ -1,12 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { People, IPeople, Species, Films } from 'swapi-ts'
+import { People, IPeople, Species, Films, Planets } from 'swapi-ts'
 
 export type FiltersContentSchema = {
 	name: string
 	url: string
 }
 
-type valuesSchemaFav = {
+type valuesSchema = {
 	characters?: IPeople[] | []
 	pagination?: number
 	previous?: string | null
@@ -22,13 +22,14 @@ type valuesSchemaFav = {
 	setFilterValue?: any
 	species?: FiltersContentSchema[]
 	films?: FiltersContentSchema[]
+	planets?: FiltersContentSchema[]
 }
 
 type ProviderProps = {
 	children: React.ReactNode
 }
 
-export const SWContext = createContext<valuesSchemaFav>({})
+export const SWContext = createContext<valuesSchema>({})
 
 export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [characters, setCharacters] = useState<IPeople[] | []>([])
@@ -37,6 +38,7 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [previous, setPrevious] = useState<string | null>('')
 	const [species, setSpecies] = useState<FiltersContentSchema[]>([])
 	const [films, setFilms] = useState<FiltersContentSchema[]>([])
+	const [planets, setPlanets] = useState<FiltersContentSchema[]>([])
 	const [searchByName, setSearchByName] = useState('')
 	const [noDataFound, setNoDataFound] = useState<string | null>(null)
 	const [filterType, setFilterType] = useState<
@@ -119,6 +121,19 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		loadFilmsList()
 	}, [])
 
+	useEffect(() => {
+		async function loadPlanets() {
+			const getPlanets = (await Planets.find()).resources
+			const dadosTratados = getPlanets.map(({ value }) => {
+				return { name: value.name, url: value.url }
+			})
+			console.log('dados tratados dos planetas: ', dadosTratados)
+
+			setPlanets(dadosTratados)
+		}
+		loadPlanets()
+	}, [])
+
 	const valoresParaPassar = {
 		characters,
 		pagination,
@@ -135,6 +150,7 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		filterValue,
 		setFilterValue,
 		films,
+		planets,
 	}
 
 	return (
