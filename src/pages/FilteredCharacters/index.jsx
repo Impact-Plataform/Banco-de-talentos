@@ -14,14 +14,13 @@ export const FilteredCharacters = () => {
     selectedValueSpecie,
     selectedGender,
     getAllDataFromApi,
-    characters,
   } = useApi();
 
   const [loading, setLoading] = useState(true);
 
   const [allPeople, setAllPeople] = useState([]);
 
-  const getRelatedData = async (urls) => {
+  /*const getRelatedData = async (urls) => {
     const promises = urls.map(async (url) => {
       const response = await axios.get(url);
       return response.data;
@@ -80,7 +79,75 @@ export const FilteredCharacters = () => {
       setLoading(false);
     }
     fetchData();
-  }, []);
+  }, [getAllDataFromApi]);*/
+
+  const getRelatedData = async (urls) => {
+    const promises = urls.map(async (url) => {
+      const response = await axios.get(url);
+      return response.data;
+    });
+    const relatedData = await Promise.all(promises);
+    const filteredData = relatedData.map((data) => {
+      if (data.hasOwnProperty("name")) {
+        return data.name;
+      }
+      return data;
+    });
+    return filteredData;
+  };
+
+  const apiUrl = "https://swapi.dev/api/people/";
+
+  useEffect(() => {
+    async function fetchData() {
+      let peopleWithRelatedData = localStorage.getItem("allPeople");
+      if (!peopleWithRelatedData) {
+        const people = await getAllDataFromApi(apiUrl);
+        peopleWithRelatedData = await Promise.all(
+          people.map(async (person) => {
+            const relatedData = await getRelatedData([
+              ...person.films,
+              ...person.vehicles,
+              ...person.starships,
+              ...person.species,
+              person.homeworld,
+            ]);
+            return {
+              ...person,
+              homeworld: relatedData[relatedData.length - 1],
+              films: relatedData.slice(0, person.films.length),
+              vehicles: relatedData.slice(
+                person.films.length,
+                person.films.length + person.vehicles.length
+              ),
+              starships: relatedData.slice(
+                person.films.length + person.vehicles.length,
+                person.films.length +
+                  person.vehicles.length +
+                  person.starships.length
+              ),
+              species: relatedData.slice(
+                person.films.length +
+                  person.vehicles.length +
+                  person.starships.length,
+                person.films.length +
+                  person.vehicles.length +
+                  person.starships.length +
+                  person.species.length
+              ),
+            };
+          })
+        );
+        localStorage.setItem("allPeople", JSON.stringify(peopleWithRelatedData));
+      } else {
+        peopleWithRelatedData = JSON.parse(peopleWithRelatedData);
+      }
+      setAllPeople(peopleWithRelatedData);
+      setLoading(false);
+    }
+    fetchData();
+  }, [getAllDataFromApi]);
+
 
   const filteredCharacters = allPeople.filter((character) => {
     return (
@@ -93,14 +160,11 @@ export const FilteredCharacters = () => {
   return (
     <Flex alignItems={"center"} direction={"column"} w={"100%"}>
       <MenuNav />
-      <FilterComponent
-        allPeople={allPeople}
-        setFilteredCharacters={characters}
-      />
+      <FilterComponent />
       {loading ? (
         <SpinnerComponent />
       ) : filteredCharacters.length === 0 ? (
-        <Text mt={10}>
+        <Text m={10}>
           Escolha um dos filtros para achar os personagens correspondentes!
         </Text>
       ) : (

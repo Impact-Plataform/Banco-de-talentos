@@ -19,7 +19,7 @@ import { MenuNav } from "../../components/MenuNav";
 
 const Feature = ({ title, text, icon }) => {
   return (
-    <Stack>
+    <Stack w={200}>
       <Flex
         w={16}
         h={16}
@@ -39,9 +39,8 @@ const Feature = ({ title, text, icon }) => {
 };
 
 export const CharacterPage = ({ location }) => {
+  
   const { character } = location.state;
-
-  console.log(character);
 
   return (
     <Flex alignItems={"center"} direction={"column"} w={"100%"}>
@@ -61,7 +60,7 @@ export const CharacterPage = ({ location }) => {
         {character.name}
       </Text>
       <Box p={4}>
-        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={2}>
+        <SimpleGrid columns={{ base: 1, md: 3 }} spacing={2} ml={[0 , 0, 78, 78]} >
           <Feature
             icon={<Icon as={FcElectronics} w={10} h={10} />}
             title={"Naves"}

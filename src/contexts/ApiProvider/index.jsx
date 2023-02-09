@@ -22,6 +22,7 @@ export const ApiProvider = ({ children }) => {
   const toast = useToast();
 
   const getCharacters = async () => {
+    const cancelToken = axios.CancelToken.source();
     await axios
       .get(`${url}people/?page=${page}`)
       .then((response) => {
@@ -69,6 +70,9 @@ export const ApiProvider = ({ children }) => {
   useEffect(() => {
     getCharacters();
   }, [page]);
+
+
+
 
   const getCharacterByName = async () => {
     await axios
