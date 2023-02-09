@@ -12,4 +12,19 @@ describe("Register product route", () => {
       })
       .expect(201);
   });
+  test("Should return 400 code status if create product with same name", async () => {
+    await request(app).post("/api/Products").send({
+      name: "gamer chair",
+      price: 699.99,
+      description: "Top 1 best seller",
+    });
+    await request(app)
+      .post("/api/Products")
+      .send({
+        name: "gamer chair",
+        price: 750,
+        description: "Top 3 best seller",
+      })
+      .expect(400);
+  });
 });
