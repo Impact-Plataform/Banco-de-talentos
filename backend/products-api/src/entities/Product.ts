@@ -1,10 +1,10 @@
-interface ProductProps {
+export interface ProductProps {
   name: string;
   price: number;
   description: string;
 }
 
-export class  Product {
+export class Product {
   constructor(private props: ProductProps) {}
 
   get name() {
