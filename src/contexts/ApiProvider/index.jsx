@@ -22,7 +22,6 @@ export const ApiProvider = ({ children }) => {
   const toast = useToast();
 
   const getCharacters = async () => {
-    const cancelToken = axios.CancelToken.source();
     await axios
       .get(`${url}people/?page=${page}`)
       .then((response) => {
@@ -100,16 +99,34 @@ export const ApiProvider = ({ children }) => {
               ? axios.get(person.species[0]).then((response) => {
                   person.species = response.data.name;
                 })
-              : (person.species = "Human")
+              : (person.species = "Human"),
+            ...person.films.map((film, i) =>
+              axios.get(film).then((response) => {
+                person.films[i] = response.data.title;
+              })
+            ),
+            ...person.vehicles.map((vehicle, i) =>
+              axios.get(vehicle).then((response) => {
+                person.vehicles[i] = response.data.name;
+              })
+            ),
+            ...person.starships.map((starship, i) =>
+              axios.get(starship).then((response) => {
+                person.starships[i] = response.data.name;
+              })
+            )
           );
         }
         Promise.all(promises).then(() => {
           setCharacters(peopleCopy);
+          setLoading(false);
         });
       })
       .catch((error) => {
         console.error(error);
       });
+    getMovies();
+    getAllSpecies();
   };
 
   const getMovies = async () => {
