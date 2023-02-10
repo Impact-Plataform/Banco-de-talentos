@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { IPeople } from 'swapi-ts'
 
 type characterType = {
@@ -25,7 +26,9 @@ export function CharactersCard({ character, birthplace, info }: characterType) {
 					<p>birth year: {character.birth_year}</p>
 				</div>
 
-				<button className="font-bold">+ click for more</button>
+				<Link to={`/character/${info.name}`}>
+					<button className="font-bold">+ click for more</button>
+				</Link>
 			</div>
 		</>
 	)

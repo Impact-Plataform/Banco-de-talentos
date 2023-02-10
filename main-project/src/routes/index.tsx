@@ -1,4 +1,5 @@
 import { Route, Switch } from 'react-router'
+import { CharacterPage } from '../pages/Character'
 import { Homepage } from '../pages/Homepage'
 
 export function Routes() {
@@ -6,6 +7,10 @@ export function Routes() {
 		<Switch>
 			<Route exact path="/">
 				<Homepage />
+			</Route>
+
+			<Route path="/character/:name">
+				<CharacterPage />
 			</Route>
 		</Switch>
 	)
