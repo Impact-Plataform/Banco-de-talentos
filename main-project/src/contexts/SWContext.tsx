@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { People, IPeople, Species, Films, Planets } from 'swapi-ts'
+import { People, IPeople, Species, Films, Planets, IPlanet } from 'swapi-ts'
 
 export type FiltersContentSchema = {
 	name: string
@@ -7,7 +7,7 @@ export type FiltersContentSchema = {
 }
 
 type valuesSchema = {
-	characters?: IPeople[] | []
+	characters: IPeople[] | []
 	pagination?: number
 	previous?: string | null
 	next?: string | null
@@ -22,14 +22,17 @@ type valuesSchema = {
 	setFilterValue?: any
 	species?: FiltersContentSchema[]
 	films?: FiltersContentSchema[]
-	planets?: FiltersContentSchema[]
+	planets: IPlanet[] | []
 }
 
 type ProviderProps = {
 	children: React.ReactNode
 }
 
-export const SWContext = createContext<valuesSchema>({})
+export const SWContext = createContext<valuesSchema>({
+	planets: [],
+	characters: [],
+})
 
 export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [characters, setCharacters] = useState<IPeople[] | []>([])
@@ -38,13 +41,22 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [previous, setPrevious] = useState<string | null>('')
 	const [species, setSpecies] = useState<FiltersContentSchema[]>([])
 	const [films, setFilms] = useState<FiltersContentSchema[]>([])
-	const [planets, setPlanets] = useState<FiltersContentSchema[]>([])
+	const [planets, setPlanets] = useState<IPlanet[] | []>([])
 	const [searchByName, setSearchByName] = useState('')
 	const [noDataFound, setNoDataFound] = useState<string | null>(null)
 	const [filterType, setFilterType] = useState<
 		'all' | 'genderFilter' | 'speciesFilter' | 'filmsFilter'
 	>('all')
 	const [filterValue, setFilterValue] = useState<string>('all')
+
+	useEffect(() => {
+		async function loadPlanets() {
+			const getPlanets = (await Planets.find()).resources
+			const spreadPlanetsData = getPlanets.map((planet) => planet.value)
+			setPlanets(spreadPlanetsData)
+		}
+		loadPlanets()
+	}, [])
 
 	useEffect(() => {
 		async function loadData() {
@@ -119,19 +131,6 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 			setFilms(dadosTratados)
 		}
 		loadFilmsList()
-	}, [])
-
-	useEffect(() => {
-		async function loadPlanets() {
-			const getPlanets = (await Planets.find()).resources
-			const dadosTratados = getPlanets.map(({ value }) => {
-				return { name: value.name, url: value.url }
-			})
-			console.log('dados tratados dos planetas: ', dadosTratados)
-
-			setPlanets(dadosTratados)
-		}
-		loadPlanets()
 	}, [])
 
 	const valoresParaPassar = {
