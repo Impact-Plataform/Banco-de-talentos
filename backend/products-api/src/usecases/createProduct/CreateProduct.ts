@@ -1,4 +1,4 @@
-import { Product } from "../../entities/Product";
+import { Product, ProductProps } from "../../entities/Product";
 import { IProductRepository } from "../../repositories/ports/IProductRepository";
 
 interface CreateProductRequest {
@@ -7,7 +7,7 @@ interface CreateProductRequest {
   description: string;
 }
 
-type ResponseCreateProduct = Promise<Product | false>;
+type ResponseCreateProduct = Promise<ProductProps | false>;
 
 export class CreateProduct {
   constructor(private repository: IProductRepository) {}
@@ -24,8 +24,13 @@ export class CreateProduct {
     }
 
     const product = new Product({ name, price, description });
-    await this.repository.create(product);
+    const productProps = {
+      name: product.name,
+      price: product.price,
+      description: product.description,
+    };
+    await this.repository.create(productProps);
 
-    return product;
+    return productProps;
   }
 }
