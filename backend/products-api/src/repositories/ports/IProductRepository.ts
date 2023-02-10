@@ -1,6 +1,6 @@
-import { Product } from "../../entities/Product";
+import { Product, ProductProps } from "../../entities/Product";
 
 export interface IProductRepository {
-  create(product: Product): Promise<void>;
+  create(product: ProductProps): Promise<void>;
   findProductByName(name: string): Promise<boolean>;
 }
