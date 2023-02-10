@@ -1,15 +1,31 @@
 import { nanoid } from 'nanoid'
 import { useContext } from 'react'
 import { SWContext } from '../contexts/SWContext'
+import { CharactersCard } from './CharactersCard'
 export function GroupCharacters() {
-	const { characters, noDataFound } = useContext(SWContext)
+	const { characters, noDataFound, planets } = useContext(SWContext)
+
+	const planetsNames = characters.map((char) => {
+		const matching = planets.find((planet) => planet.url === char.homeworld)
+
+		return { name: matching!.name, url: matching!.url }
+	})
 
 	return (
-		<div>
+		<div className="flex flex-col gap-4 items-center">
 			{characters?.length === 0 && <p>{noDataFound}</p>}
-			{characters?.map((item) => (
-				<p key={nanoid()}>{item.name}</p>
-			))}
+			{characters?.map((character) => {
+				const characterBirthPlace = planetsNames.find(
+					(planet) => planet.url === character.homeworld
+				)
+				return (
+					<CharactersCard
+						character={character}
+						birthplace={characterBirthPlace!.name}
+						key={nanoid()}
+					/>
+				)
+			})}
 		</div>
 	)
 }
