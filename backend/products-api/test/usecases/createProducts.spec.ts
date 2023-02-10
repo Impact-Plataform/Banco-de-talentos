@@ -15,7 +15,7 @@ describe("Create Product usecase", () => {
     const productUsecase = new CreateProduct(repository);
     const createProduct = await productUsecase.execute(product);
 
-    expect(createProduct).toBeInstanceOf(Product);
+    expect(createProduct).toEqual(product);
   });
 
   test("it should not be possible create a product with same name", async () => {
