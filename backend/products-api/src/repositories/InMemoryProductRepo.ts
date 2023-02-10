@@ -1,10 +1,10 @@
-import { Product } from "../entities/Product";
+import { ProductProps } from "../entities/Product";
 import { IProductRepository } from "./ports/IProductRepository";
 
 export class InMemoryProductRepo implements IProductRepository {
-  constructor(private list: Product[]) {}
+  constructor(private list: ProductProps[]) {}
 
-  async create(product: Product): Promise<void> {
+  async create(product: ProductProps): Promise<void> {
     this.list.push(product);
   }
 
