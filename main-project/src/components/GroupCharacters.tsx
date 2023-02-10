@@ -2,6 +2,7 @@ import { nanoid } from 'nanoid'
 import { useContext } from 'react'
 import { SWContext } from '../contexts/SWContext'
 import { CharactersCard } from './CharactersCard'
+
 export function GroupCharacters() {
 	const { characters, noDataFound, planets } = useContext(SWContext)
 
@@ -18,8 +19,15 @@ export function GroupCharacters() {
 				const characterBirthPlace = planetsNames.find(
 					(planet) => planet.url === character.homeworld
 				)
+
+				const altImagesContent = {
+					id: character.url.match(/\d+/)!.toString(),
+					name: character.name,
+				}
+
 				return (
 					<CharactersCard
+						info={altImagesContent}
 						character={character}
 						birthplace={characterBirthPlace!.name}
 						key={nanoid()}

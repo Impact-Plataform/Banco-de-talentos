@@ -3,12 +3,17 @@ import { IPeople } from 'swapi-ts'
 type characterType = {
 	character: IPeople
 	birthplace: string
+	info: { id: string; name: string }
 }
 
-export function CharactersCard({ character, birthplace }: characterType) {
+export function CharactersCard({ character, birthplace, info }: characterType) {
 	return (
 		<>
 			<div className="border border-white rounded-md py-2 px-3 flex flex-col w-[70%]">
+				<img
+					src={require(`../assets/characters-images/${info.id}.jpg`)}
+					alt={`${info.name}'s on schene`}
+				/>
 				<h3>{character.name}</h3>
 				<span className="font-bold">
 					{character.gender}, from {birthplace}
