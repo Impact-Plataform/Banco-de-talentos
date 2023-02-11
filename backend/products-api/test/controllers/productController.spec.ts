@@ -1,6 +1,6 @@
 import { Product } from "../../src/entities/Product";
 import { InMemoryProductRepo } from "../../src/repositories/InMemoryProductRepo";
-import { CreateProduct } from "../../src/usecases/createProduct/CreateProduct";
+import { UsecaseProduct } from "../../src/usecases/createProduct/UsecaseProduct";
 import { RequestHTTP } from "../../src/controllers/ports/requestHttp";
 import { ProductController } from "../../src/controllers/ProductController";
 
@@ -14,7 +14,7 @@ describe("Controller Create Product", () => {
   };
   const list: Product[] = [];
   const repository = new InMemoryProductRepo(list);
-  const productUseCase = new CreateProduct(repository);
+  const productUseCase = new UsecaseProduct(repository);
   const controllerProduct = new ProductController(productUseCase);
 
   test("it should returns a status code 201 when creates a product", async () => {

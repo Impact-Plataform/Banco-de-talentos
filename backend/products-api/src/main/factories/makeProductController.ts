@@ -1,10 +1,10 @@
 import { ProductController } from "../../controllers/ProductController";
 import { MongodbProductsRepository } from "../../repositories/mongodb/MongodbProductsRepository";
-import { CreateProduct } from "../../usecases/createProduct/CreateProduct";
+import { UsecaseProduct } from "../../usecases/createProduct/UsecaseProduct";
 
 export const makeProductController = () => {
   const productRepository = new MongodbProductsRepository();
-  const productUsecase = new CreateProduct(productRepository);
+  const productUsecase = new UsecaseProduct(productRepository);
   const productController = new ProductController(productUsecase);
 
   return productController;
