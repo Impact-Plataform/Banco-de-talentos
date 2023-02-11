@@ -19,3 +19,8 @@ export const clientError = (bodyMessage: any): HttpResponse => {
   const createResponse = httpHelperBase(400, bodyMessage);
   return createResponse;
 };
+
+export const ok = (bodyMessage: any): HttpResponse => {
+  const createResponse = httpHelperBase(200, bodyMessage);
+  return createResponse;
+};
