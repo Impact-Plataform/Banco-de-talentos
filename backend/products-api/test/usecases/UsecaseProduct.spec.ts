@@ -13,7 +13,7 @@ describe("Create Product usecase", () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo(products);
     const productUsecase = new UsecaseProduct(repository);
-    const createProduct = await productUsecase.execute(product);
+    const createProduct = await productUsecase.create(product);
 
     expect(createProduct).toEqual(product);
   });
@@ -23,8 +23,8 @@ describe("Create Product usecase", () => {
     const repository = new InMemoryProductRepo([]);
     const productUsecase = new UsecaseProduct(repository);
 
-    const product1 = await productUsecase.execute(product);
-    const product2 = await productUsecase.execute(product);
+    const product1 = await productUsecase.create(product);
+    const product2 = await productUsecase.create(product);
 
     expect(product2).toBe(false);
   });

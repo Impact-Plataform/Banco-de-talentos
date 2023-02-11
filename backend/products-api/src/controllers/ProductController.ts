@@ -7,7 +7,7 @@ export class ProductController {
   constructor(private createProduct: UsecaseProduct) {}
 
   async create(request: RequestHTTP): Promise<HttpResponse> {
-    const createProduct = await this.createProduct.execute(request.body);
+    const createProduct = await this.createProduct.create(request.body);
 
     return createProduct
       ? create("created")
