@@ -12,7 +12,7 @@ type ResponseCreateProduct = Promise<ProductProps | false>;
 export class UsecaseProduct {
   constructor(private repository: IProductRepository) {}
 
-  async execute({
+  async create({
     name,
     price,
     description,
