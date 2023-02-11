@@ -1,6 +1,6 @@
 import { Product } from "../../src/entities/Product";
 import { InMemoryProductRepo } from "../../src/repositories/InMemoryProductRepo";
-import { CreateProduct } from "../../src/usecases/createProduct/CreateProduct";
+import { UsecaseProduct } from "../../src/usecases/createProduct/UsecaseProduct";
 
 describe("Create Product usecase", () => {
   const product = {
@@ -12,7 +12,7 @@ describe("Create Product usecase", () => {
   test("it should be possible create a product", async () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new CreateProduct(repository);
+    const productUsecase = new UsecaseProduct(repository);
     const createProduct = await productUsecase.execute(product);
 
     expect(createProduct).toEqual(product);
@@ -21,7 +21,7 @@ describe("Create Product usecase", () => {
   test("it should not be possible create a product with same name", async () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo([]);
-    const productUsecase = new CreateProduct(repository);
+    const productUsecase = new UsecaseProduct(repository);
 
     const product1 = await productUsecase.execute(product);
     const product2 = await productUsecase.execute(product);

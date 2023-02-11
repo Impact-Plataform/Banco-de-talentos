@@ -9,7 +9,7 @@ interface CreateProductRequest {
 
 type ResponseCreateProduct = Promise<ProductProps | false>;
 
-export class CreateProduct {
+export class UsecaseProduct {
   constructor(private repository: IProductRepository) {}
 
   async execute({
