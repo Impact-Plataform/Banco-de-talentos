@@ -6,7 +6,7 @@ export const MongoHelper = {
     this.client = await MongoClient.connect(uri);
   },
   async disconnect(): Promise<void> {
-    this.client.close;
+    this.client.close();
   },
 
   getCollection(name: string): Collection {
