@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useCallback, useState } from "react";
 import { getPerson } from "../../api/people/getPerson";
-import { Button } from "../../components";
-import { Container, CharacterInfo, InfoDiv } from "./styles";
+import { Button1 } from "../../components";
+import { ButtonContainer, Container, CharacterInfo, InfoDiv } from "./styles";
 
 export const Character = () => {
   const [characterData, setCharacterData] = useState<any>(null);
@@ -27,9 +27,11 @@ export const Character = () => {
 
   return (
     <>
+      <ButtonContainer>
+        <Button1 text="Back" onClick={() => navigate("/")} />
+      </ButtonContainer>
       {characterData && (
         <Container>
-          <Button text="Back" onClick={() => navigate("/")} />
           <CharacterInfo>
             <InfoDiv>Name: {characterData.name}</InfoDiv>
             <InfoDiv>Height: {characterData.height} cm</InfoDiv>

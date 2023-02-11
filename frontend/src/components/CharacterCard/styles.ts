@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: inline-block;
   width: 200px;
   padding: 10px;
-  border-radius: 30px;
+  border-radius: 25px;
   background-color: transparent;
   color: ${colors.logo.letter};
   border: 2px solid ${colors.logo.letter};
@@ -19,5 +19,13 @@ export const Container = styled.div`
     border: 2px solid ${colors.logo.letter};
     opacity: 1;
     transition: all 0.3s;
+  }
+  @media (max-width: 768px) {
+    padding: 5px;
+    border-radius: 20px;
+  }
+  @media (max-width: 480px) {
+    padding: 2px;
+    border-radius: 15px;
   }
 `;

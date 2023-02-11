@@ -5,6 +5,6 @@ export const colors = {
     background: "#000000",
   },
   spinner: {
-    circle: "rgb(150,200,10, 0.3)"
+    circle: "#96C80A4D",
   }
 };
