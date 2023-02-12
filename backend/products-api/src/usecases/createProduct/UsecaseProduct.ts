@@ -8,6 +8,7 @@ interface CreateProductRequest {
 }
 
 type ResponseCreateProduct = Promise<ProductProps | false>;
+type ResponseGetProducts = Promise<ProductProps[]>;
 
 export class UsecaseProduct {
   constructor(private repository: IProductRepository) {}
@@ -32,5 +33,11 @@ export class UsecaseProduct {
     await this.repository.create(productProps);
 
     return productProps;
+  }
+
+  async getAllProducts(): Promise<ResponseGetProducts> {
+    const products = await this.repository.getAllProducts();
+
+    return products;
   }
 }
