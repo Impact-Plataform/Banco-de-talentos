@@ -8,7 +8,7 @@ interface CreateProductRequest {
 }
 
 type ResponseCreateProduct = Promise<ProductProps | false>;
-type ResponseGetProducts = Promise<ProductProps[]>;
+type ResponseGetProducts = Promise<any[]>;
 
 export class UsecaseProduct {
   constructor(private repository: IProductRepository) {}
