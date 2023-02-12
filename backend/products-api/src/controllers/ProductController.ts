@@ -1,7 +1,7 @@
 import { UsecaseProduct } from "../usecases/createProduct/UsecaseProduct";
 import { HttpResponse } from "./ports/httpResponse";
 import { RequestHTTP } from "./ports/requestHttp";
-import { clientError, create } from "./utils/httpHelpers";
+import { clientError, create, ok } from "./utils/httpHelpers";
 
 export class ProductController {
   constructor(private usecaseProduct: UsecaseProduct) {}
@@ -12,5 +12,10 @@ export class ProductController {
     return createProduct
       ? create("created")
       : clientError("already exists a product with this name");
+  }
+
+  async getProducts(): Promise<HttpResponse> {
+    const allProducts  = await this.usecaseProduct.getAllProducts()
+    return ok(allProducts);
   }
 }
