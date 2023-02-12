@@ -28,4 +28,20 @@ describe("Create Product usecase", () => {
 
     expect(product2).toBe(false);
   });
+
+  test("it should return all products", async () => {
+    const products: Product[] = [];
+    const repository = new InMemoryProductRepo([]);
+    const productUsecase = new UsecaseProduct(repository);
+
+    const product1 = await productUsecase.create(product);
+    const product2 = await productUsecase.create({
+      ...product,
+      name: "product 2",
+    });
+
+    const allProducts = await productUsecase.getAllProducts();
+
+    expect(allProducts.length > 0).toBeTruthy();
+  });
 });
