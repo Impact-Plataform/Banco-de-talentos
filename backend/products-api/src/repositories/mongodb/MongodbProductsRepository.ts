@@ -1,4 +1,4 @@
-import { ProductProps } from "../../entities/Product";
+import { Product, ProductProps } from "../../entities/Product";
 import { IProductRepository } from "../ports/IProductRepository";
 import { MongoHelper } from "./helper/mongoHelper";
 
@@ -12,5 +12,12 @@ export class MongodbProductsRepository implements IProductRepository {
     const productsCollection = MongoHelper.getCollection("products");
     const exists = await productsCollection.findOne({ name: name });
     return exists !== null ? true : false;
+  }
+
+  async getAllProducts(): Promise<any> {
+    const productsCollection = MongoHelper.getCollection("products");
+    const allProducts = await productsCollection.find({}).toArray();
+    console.log(allProducts);
+    return allProducts;
   }
 }
