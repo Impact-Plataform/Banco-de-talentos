@@ -17,7 +17,6 @@ export class MongodbProductsRepository implements IProductRepository {
   async getAllProducts(): Promise<any> {
     const productsCollection = MongoHelper.getCollection("products");
     const allProducts = await productsCollection.find({}).toArray();
-    console.log(allProducts);
     return allProducts;
   }
 }

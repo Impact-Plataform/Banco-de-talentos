@@ -40,7 +40,7 @@ describe("Controller Create Product", () => {
   test("it should return a status 200 when get products", async () => {
     const createProduct = await controllerProduct.create(request);
     const allProducts = await controllerProduct.getProducts();
-    console.log(allProducts.body);
+
     expect(allProducts.statusCode).toBe(200);
     expect(allProducts.body.length > 0).toBeTruthy();
   });
