@@ -25,4 +25,19 @@ describe("Mongodb user repository", () => {
       await productRepository.findProductByName("any_product")
     ).toBeTruthy();
   });
+
+  test("When get products, result should exist", async () => {
+    const productRepository = new MongodbProductsRepository();
+    await productRepository.create({
+      name: "any_product",
+      price: 200,
+      description: "any description",
+    });
+    await productRepository.create({
+      name: "any_product2",
+      price: 200,
+      description: "any description",
+    });
+    expect(await productRepository.getAllProducts()).toBeTruthy();
+  });
 });
