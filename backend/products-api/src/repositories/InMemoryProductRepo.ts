@@ -15,4 +15,9 @@ export class InMemoryProductRepo implements IProductRepository {
 
     return productAlreadyExists.length > 0 ? true : false;
   }
+
+  async getAllProducts(): Promise<ProductProps[]> {
+    const allProducts = this.list;
+    return allProducts;
+  }
 }
