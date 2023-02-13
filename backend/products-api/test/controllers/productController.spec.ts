@@ -4,7 +4,7 @@ import { UsecaseProduct } from "../../src/usecases/UsecaseProduct";
 import { RequestHTTP } from "../../src/controllers/ports/requestHttp";
 import { ProductController } from "../../src/controllers/ProductController";
 
-describe("Controller Create Product", () => {
+describe("Controller Product", () => {
   const request: RequestHTTP = {
     body: {
       name: "Headphone",
@@ -55,7 +55,7 @@ describe("Controller Create Product", () => {
     const deleteProduct = await controllerProduct.deleteProduct(deleteRequest);
     expect(deleteProduct.statusCode).toBe(200);
   });
-  test("it should return a status 400 if does not exists a produc with this name", async () => {
+  test("when dlete a product should return a status 400 if does not exists a produc with this name", async () => {
     const createProduct = await controllerProduct.create(request);
     const deleteRequest = {
       body: {
@@ -68,14 +68,18 @@ describe("Controller Create Product", () => {
 
   test("it should return a status code 200 if can update on success", async () => {
     const createProduct = await controllerProduct.create(request);
+    console.log(createProduct.statusCode);
+    const nameParam = "Headphone";
     const updateRequest = {
       body: {
-        name: "Headphone",
         price: 10,
       },
     };
-    const updateproduct = await controllerProduct.updateProduct(updateRequest);
+    const updateproduct = await controllerProduct.updateProduct(
+      updateRequest,
+      nameParam
+    );
 
-    expect(updateproduct.statusCode).toBe(200)
+    expect(updateproduct.statusCode).toBe(200);
   });
 });
