@@ -44,4 +44,9 @@ describe("Controller Create Product", () => {
     expect(allProducts.statusCode).toBe(200);
     expect(allProducts.body.length > 0).toBeTruthy();
   });
+  test("it should return a status 200 when delete a product", async () => {
+    const createProduct = await controllerProduct.create(request);
+    const deleteProduct = await controllerProduct.deleteProduct("Headphone");
+    expect(deleteProduct.statusCode).toBe(200);
+  });
 });
