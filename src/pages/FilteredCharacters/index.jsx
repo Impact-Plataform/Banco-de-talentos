@@ -111,7 +111,6 @@ export const FilteredCharacters = () => {
     currentPage * 10,
     currentPage * 10 + 10
   );
-  console.log(filteredCharacters);
 
   return (
     <Flex alignItems={"center"} direction={"column"} w={"100%"}>
