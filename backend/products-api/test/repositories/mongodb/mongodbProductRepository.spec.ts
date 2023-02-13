@@ -40,4 +40,15 @@ describe("Mongodb user repository", () => {
     });
     expect(await productRepository.getAllProducts()).toBeTruthy();
   });
+  test("it Should delete by name a existing product successfully", async () => {
+    const productRepository = new MongodbProductsRepository();
+    await productRepository.create({
+      name: "any_product",
+      price: 200,
+      description: "any description",
+    });
+    const product = await productRepository.findProductByName("any_product");
+
+    expect(product).toBeTruthy();
+  });
 });
