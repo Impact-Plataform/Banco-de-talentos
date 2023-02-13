@@ -12,7 +12,6 @@ interface DeleteProductRequest {
 }
 
 interface UpdateProductProps {
-  name: string;
   price?: number;
   description?: string;
 }
@@ -60,11 +59,10 @@ export class UsecaseProduct {
     return true;
   }
 
-  async updateProduct({
-    name,
-    price,
-    description,
-  }: UpdateProductProps): Promise<ProductProps | false> {
+  async updateProduct(
+    { price, description }: UpdateProductProps,
+    name: string
+  ): Promise<ProductProps | false> {
     const productExists = await this.repository.findProductByName(name);
     if (!productExists) {
       return false;
