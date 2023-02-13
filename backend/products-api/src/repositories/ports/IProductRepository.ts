@@ -5,4 +5,5 @@ export interface IProductRepository {
   findProductByName(name: string): Promise<any | false>;
   getAllProducts(): Promise<any>;
   deleteByName(name: string): Promise<void>;
+  updateProduct(name: string, price?: number, description?: string): Promise<any>
 }
