@@ -76,7 +76,7 @@ describe("Create Product usecase", () => {
     expect(deleteProduct).toBeFalsy();
   });
 
-  test("Should return true if can update product", async () => {
+  test("Should return updated product if can update product", async () => {
     const products: Product[] = [];
     const repositorie = new InMemoryProductRepo(products);
     const productUsecase = new UsecaseProduct(repositorie);
@@ -86,8 +86,11 @@ describe("Create Product usecase", () => {
       name: "example",
       price: 400,
     });
-
-    expect(updateProduct).toBeTruthy();
+    expect(updateProduct).toEqual({
+      name: "example",
+      price: 400,
+      description: "this is an example",
+    });
   });
   test("Should return false if try to update unexisting product", async () => {
     const products: Product[] = [];
