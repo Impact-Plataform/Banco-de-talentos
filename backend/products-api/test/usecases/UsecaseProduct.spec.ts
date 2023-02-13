@@ -89,4 +89,17 @@ describe("Create Product usecase", () => {
 
     expect(updateProduct).toBeTruthy();
   });
+  test("Should return false if try to update unexisting product", async () => {
+    const products: Product[] = [];
+    const repositorie = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repositorie);
+
+    const createProduct = await productUsecase.create(product);
+    const updateProduct = await productUsecase.updateProduct({
+      name: "wrong_name",
+      price: 400,
+    });
+
+    expect(updateProduct).toBeFalsy();
+  });
 });
