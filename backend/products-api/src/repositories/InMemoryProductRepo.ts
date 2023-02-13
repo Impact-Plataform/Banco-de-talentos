@@ -20,4 +20,11 @@ export class InMemoryProductRepo implements IProductRepository {
     const allProducts = this.list;
     return allProducts;
   }
+
+  async deleteByName(name: string): Promise<void> {
+    const listWithoutProduct = this.list.filter(
+      (product) => product.name !== name
+    );
+    this.list = listWithoutProduct;
+  }
 }
