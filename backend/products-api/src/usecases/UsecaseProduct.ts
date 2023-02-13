@@ -1,5 +1,5 @@
-import { Product, ProductProps } from "../../entities/Product";
-import { IProductRepository } from "../../repositories/ports/IProductRepository";
+import { Product, ProductProps } from "../entities/Product";
+import { IProductRepository } from "../repositories/ports/IProductRepository";
 
 interface CreateProductRequest {
   name: string;
