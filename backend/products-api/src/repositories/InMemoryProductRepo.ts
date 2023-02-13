@@ -8,12 +8,12 @@ export class InMemoryProductRepo implements IProductRepository {
     this.list.push(product);
   }
 
-  async findProductByName(name: string): Promise<boolean> {
-    const productAlreadyExists = this.list.filter(
+  async findProductByName(name: string): Promise<any | boolean> {
+    const productAlreadyExists = this.list.find(
       (product) => product.name === name
     );
 
-    return productAlreadyExists.length > 0 ? true : false;
+    return productAlreadyExists || false;
   }
 
   async getAllProducts(): Promise<ProductProps[]> {
