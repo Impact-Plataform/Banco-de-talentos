@@ -19,8 +19,8 @@ export class MongodbProductsRepository implements IProductRepository {
     const allProducts = await productsCollection.find({}).toArray();
     return allProducts;
   }
-  deleteByName(name: string): Promise<void> {
-    throw new Error("Method not implemented.");
+  async deleteByName(name: string): Promise<void> {
+    const productsCollection = MongoHelper.getCollection("products");
+    await productsCollection.findOneAndDelete({ name: name });
   }
-  
 }
