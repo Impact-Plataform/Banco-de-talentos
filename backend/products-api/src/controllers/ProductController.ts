@@ -28,14 +28,18 @@ export class ProductController {
       : clientError("Does not exists a product with this name");
   }
 
-  async updateProduct(request: RequestHTTP): Promise<HttpResponse> {
+  async updateProduct(
+    request: RequestHTTP,
+    param: string
+  ): Promise<HttpResponse> {
     const updateProductUsecase = await this.usecaseProduct.updateProduct(
-      request.body
+      request.body,
+      param
     );
-    return updateProductUsecase
-      ? ok(
+    return !updateProductUsecase
+      ? clientError("Product with this name could't be found on database")
+      : ok(
           `Product updates successfully, updated product: ${updateProductUsecase}`
-        )
-      : clientError("Product with this name could't be found on database");
+        );
   }
 }
