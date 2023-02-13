@@ -1,4 +1,4 @@
-import { UsecaseProduct } from "../usecases/createProduct/UsecaseProduct";
+import { UsecaseProduct } from "../usecases/UsecaseProduct";
 import { HttpResponse } from "./ports/httpResponse";
 import { RequestHTTP } from "./ports/requestHttp";
 import { clientError, create, ok } from "./utils/httpHelpers";
@@ -15,7 +15,7 @@ export class ProductController {
   }
 
   async getProducts(): Promise<HttpResponse> {
-    const allProducts  = await this.usecaseProduct.getAllProducts()
+    const allProducts = await this.usecaseProduct.getAllProducts();
     return ok(allProducts);
   }
 }

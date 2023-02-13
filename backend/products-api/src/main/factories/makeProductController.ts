@@ -1,6 +1,6 @@
 import { ProductController } from "../../controllers/ProductController";
 import { MongodbProductsRepository } from "../../repositories/mongodb/MongodbProductsRepository";
-import { UsecaseProduct } from "../../usecases/createProduct/UsecaseProduct";
+import { UsecaseProduct } from "../../usecases/UsecaseProduct";
 
 export const makeProductController = () => {
   const productRepository = new MongodbProductsRepository();
