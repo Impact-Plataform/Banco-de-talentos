@@ -27,4 +27,15 @@ export class ProductController {
       ? ok(`Product name ${request.body.name} deleted successfully`)
       : clientError("Does not exists a product with this name");
   }
+
+  async updateProduct(request: RequestHTTP): Promise<HttpResponse> {
+    const updateProductUsecase = await this.usecaseProduct.updateProduct(
+      request.body
+    );
+    return updateProductUsecase
+      ? ok(
+          `Product updates successfully, updated product: ${updateProductUsecase}`
+        )
+      : clientError("Product with this name could't be found on database");
+  }
 }
