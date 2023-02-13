@@ -21,9 +21,10 @@ describe("Mongodb user repository", () => {
       price: 200,
       description: "any description",
     });
-    expect(
-      await productRepository.findProductByName("any_product")
-    ).toBeTruthy();
+    const productExists = await productRepository.findProductByName(
+      "any_product"
+    );
+    expect(!!productExists).toBeTruthy();
   });
 
   test("When get products, result should exist", async () => {
@@ -47,8 +48,9 @@ describe("Mongodb user repository", () => {
       price: 200,
       description: "any description",
     });
+    await productRepository.deleteByName("any_product");
     const product = await productRepository.findProductByName("any_product");
 
-    expect(product).toBeTruthy();
+    expect(product).toBeFalsy();
   });
 });
