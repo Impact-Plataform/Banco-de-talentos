@@ -27,4 +27,27 @@ export class InMemoryProductRepo implements IProductRepository {
     );
     this.list = listWithoutProduct;
   }
+
+  async updateProduct(
+    name: string,
+    price?: number,
+    description?: string
+  ): Promise<any> {
+    const product = this.list.find((item) => item.name === name);
+    const updateProduct = {
+      ...product,
+      price: price || product.price,
+      description: description || product.description,
+    };
+    const updateList = this.list.map((item) => {
+      if (item === product) {
+        item = updateProduct;
+      }
+      return item;
+    });
+    return updateProduct;
+  }
 }
+// 1. pegar o product
+// 2. alterar ele
+// 3. tirar o original e inserir o novo
