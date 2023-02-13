@@ -52,7 +52,9 @@ describe("Create Product usecase", () => {
     const productUsecase = new UsecaseProduct(repository);
 
     await productUsecase.create(product);
-    const deleteProduct = await productUsecase.deleteByname("example");
+    const deleteProduct = await productUsecase.deleteByname({
+      name: "example",
+    });
     const allProducts = await productUsecase.getAllProducts();
 
     expect(allProducts.length === 0).toBeTruthy();
@@ -65,7 +67,9 @@ describe("Create Product usecase", () => {
     const productUsecase = new UsecaseProduct(repository);
 
     await productUsecase.create(product);
-    const deleteProduct = await productUsecase.deleteByname("wrong name");
+    const deleteProduct = await productUsecase.deleteByname({
+      name: "wrong name",
+    });
     const allProducts = await productUsecase.getAllProducts();
 
     expect(allProducts.length > 0).toBeTruthy();
