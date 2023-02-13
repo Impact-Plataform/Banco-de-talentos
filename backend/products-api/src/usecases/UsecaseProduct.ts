@@ -40,4 +40,8 @@ export class UsecaseProduct {
 
     return products;
   }
+
+  async deleteByname(name: string): Promise<void> {
+    await this.repository.deleteByName(name);
+  }
 }
