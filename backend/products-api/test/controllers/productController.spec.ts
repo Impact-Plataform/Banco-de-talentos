@@ -46,12 +46,23 @@ describe("Controller Create Product", () => {
   });
   test("it should return a status 200 when delete a product", async () => {
     const createProduct = await controllerProduct.create(request);
-    const deleteProduct = await controllerProduct.deleteProduct("Headphone");
+    const deleteRequest = {
+      body: {
+        name: "Headphone",
+      },
+    };
+
+    const deleteProduct = await controllerProduct.deleteProduct(deleteRequest);
     expect(deleteProduct.statusCode).toBe(200);
   });
   test("it should return a status 400 if does not exists a produc with this name", async () => {
     const createProduct = await controllerProduct.create(request);
-    const deleteProduct = await controllerProduct.deleteProduct("wrong name");
+    const deleteRequest = {
+      body: {
+        name: "wrong name",
+      },
+    };
+    const deleteProduct = await controllerProduct.deleteProduct(deleteRequest);
     expect(deleteProduct.statusCode).toBe(400);
   });
 });
