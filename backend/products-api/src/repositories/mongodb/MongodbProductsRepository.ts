@@ -8,15 +8,18 @@ export class MongodbProductsRepository implements IProductRepository {
     await productsCollection.insertOne(product);
   }
 
-  async findProductByName(name: string): Promise<boolean> {
+  async findProductByName(name: string): Promise<any | boolean> {
     const productsCollection = MongoHelper.getCollection("products");
-    const exists = await productsCollection.findOne({ name: name });
-    return exists !== null ? true : false;
+    const productExists = await productsCollection.findOne({ name: name });
+    return productExists || false;
   }
 
   async getAllProducts(): Promise<any> {
     const productsCollection = MongoHelper.getCollection("products");
     const allProducts = await productsCollection.find({}).toArray();
     return allProducts;
+  }
+  deleteByName(name: string): Promise<void> {
+    throw new Error("Method not implemented.");
   }
 }
