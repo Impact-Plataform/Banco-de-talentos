@@ -18,4 +18,9 @@ export class ProductController {
     const allProducts = await this.usecaseProduct.getAllProducts();
     return ok(allProducts);
   }
+
+  async deleteProduct(name: string): Promise<HttpResponse> {
+    await this.usecaseProduct.deleteByname(name)
+    return ok(`Product name ${name} deleted successfully`)
+  }
 }
