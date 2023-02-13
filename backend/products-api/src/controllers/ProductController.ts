@@ -20,7 +20,9 @@ export class ProductController {
   }
 
   async deleteProduct(name: string): Promise<HttpResponse> {
-    await this.usecaseProduct.deleteByname(name)
-    return ok(`Product name ${name} deleted successfully`)
+    const deleteSuccesfully = await this.usecaseProduct.deleteByname(name);
+    return deleteSuccesfully
+      ? ok(`Product name ${name} deleted successfully`)
+      : clientError("Does not exists a product with this name");
   }
 }
