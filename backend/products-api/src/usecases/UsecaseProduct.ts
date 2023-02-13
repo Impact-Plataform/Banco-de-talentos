@@ -62,14 +62,18 @@ export class UsecaseProduct {
 
   async updateProduct({
     name,
-    description,
     price,
-  }: UpdateProductProps): Promise<boolean> {
+    description,
+  }: UpdateProductProps): Promise<ProductProps | false> {
     const productExists = await this.repository.findProductByName(name);
     if (!productExists) {
       return false;
     }
-
-    return true;
+    const updatedProduct: ProductProps = await this.repository.updateProduct(
+      name,
+      price,
+      description
+    );
+    return updatedProduct;
   }
 }
