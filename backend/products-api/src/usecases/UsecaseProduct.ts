@@ -7,6 +7,10 @@ interface CreateProductRequest {
   description: string;
 }
 
+interface DeleteProductRequest {
+  name: string;
+}
+
 type ResponseCreateProduct = Promise<ProductProps | false>;
 type ResponseGetProducts = Promise<any[]>;
 
@@ -41,7 +45,7 @@ export class UsecaseProduct {
     return products;
   }
 
-  async deleteByname(name: string): Promise<boolean> {
+  async deleteByname({ name }: DeleteProductRequest): Promise<boolean> {
     const productExists = await this.repository.findProductByName(name);
     if (!productExists) {
       return false;
