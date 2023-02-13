@@ -20,7 +20,7 @@ export class UsecaseProduct {
   }: CreateProductRequest): ResponseCreateProduct {
     const productAlreadyExists = await this.repository.findProductByName(name);
 
-    if (productAlreadyExists) {
+    if (!!productAlreadyExists) {
       return false;
     }
 
