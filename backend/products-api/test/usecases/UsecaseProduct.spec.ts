@@ -75,4 +75,18 @@ describe("Create Product usecase", () => {
     expect(allProducts.length > 0).toBeTruthy();
     expect(deleteProduct).toBeFalsy();
   });
+
+  test("Should return true if can update product", async () => {
+    const products: Product[] = [];
+    const repositorie = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repositorie);
+
+    const createProduct = await productUsecase.create(product);
+    const updateProduct = await productUsecase.updateProduct({
+      name: "example",
+      price: 400,
+    });
+
+    expect(updateProduct).toBeTruthy();
+  });
 });
