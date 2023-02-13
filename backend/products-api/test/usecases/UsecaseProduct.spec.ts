@@ -52,9 +52,23 @@ describe("Create Product usecase", () => {
     const productUsecase = new UsecaseProduct(repository);
 
     await productUsecase.create(product);
-    await productUsecase.deleteByname("example");
+    const deleteProduct = await productUsecase.deleteByname("example");
     const allProducts = await productUsecase.getAllProducts();
 
     expect(allProducts.length === 0).toBeTruthy();
+    expect(deleteProduct).toBeTruthy();
+  });
+
+  test("should return false if try to delete a unexisting product", async () => {
+    const products: Product[] = [];
+    const repository = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repository);
+
+    await productUsecase.create(product);
+    const deleteProduct = await productUsecase.deleteByname("wrong name");
+    const allProducts = await productUsecase.getAllProducts();
+
+    expect(allProducts.length > 0).toBeTruthy();
+    expect(deleteProduct).toBeFalsy();
   });
 });
