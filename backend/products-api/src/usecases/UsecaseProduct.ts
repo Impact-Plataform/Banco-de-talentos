@@ -41,7 +41,12 @@ export class UsecaseProduct {
     return products;
   }
 
-  async deleteByname(name: string): Promise<void> {
+  async deleteByname(name: string): Promise<boolean> {
+    const productExists = await this.repository.findProductByName(name);
+    if (!productExists) {
+      return false;
+    }
     await this.repository.deleteByName(name);
+    return true;
   }
 }
