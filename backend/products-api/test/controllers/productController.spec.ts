@@ -49,4 +49,9 @@ describe("Controller Create Product", () => {
     const deleteProduct = await controllerProduct.deleteProduct("Headphone");
     expect(deleteProduct.statusCode).toBe(200);
   });
+  test("it should return a status 400 if does not exists a produc with this name", async () => {
+    const createProduct = await controllerProduct.create(request);
+    const deleteProduct = await controllerProduct.deleteProduct("wrong name");
+    expect(deleteProduct.statusCode).toBe(400);
+  });
 });
