@@ -82,10 +82,10 @@ describe("Create Product usecase", () => {
     const productUsecase = new UsecaseProduct(repositorie);
 
     const createProduct = await productUsecase.create(product);
-    const updateProduct = await productUsecase.updateProduct({
-      name: "example",
-      price: 400,
-    });
+    const updateProduct = await productUsecase.updateProduct(
+      { price: 400 },
+      "example"
+    );
     expect(updateProduct).toEqual({
       name: "example",
       price: 400,
@@ -98,10 +98,10 @@ describe("Create Product usecase", () => {
     const productUsecase = new UsecaseProduct(repositorie);
 
     const createProduct = await productUsecase.create(product);
-    const updateProduct = await productUsecase.updateProduct({
-      name: "wrong_name",
-      price: 400,
-    });
+    const updateProduct = await productUsecase.updateProduct(
+      { price: 2 },
+      "Wrong"
+    );
 
     expect(updateProduct).toBeFalsy();
   });
