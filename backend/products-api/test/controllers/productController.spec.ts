@@ -65,4 +65,17 @@ describe("Controller Create Product", () => {
     const deleteProduct = await controllerProduct.deleteProduct(deleteRequest);
     expect(deleteProduct.statusCode).toBe(400);
   });
+
+  test("it should return a status code 200 if can update on success", async () => {
+    const createProduct = await controllerProduct.create(request);
+    const updateRequest = {
+      body: {
+        name: "Headphone",
+        price: 10,
+      },
+    };
+    const updateproduct = await controllerProduct.updateProduct(updateRequest);
+
+    expect(updateproduct.statusCode).toBe(200)
+  });
 });
