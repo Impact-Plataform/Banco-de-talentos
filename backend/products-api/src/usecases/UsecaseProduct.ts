@@ -11,6 +11,12 @@ interface DeleteProductRequest {
   name: string;
 }
 
+interface UpdateProductProps {
+  name: string;
+  price?: number;
+  description?: string;
+}
+
 type ResponseCreateProduct = Promise<ProductProps | false>;
 type ResponseGetProducts = Promise<any[]>;
 
@@ -51,6 +57,19 @@ export class UsecaseProduct {
       return false;
     }
     await this.repository.deleteByName(name);
+    return true;
+  }
+
+  async updateProduct({
+    name,
+    description,
+    price,
+  }: UpdateProductProps): Promise<boolean> {
+    const productExists = this.repository.findProductByName(name);
+    if (!productExists) {
+      return false;
+    }
+
     return true;
   }
 }
