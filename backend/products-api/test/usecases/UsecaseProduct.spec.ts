@@ -13,6 +13,7 @@ describe("Create Product usecase", () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo(products);
     const productUsecase = new UsecaseProduct(repository);
+
     const createProduct = await productUsecase.create(product);
 
     expect(createProduct).toEqual(product);
@@ -20,7 +21,7 @@ describe("Create Product usecase", () => {
 
   test("it should not be possible create a product with same name", async () => {
     const products: Product[] = [];
-    const repository = new InMemoryProductRepo([]);
+    const repository = new InMemoryProductRepo(products);
     const productUsecase = new UsecaseProduct(repository);
 
     const product1 = await productUsecase.create(product);
@@ -31,7 +32,7 @@ describe("Create Product usecase", () => {
 
   test("it should return all products", async () => {
     const products: Product[] = [];
-    const repository = new InMemoryProductRepo([]);
+    const repository = new InMemoryProductRepo(products);
     const productUsecase = new UsecaseProduct(repository);
 
     const product1 = await productUsecase.create(product);
@@ -43,5 +44,17 @@ describe("Create Product usecase", () => {
     const allProducts = await productUsecase.getAllProducts();
 
     expect(allProducts.length > 0).toBeTruthy();
+  });
+
+  test("Should not be any product after delete", async () => {
+    const products: Product[] = [];
+    const repository = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repository);
+
+    await productUsecase.create(product);
+    await productUsecase.deleteByname("example");
+    const allProducts = await productUsecase.getAllProducts();
+
+    expect(allProducts.length === 0).toBeTruthy();
   });
 });
