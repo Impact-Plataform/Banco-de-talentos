@@ -3,7 +3,7 @@ import { IProductRepository } from "./ports/IProductRepository";
 
 export class InMemoryProductRepo implements IProductRepository {
   constructor(private list: ProductProps[]) {}
-  
+
   async create(product: ProductProps): Promise<void> {
     this.list.push(product);
   }
@@ -17,22 +17,17 @@ export class InMemoryProductRepo implements IProductRepository {
   }
 
   async findProductById(id: string): Promise<any> {
-    const productAlreadyExists = this.list.find(
-      (product) => product.name === id
-    );
-
+    const productAlreadyExists = this.list.find((product) => product.id === id);
     return productAlreadyExists || false;
   }
-  
+
   async getAllProducts(): Promise<ProductProps[]> {
     const allProducts = this.list;
     return allProducts;
   }
 
-  async deleteByName(name: string): Promise<void> {
-    const listWithoutProduct = this.list.filter(
-      (product) => product.name !== name
-    );
+  async deleteById(id: string): Promise<void> {
+    const listWithoutProduct = this.list.filter((product) => product.id !== id);
     this.list = listWithoutProduct;
   }
 
