@@ -4,7 +4,7 @@ export interface ProductProps {
   name: string;
   price: number;
   description: string;
-  id: string;
+  id?: string;
 }
 
 export class Product {
