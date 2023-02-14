@@ -14,13 +14,24 @@ export class MongodbProductsRepository implements IProductRepository {
     return productExists || false;
   }
 
+  async findProductById(id: string): Promise<any> {
+    throw new Error("Method not implemented.");
+  }
+
   async getAllProducts(): Promise<any> {
     const productsCollection = MongoHelper.getCollection("products");
     const allProducts = await productsCollection.find({}).toArray();
     return allProducts;
   }
-  async deleteByName(name: string): Promise<void> {
-    const productsCollection = MongoHelper.getCollection("products");
-    await productsCollection.findOneAndDelete({ name: name });
+  async deleteById(id: string): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+
+  updateProduct(
+    name: string,
+    price?: number,
+    description?: string
+  ): Promise<any> {
+    throw new Error("Method not implemented.");
   }
 }
