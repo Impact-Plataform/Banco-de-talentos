@@ -45,24 +45,27 @@ describe("Controller Product", () => {
     expect(allProducts.body.length > 0).toBeTruthy();
   });
   test("it should return a status 200 when delete a product", async () => {
-    const createProduct = await controllerProduct.create(request);
-    const deleteRequest = {
+    const createProduct = await controllerProduct.create({
       body: {
-        name: "Headphone",
+        name: "Mouse and keyboard",
+        price: 300,
+        description: "Headphone good to listen to musics",
       },
-    };
-
-    const deleteProduct = await controllerProduct.deleteProduct(deleteRequest);
+    });
+    const idParam = createProduct.body.id;
+    const deleteProduct = await controllerProduct.deleteProduct(idParam);
     expect(deleteProduct.statusCode).toBe(200);
   });
   test("when dlete a product should return a status 400 if does not exists a produc with this name", async () => {
-    const createProduct = await controllerProduct.create(request);
-    const deleteRequest = {
+    const createProduct = await controllerProduct.create({
       body: {
-        name: "wrong name",
+        name: "Headphone2",
+        price: 300,
+        description: "Headphone good to listen to musics",
       },
-    };
-    const deleteProduct = await controllerProduct.deleteProduct(deleteRequest);
+    });
+    const wrongIdParam = "1234";
+    const deleteProduct = await controllerProduct.deleteProduct(wrongIdParam);
     expect(deleteProduct.statusCode).toBe(400);
   });
 
