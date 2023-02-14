@@ -3,5 +3,5 @@ import { adapteDeleteProductByNameRoute } from "../adapters/adaptDeleteProductBy
 import { makeProductController } from "../factories/makeProductController";
 
 export default (router: Router) => {
-  router.delete("/Products", adapteDeleteProductByNameRoute(makeProductController()))
+  router.delete("/Products/:id", adapteDeleteProductByNameRoute(makeProductController()))
 };
