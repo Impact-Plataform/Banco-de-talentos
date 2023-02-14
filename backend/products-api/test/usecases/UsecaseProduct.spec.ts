@@ -50,10 +50,9 @@ describe("Create Product usecase", () => {
     const repository = new InMemoryProductRepo(products);
     const productUsecase = new UsecaseProduct(repository);
 
-    await productUsecase.create(product);
-    const deleteProduct = await productUsecase.deleteByname({
-      name: "example",
-    });
+    const createProduct = await productUsecase.create(product);
+    const id = createProduct && createProduct.id;
+    const deleteProduct = await productUsecase.deleteById(id);
     const allProducts = await productUsecase.getAllProducts();
 
     expect(allProducts.length === 0).toBeTruthy();
@@ -65,10 +64,10 @@ describe("Create Product usecase", () => {
     const repository = new InMemoryProductRepo(products);
     const productUsecase = new UsecaseProduct(repository);
 
-    await productUsecase.create(product);
-    const deleteProduct = await productUsecase.deleteByname({
-      name: "wrong name",
-    });
+    const createProduct = await productUsecase.create(product);
+    const id = "1234";
+
+    const deleteProduct = await productUsecase.deleteById(id);
     const allProducts = await productUsecase.getAllProducts();
 
     expect(allProducts.length > 0).toBeTruthy();
