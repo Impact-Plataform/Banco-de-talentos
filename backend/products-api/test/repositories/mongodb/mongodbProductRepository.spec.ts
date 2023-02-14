@@ -48,9 +48,14 @@ describe("Mongodb user repository", () => {
       price: 200,
       description: "any description",
     });
-    await productRepository.deleteByName("any_product");
-    const product = await productRepository.findProductByName("any_product");
+    const findProduct = await productRepository.findProductByName(
+      "any_product"
+    );
+    await productRepository.deleteById(findProduct.id);
+    const findProductAgain = await productRepository.findProductByName(
+      "any_product"
+    );
 
-    expect(product).toBeFalsy();
+    expect(findProductAgain).toBeFalsy();
   });
 });
