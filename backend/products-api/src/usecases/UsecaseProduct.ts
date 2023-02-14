@@ -7,7 +7,7 @@ interface CreateProductRequest {
   description: string;
 }
 
-interface DeleteProductRequest {
+interface DeleteProductRequestParam {
   name: string;
 }
 
@@ -51,12 +51,13 @@ export class UsecaseProduct {
     return products;
   }
 
-  async deleteByname({ name }: DeleteProductRequest): Promise<boolean> {
-    const productExists = await this.repository.findProductByName(name);
+  async deleteById(id: string): Promise<boolean> {
+    const productExists = await this.repository.findProductById(id);
+    console.log("product exists ---> ", productExists);
     if (!productExists) {
       return false;
     }
-    await this.repository.deleteByName(name);
+    await this.repository.deleteById(id);
     return true;
   }
 
