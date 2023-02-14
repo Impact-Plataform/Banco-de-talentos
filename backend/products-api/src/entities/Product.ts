@@ -1,11 +1,17 @@
+import { v4 as uuid } from "uuid";
+
 export interface ProductProps {
   name: string;
   price: number;
   description: string;
+  id: string;
 }
 
 export class Product {
-  constructor(private props: ProductProps) {}
+  private readonly ProductId: string;
+  constructor(private props: Omit<ProductProps, "id">) {
+    this.ProductId = uuid();
+  }
 
   get name() {
     return this.props.name;
@@ -15,5 +21,8 @@ export class Product {
   }
   get description() {
     return this.props.description;
+  }
+  get id() {
+    return this.ProductId;
   }
 }
