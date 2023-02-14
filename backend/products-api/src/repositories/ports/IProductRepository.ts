@@ -7,8 +7,8 @@ export interface IProductRepository {
   getAllProducts(): Promise<any>;
   deleteById(id: string): Promise<void>;
   updateProduct(
-    name: string,
+    name?: string,
     price?: number,
     description?: string
-  ): Promise<any>;
+  ): Promise<any | false>;
 }
