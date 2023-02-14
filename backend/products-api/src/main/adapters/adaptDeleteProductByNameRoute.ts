@@ -7,12 +7,8 @@ export const adapteDeleteProductByNameRoute = (
   controller: ProductController
 ) => {
   return async (req: Request, res: Response) => {
-    const httpRequest: RequestHTTP = {
-      body: req.body,
-    };
-    const httpResponse: HttpResponse = await controller.deleteProduct(
-      httpRequest
-    );
+    const idParam: string = req.params.id;
+    const httpResponse: HttpResponse = await controller.deleteProduct(idParam);
     const { statusCode, body } = httpResponse;
     res.status(statusCode).json(body);
   };
