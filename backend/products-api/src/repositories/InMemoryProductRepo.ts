@@ -36,9 +36,10 @@ export class InMemoryProductRepo implements IProductRepository {
     price?: number,
     description?: string
   ): Promise<any> {
-    const product = this.list.find((item) => item.name === name);
+    const product: ProductProps = await this.findProductByName(name);
     const updateProduct = {
       ...product,
+      name: name || product.name,
       price: price || product.price,
       description: description || product.description,
     };
@@ -51,6 +52,3 @@ export class InMemoryProductRepo implements IProductRepository {
     return updateProduct;
   }
 }
-// 1. pegar o product
-// 2. alterar ele
-// 3. tirar o original e inserir o novo
