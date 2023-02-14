@@ -3,7 +3,7 @@ import { IProductRepository } from "./ports/IProductRepository";
 
 export class InMemoryProductRepo implements IProductRepository {
   constructor(private list: ProductProps[]) {}
-
+  
   async create(product: ProductProps): Promise<void> {
     this.list.push(product);
   }
@@ -16,6 +16,14 @@ export class InMemoryProductRepo implements IProductRepository {
     return productAlreadyExists || false;
   }
 
+  async findProductById(id: string): Promise<any> {
+    const productAlreadyExists = this.list.find(
+      (product) => product.name === id
+    );
+
+    return productAlreadyExists || false;
+  }
+  
   async getAllProducts(): Promise<ProductProps[]> {
     const allProducts = this.list;
     return allProducts;
