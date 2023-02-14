@@ -15,7 +15,9 @@ export class MongodbProductsRepository implements IProductRepository {
   }
 
   async findProductById(id: string): Promise<any> {
-    throw new Error("Method not implemented.");
+    const productsCollection = MongoHelper.getCollection("products");
+    const productExists = await productsCollection.findOne({ id: id });
+    return productExists || false;
   }
 
   async getAllProducts(): Promise<any> {
@@ -24,7 +26,8 @@ export class MongodbProductsRepository implements IProductRepository {
     return allProducts;
   }
   async deleteById(id: string): Promise<void> {
-    throw new Error("Method not implemented.");
+    const productsCollection = MongoHelper.getCollection("products");
+    await productsCollection.findOneAndDelete({ id: id });
   }
 
   updateProduct(
