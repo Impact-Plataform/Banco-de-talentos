@@ -39,41 +39,20 @@
   color: #ffe81f;
 }
 
-.search-container {
-  margin-right: 5rem;
-  width: 20rem;
-  height: 3rem;
+/*.search-input {
+  color: #ffe81f;
+  margin-left: 20rem;
+}*/
+
+.btn-more {
+  color: #ffe81f;
+  margin-left: 150px;
+  font-size: 15px;
 }
 
-.search-container input {
-  width: 20rem;
-  height: 3rem;
-  border-radius: 20px;
-  border: 1px solid #c4c4c4;
-}
-
-.btn-container {
-  width: 20rem;
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-}
-
-.btn-container button {
-  width: 6rem;
-  background-color: #1ca0d1;
-  height: 2rem;
-  border: none;
-  color: #fff;
-  border-radius: 15px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-
-.btn-container button:hover {
-  filter: brightness(1.2);
+.next-page-btn-container {
+  height: 45px;
+  margin-top: 30px;
 }
 
 .movie-details-wrapper {

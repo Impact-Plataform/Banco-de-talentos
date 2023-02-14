@@ -9,13 +9,17 @@ function Card({ movieData }) {
 
 
   return (
+
     <div className="movie-card-wrapper">
       <div className="movie-characters-cards">
         {movieData.map((character) => (
-          <div className="character-card-data" key={character.id}>
-              <span className="up"></span>
-
-
+          <div className="character-card-data" key={character.id}> 
+             <Link className="btn-more" to={`/character/${name}`}>
+                Saiba Mais
+             </Link> 
+            
+              <span className="up"></span>             
+              
             <div className="overlay">
               <div className="title">
                 <h2>{character.name}</h2>
@@ -35,13 +39,15 @@ function Card({ movieData }) {
                   alt={character.name}
                 />
               </Link>
+
+
             </div>
           </div>
         ))}
       </div>
 
       <div className="next-page-btn-container">
-        <button>Mais Personagens</button>
+        <button><strong>Mais Personagens</strong></button>
       </div>
     </div>
   );

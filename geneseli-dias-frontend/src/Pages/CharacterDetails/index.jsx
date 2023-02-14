@@ -5,7 +5,7 @@ import { images } from "../../assets/images";
 
 function CharacterDetails() {
   const { id } = useParams();
-  const [character, setCharacter] = useState([]);
+    const [character, setCharacter] = useState([{name: ''}]);
 
   const fetchCharacters = async () => {
     const { data } = await axios.get(`https://swapi.py4e.com/api/people/${id}`);
