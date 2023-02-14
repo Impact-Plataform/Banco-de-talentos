@@ -80,9 +80,10 @@ describe("Create Product usecase", () => {
     const productUsecase = new UsecaseProduct(repositorie);
 
     const createProduct = await productUsecase.create(product);
+    const { id } = createProduct && createProduct;
     const updateProduct = await productUsecase.updateProduct(
       { price: 400 },
-      "example"
+      id
     );
     expect(updateProduct).toBeTruthy();
   });
@@ -95,9 +96,9 @@ describe("Create Product usecase", () => {
     const createProduct = await productUsecase.create(product);
     const updateProduct = await productUsecase.updateProduct(
       { price: 2 },
-      "Wrong"
+      "wrond id"
     );
 
-    expect(updateProduct).toBeFalsy();
+    expect(updateProduct).toBe(false);
   });
 });
