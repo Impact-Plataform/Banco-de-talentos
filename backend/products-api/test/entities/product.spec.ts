@@ -24,4 +24,9 @@ describe("Product Model", () => {
       "this is an example",
     ]);
   });
+
+  test("should get generateded id", () => {
+    const id = product.id;
+    expect(id).toBeTruthy();
+  });
 });
