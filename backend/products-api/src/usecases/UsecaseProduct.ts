@@ -38,6 +38,7 @@ export class UsecaseProduct {
       name: product.name,
       price: product.price,
       description: product.description,
+      id: product.id,
     };
     await this.repository.create(productProps);
 
