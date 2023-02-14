@@ -10,7 +10,7 @@ export class ProductController {
     const createProduct = await this.usecaseProduct.create(request.body);
 
     return createProduct
-      ? create("created")
+      ? create(createProduct)
       : clientError("already exists a product with this name");
   }
 
@@ -19,12 +19,10 @@ export class ProductController {
     return ok(allProducts);
   }
 
-  async deleteProduct(request: RequestHTTP): Promise<HttpResponse> {
-    const deleteSuccesfully = await this.usecaseProduct.deleteByname(
-      request.body
-    );
+  async deleteProduct(paramId: string): Promise<HttpResponse> {
+    const deleteSuccesfully = await this.usecaseProduct.deleteById(paramId);
     return deleteSuccesfully
-      ? ok(`Product name ${request.body.name} deleted successfully`)
+      ? ok(`Product deleted successfully`)
       : clientError("Does not exists a product with this name");
   }
 
