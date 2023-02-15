@@ -30,11 +30,17 @@ export class MongodbProductsRepository implements IProductRepository {
     await productsCollection.findOneAndDelete({ id: id });
   }
 
-  updateProduct(
-    name: string,
+  async updateProduct(
+    id: string,
+    name?: string,
     price?: number,
     description?: string
   ): Promise<any> {
-    throw new Error("Method not implemented.");
+    const productsCollection = MongoHelper.getCollection("products");
+    const productUpdate = await productsCollection.replaceOne(
+      { id: id },
+      { name, price, description, id }
+    );
+    return productUpdate;
   }
 }
