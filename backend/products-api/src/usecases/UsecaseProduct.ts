@@ -73,12 +73,14 @@ export class UsecaseProduct {
     if (!productExists || !!productWithThisname) {
       return false;
     }
-    const updatedProduct: ProductProps = await this.repository.updateProduct(
+    const updatedProduct = await this.repository.updateProduct(
       id,
       name,
       price,
       description
     );
-    return updatedProduct;
+    const findUpdatedProduct: ProductProps =
+      await this.repository.findProductById(id);
+    return findUpdatedProduct;
   }
 }
