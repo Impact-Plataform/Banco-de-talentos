@@ -32,11 +32,12 @@ export class InMemoryProductRepo implements IProductRepository {
   }
 
   async updateProduct(
+    id: string,
     name: string,
     price?: number,
     description?: string
   ): Promise<any> {
-    const product: ProductProps = await this.findProductByName(name);
+    const product: ProductProps = await this.findProductById(id);
     const updateProduct = {
       ...product,
       name: name || product.name,

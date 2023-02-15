@@ -74,6 +74,7 @@ export class UsecaseProduct {
       return false;
     }
     const updatedProduct: ProductProps = await this.repository.updateProduct(
+      id,
       name,
       price,
       description
