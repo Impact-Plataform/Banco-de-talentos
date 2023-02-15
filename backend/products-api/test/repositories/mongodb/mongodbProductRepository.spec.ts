@@ -58,4 +58,25 @@ describe("Mongodb user repository", () => {
 
     expect(findProductAgain).toBeFalsy();
   });
+
+  test("It should update product on success", async () => {
+    const productRepository = new MongodbProductsRepository();
+    const productProps = {
+      name: "any_product",
+      price: 200,
+      description: "any description",
+      id: "123456",
+    };
+    const product = await productRepository.create(productProps);
+    const { id } = productProps;
+    await productRepository.updateProduct(
+      id,
+      "other_product",
+      100,
+      "other description"
+    );
+    const findUpdatedProduct = await productRepository.findProductById(id);
+
+    expect(findUpdatedProduct.name).toBe("other_product");
+  });
 });
