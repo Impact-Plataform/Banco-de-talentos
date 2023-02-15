@@ -66,8 +66,11 @@ export class UsecaseProduct {
     { price, description, name }: UpdateProductProps,
     id: string
   ): Promise<ProductProps | false> {
+    const productWithThisname = name
+      ? await this.repository.findProductByName(name)
+      : false;
     const productExists = await this.repository.findProductById(id);
-    if (!productExists) {
+    if (!productExists || !!productWithThisname) {
       return false;
     }
     const updatedProduct: ProductProps = await this.repository.updateProduct(
