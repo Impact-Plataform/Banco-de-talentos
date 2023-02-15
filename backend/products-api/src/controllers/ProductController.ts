@@ -35,9 +35,7 @@ export class ProductController {
       param
     );
     return !updateProductUsecase
-      ? clientError("Product with this name could't be found on database")
-      : ok(
-          updateProductUsecase
-        );
+      ? clientError("Product not foud or you named a existent name")
+      : ok(updateProductUsecase);
   }
 }
