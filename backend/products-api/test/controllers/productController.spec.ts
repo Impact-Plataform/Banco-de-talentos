@@ -70,19 +70,24 @@ describe("Controller Product", () => {
   });
 
   test("it should return a status code 200 if can update on success", async () => {
-    const createProduct = await controllerProduct.create(request);
-    console.log(createProduct.statusCode);
-    const nameParam = "Headphone";
+    const productRequest = {
+      body: { name: "bottle", price: 300, description: "good" },
+    };
+    const createProduct = await controllerProduct.create(productRequest);
+
+    const idParam = createProduct.body.id;
     const updateRequest = {
       body: {
-        price: 10,
+        price: 19.9,
       },
     };
-    const updateproduct = await controllerProduct.updateProduct(
+    const updateProduct = await controllerProduct.updateProduct(
       updateRequest,
-      nameParam
+      idParam
     );
 
-    expect(updateproduct.statusCode).toBe(200);
+    expect(updateProduct.statusCode).toBe(200);
+    expect(createProduct.body.price).toBe(300);
+    expect(updateProduct.body.price).toBe(19.9);
   });
 });
