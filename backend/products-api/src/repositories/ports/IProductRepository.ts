@@ -7,6 +7,7 @@ export interface IProductRepository {
   getAllProducts(): Promise<any>;
   deleteById(id: string): Promise<void>;
   updateProduct(
+    id: string,
     name?: string,
     price?: number,
     description?: string
