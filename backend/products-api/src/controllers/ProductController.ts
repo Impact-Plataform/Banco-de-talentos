@@ -37,7 +37,7 @@ export class ProductController {
     return !updateProductUsecase
       ? clientError("Product with this name could't be found on database")
       : ok(
-          `Product updates successfully, updated product: ${updateProductUsecase}`
+          updateProductUsecase
         );
   }
 }
