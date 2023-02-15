@@ -78,13 +78,15 @@ describe("Create Product usecase", () => {
     const products: Product[] = [];
     const repositorie = new InMemoryProductRepo(products);
     const productUsecase = new UsecaseProduct(repositorie);
-
     const createProduct = await productUsecase.create(product);
+
     const { id } = createProduct && createProduct;
+
     const updateProduct = await productUsecase.updateProduct(
       { price: 400 },
       id
     );
+
     expect(updateProduct).toBeTruthy();
   });
 
@@ -97,6 +99,29 @@ describe("Create Product usecase", () => {
     const updateProduct = await productUsecase.updateProduct(
       { price: 2 },
       "wrond id"
+    );
+
+    expect(updateProduct).toBe(false);
+  });
+
+  test("Should return false if try to update name to same name of some existing product", async () => {
+    const products: Product[] = [];
+    const repositorie = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repositorie);
+
+    const createProduct = await productUsecase.create(product);
+    const createProduct2 = await productUsecase.create({
+      ...product,
+      name: "other product",
+    });
+    const { id } = createProduct && createProduct;
+
+    const updateProduct = await productUsecase.updateProduct(
+      {
+        name: "other product",
+        price: 2,
+      },
+      id
     );
 
     expect(updateProduct).toBe(false);
