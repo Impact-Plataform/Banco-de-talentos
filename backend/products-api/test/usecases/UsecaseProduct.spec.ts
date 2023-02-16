@@ -132,4 +132,22 @@ describe("Create Product usecase", () => {
 
     expect(updateProduct).toBe(false);
   });
+
+  test("Should return product when get product by id", async () => {
+    const products: ProductProps[] = [];
+    const repository = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repository);
+
+    const createProduct = await productUsecase.create({
+      name: "product",
+      price: 200,
+      description: "description",
+    });
+
+    const getProductById = await productUsecase.getProductById(
+      createProduct.id
+    );
+
+    expect(getProductById.name).toBe("product");
+  });
 });
