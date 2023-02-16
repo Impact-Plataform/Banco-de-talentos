@@ -5,7 +5,7 @@ export class InMemoryCurrencyRepo implements ICurrencyRepository {
   constructor(private currencies: CurrencyProps[]) {}
 
   async create(currency: CurrencyProps): Promise<void> {
-    throw new Error("Method not implemented.");
+    this.currencies.push(currency);
   }
   async findByCode(code: string): Promise<any> {
     throw new Error("Method not implemented.");
