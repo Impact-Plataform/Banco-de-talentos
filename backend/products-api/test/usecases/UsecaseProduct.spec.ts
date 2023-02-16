@@ -150,4 +150,22 @@ describe("Create Product usecase", () => {
 
     expect(getProductById.name).toBe("product");
   });
+
+  test("Should return false when get unexistent product", async () => {
+    const products: ProductProps[] = [];
+    const repository = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repository);
+
+    const createProduct = await productUsecase.create({
+      name: "product",
+      price: 200,
+      description: "description",
+    });
+
+    const getProductById = await productUsecase.getProductById(
+      "wrongidohmygod"
+    );
+
+    expect(getProductById).toBe(false);
+  });
 });
