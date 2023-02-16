@@ -102,4 +102,15 @@ describe("Controller Product", () => {
     expect(getProduct.statusCode).toBe(200);
     expect(getProduct.body.id).toBe(idCreateProduct);
   });
+
+  test("should return product on success when get him", async () => {
+    const productRequest = {
+      body: { name: "water bottle voss", price: 1000, description: "good" },
+    };
+    const createProduct = await controllerProduct.create(productRequest);
+
+    const getProduct = await controllerProduct.getProductById("wrongidohmygod");
+
+    expect(getProduct.statusCode).toBe(400);
+  });
 });
