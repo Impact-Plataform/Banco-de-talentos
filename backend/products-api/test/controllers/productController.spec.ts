@@ -74,7 +74,7 @@ describe("Controller Product", () => {
       body: { name: "bottle", price: 300, description: "good" },
     };
     const createProduct = await controllerProduct.create(productRequest);
-
+    const createProductPrice = createProduct.body.price;
     const idParam = createProduct.body.id;
     const updateRequest = {
       body: {
@@ -85,9 +85,8 @@ describe("Controller Product", () => {
       updateRequest,
       idParam
     );
-
+    expect(createProductPrice).toBe(300);
     expect(updateProduct.statusCode).toBe(200);
-    expect(createProduct.body.price).toBe(300);
     expect(updateProduct.body.price).toBe(19.9);
   });
 });
