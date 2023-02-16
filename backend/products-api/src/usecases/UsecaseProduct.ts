@@ -17,7 +17,7 @@ interface UpdateProductProps {
   description?: string;
 }
 
-type ResponseCreateProduct = Promise<ProductProps | false>;
+type ResponseCreateProduct = Promise<any | false>;
 type ResponseGetProducts = Promise<any[]>;
 
 export class UsecaseProduct {
@@ -54,7 +54,6 @@ export class UsecaseProduct {
 
   async deleteById(id: string): Promise<boolean> {
     const productExists = await this.repository.findProductById(id);
-    console.log("product exists ---> ", productExists);
     if (!productExists) {
       return false;
     }
@@ -63,24 +62,41 @@ export class UsecaseProduct {
   }
 
   async updateProduct(
-    { price, description, name }: UpdateProductProps,
+    { name, price, description }: UpdateProductProps,
     id: string
-  ): Promise<ProductProps | false> {
-    const productWithThisname = name
-      ? await this.repository.findProductByName(name)
-      : false;
+  ): Promise<any> {
     const productExists = await this.repository.findProductById(id);
-    if (!productExists || !!productWithThisname) {
+
+    if (!productExists) {
       return false;
     }
+
+    const existsOtherProductWithThisName = async () => {
+      const nameReceivedIsOrinal = name === productExists.name;
+      if (nameReceivedIsOrinal) return false;
+
+      const nameAlreadyExists = await this.repository.findProductByName(name);
+      if (nameAlreadyExists) {
+        return true;
+      }
+    };
+
+    const repeatedName = await existsOtherProductWithThisName();
+
+    if (repeatedName) {
+      return false;
+    }
+
     const updatedProduct = await this.repository.updateProduct(
       id,
       name,
       price,
       description
     );
+
     const findUpdatedProduct: ProductProps =
       await this.repository.findProductById(id);
+
     return findUpdatedProduct;
   }
 }
