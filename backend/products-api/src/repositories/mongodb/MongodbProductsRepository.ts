@@ -37,9 +37,20 @@ export class MongodbProductsRepository implements IProductRepository {
     description?: string
   ): Promise<any> {
     const productsCollection = MongoHelper.getCollection("products");
+    const originalProduct = await this.findProductById(id);
+    const [originalName, originalPrice, originalDescription] = [
+      originalProduct.name,
+      originalProduct.price,
+      originalProduct.description,
+    ];
     const productUpdate = await productsCollection.replaceOne(
       { id: id },
-      { name, price, description, id }
+      {
+        name: name || originalName,
+        price: price || originalPrice,
+        description: description || originalDescription,
+        id,
+      }
     );
     return productUpdate;
   }
