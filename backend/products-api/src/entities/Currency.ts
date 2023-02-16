@@ -7,4 +7,16 @@ export interface CurrencyProps {
 
 export class Currency {
   constructor(private props: CurrencyProps) {}
+  get code() {
+    return this.props.code;
+  }
+  get codeIn() {
+    return this.props.codeIn;
+  }
+  get name() {
+    return this.props.name;
+  }
+  get high() {
+    return this.props.high;
+  }
 }
