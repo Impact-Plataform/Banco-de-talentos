@@ -41,6 +41,8 @@ export class ProductController {
 
   async getProductById(idParam: string): Promise<HttpResponse> {
     const getProductUsecase = await this.usecaseProduct.getProductById(idParam);
-    return ok(getProductUsecase);
+    return getProductUsecase
+      ? ok(getProductUsecase)
+      : clientError("product not found");
   }
 }
