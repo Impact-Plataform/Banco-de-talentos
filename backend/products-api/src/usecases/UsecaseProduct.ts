@@ -102,6 +102,6 @@ export class UsecaseProduct {
 
   async getProductById(id: string): Promise<any | false> {
     const findProduct = await this.repository.findProductById(id);
-    return findProduct;
+    return findProduct || false;
   }
 }
