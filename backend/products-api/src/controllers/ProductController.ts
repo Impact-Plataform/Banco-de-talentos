@@ -38,4 +38,9 @@ export class ProductController {
       ? clientError("Product not foud or you named a existent name")
       : ok(updateProductUsecase);
   }
+
+  async getProductById(idParam: string): Promise<HttpResponse> {
+    const getProductUsecase = await this.usecaseProduct.getProductById(idParam);
+    return ok(getProductUsecase);
+  }
 }
