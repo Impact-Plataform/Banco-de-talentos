@@ -1,9 +1,9 @@
-import { Product } from "../../src/entities/Product";
+import { Product, ProductProps } from "../../src/entities/Product";
 import { InMemoryProductRepo } from "../../src/repositories/InMemoryProductRepo";
 import { UsecaseProduct } from "../../src/usecases/UsecaseProduct";
 
 describe("Create Product usecase", () => {
-  const product = {
+  const product: ProductProps = {
     name: "example",
     price: 19.9,
     description: "this is an example",
@@ -75,18 +75,24 @@ describe("Create Product usecase", () => {
   });
 
   test("Should return updated product if can update product", async () => {
-    const products: Product[] = [];
-    const repositorie = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repositorie);
-    const createProduct = await productUsecase.create(product);
+    const products: ProductProps[] = [];
+    const repository = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repository);
 
-    const { id } = createProduct && createProduct;
-
+    const createProduct = await productUsecase.create({
+      name: "product",
+      price: 200,
+      description: "description",
+    });
+    console.log("created product id", createProduct.id);
+    const productId = createProduct && createProduct.id;
+    const findByName = await repository.findProductByName("product");
     const updateProduct = await productUsecase.updateProduct(
-      { price: 400 },
-      id
+      {
+        price: 20,
+      },
+      productId
     );
-
     expect(updateProduct).toBeTruthy();
   });
 
