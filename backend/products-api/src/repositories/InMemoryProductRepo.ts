@@ -37,19 +37,20 @@ export class InMemoryProductRepo implements IProductRepository {
     price?: number,
     description?: string
   ): Promise<any> {
-    const product: ProductProps = await this.findProductById(id);
+    const product = await this.findProductById(id);
+
     const updateProduct = {
-      ...product,
       name: name || product.name,
       price: price || product.price,
       description: description || product.description,
     };
-    const updateList = this.list.map((item) => {
-      if (item === product) {
-        item = updateProduct;
-      }
-      return item;
-    });
+
+    const itemIndex = this.list.findIndex((item) => item.id === id);
+
+    (this.list[itemIndex].name = updateProduct.name),
+      (this.list[itemIndex].price = updateProduct.price),
+      (this.list[itemIndex].description = updateProduct.description);
+
     return updateProduct;
   }
 }
