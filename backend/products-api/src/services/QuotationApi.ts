@@ -1,7 +1,7 @@
 import { baseApi } from "./baseAPI";
 
 export class QuotationApi {
-  static async getAPIQuotationInfo(endpoint: string) {
+  async getAPIQuotationInfo(endpoint: string) {
     const apiReturn = await baseApi.get(endpoint);
     const data = apiReturn.data;
 
