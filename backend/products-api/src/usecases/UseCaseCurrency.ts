@@ -24,4 +24,9 @@ export class UseCaseCurrency {
   async createDollar() {
     return await this.createCurrencyBase("USD");
   }
+
+  async getCurrency(symbol: string) {
+    const findCurrency = this.repository.findByCode(symbol);
+    return findCurrency;
+  }
 }
