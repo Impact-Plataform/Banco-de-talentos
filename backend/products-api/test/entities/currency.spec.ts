@@ -3,7 +3,7 @@ import { Currency, CurrencyProps } from "../../src/entities/Currency";
 describe("Curreny entity", () => {
   const currencyProps: CurrencyProps = {
     code: "USD",
-    codeIn: "BRL",
+    codein: "BRL",
     name: "Dólar Americano/Real Brasileiro",
     high: "5",
   };
@@ -14,7 +14,7 @@ describe("Curreny entity", () => {
   test("Should get all props", () => {
     const currency = new Currency(currencyProps);
     expect(currency.code).toBe("USD");
-    expect(currency.codeIn).toBe("BRL");
+    expect(currency.codein).toBe("BRL");
     expect(currency.name).toBe("Dólar Americano/Real Brasileiro");
     expect(currency.high).toBe("5");
   });
