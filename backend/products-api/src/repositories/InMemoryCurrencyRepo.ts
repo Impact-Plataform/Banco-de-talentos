@@ -1,5 +1,5 @@
-import { CurrencyProps } from '../entities/Currency';
-import {ICurrencyRepository} from './ports/ICurrencyRepository' 
+import { CurrencyProps } from "../entities/Currency";
+import { ICurrencyRepository } from "./ports/ICurrencyRepository";
 
 export class InMemoryCurrencyRepo implements ICurrencyRepository {
   constructor(private currencies: CurrencyProps[]) {}
@@ -8,12 +8,13 @@ export class InMemoryCurrencyRepo implements ICurrencyRepository {
     this.currencies.push(currency);
   }
   async findByCode(code: string): Promise<any> {
-    throw new Error("Method not implemented.");
+    const findCurrency = this.currencies.find(
+      (currency) => currency.code === code
+    );
+    return findCurrency || false;
   }
+
   async getAll(): Promise<any> {
-    throw new Error("Method not implemented.");
-  }
-   getOne(code: string): Promise<any> {
     throw new Error("Method not implemented.");
   }
 }
