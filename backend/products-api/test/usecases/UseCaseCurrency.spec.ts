@@ -29,4 +29,14 @@ describe("Use case currency", () => {
     const usd = await currencyUsecase.createDollar();
     expect(usd).toBeTruthy();
   });
+
+  test("should find currency by code", async () => {
+    const currencyList: CurrencyProps[] = [];
+    const repository = new InMemoryCurrencyRepo(currencyList);
+    const service = new QuotationApi();
+    const currencyUsecase = new UseCaseCurrency(repository, service);
+    const usd = await currencyUsecase.createDollar();
+    const findUsd = await currencyUsecase.getCurrency("USD");
+    expect(findUsd).toBeTruthy();
+  });
 });
