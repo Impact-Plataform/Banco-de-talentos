@@ -1,6 +1,6 @@
 export interface CurrencyProps {
   code: string;
-  codeIn: string;
+  codein: string;
   name: string;
   high: string;
 }
@@ -10,8 +10,8 @@ export class Currency {
   get code() {
     return this.props.code;
   }
-  get codeIn() {
-    return this.props.codeIn;
+  get codein() {
+    return this.props.codein;
   }
   get name() {
     return this.props.name;
