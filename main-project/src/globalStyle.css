@@ -13,7 +13,7 @@
     } 
 
     body{
-        @apply bg-black;
+        @apply bg-black p-5;
     } 
 
     h1, h2, h3, h4{

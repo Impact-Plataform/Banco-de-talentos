@@ -6,7 +6,7 @@ import { SearchBar } from '../../components/SearchBar'
 
 export function Homepage() {
 	return (
-		<div className="p-5 flex flex-col gap-4">
+		<div className="flex flex-col gap-4">
 			<Header />
 			<SearchBar />
 			<Filters />
