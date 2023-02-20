@@ -26,7 +26,11 @@ export class UseCaseCurrency {
   }
 
   async getCurrency(symbol: string) {
-    const findCurrency = this.repository.findByCode(symbol);
+    const findCurrency = await this.repository.findByCode(symbol);
     return findCurrency;
+  }
+
+  async deleteAll() {
+    await this.repository.deleteAll();
   }
 }
