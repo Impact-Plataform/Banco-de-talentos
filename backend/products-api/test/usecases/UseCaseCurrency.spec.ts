@@ -30,7 +30,7 @@ describe("Use case currency", () => {
     expect(usd).toBeTruthy();
   });
 
-  test("should find currency by code", async () => {
+  test("should find currency by code USD", async () => {
     const currencyList: CurrencyProps[] = [];
     const repository = new InMemoryCurrencyRepo(currencyList);
     const service = new QuotationApi();
@@ -39,6 +39,17 @@ describe("Use case currency", () => {
     const findUsd = await currencyUsecase.getCurrency("USD");
     expect(findUsd).toBeTruthy();
   });
+
+  test("should find currency by code EUR", async () => {
+    const currencyList: CurrencyProps[] = [];
+    const repository = new InMemoryCurrencyRepo(currencyList);
+    const service = new QuotationApi();
+    const currencyUsecase = new UseCaseCurrency(repository, service);
+    const usd = await currencyUsecase.createEur();
+    const findUsd = await currencyUsecase.getCurrency("EUR");
+    expect(findUsd).toBeTruthy();
+  });
+
   test("should delete all", async () => {
     const currencyList: CurrencyProps[] = [];
     const repository = new InMemoryCurrencyRepo(currencyList);
