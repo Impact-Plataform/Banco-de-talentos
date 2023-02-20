@@ -17,4 +17,8 @@ export class InMemoryCurrencyRepo implements ICurrencyRepository {
   async getAll(): Promise<any> {
     throw new Error("Method not implemented.");
   }
+
+  async deleteAll(): Promise<void> {
+    this.currencies.length = 0;
+  }
 }
