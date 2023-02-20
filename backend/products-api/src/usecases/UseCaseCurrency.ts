@@ -25,6 +25,10 @@ export class UseCaseCurrency {
     return await this.createCurrencyBase("USD");
   }
 
+  async createEur() {
+    return await this.createCurrencyBase("EUR");
+  }
+
   async getCurrency(symbol: string) {
     const findCurrency = await this.repository.findByCode(symbol);
     return findCurrency;
