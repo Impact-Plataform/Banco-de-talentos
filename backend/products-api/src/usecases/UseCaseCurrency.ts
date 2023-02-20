@@ -37,4 +37,7 @@ export class UseCaseCurrency {
   async deleteAll() {
     await this.repository.deleteAll();
   }
+  async getCurrencies() {
+    return this.repository;
+  }
 }
