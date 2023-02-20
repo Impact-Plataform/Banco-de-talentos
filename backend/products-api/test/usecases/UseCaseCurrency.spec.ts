@@ -60,4 +60,15 @@ describe("Use case currency", () => {
     const deleteAll = await currencyUsecase.deleteAll();
     expect(currencyList.length).toBe(0);
   });
+  test("should get all currencies", async () => {
+    const currencyList: CurrencyProps[] = [];
+    const repository = new InMemoryCurrencyRepo(currencyList);
+    const service = new QuotationApi();
+    const currencyUsecase = new UseCaseCurrency(repository, service);
+    const createCurrency = await currencyUsecase.create(currencyProps);
+
+    const getAllCurrencies = await currencyUsecase.getCurrencies();
+
+    expect(getAllCurrencies).toBeTruthy();
+  });
 });
