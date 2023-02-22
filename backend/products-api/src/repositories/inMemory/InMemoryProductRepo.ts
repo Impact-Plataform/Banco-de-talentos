@@ -1,5 +1,5 @@
-import { ProductProps } from "../entities/Product";
-import { IProductRepository } from "./ports/IProductRepository";
+import { ProductProps } from "../../entities/Product";
+import { IProductRepository } from "../ports/IProductRepository";
 
 export class InMemoryProductRepo implements IProductRepository {
   constructor(private list: ProductProps[]) {}

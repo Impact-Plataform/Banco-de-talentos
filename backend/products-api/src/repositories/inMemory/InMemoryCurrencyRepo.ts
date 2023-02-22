@@ -1,5 +1,5 @@
-import { CurrencyProps } from "../entities/Currency";
-import { ICurrencyRepository } from "./ports/ICurrencyRepository";
+import { CurrencyProps } from "../../entities/Currency";
+import { ICurrencyRepository } from "../ports/ICurrencyRepository";
 
 export class InMemoryCurrencyRepo implements ICurrencyRepository {
   constructor(private currencies: CurrencyProps[]) {}
