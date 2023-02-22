@@ -1,5 +1,5 @@
 import { Product } from "../../src/entities/Product";
-import { InMemoryProductRepo } from "../../src/repositories/InMemoryProductRepo";
+import { InMemoryProductRepo } from "../../src/repositories/inMemory/InMemoryProductRepo";
 import { UsecaseProduct } from "../../src/usecases/UsecaseProduct";
 import { RequestHTTP } from "../../src/controllers/ports/requestHttp";
 import { ProductController } from "../../src/controllers/ProductController";

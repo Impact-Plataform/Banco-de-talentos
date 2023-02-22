@@ -1,6 +1,6 @@
 import { CurrencyController } from "../../controllers/CurrencyController";
 import { CurrencyProps } from "../../entities/Currency";
-import { InMemoryCurrencyRepo } from "../../repositories/InMemoryCurrencyRepo";
+import { InMemoryCurrencyRepo } from "../../repositories/inMemory/InMemoryCurrencyRepo";
 import { QuotationApi } from "../../services/QuotationApi";
 import { UseCaseCurrency } from "../../usecases/UseCaseCurrency";
 
