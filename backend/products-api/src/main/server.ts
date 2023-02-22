@@ -1,10 +1,13 @@
 import { MongoHelper } from "../repositories/mongodb/helper/mongoHelper";
+import { client } from "../repositories/redis/client/redisClient";
+
 
 MongoHelper.connect(process.env.MONGODB_URL)
   .then(async () => {
+    await client.connect()
     const app = (await import("./config/app")).default;
-    app.listen(5000, () => {
-      console.log("Server running at https://leonardo-cabral67-friendly-invention-w44vrj4grqph5vv-5000.preview.app.github.dev/");
+    app.listen(3000, () => {
+      console.log("Server running at http://localhost:3000");
     });
   })
   .catch((err) => console.log(err));
