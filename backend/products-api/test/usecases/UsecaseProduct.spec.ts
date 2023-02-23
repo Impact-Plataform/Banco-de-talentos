@@ -147,8 +147,7 @@ describe("Create Product usecase", () => {
   test("Should return product when get product by id", async () => {
     const products: ProductProps[] = [];
     const repository = new InMemoryProductRepo(products);
-        const quotationService = new QuotationApi()
-
+    const quotationService = new QuotationApi()
     const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create({
@@ -162,12 +161,14 @@ describe("Create Product usecase", () => {
     );
 
     expect(getProductById.name).toBe("product");
+    expect(getProductById.priceInUSD < getProductById.price).toBe(true)
+    expect(getProductById.priceInEUR < getProductById.price).toBe(true)
   });
 
   test("Should return false when get unexistent product", async () => {
     const products: ProductProps[] = [];
     const repository = new InMemoryProductRepo(products);
-        const quotationService = new QuotationApi()
+    const quotationService = new QuotationApi()
 
     const productUsecase = new UsecaseProduct(repository, quotationService);
 
