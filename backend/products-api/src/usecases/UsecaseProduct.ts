@@ -8,9 +8,6 @@ interface CreateProductRequest {
   description: string;
 }
 
-interface DeleteProductRequestParam {
-  name: string;
-}
 
 interface UpdateProductProps {
   name?: string;
@@ -22,7 +19,7 @@ type ResponseCreateProduct = Promise<any | false>;
 type ResponseGetProducts = Promise<any[]>;
 
 export class UsecaseProduct {
-  constructor(private repository: IProductRepository, quotationService: QuotationApi) {}
+  constructor(private repository: IProductRepository, private quotationService: QuotationApi) {}
 
   async create({
     name,
@@ -103,7 +100,7 @@ export class UsecaseProduct {
 
   convertCurrency(priceInBRL: number, currency: number) {
     const result = priceInBRL / currency
-    return result
+    return result.toFixed(2)
   }
 
   async getProductById(id: string): Promise<any | false> {
