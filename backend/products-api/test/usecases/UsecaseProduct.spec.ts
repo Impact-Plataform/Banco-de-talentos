@@ -168,4 +168,12 @@ describe("Create Product usecase", () => {
 
     expect(getProductById).toBe(false);
   });
+
+  test("Should convert correctly", () => {
+    const products: ProductProps[] = [];
+    const repository = new InMemoryProductRepo(products);
+    const productUsecase = new UsecaseProduct(repository);
+
+    expect(productUsecase.convertCurrency(20, 5)).toBe(4)
+  })
 });
