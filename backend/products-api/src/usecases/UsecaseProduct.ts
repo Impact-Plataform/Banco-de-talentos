@@ -1,5 +1,6 @@
 import { Product, ProductProps } from "../entities/Product";
 import { IProductRepository } from "../repositories/ports/IProductRepository";
+import { QuotationApi } from "../services/QuotationApi";
 
 interface CreateProductRequest {
   name: string;
@@ -21,7 +22,7 @@ type ResponseCreateProduct = Promise<any | false>;
 type ResponseGetProducts = Promise<any[]>;
 
 export class UsecaseProduct {
-  constructor(private repository: IProductRepository) {}
+  constructor(private repository: IProductRepository, quotationService: QuotationApi) {}
 
   async create({
     name,
