@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { adapteUpdateProductRoute } from "../adapters/adapteUpdateProductRoute";
+import { adaptUpdateProductRoute } from "../adapters/adaptUpdateProductRoute";
 import { makeProductController } from "../factories/makeProductController";
 
 export default (router: Router) => {
-  router.put("/Products/:id", adapteUpdateProductRoute(makeProductController()));
+  router.put("/Products/:id", adaptUpdateProductRoute(makeProductController()));
 };

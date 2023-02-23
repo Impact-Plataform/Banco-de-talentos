@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { adapteGetCurrenciesRoute } from "../adapters/adapteGetCurrenciesRoute";
+import { adaptGetCurrenciesRoute } from "../adapters/adaptGetCurrenciesRoute";
 import { makeCurrencyController } from "../factories/makeCurrencyController";
 
 export default (router: Router) => {
-  router.get("/Currency", adapteGetCurrenciesRoute(makeCurrencyController()))
+  router.get("/Currency", adaptGetCurrenciesRoute(makeCurrencyController()))
 }
