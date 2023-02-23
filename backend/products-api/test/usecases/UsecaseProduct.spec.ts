@@ -93,7 +93,6 @@ describe("Create Product usecase", () => {
       price: 200,
       description: "description",
     });
-    console.log("created product id", createProduct.id);
     const productId = createProduct && createProduct.id;
     const findByName = await repository.findProductByName("product");
     const updateProduct = await productUsecase.updateProduct(

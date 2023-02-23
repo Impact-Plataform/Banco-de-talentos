@@ -4,7 +4,6 @@ describe("Quotation api service", () => {
   test("get dollar currency info from url", async () => {
     const quotationApi = new QuotationApi();
     const dollarInfo = await quotationApi.getAPIQuotationInfo("/USD-BRL");
-    console.log(dollarInfo);
     expect(dollarInfo).toBeTruthy();
   });
 });
