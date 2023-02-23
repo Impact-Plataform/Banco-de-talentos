@@ -100,6 +100,11 @@ export class UsecaseProduct {
     return findUpdatedProduct;
   }
 
+  convertCurrency(priceInBRL: number, currency: number) {
+    const result = priceInBRL / currency
+    return result
+  }
+
   async getProductById(id: string): Promise<any | false> {
     const findProduct = await this.repository.findProductById(id);
     return findProduct || false;
