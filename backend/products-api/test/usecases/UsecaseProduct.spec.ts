@@ -1,5 +1,6 @@
 import { Product, ProductProps } from "../../src/entities/Product";
 import { InMemoryProductRepo } from "../../src/repositories/inMemory/InMemoryProductRepo";
+import { QuotationApi } from "../../src/services/QuotationApi";
 import { UsecaseProduct } from "../../src/usecases/UsecaseProduct";
 
 describe("Create Product usecase", () => {
@@ -12,7 +13,8 @@ describe("Create Product usecase", () => {
   test("it should be possible create a product", async () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+    const quotationService = new QuotationApi()
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create(product);
     expect(createProduct).toBeTruthy();
@@ -21,7 +23,9 @@ describe("Create Product usecase", () => {
   test("it should not be possible create a product with same name", async () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+        const quotationService = new QuotationApi()
+
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const product1 = await productUsecase.create(product);
     const product2 = await productUsecase.create(product);
@@ -32,7 +36,9 @@ describe("Create Product usecase", () => {
   test("it should return all products", async () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+        const quotationService = new QuotationApi()
+
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const product1 = await productUsecase.create(product);
     const product2 = await productUsecase.create({
@@ -48,7 +54,8 @@ describe("Create Product usecase", () => {
   test("Should not be any product after delete", async () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+    const quotationService = new QuotationApi()
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create(product);
     const id = createProduct && createProduct.id;
@@ -62,7 +69,8 @@ describe("Create Product usecase", () => {
   test("should return false if try to delete a unexisting product", async () => {
     const products: Product[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+    const quotationService = new QuotationApi()
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create(product);
     const id = "1234";
@@ -77,7 +85,8 @@ describe("Create Product usecase", () => {
   test("Should return updated product if can update product", async () => {
     const products: ProductProps[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+    const quotationService = new QuotationApi()
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create({
       name: "product",
@@ -98,8 +107,9 @@ describe("Create Product usecase", () => {
 
   test("Should return false if try to update unexisting product", async () => {
     const products: Product[] = [];
-    const repositorie = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repositorie);
+    const repository = new InMemoryProductRepo(products);
+    const quotationService = new QuotationApi()
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create(product);
     const updateProduct = await productUsecase.updateProduct(
@@ -112,8 +122,9 @@ describe("Create Product usecase", () => {
 
   test("Should return false if try to update name to same name of some existing product", async () => {
     const products: Product[] = [];
-    const repositorie = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repositorie);
+    const repository = new InMemoryProductRepo(products);
+    const quotationService = new QuotationApi()
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create(product);
     const createProduct2 = await productUsecase.create({
@@ -136,7 +147,9 @@ describe("Create Product usecase", () => {
   test("Should return product when get product by id", async () => {
     const products: ProductProps[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+        const quotationService = new QuotationApi()
+
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create({
       name: "product",
@@ -154,7 +167,9 @@ describe("Create Product usecase", () => {
   test("Should return false when get unexistent product", async () => {
     const products: ProductProps[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+        const quotationService = new QuotationApi()
+
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     const createProduct = await productUsecase.create({
       name: "product",
@@ -172,7 +187,9 @@ describe("Create Product usecase", () => {
   test("Should convert correctly", () => {
     const products: ProductProps[] = [];
     const repository = new InMemoryProductRepo(products);
-    const productUsecase = new UsecaseProduct(repository);
+        const quotationService = new QuotationApi()
+
+    const productUsecase = new UsecaseProduct(repository, quotationService);
 
     expect(productUsecase.convertCurrency(20, 5)).toBe(4)
   })
