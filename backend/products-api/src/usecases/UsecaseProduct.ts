@@ -105,6 +105,21 @@ export class UsecaseProduct {
 
   async getProductById(id: string): Promise<any | false> {
     const findProduct = await this.repository.findProductById(id);
-    return findProduct || false;
+
+    if(!findProduct) {
+      return false
+    }
+
+    const priceBRL = findProduct.price
+    const dollar = await this.quotationService.getAPIQuotationInfo("USD")
+    const eur = await this.quotationService.getAPIQuotationInfo("EUR")
+    
+    const findProductWithCurrencies = {
+      ...findProduct,
+      priceInUSD: this.convertCurrency(priceBRL, Number(dollar.USD.high)),
+      priceInEUR: this.convertCurrency(priceBRL, Number(eur.EUR.high))
+    }
+
+    return findProductWithCurrencies;
   }
 }
