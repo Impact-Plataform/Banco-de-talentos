@@ -3,7 +3,7 @@ import { HttpResponse } from "../../controllers/ports/httpResponse";
 import { RequestHTTP } from "../../controllers/ports/requestHttp";
 import { ProductController } from "../../controllers/ProductController";
 
-export const adapteDeleteProductByNameRoute = (
+export const adaptDeleteProductByNameRoute = (
   controller: ProductController
 ) => {
   return async (req: Request, res: Response) => {

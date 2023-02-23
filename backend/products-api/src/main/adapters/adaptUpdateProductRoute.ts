@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { RequestHTTP } from "../../controllers/ports/requestHttp";
 import { ProductController } from "../../controllers/ProductController";
 
-export const adapteUpdateProductRoute = (controller: ProductController) => {
+export const adaptUpdateProductRoute = (controller: ProductController) => {
   return async (req: Request, res: Response) => {
     const request: RequestHTTP = {
       body: req.body,
