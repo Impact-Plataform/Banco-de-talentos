@@ -23,7 +23,7 @@ export class ProductController {
     const deleteSuccesfully = await this.usecaseProduct.deleteById(paramId);
     return deleteSuccesfully
       ? ok(`Product deleted successfully`)
-      : clientError("Does not exists a product with this name");
+      : clientError("Does not exists a product with this id");
   }
 
   async updateProduct(
