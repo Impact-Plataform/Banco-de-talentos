@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  db:
+    image: "mongo:5.0.1"
+    container_name: db
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_DATABASE: products
+
+  redis:
+    image: redis
+    container_name: redis-cache
+    restart: always
+    depends_on:
+      - db
+    ports: 
+      - 6379:6379
+      
+  app:
+    image: node
+    container_name: backend
+    restart: always
+    depends_on:
+      - db
+      - redis
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: npm run dev
+    logging:
+      driver: "json-file"
+      options: 
+        max-size: "10m"
+        max-file: "5"
