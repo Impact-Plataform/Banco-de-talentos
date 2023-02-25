@@ -2,7 +2,7 @@ import { MongoHelper } from "../repositories/mongodb/helper/mongoHelper";
 import { client } from "../repositories/redis/client/redisClient";
 
 
-MongoHelper.connect("mongodb://localhost:27017/api-products")
+MongoHelper.connect("mongodb://db:27017/api-products")
   .then(async () => {
     await client.connect()
     const app = (await import("./config/app")).default;
