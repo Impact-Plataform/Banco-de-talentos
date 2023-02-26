@@ -19,7 +19,7 @@ services:
       - 6379:6379
       
   app:
-    image: node
+    image: node_backend
     container_name: backend
     restart: always
     depends_on:
