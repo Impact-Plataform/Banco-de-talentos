@@ -6,8 +6,7 @@
 * [SWAPI](#swapi)
 * [Figma layout Reference](#figma-layout-reference)
 * [Dependencies](#dependencies)
-* [How to run locally](#how-to-run-locally)
-* [Application architecture](#application-architecture)
+* [How to run it locally](#how-to-run-it-locally)
 * [Application standards](#application-standards)
   * [Conventional Commits](#conventional-commits) 
   * [File names](#file-names)
@@ -83,7 +82,7 @@ This application uses react with typescript, css for styles and context API to s
 # [Application standards](#sumary)
   
   ## Conventional Commits
-    This application uses conventional commits to standardize commit messages. You can know more [here](https://www.conventionalcommits.org/en/v1.0.0/)
+    This application uses conventional commits to standardize commit messages. You can know more at https://www.conventionalcommits.org/en/v1.0.0/
   ## File names
 
     * If you open the project, you can see that i difficultly use 'index' name to my files.
