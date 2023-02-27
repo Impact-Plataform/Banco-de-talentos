@@ -81,3 +81,20 @@ This is a simple API made with node, express and mongodb. You can create, update
 
 ### Node tools
 * [Ts-node-dev](https://www.npmjs.com/package/ts-node-dev): It restarts target node process when any of required files changes (as standard node-dev) but shares Typescript compilation process between restarts. 
+
+
+## [How to run locally](#summary)
+
+### [Using docker](#summary)
+
+1. First you need to clone this repository
+2. You need have docker installed in your machine.
+3. Run ```docker build -t node_backend .```
+  * If you change "node_backend" name, you need to change this name at docker-compose file too.  
+4. run ```docker compose up -d```
+  * "-d" (or --detach) is optional, using it means that docker container will run in the background of your terminal.
+  * After running this command, you will have aplication running in your machine at port 3000, mongodb at port 27017 and redis at port 6379.
+
+5. If you do not have docker in your computer, you can make those steps using [codespaces](https://docs.github.com/en/codespaces) or [gitpod](https://www.gitpod.io/screencasts/getting-started-with-gitpod).
+
+
