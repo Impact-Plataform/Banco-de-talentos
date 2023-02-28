@@ -132,11 +132,15 @@ Base URL is ```localhost:3000``` in your machine.
 
 <h3 id="post-products">POST -> /Products</h3>
 * You need to send a request body with these properties:
+
 ```JSON
+{
   "name": "product", // String
   "price": 2000, // Number
   "description": "product description" // String
+}
 ```
+
 * You cannot create a product with a existing name. If you try, it will return a **status code 400** and a body with this message:
 ```JSON
 "already exists a product with this name"
@@ -160,6 +164,7 @@ it returns:
 <h3 id="get-products">GET -> /Products</h3>
 It will return a **status code 200** and body returns an array of products. These products will have Product properties.
 Example: 
+
 ```JSON
 [
   {
@@ -209,6 +214,7 @@ Example:
 
 <h3 id="put-product">PUT -> /Products/:id</h3>
 * We will use this product as example.
+
 ```JSON
 {
    "_id": "63fd2f5b1ed729e1ba09e3bf",
