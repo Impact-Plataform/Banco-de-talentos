@@ -14,6 +14,8 @@
   * [GET -> /Products/:id](#get-product)
   * [PUT -> /Products/:id](#put-product)
   * [DELETE -> /Products/:id](#delete-product)
+  * [GET -> /Currency](#get-currency)
+  * [GET -> /Currency/:symbol](#get-currencies)
 
 * [Routes docs at Swagger](#routes-docs-at-swagger)
 * [Architecture](#architecture)
@@ -114,7 +116,6 @@ This is a simple API made with node, express and mongodb. You can create, update
 ---
 
 ## [Routes](#summary)
-
 ### Base URL
 Base URL is ```localhost:3000``` in your machine. 
 
@@ -262,3 +263,26 @@ response body:
 
 3. If you pass an id of an existing product, it will delete him. It will return a **status code 200** and body with message: ```"Product deleted successfully"```
 4. If you pass an unexisting product id, it will return a **status code 400** and a body with message: ```"Does not exists a product with this id"```
+
+---
+
+<h3 id="get-currency">GET -> /Currency</h3>
+
+* This route returns an array with all Currencies used (USD and EUR).
+* <p id="currency-props">Each currency has properties:</p> 
+
+```JSON
+  {
+    "code": "USD", // A string with currency code name.
+    "codein": "BRL", // all currencies have a 'codein' BRL because it is converted to BRL
+    "name": "Dólar Americano/Real Brasileiro", 
+    "high": "5.2426" // high currency value
+  }
+```  
+
+<h3 id="get-currencies">GET -> /Currency/:symbol</h3>
+
+* It returns a currency specified by symbol param.
+* If you put an unexisting currency it will return a **status code 400** and body with message: 
+```"Currency not found"``` 
+* If you put a existing currency, it will return a **status code 200** and body returns a currency with [props](#currency-props) .
