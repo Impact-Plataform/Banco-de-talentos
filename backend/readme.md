@@ -7,6 +7,14 @@
 * [How to run locally](#how-to-run-locally)
    * [Using docker](#using-docker)
 * [Routes](#routes)
+  * [Base URL](#base-url)
+  * [Product properties](#product-properties)
+  * [POST -> /Products](#post-products)
+  * [GET -> /Products](#get-products)
+  * [GET -> /Products/:id](#get-product)
+  * [PUT -> /Products/:id](#put-product)
+  * [DELETE -> /Products/:id](#delete-product)
+
 * [Routes docs at Swagger](#routes-docs-at-swagger)
 * [Architecture](#architecture)
 
@@ -122,9 +130,7 @@ Base URL is ```localhost:3000``` in your machine.
 }
 ```
 
-### endpoint: /Products
-
-### POST -> /Products
+<h3 id="post-products">POST -> /Products</h3>
 * You need to send a request body with these properties:
 ```JSON
   "name": "product", // String
@@ -151,7 +157,7 @@ it returns:
 ```
 
 
-### GET -> /Products
+<h3 id="get-products">GET -> /Products</h3>
 It will return a **status code 200** and body returns an array of products. These products will have Product properties.
 Example: 
 ```JSON
@@ -180,7 +186,7 @@ Example:
 ]
 ```
 
-### Get -> /Products/:id
+<h3 id="get-product">Get -> /Products/:id</h3>
 
 * If you put an existent id, it will return a **status code 200** and in body it will return a product with this id and prices in USD and EUR.
 Example:
@@ -201,7 +207,7 @@ Example:
 "product not found"
 ```
 
-### PUT -> /Products/:id
+<h3 id="put-product">PUT -> /Products/:id</h3>
 * We will use this product as example.
 ```JSON
 {
@@ -241,8 +247,12 @@ response body:
 }
 ```
 
+* If you make any of the mentioned mistakes, it will return a **status code 400** and a body with message: ``` "Product not foud or you named a existent name" ```
 
+<h3 id="delete-product">DELETE -> /Products/:id</h3>
 
+1. In this API DELETE method is very easy, you just need product id.
+2. You pass it as a param after ```"/Products/<here>"```
 
-
-
+3. If you pass an id of an existing product, it will delete him. It will return a **status code 200** and body with message: ```"Product deleted successfully"```
+4. If you pass an unexisting product id, it will return a **status code 400** and a body with message: ```"Does not exists a product with this id"```
