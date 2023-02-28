@@ -6,6 +6,7 @@
 * [Dependencies](#dependencies)
 * [How to run locally](#how-to-run-locally)
    * [Using docker](#using-docker)
+* [File system routing](#file-system-routing)
 * [Routes](#routes)
   * [Base URL](#base-url)
   * [Product properties](#product-properties)
@@ -23,7 +24,7 @@
 ---
 
 ## [About this application](#summary)
-This is a simple REST API made with node, express and mongodb. You can create, update, read and delete products. It returns too currencies in EUR and USD. 
+This is a simple REST API made with node, express and mongodb. You can create, update, read and delete products. It returns too currencies in EUR and USD. This API has been made using node, typescript, clean architecure, SOLID, TDD, file system routing and too much more.
 
 ---
 
@@ -112,6 +113,16 @@ This is a simple REST API made with node, express and mongodb. You can create, u
   * After running this command, you will have aplication running in your machine at port 3000, mongodb at port 27017 and redis at port 6379.
 
 5. If you do not have docker in your computer, you can make these steps using [codespaces](https://docs.github.com/en/codespaces) or [gitpod](https://www.gitpod.io/screencasts/getting-started-with-gitpod).
+
+---
+
+
+## [File system routing](#summary) 
+* In this applicaiton i used file system routing strategy.
+* Configs to make it are in the file ```products-api/src/main/config/routes.ts```.
+  * I used: readDirSync, join and dynamic imports from nodejs.
+* All routes are in the folder ```products-api/src/main/routes```. 
+* I used because it becomes easy and simple to make a new route.  
 
 ---
 
@@ -286,3 +297,52 @@ response body:
 * If you put an unexisting currency it will return a **status code 400** and body with message: 
 ```"Currency not found"``` 
 * If you put a existing currency, it will return a **status code 200** and body returns a currency with [props](#currency-props) .
+
+
+
+## [Architecture](#summary)
+
+ * I choose to implement [clean architecture](https://www.c-sharpcorner.com/article/what-is-clean-architecture/) in this simple API REST, i use [SOLID](#https://www.digitalocean.com/community/conceptual-articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design) and [TDD](https://www.martinfowler.com/bliki/TestDrivenDevelopment.html). 
+ * It is organized by layers.
+ * I choose because it is a good way to practice, it do not depends on frameworks, databases or any external services. I can easily change my database, node.js and any other dependency, that is, it is a system very independent and becomes testable. 
+ * Not just that, but my system is not coupled and very cohesive.
+
+ ### Entities layer:
+ * Entities layer is responsible by Enterprise business rules. In case of this API, until now we have 2 Entities: Product and Currency.
+  * Ex: Products have properties: name, price and description.
+
+ ### Repositories 
+ * Repositories layer is the one responsible by database interfaces, and database itself. All Databases classes implement an interface. 
+ * This way, We can create different classes that use different databases, but all implements same interface.  
+ 
+ ### Services
+ * In this layer are external services.
+ * I made API requests to an external API using [Axios](https://axios-http.com/docs/intro).
+
+ ### Use cases
+ * Use cases layer is reponsible to implement application bussines rules.
+  * Ex: Products can not be created if already exists other one with same name.
+ * Receive services by constructor, but is just a signature, so i can use any class wich follows this signature ([LCP](https://stackify.com/solid-design-liskov-substitution-principle/)), and my class will be not coupled to other classes, just the coupled to an abstraction ([DIV](https://www.geeksforgeeks.org/dependecy-inversion-principle-solid/)), it dependes just of a signature.
+
+    * Ex: ProductsUseCase depends on an interface IProductRepository. I have two differents implementations of this repository. MongodbProductsRepository and inMemoryProductsRepo. 
+    
+    When instantiate ProductsUseCase i can pass in my contructor an instantiation of MongodbProductsRepository or inMemoryProductsRepo.
+  
+    Don't matter wich one i use, it will not change my class ProductsUseCase functioning. 
+
+### Controllers
+* Controllers layer is responsible to intermediate the communication with external world. 
+* This is a REST API, that is, it uses http requests and responses.
+* So the communication with application and external world is through by HTTP.
+* As controller just intermediate communication, it receives by param http request body(if it is needed), works in **business application methods** and return a http response.
+* Busines application method are from use cases.
+  * controller receives use cases by param. it follows same principles mentioned in the use cases layer.
+
+### Main 
+* This is the layer wich contains the communication between external world and application itself. In this one, we use external frameworks. 
+* In the case of this API, i used express.
+
+
+
+
+
