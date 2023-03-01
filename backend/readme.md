@@ -2,6 +2,7 @@
 
 ## [Summary](#summary)
 * [About this application](#about-this-application)
+* [I have made a mistake](#i-have-made-a-mistake)
 * [Conventional commits ](#conventional-commits)
 * [Dependencies](#dependencies)
 * [How to run locally](#how-to-run-locally)
@@ -24,7 +25,14 @@
 ---
 
 ## [About this application](#summary)
-This is a simple REST API made with node, express and mongodb. You can create, update, read and delete products. It returns too currencies in EUR and USD. This API has been made using node, typescript, clean architecure, SOLID, TDD, file system routing and too much more.
+This is a simple REST API made with node, express and mongodb. You can create, update, read and delete products. It returns too currencies in EUR and USD. This API has been made using node, typescript, clean architecure, SOLID, TDD, file system routing and too much more. 
+
+---
+
+## [I have made a mistake](#summary)
+
+* Fist i developed frontend challenge and after i create this branch (leonardo-cabral-backend) from leonardo-cabral-frontend. When i realized, it was too late. 
+* So do not scary with number of commits, commits to this branch begin February 3, 2023.
 
 ---
 
@@ -298,12 +306,13 @@ response body:
 ```"Currency not found"``` 
 * If you put a existing currency, it will return a **status code 200** and body returns a currency with [props](#currency-props) .
 
+---
 
 ## [Routes docs at Swagger](#summary)
 
   You can access Swagger docs in the endpoint **"/docs"** when application run.
 
-
+---
 
 ## [Architecture](#summary)
 
