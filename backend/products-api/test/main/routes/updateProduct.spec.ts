@@ -1,7 +1,20 @@
 import request from "supertest";
 import app from "../../../src/main/config/app";
+import { MongoHelper } from "../../../src/repositories/mongodb/helper/mongoHelper";
 
 describe("Update product route", () => {
+  beforeAll(async () => {
+    await MongoHelper.connect(process.env.MONGO_URL);
+  });
+
+  afterAll(async () => {
+    await MongoHelper.disconnect();
+  });
+
+  beforeEach(async () => {
+    MongoHelper.clearCollection("products");
+  });
+
   test("Should return a product on success", async () => {
     const create = await request(app).post("/Products").send({
       name: "gamer chair",
