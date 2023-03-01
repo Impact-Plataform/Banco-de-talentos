@@ -100,7 +100,7 @@ export class UsecaseProduct {
 
   convertCurrency(priceInBRL: number, currency: number) {
     const result = priceInBRL / currency
-    return result.toFixed(2)
+    return Number(result.toFixed(2))
   }
 
   async getProductById(id: string): Promise<any | false> {
