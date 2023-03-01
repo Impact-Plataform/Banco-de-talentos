@@ -1,0 +1,346 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Products API",
+        "description": "The goal of this api is make a simple CRUD of products.",
+        "contact": {
+            "email":"leonardoleocabral@outlook.com",
+            "name":"Leonardo Cabral" 
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/Products": {
+            "post": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Create",
+                "description": "create a product",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "type": "object",
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            },
+                            "example": {
+                                "name": "Product example",
+                                "price": 2000,
+                                "description": "description of this product."
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/ProductWithId"
+                                }
+                            }
+                        }     
+                    },
+                    "400": {
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "string",
+                                    "example": "Already exists a product with this name"
+                                }
+                            }
+                        }     
+
+                    }   
+                }
+            },
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get products",
+                "description": "Return all products",
+                "responses": {
+                    "200": {
+                        "description": "List all products",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$refs": "#/components/schemas/ProductWithId"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Products/{id}": {
+            "get": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Get product by id",
+                "description": "Return specific product",
+                "parameters": [
+                    {
+                    "name": "id",
+                    "in": "path",
+                    "description": "product id for searching",
+                    "required": true
+                }
+            ],
+                "responses": {
+                    "200": {
+                        "description": "Get product by id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductWithCurrencies"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Get product by id",
+                        "content": {
+                            "application/json": {
+                                "type": "string",
+                                "example": "product not found"
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Change product by id",
+                "description": "Change properties from product",
+                "parameters": [
+                    {
+                    "name": "id",
+                    "in": "path",
+                    "description": "product id for searching",
+                    "required": true
+                }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "type": "object",
+                            "schema": {
+                                "$ref": "#/components/schemas/Product"
+                            },
+                            "example": {
+                                "name": "Other Product name",
+                                "price": 2,
+                                "description": "Other description for this product."
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Update Product.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProductWithId"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Get product by id",
+                        "content": {
+                            "application/json": {
+                                "type": "string",
+                                "example": "Product not foud or you named a existent name"
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Products"
+                ],
+                "summary": "Delete product by id",
+                "description": "Delete specific product",
+                "parameters": [
+                    {
+                    "name": "id",
+                    "in": "path",
+                    "description": "product id for delete",
+                    "required": true
+                }
+            ],
+                "responses": {
+                    "200": {
+                        "description": "Delete product by id",
+                        "content": {
+                            "application/json": {
+                                "type": "string",
+                                "example": "Product deleted successfully"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Get product by id",
+                        "content": {
+                            "application/json": {
+                                "type": "string",
+                                "example": "Does not exists a product with this id"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Currency": {
+            "get": {
+                "tags": ["Currency"],
+                "description": "Get currencies",
+                "summary": "Return a list with all currencies",
+                "responses": {
+                    "200": {
+                        "description": "Return a list with all currencies",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Currency"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/Currency/{symbol}": {
+            "get": {
+                "tags": [
+                    "Currency"
+                ],
+                "description": "Get Currency by symbol",
+                "summary": "It returns a specic currency",
+                "parameters": [
+                    {
+                        "name": "symbol",
+                        "in": "path",
+                        "description": "Symbol to get currency",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Return specific currency",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Currency"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Client error",
+                        "content": {
+                            "application/json": {
+                                "type": "string",
+                                "example": "Currency not found"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ProductWithId": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "ProductWithCurrencies": {
+                "type": "object",
+                "properties": {
+                    "_id": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "price": {
+                        "type": "number"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "priceInUSD": {
+                        "type": "string"
+                    },
+                    "priceInEUR":  {
+                        "type": "string"
+                    }
+                }
+            },
+            "Currency": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string"
+                    },
+                    "codein": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "high": {
+                        "type": "string"
+                    }    
+                }
+            }
+        }
+    }
+  }
+

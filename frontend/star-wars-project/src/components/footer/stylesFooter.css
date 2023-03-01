@@ -1,0 +1,27 @@
+.footer_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 50px;
+  border-top: 2px solid var(--color-gray-1);
+  overflow: hidden;
+}
+
+.footer__info,
+.footer__info__link {
+  color: var(--color-gray-1);
+  font-weight: 500;
+  font-size: var(--font-size-5);
+  text-transform: uppercase;
+}
+
+.footer__info__link::before {
+  content: " ";
+}
+
+.footer__info__link:hover {
+  color: var(--color-orange-1);
+  cursor: pointer;
+}
