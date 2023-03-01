@@ -299,6 +299,11 @@ response body:
 * If you put a existing currency, it will return a **status code 200** and body returns a currency with [props](#currency-props) .
 
 
+## [Routes docs at Swagger](#summary)
+
+  You can access Swagger docs in the endpoint **"/docs"** when application run.
+
+
 
 ## [Architecture](#summary)
 
