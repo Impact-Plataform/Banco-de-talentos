@@ -1,0 +1,72 @@
+.modal-character-info__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.modal-character-info__infos {
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  fle-wrap: nowrap;
+  flexp-direction: row;
+  align-items: center;
+  gap: 10px;
+  text-align: start;
+}
+
+.info__title {
+  width: 130px;
+
+  color: var(--color-gray-2);
+
+  font-size: var(--font-size-3);
+  font-weight: 600;
+}
+
+.info__value {
+  max-heihgt: 1ch;
+  white-space: nowrap;
+  text-align: start;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: var(--color-orange-1);
+  font-size: var(--font-size-4);
+  font-weight: 400;
+}
+
+.card__button {
+  width: 200px;
+  padding: 7px 2px;
+  align-self: center;
+
+  font-weight: 700;
+  font-size: var(--font-size-5);
+
+  background-color: var(--color-orange-1);
+  color: var(--color-white);
+}
+
+.card__button:hover {
+  transition: ease-in-out 0.3s;
+  background-color: var(--color-orange-2);
+  box-shadow: 2px 3px 8px 2px var(--color-orange-1);
+}
+
+.modal-character-info__button {
+  margin-top: 14px;
+  width: 230px;
+  background-color: var(--color-orange-2);
+  color: var(--color-white);
+  padding: 12px 0;
+  font-weight: 700;
+}
+
+.modal-character-info__button:hover {
+  transition: ease-in-out 0.3s;
+  background-color: var(--color-white);
+  color: var(--color-orange-1);
+  box-shadow: 2px 3px 8px 2px var(--color-orange-1);
+}

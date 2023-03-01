@@ -1,0 +1,19 @@
+.all-characters__container,
+.all-characters__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-characters__container {
+  flex-flow: column nowrap;
+  margin-bottom: 52px;
+  gap: 52px;
+}
+
+.all-characters__list {
+  width: 100%;
+  flex-flow: row wrap;
+  gap: 20px;
+  flex: 1;
+}

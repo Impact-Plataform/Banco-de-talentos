@@ -1,0 +1,18 @@
+.select__container {
+  width: 250px;
+  border: 1px solid var(--color-black);
+  font-size: var(--font-size-4);
+  color: var(--color-gray-2);
+  padding: 13px 0 13px 10px;
+}
+
+.select__option {
+  font-size: var(--font-size-4);
+  font-weigth: 500;
+  color: var(--color-orange-1);
+  padding: 13px 0 13px;
+}
+
+.select__option--placeholder {
+  color: var(--color-gray-1);
+}

@@ -1,0 +1,23 @@
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  justify-content: center;
+}
+
+.modal__close-button {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 32px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 28px;
+  background-color: var(--color-gray-1);
+  color: var(--color-orange-2);
+  align-self: start;
+}
+
+.modal__close-button:hover {
+  background-color: var(--color-white);
+  box-shadow: 2px 2px 16px 6px var(--color-gray-1);
+}

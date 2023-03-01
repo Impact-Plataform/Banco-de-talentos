@@ -1,58 +1,106 @@
-# Desafio para integrar o banco de talentos como Desenvolvedor Front-end
+# Star Wars Characters 
 
-Este desafio tem como objetivo te avaliar como desenvolvedor Front-end.
+## [Sumary](#sumary) 
+* [About this application](#about-this-application)
+* [Funcionalities](#funcionalities)
+* [SWAPI](#swapi)
+* [Figma layout Reference](#figma-layout-reference)
+* [Dependencies](#dependencies)
+* [How to run it locally](#how-to-run-it-locally)
+* [Application standards](#application-standards)
+  * [Conventional Commits](#conventional-commits) 
+  * [File names](#file-names)
+  * [Block element modifier](#block-element-modifier)
+* [Views](#views)
 
-## Sobre o desafio
-Este é um desafio, não um teste de faculdade, então há várias respostas corretas.
 
-Daremos a você alguns requisitos que devem ser cumpridos e pelos quais você será avaliado, mas você é livre para escolher um método de solução.
+# [About This Application](#sumary)
 
-O que esperamos aprender com você com este desafio:
+This appliaction consists in show all characters from Star Wars and some informations about then.
 
-- Seu estilo de trabalho.
-- Como você pensa e resolve problemas.
-- Como você se comunica.
+You can see a lot of characers informations at all characters page and you can get in character page and see just a chosen one informations. 
 
-## Descrição do Desafio
-  O objetivo desse desafio é construir catalogo com Cards de informações sobre personagens de Star Wars (Um card para cada personagem)
-  Você deve buscar essas informações usando a Api publica [SWAPI](https://swapi.dev/)
+All informations have been taken from: [SWAPI](#swapi). 
+
+This application uses react with typescript, css for styles and context API to state management. 
+
+
+
+# [Funcionalities](#sumary)
+  * Filter Characters by name
+  * Filter By specie, movie or gender
+  * See more informations about the character in a modal and at his own informations page.
+
+
+# [SWAPI](#sumary)
+  This is a API from Star wars with a lot informations about people, species, films, vehicles, starships and planets.
+  You can see more at [SWAPI documentation](https://swapi.dev/documentation)
   
-## Requisitos
-Funcionalidades que devem ser desenvolvidas: 
-  - O usuário deverá poder filtrar os personagens por: 
-    - Genero
-    - Especie
-    - Filme em que aparece
-  - Pesquisa por nome
-  - Paginação para navegar entre os cartões
-  - Informações adicionais ao clicar nos cartões dos personagens
-  - Uma página interna com mais detalhes dos personagens (use sua criatividade);
 
-## Diferencial
 
-  - Utilizar alguma metodologia para a organização de seu CSS (BEMCSS, OOCSS, SMACSS... o que preferir :D);
-  - Escolha uma lib para criação de interfaces de usuário (React, Angular ou Vue); 
+# [Figma layout Reference](#sumary)
+  The layout reference of this application has been made by me.
+  You can access it just clicking [here](https://www.figma.com/file/CDVndimwKlsLynWiBcZyGF/front-end-impact-test?node-id=7%3A14&t=pID3se3DLVp4mDeS-1)
+  
 
-## Considerações
+# [Dependencies](#sumary)
 
-  - Não limitaremos sua escolha de ferramentas ou bibliotecas. Mas faça escolhas que atendam às suas necessidades. Não há necessidade de usar uma bazuca para matar uma formiga, mas o objetivo do desafio é avaliar suas habilidades.
-  - Tente escrever o melhor código possível. Vai facilitar nossa vida na hora de avaliar sua solução.
-  - Não se esqueça de documentar o processo necessário para buildar e executar seu aplicativo. Ou então como vamos avaliar seu trabalho se não podemos iniciar o projeto em nossas máquinas?
+```JSON
+ "dependencies": {
+    "axios": "^1.2.2",
+    "framer-motion": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
+    "react-modal": "^3.16.1",
+    "react-router-dom": "^6.7.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@types/react-modal": "^3.13.1",
+    "@vitejs/plugin-react": "^2.2.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vitest": "^0.27.1"
+    }
+ ```
+ 
+ * [axios](https://axios-http.com/ptbr/docs/intro) - Api Requests
+ * [framer motion](https://www.framer.com/motion/) - animate routes
+ * [react](https://reactjs.org/) - create frontend interfaces
+ * [react icons](https://react-icons.github.io/react-icons/) - easily get icons 
+ * [react modal](https://reactcommunity.org/react-modal/) - make modals
+ * [react-router-dom](https://reactrouter.com/en/main) - routes of aplication
+ 
 
-## Critérios de avaliação
+# [How to run it locally](#sumary)
+1. You need have nodejs installed in your machine.
+2. Fork or clone this repository.
+3. You need to run 'npm run dev' in terminal.  
 
-  - Seu código será avaliado por: semântica, organização, estrutura, legibilidade, tamanho, entre outros fatores.
-  - O histórico do `git` será avaliado.
-  - Responsividade;
-  - Reaproveitamento de código;
+# [Application standards](#sumary)
+  
+  ## Conventional Commits
+    This application uses conventional commits to standardize commit messages. You can know more at https://www.conventionalcommits.org/en/v1.0.0/
+  ## File names
 
-## Como submeter seu projeto
-  1. Efetue o fork deste repositório e crie um branch com o seu nome, sobrenome e qual teste você está submetendo. (exemplo: fulano-dasilva-frontend);
-  2. Após finalizar o desafio, crie um Pull Request;
-  3. Aguarde algum contribuidor realizar o code review;
+    * If you open the project, you can see that i difficultly use 'index' name to my files.
+    * Components have this structure: component
+                                          |-Component.tsx
+                                          |-stylesComponent.css
+    * I choose this approach because it is better to code, because you don't confuse diffent files named 'index'.
+  ## Block element modifier 
+    * It is always good organize css classes names. So i choose using BEM. It consists in name classes using the rule 'block__element--modifier'.
+    * for classes i use convention naming [kebab-case](https://www.theserverside.com/definition/Kebab-case). ex: character-info__container
+  
+# [Views](#sumary)
 
-## Dúvidas?
-Tem alguma dúvida relacionada ao processo? Abra um [issue](https://github.com/Impact-Plataform/Banco-de-talentos/issues) e teremos prazer em ajudar.
+## All characters
+![All characters Page image](https://github.com/leonardo-cabral67/Banco-de-talentos/blob/leonardo-cabral-frontend/frontend/star-wars-project/src/assets/characters-page.png)
 
-## Obrigado!
-Agradecemos sua participação no desafio. Boa sorte! 😄
+## Modal with more informations about the character
+![character-modal image](https://github.com/leonardo-cabral67/Banco-de-talentos/blob/leonardo-cabral-frontend/frontend/star-wars-project/src/assets/character-modal.png)
+
+## Profile Character Page
+![Profile Character Page image](https://github.com/leonardo-cabral67/Banco-de-talentos/blob/leonardo-cabral-frontend/frontend/star-wars-project/src/assets/chosen-character-page.png)
