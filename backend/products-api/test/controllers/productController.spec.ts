@@ -3,6 +3,7 @@ import { InMemoryProductRepo } from "../../src/repositories/inMemory/InMemoryPro
 import { UsecaseProduct } from "../../src/usecases/UsecaseProduct";
 import { RequestHTTP } from "../../src/controllers/ports/requestHttp";
 import { ProductController } from "../../src/controllers/ProductController";
+import { QuotationApi } from "../../src/services/QuotationApi";
 
 describe("Controller Product", () => {
   const request: RequestHTTP = {
@@ -14,7 +15,8 @@ describe("Controller Product", () => {
   };
   const list: Product[] = [];
   const repository = new InMemoryProductRepo(list);
-  const productUseCase = new UsecaseProduct(repository);
+  const service = new QuotationApi()
+  const productUseCase = new UsecaseProduct(repository, service);
   const controllerProduct = new ProductController(productUseCase);
 
   test("it should returns a status code 201 when creates a product", async () => {
