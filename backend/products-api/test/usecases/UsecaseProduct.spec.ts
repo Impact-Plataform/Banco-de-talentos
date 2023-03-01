@@ -187,10 +187,10 @@ describe("Create Product usecase", () => {
   test("Should convert correctly", () => {
     const products: ProductProps[] = [];
     const repository = new InMemoryProductRepo(products);
-        const quotationService = new QuotationApi()
+    const quotationService = new QuotationApi()
 
     const productUsecase = new UsecaseProduct(repository, quotationService);
 
-    expect(productUsecase.convertCurrency(20, 5)).toBe(4)
+    expect(productUsecase.convertCurrency(20, 5)).toEqual(20/5)
   })
 });
