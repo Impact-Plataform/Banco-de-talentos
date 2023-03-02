@@ -4,7 +4,7 @@ Welcome to my project! This challenge is intended by Impact Plataform to evaluat
 
 This API allows you to manage products and retrieve current currency exchange rates. It includes endpoints for creating, reading, updating, and deleting products, as well as for retrieving current exchange rates for various currencies. Please see the API documentation (/api-docs) for more details on the structure and usage of these endpoints.
 
-## [API Link](https://jedi-backend-challenge-production.up.railway.app/)
+## [API Link](https://banco-de-talentos-production.up.railway.app/)
 
 ## Running this project locally
 
