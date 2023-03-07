@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Jedi";
+  src: url(./assets/Starjedi.ttf);
+}
+
+@font-face {
+  font-family: "Jedi2";
+  src: url(./assets/Starjhol.ttf);
+}
+
+.hide{
+  display: none;
+}
+
+body{
+  background-image: url(./assets/star-sky-fundo-de-estrelas-do-espaco-particulas-de-brilho_160081-317.jpg) ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+b, label{
+  font-family: "Jedi";
+}
+
+p{
+  margin: 1px;
+  margin-left: 10px
+}
+
+h1{
+  font-family: "Jedi";
+  margin-bottom: 0.2em;
+}
+
+span{
+  margin-top: 10px;
+}
+
+#root{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

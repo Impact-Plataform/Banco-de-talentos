@@ -1,0 +1,23 @@
+.card{
+    color: yellow;
+    border-radius: 30px;
+    box-shadow: 1px 1px 10px 8px #d5df0d91;
+    margin: 1vw;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.divButtons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    margin-bottom: 3px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

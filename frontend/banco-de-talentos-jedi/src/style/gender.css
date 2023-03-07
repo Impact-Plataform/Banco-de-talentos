@@ -1,0 +1,26 @@
+.gender{
+    background-color: #18242D;
+    color: white;
+    font-family: "Jedi";
+    border-radius: 30px;
+    border: 2px solid white;
+}
+
+.gactive, .gender:hover, .gactive:hover{
+    background-color: white;
+    color: #18242D;
+    font-family: "Jedi";
+    border-radius: 30px;
+    border: 2px solid silver;
+}
+
+.gactive:hover{
+    cursor: not-allowed;
+}
+
+.genderButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 300px;
+}

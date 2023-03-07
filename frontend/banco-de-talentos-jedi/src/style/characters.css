@@ -1,0 +1,43 @@
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 97vw;
+    height: auto;
+}
+
+main{
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputTxt{
+    border-radius: 30px;
+    border: 2px solid yellow;
+    background-color: black;
+    color: yellow;
+    margin: 10px;
+}
+
+.inputTxt:focus-visible{
+    box-shadow: 1px 1px 10px 8px #d5df0d91
+}
+
+.stardex{
+    color: yellow;
+    border-radius: 30px;
+    border: 1px solid yellow;
+    margin: 1vw;
+    width: 152px;
+    text-align: center;
+}
+
+.stardex:hover{
+    box-shadow: 1px 1px 10px 8px #d5df0d91;
+    cursor: pointer;
+}
