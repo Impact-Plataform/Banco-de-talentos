@@ -8,6 +8,13 @@ type characterType = {
 }
 
 export function CharactersCard({ character, birthplace, info }: characterType) {
+	const modifyGender = (gender: string) => {
+		if (gender === 'n/a' || gender === 'unknown') {
+			return 'unknown gender'
+		}
+		return gender
+	}
+
 	return (
 		<div className="border border-white rounded-md py-2 px-3 flex flex-col items-center gap-3 w-[70%]">
 			<img
@@ -18,7 +25,7 @@ export function CharactersCard({ character, birthplace, info }: characterType) {
 			<div className="text-center">
 				<h3>{character.name}</h3>
 				<span className="text-sm">
-					{character.gender}, from {birthplace}
+					{modifyGender(character.gender)}, from {birthplace}
 				</span>
 			</div>
 
