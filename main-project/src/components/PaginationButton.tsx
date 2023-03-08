@@ -20,7 +20,7 @@ export function PaginationButton({
 			}}
 			disabled={disabled}
 			className={clsx(
-				'border border-white bg-transparent text-xs py-1 px-2 rounded-md',
+				'border border-white hover:border-primary bg-transparent text-xs py-1 px-2 rounded-md hover:text-primary',
 				{ hidden: isButtonVisible === false }
 			)}
 		>

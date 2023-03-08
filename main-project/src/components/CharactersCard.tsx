@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { IPeople } from 'swapi-ts'
+import { motion } from 'framer-motion'
 
 type characterType = {
 	character: IPeople
@@ -16,11 +17,16 @@ export function CharactersCard({ character, birthplace, info }: characterType) {
 	}
 
 	return (
-		<div className="border border-white rounded-md py-2 px-3 flex flex-col items-center gap-3 w-[80%] md:w-[25%]">
-			<img
-				src={require(`../assets/characters-images/${info.id}.jpg`)}
-				alt={`${info.name}'s on schene`}
-			/>
+		<motion.div
+			whileHover={{ scale: 1.05 }}
+			className="bg-black border border-white rounded-md py-2 px-3 flex flex-col items-center gap-3 w-[80%] md:w-[25%]"
+		>
+			<Link to={`/character/${info.name}`}>
+				<img
+					src={require(`../assets/characters-images/${info.id}.jpg`)}
+					alt={`${info.name}'s on schene`}
+				/>
+			</Link>
 
 			<div className="text-center">
 				<h3 className="text-primary">{character.name}</h3>
@@ -34,6 +40,6 @@ export function CharactersCard({ character, birthplace, info }: characterType) {
 					+ click for more
 				</button>
 			</Link>
-		</div>
+		</motion.div>
 	)
 }
