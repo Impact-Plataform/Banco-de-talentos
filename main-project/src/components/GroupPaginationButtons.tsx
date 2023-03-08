@@ -8,6 +8,7 @@ export const GroupPaginationButtons = () => {
 		<div className="flex justify-evenly">
 			<PaginationButton
 				title="previous"
+				disabled={Boolean(!previous)}
 				callback={() => {
 					if (previous) {
 						setPagination(pagination! - 1)
@@ -17,6 +18,7 @@ export const GroupPaginationButtons = () => {
 
 			<PaginationButton
 				title="next"
+				disabled={Boolean(!next)}
 				callback={() => {
 					if (next) {
 						setPagination(pagination! + 1)
