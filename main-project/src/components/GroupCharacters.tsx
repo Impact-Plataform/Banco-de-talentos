@@ -13,7 +13,7 @@ export function GroupCharacters() {
 	})
 
 	return (
-		<div className="flex flex-col gap-4 items-center">
+		<div className="flex flex-col gap-4 items-center justify-center md:flex-wrap md:flex-row">
 			{characters?.length === 0 && <p>{noDataFound}</p>}
 			{characters?.map((character) => {
 				const characterBirthPlace = planetsNames.find(
