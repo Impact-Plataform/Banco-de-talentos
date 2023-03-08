@@ -1,11 +1,11 @@
 import { nanoid } from 'nanoid'
 import { useContext } from 'react'
-import { SWContext, FiltersContentSchema } from '../contexts/SWContext'
+import { SWContext, ContentSchema } from '../contexts/SWContext'
 
 type SelectFilterProps = {
 	name: 'all' | 'genderFilter' | 'speciesFilter' | 'filmsFilter'
 	label: string
-	content?: FiltersContentSchema[]
+	content?: ContentSchema[]
 	options?: string[]
 }
 

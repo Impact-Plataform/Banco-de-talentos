@@ -19,7 +19,7 @@ export function CharactersCard({ character, birthplace, info }: characterType) {
 	return (
 		<motion.div
 			whileHover={{ scale: 1.05 }}
-			className="bg-black border border-white rounded-md py-2 px-3 flex flex-col items-center gap-3 w-[80%] md:w-[25%]"
+			className="bg-black border border-white hover:border-primary rounded-md py-2 px-3 flex flex-col items-center gap-3 w-[80%] md:w-[25%]"
 		>
 			<Link to={`/character/${info.name}`}>
 				<img

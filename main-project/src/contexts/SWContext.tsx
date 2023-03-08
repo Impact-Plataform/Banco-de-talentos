@@ -1,7 +1,15 @@
 import React, { createContext, useEffect, useState } from 'react'
-import { People, IPeople, Species, Films, Planets, IPlanet } from 'swapi-ts'
+import {
+	People,
+	IPeople,
+	Species,
+	Films,
+	Planets,
+	IPlanet,
+	Starships,
+} from 'swapi-ts'
 
-export type FiltersContentSchema = {
+export type ContentSchema = {
 	name: string
 	url: string
 }
@@ -20,9 +28,10 @@ type valuesSchema = {
 	setFilterType?: any
 	filterValue?: string
 	setFilterValue?: any
-	species?: FiltersContentSchema[]
-	films?: FiltersContentSchema[]
+	species?: ContentSchema[]
+	films?: ContentSchema[]
 	planets: IPlanet[] | []
+	starships: ContentSchema[] | []
 }
 
 type ProviderProps = {
@@ -32,6 +41,7 @@ type ProviderProps = {
 export const SWContext = createContext<valuesSchema>({
 	planets: [],
 	characters: [],
+	starships: [],
 })
 
 export const SWContextProvider = ({ children }: ProviderProps) => {
@@ -39,8 +49,9 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [pagination, setPagination] = useState(1)
 	const [next, setNext] = useState<string | null>('')
 	const [previous, setPrevious] = useState<string | null>('')
-	const [species, setSpecies] = useState<FiltersContentSchema[]>([])
-	const [films, setFilms] = useState<FiltersContentSchema[]>([])
+	const [species, setSpecies] = useState<ContentSchema[]>([])
+	const [films, setFilms] = useState<ContentSchema[]>([])
+	const [starships, setStarships] = useState<ContentSchema[]>([])
 	const [planets, setPlanets] = useState<IPlanet[] | []>([])
 	const [searchByName, setSearchByName] = useState('')
 	const [noDataFound, setNoDataFound] = useState<string | null>(null)
@@ -133,6 +144,17 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		loadFilmsList()
 	}, [])
 
+	useEffect(() => {
+		async function loadStarships() {
+			const getStarships = (await Starships.find()).resources
+			const dadosTratados = getStarships.map(({ value }) => {
+				return { name: value.name, url: value.url }
+			})
+			setStarships(dadosTratados)
+		}
+		loadStarships()
+	}, [])
+
 	const valoresParaPassar = {
 		characters,
 		pagination,
@@ -150,6 +172,7 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 		setFilterValue,
 		films,
 		planets,
+		starships,
 	}
 
 	return (

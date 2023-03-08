@@ -2,16 +2,20 @@ import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { IPeople, People } from 'swapi-ts'
 import { nanoid } from 'nanoid'
-import { SWContext } from '../../contexts/SWContext'
+import { ContentSchema, SWContext } from '../../contexts/SWContext'
 import { Header } from '../../components/Header'
 import NavigationBar from '../../components/NavigationBar'
+import CharacterHeader from '../../components/singleCharacterPage/CharacterHeader'
+import { CharacterInfo } from '../../components/singleCharacterPage/CharacterInfo'
+import { getTitleByUrl } from '../../utils/getTitleByUrl'
+import { GroupInfo } from '../../components/singleCharacterPage/GroupInfo'
 
 type urlTypes = {
 	name: string
 }
 
 export function CharacterPage() {
-	const { planets } = useContext(SWContext)
+	const { planets, films, starships } = useContext(SWContext)
 
 	const urlParams = useParams<urlTypes>()
 	const characterName = urlParams.name
@@ -26,13 +30,14 @@ export function CharacterPage() {
 			if (getCharacterBySearch) {
 				setCharacter(getCharacterBySearch)
 			}
-			console.log(getCharacterBySearch)
 		}
 		loadCharacter()
 	}, [])
 
 	const characterId = character?.url.match(/\d+/)!.toString()
+
 	const result = character && Object.entries(character).slice(1, 8)
+
 	const hometown =
 		character?.homeworld &&
 		planets.find((planet) => planet.url === character.homeworld)?.name
@@ -43,7 +48,7 @@ export function CharacterPage() {
 
 			<NavigationBar />
 
-			<div className="border border-white rounded-md py-2 px-3 flex flex-col items-center gap-3">
+			<div className="border border-white rounded-md py-2 px-3 flex flex-col md:flex-row items-center md:items-start gap-3">
 				{characterId && (
 					<img
 						src={require(`../../assets/characters-images/${characterId}.jpg`)}
@@ -51,21 +56,34 @@ export function CharacterPage() {
 					/>
 				)}
 				{character && (
-					<div>
-						<h1 className="text-center">{character.name}</h1>
-						<p className="font-bold">from {hometown}</p>
+					<div className="flex flex-col gap-4">
+						<CharacterHeader
+							characterName={character.name}
+							homeworld={hometown as string}
+						/>
 
 						<ul>
 							{result &&
 								result.map((item) => (
-									<li key={nanoid()} className="text-sm">
-										<span className="font-bold">
-											{item[0].replace('_', ' ')}:
-										</span>
-										<span> {item[1]}</span>
-									</li>
+									<CharacterInfo
+										key={nanoid()}
+										dataLabel={item[0]}
+										data={item[1]}
+									/>
 								))}
 						</ul>
+
+						<GroupInfo
+							sectionTitle="Films"
+							charContentArray={character.films as string[]}
+							rawDataArray={films as ContentSchema[]}
+						/>
+
+						<GroupInfo
+							sectionTitle="Starships"
+							charContentArray={character.starships as string[]}
+							rawDataArray={starships as ContentSchema[]}
+						/>
 					</div>
 				)}
 			</div>
