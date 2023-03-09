@@ -7,7 +7,7 @@ export function GroupCharacters() {
 	const { characters, noDataFound, planets } = useContext(SWContext)
 
 	const planetsNames = characters.map((char) => {
-		const matching = planets.find((planet) => planet.url === char.homeworld)
+		const matching = planets?.find((planet) => planet.url === char.homeworld)
 
 		return { name: matching!.name, url: matching!.url }
 	})
