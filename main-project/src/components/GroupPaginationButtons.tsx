@@ -3,14 +3,14 @@ import { SWContext } from '../contexts/SWContext'
 import { PaginationButton } from './PaginationButton'
 
 export const GroupPaginationButtons = () => {
-	const { pagination, next, previous, setPagination, filterValue } =
+	const { pagination, next, previous, setPagination, filterType } =
 		useContext(SWContext)
 	return (
 		<div className="flex justify-evenly">
 			<PaginationButton
 				title="previous"
 				disabled={Boolean(!previous)}
-				isButtonVisible={Boolean(filterValue === 'all')}
+				isButtonVisible={Boolean(filterType === 'all')}
 				callback={() => {
 					if (previous) {
 						setPagination(pagination! - 1)
@@ -21,7 +21,7 @@ export const GroupPaginationButtons = () => {
 			<PaginationButton
 				title="next"
 				disabled={Boolean(!next)}
-				isButtonVisible={Boolean(filterValue === 'all')}
+				isButtonVisible={Boolean(filterType === 'all')}
 				callback={() => {
 					if (next) {
 						setPagination(pagination! + 1)

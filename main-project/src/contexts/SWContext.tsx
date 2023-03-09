@@ -80,19 +80,19 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 				const getAllPeople = await People.find()
 
 				if (filterType === 'genderFilter') {
-					const filtradosPorGenero = getAllPeople.resources
+					const filteredDataByGender = getAllPeople.resources
 						.filter(({ value }) => value.gender === filterValue)
 						.map((item) => item.value)
-					setCharacters(filtradosPorGenero)
+					setCharacters(filteredDataByGender)
 				}
 				if (filterType === 'speciesFilter') {
-					const filtradosPorEspecie = getAllPeople.resources
+					const filteredDataBySpecie = getAllPeople.resources
 						.filter((item) => item.value.species[0] === filterValue)
 						.map((item) => item.value)
-					setCharacters(filtradosPorEspecie)
+					setCharacters(filteredDataBySpecie)
 				}
 				if (filterType === 'filmsFilter') {
-					const filtradosPorFilme = getAllPeople.resources
+					const filteredDataByFilm = getAllPeople.resources
 						.filter((item) => {
 							for (let i = 0; i < item.value.films.length; i++) {
 								if (item.value.films[i] === filterValue) return item.value
@@ -100,7 +100,21 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 						})
 						.map((item) => item.value)
 
-					setCharacters(filtradosPorFilme)
+					setCharacters(filteredDataByFilm)
+				}
+			}
+
+			if (searchByName.length >= 3) {
+				setFilterType('searchByName')
+				const getSearchByName = await People.findBySearch([searchByName])
+				if (getSearchByName.resources.length === 0) {
+					setCharacters([])
+					setNoDataFound('no data found by this search :(')
+				} else {
+					const dadosTratados = getSearchByName.resources.map(
+						(item) => item.value
+					)
+					setCharacters(dadosTratados)
 				}
 			}
 
@@ -109,19 +123,6 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 				setCharacters(getPeople.results)
 				setPrevious(getPeople.previous)
 				setNext(getPeople.next)
-			}
-			if (searchByName.length >= 3) {
-				setFilterType('searchByName')
-				const getSearchByName = await People.findBySearch([searchByName])
-				if (getSearchByName.resources.length === 0) {
-					setCharacters([])
-					setNoDataFound('no data found with this search :(')
-				} else {
-					const dadosTratados = getSearchByName.resources.map(
-						(item) => item.value
-					)
-					setCharacters(dadosTratados)
-				}
 			}
 		}
 
