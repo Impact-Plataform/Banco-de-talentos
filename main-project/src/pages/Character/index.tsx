@@ -48,7 +48,7 @@ export function CharacterPage() {
 
 			<NavigationBar />
 
-			<div className="border border-white rounded-md py-2 px-3 flex flex-col md:flex-row items-center md:items-start gap-3">
+			<div className="border border-white rounded-md py-3 px-3 flex flex-col md:flex-row items-center md:items-start gap-3">
 				{characterId && (
 					<img
 						src={require(`../../assets/characters-images/${characterId}.jpg`)}
