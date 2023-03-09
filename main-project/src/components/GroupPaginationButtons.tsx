@@ -10,7 +10,7 @@ export const GroupPaginationButtons = () => {
 			<PaginationButton
 				title="previous"
 				disabled={Boolean(!previous)}
-				isButtonVisible={!Boolean(filterValue !== 'all')}
+				isButtonVisible={Boolean(filterValue === 'all')}
 				callback={() => {
 					if (previous) {
 						setPagination(pagination! - 1)
@@ -21,7 +21,7 @@ export const GroupPaginationButtons = () => {
 			<PaginationButton
 				title="next"
 				disabled={Boolean(!next)}
-				isButtonVisible={!Boolean(filterValue !== 'all')}
+				isButtonVisible={Boolean(filterValue === 'all')}
 				callback={() => {
 					if (next) {
 						setPagination(pagination! + 1)

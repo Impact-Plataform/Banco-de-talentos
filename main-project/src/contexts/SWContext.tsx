@@ -24,7 +24,12 @@ type valuesSchema = {
 	setSearchByName?: any
 	noDataFound?: string | null
 	setNoDataFound?: any
-	filterType?: 'genderFilter' | 'speciesFilter' | 'filmsFilter' | 'all'
+	filterType?:
+		| 'genderFilter'
+		| 'speciesFilter'
+		| 'filmsFilter'
+		| 'searchByName'
+		| 'all'
 	setFilterType?: any
 	filterValue?: string
 	setFilterValue?: any
@@ -56,7 +61,7 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 	const [searchByName, setSearchByName] = useState('')
 	const [noDataFound, setNoDataFound] = useState<string | null>(null)
 	const [filterType, setFilterType] = useState<
-		'all' | 'genderFilter' | 'speciesFilter' | 'filmsFilter'
+		'all' | 'genderFilter' | 'speciesFilter' | 'filmsFilter' | 'searchByName'
 	>('all')
 	const [filterValue, setFilterValue] = useState<string>('all')
 
@@ -106,6 +111,7 @@ export const SWContextProvider = ({ children }: ProviderProps) => {
 				setNext(getPeople.next)
 			}
 			if (searchByName.length >= 3) {
+				setFilterType('searchByName')
 				const getSearchByName = await People.findBySearch([searchByName])
 				if (getSearchByName.resources.length === 0) {
 					setCharacters([])
