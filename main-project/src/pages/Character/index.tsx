@@ -7,8 +7,8 @@ import { Header } from '../../components/Header'
 import NavigationBar from '../../components/NavigationBar'
 import CharacterHeader from '../../components/singleCharacterPage/CharacterHeader'
 import { CharacterInfo } from '../../components/singleCharacterPage/CharacterInfo'
-import { getTitleByUrl } from '../../utils/getTitleByUrl'
 import { GroupInfo } from '../../components/singleCharacterPage/GroupInfo'
+import { AnimatedContainer } from '../../components/AnimatedContainer'
 
 type urlTypes = {
 	name: string
@@ -43,7 +43,7 @@ export function CharacterPage() {
 		planets.find((planet) => planet.url === character.homeworld)?.name
 
 	return (
-		<div className="flex flex-col gap-4">
+		<AnimatedContainer>
 			<Header />
 
 			<NavigationBar />
@@ -87,6 +87,6 @@ export function CharacterPage() {
 					</div>
 				)}
 			</div>
-		</div>
+		</AnimatedContainer>
 	)
 }

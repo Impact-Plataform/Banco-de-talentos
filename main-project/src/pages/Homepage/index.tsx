@@ -1,3 +1,4 @@
+import { AnimatedContainer } from '../../components/AnimatedContainer'
 import { Filters } from '../../components/Filters'
 import { GroupCharacters } from '../../components/GroupCharacters'
 import { GroupPaginationButtons } from '../../components/GroupPaginationButtons'
@@ -6,13 +7,13 @@ import { SearchBar } from '../../components/SearchBar'
 
 export function Homepage() {
 	return (
-		<div className="flex flex-col gap-4">
+		<AnimatedContainer>
 			<Header />
 			<SearchBar />
 			<Filters />
 			<GroupPaginationButtons />
 			<GroupCharacters />
 			<GroupPaginationButtons />
-		</div>
+		</AnimatedContainer>
 	)
 }
