@@ -13,6 +13,15 @@ export function GroupInfo({
 	charContentArray,
 	rawDataArray,
 }: GroupInfoProps) {
+	if (charContentArray.length === 0) {
+		return (
+			<div>
+				<h3>{sectionTitle}</h3>
+				<p>empty list :(</p>
+			</div>
+		)
+	}
+
 	return (
 		<div>
 			<h3>{sectionTitle}</h3>
