@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/*general settings*/
+
+@layer base{
+    html{
+        @apply font-sans text-white;
+    } 
+
+    body{
+        @apply bg-black p-5;
+    } 
+
+    h1, h2, h3, h4{
+        @apply font-bold uppercase;
+    }
+
+    h1{
+        @apply text-primary text-2xl;
+    }
+}
