@@ -10,7 +10,7 @@ type characterType = {
 
 export function CharactersCard({ character, birthplace, info }: characterType) {
 	const modifyGender = (gender: string) => {
-		if (gender === 'n/a' || gender === 'unknown') {
+		if (gender === 'n/a' || gender === 'unknown' || gender === 'none') {
 			return 'unknown gender'
 		}
 		return gender
