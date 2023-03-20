@@ -15,6 +15,9 @@ const Personagens = () => {
     species,
     vehicles,
     planets,
+    setPlanets,
+    setSpecies,
+    setFilms,
   } = useContext(StateContext);
 
   const [page, setPage] = useState(1);
@@ -32,6 +35,39 @@ const Personagens = () => {
         console.error("ops! ocorreu um erro" + err);
       });
   }, [page]);
+
+  useEffect(() => {
+    api
+      .get(`/planets/`)
+      .then((response) => {
+        setPlanets(response.data.results);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, []);
+
+  useEffect(() => {
+    api
+      .get(`/species/`)
+      .then((response) => {
+        setSpecies(response.data.results);
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, []);
+
+  useEffect(() => {
+    api
+      .get(`/films/`)
+      .then((response) => {
+        setFilms(response.data.results)
+      })
+      .catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+      });
+  }, []);
 
   const nextPage = () => {
     setPage(page + 1);
@@ -70,11 +106,23 @@ const Personagens = () => {
                   corDosOlhos={info.eye_color}
                   pele={info.skin_color}
                   especie={
-                    info.species == !info.species ? "human" : info.species
+                    info.species == 0
+                      ? "human"
+                      : species
+                          .filter((especie) => especie.url == info.species)
+                          .sort((e1, e2) => e1.url == e2.url)
+                          .map((especie) => especie.name)
                   }
                   anoDeNascimento={info.birth_year}
-                  planeta={info.homeworld}
-                  filmes={info.films}
+                  planeta={planets
+                    .filter((planeta) => planeta.url == info.homeworld)
+                    .sort((p1, p2) => p1.url == p2.url)
+                    .map((planeta) => planeta.name)}
+                  filmes={
+                    
+                    films.filter((films) => films.url == info.films.map((urls) => urls))
+                    .map((filme) => filme.title)
+                  }
                   url={info.url}
                   id={info.url.slice(-3).replace(/\//g, "")}
                 />
