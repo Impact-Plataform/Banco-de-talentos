@@ -26,162 +26,38 @@
   color: white;
 }
 
-.logo-container img{
-  margin-left: 4rem;
-  margin-bottom: 4rem;
-  width: 10rem;
-}
-
 .header-title {
-  margin-bottom: 4rem;
-  margin-right: 80rem;
-  font-size: 15px;
+  font-size: 30px;
+  color: #ffe81f;
+  margin-top: 1px;
+  margin-right: 600px;
+  
+}
+
+.logo {
+  width: 200px;
+  margin-left: 50px;
+}
+
+.title-select-gender {
+  font-size: 23px;
   color: #ffe81f;
 }
 
-/*.search-input {
-  color: #ffe81f;
-  margin-left: 20rem;
-}*/
-
-.btn-more {
-  color: #ffe81f;
-  margin-left: 150px;
-  font-size: 15px;
+#gender-select {
+  width: 180px;
+  height: 28px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 21px;
+  
 }
 
-.next-page-btn-container {
-  height: 45px;
-  margin-top: 30px;
+#gender-select:hover {
+  border-color: #ffe81f;
+  background-color: #FFFAC1;
 }
 
-.movie-details-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 2rem;
-}
 
-.movie-details-return-btn {
-  margin-bottom: 1rem;
-}
 
-.movie-details-return-btn button {
-  background-color: #1ca0d1;
-  border: none;
-  width: 6rem;
-  padding: 0.5rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: filter 0.6s;
-}
 
-.movie-details-return-btn button:hover {
-  filter: brightness(1.2);
-}
-
-.movie-details-poster-container {
-  height: 53rem;
-  width: 43rem;
-}
-
-.movie-details-poster-wrapper {
-  display: flex;
-  flex-direction: row;
-}
-
-.movie-details-poster-wrapper h1 {
-  font-family: "Questrial", sans-serif;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  font-size: 3.5rem;
-  font-weight: 400;
-}
-
-.movie-details-poster-wrapper h3 {
-  font-weight: 400;
-}
-
-.movie-details-poster-wrapper h4 {
-  font-weight: 400;
-  font-size: 1rem;
-}
-
-.movie-details-poster-container img {
-  height: 100%;
-  border-radius: 15px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.movie-details-info p {
-  margin-top: 2rem;
-}
-
-.movie-details-info {
-  width: 60rem;
-  text-align: justify;
-  color: wheat;
-}
-
-.movie-details-director-rating {
-  width: 22rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 2rem;
-}
-
-@media (max-width: 1440px) {
-  .movie-card {
-    width: 10rem;
-    height: 15rem;
-  }
-  .movie-card-wrapper {
-    height: 27rem;
-  }
-  .logo-container img {
-    margin-left: 5rem;
-    width: 18rem;
-  }
-  .search-container input {
-    height: 2rem;
-  }
-  .btn-container button {
-    height: 1.7rem;
-  }
-  .movie-card-data {
-    height: 17rem;
-    margin-bottom: 1rem;
-  }
-  .movie-details-poster-container {
-    height: 35rem;
-    width: 25rem;
-  }
-  .movie-details-info {
-    width: 50rem;
-    text-align: justify;
-    margin-left: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .movie-card {
-    width: 10rem;
-    height: 15rem;
-  }
-  .movie-card-wrapper {
-    height: 22rem;
-    width: 70rem;
-  }
-  .logo-container img {
-    margin-left: 5rem;
-    width: 13rem;
-  }
-  .search-container input {
-    height: 2rem;
-  }
-  .btn-container button {
-    height: 1.7rem;
-  }
-}

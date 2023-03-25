@@ -1,7 +1,11 @@
 import React from "react";
 import ImgLogo from "../../assets/logo-star-wars.png";
-import SearchFilter from "../SearchFilter/searchFilter";
+import SearchCharacters from "../SearchCharacters";
+import GenderFilter from "../../components/GenderFilter";
 import { useState } from "react";
+import SpeciesFilter from "../../components/SpeciesFilter";
+import MovieFilter from "../../components/MovieFilter";
+
 
 
 
@@ -9,16 +13,14 @@ function Header({ }) {
 
   const [text, setText] = useState('');
   return (
-    <header className="movies-container">
-      <div className="logo-container">
-        <img src={ImgLogo} alt="logo" />
-      </div>
+    <header className="movies-container">      
+        <img src={ImgLogo} className="logo"alt="logo" />       
+        <h1 className="header-title">UNIVERSE</h1> 
 
-      <div className="header-title">
-        <h1>UNIVERSE</h1>
-      </div>
-
-      <SearchFilter value={text} onChange={(search) => setText(search)} />
+      <GenderFilter /> 
+      <SpeciesFilter />
+      <MovieFilter />     
+      <SearchCharacters value={text} onChange={(search) => setText(search)} />
 
     </header>
   );

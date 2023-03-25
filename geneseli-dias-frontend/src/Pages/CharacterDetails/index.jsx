@@ -38,3 +38,5 @@ function CharacterDetails() {
 }
 
 export default CharacterDetails;
+
+
