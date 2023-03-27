@@ -1,0 +1,126 @@
+.character-card-data {
+  position: relative;
+  height: 320px;
+  overflow-y: hidden;
+  margin-top: 60px;
+  margin-left: 25px;
+}
+
+
+.character-card-data {
+  height: 15rem;
+  width: 15rem;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  filter: brightness(0.8);
+  margin-bottom: 30px;
+  cursor: pointer;
+  z-index: 0;
+  border: 2px solid #fff7b3;
+}
+
+.character-card-data .id {
+  font-size: 30px;
+}
+
+.character-card-data .title {
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 0 16px;
+  transform: translate3d(0, -100%, 0);
+  transition: transform 300ms;
+}
+
+.character-card-data .id {
+  font-size: 30px;
+  color: red;
+}
+/* adição para crirar a camada sobreposta*/
+ .character-card-data .up {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: transform 0.2s;
+}
+
+/*editando o as informações dentro dos cards*/
+.character-card-data ul {
+  font-family: "Questrial", sans-serif;
+  color: #FFFFFF;
+  margin: 25px;
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.character-card-data .up:hover ~ .overlay,
+.character-card-data .up:focus ~ .overlay {
+  transform: translate3d(0, 0, 0);
+}
+.character-card-data .up:hover ~ .overlay .title,
+.character-card-data .up:focus ~ .overlay .title {
+  transform: translate3d(0, 0, 0);
+}
+.character-card-data .up:hover ~ .overlay .status,
+.character-card-data .up:focus ~ .overlay .status {
+  opacity: 1;
+} 
+
+.character-card-data img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-top: 1px solid ##ff00ff;
+  border-bottom: 1px solid ##ff00ff;
+}
+
+.character-card-data .overlay {
+  display: contents;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  border-top: 1px solid #FFFFFF;
+  transition: transform 300ms;
+  background-color: #111111;
+  transform: translate3d(0, 100%, 0);
+}
+
+.character-card-data .status {
+  color: inherit;
+  flex-grow: 1;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 500ms 100ms;
+}
+.character-card-data .status ul {
+  margin: 0;
+  list-style: none;
+  font-size: 1.25em;
+}
+
+.movie-characters-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 10px;
+  padding-top: 1rem;
+  margin-left: 3rem;
+}
+
+/* .name */
+.title {
+  color: wheat;
+}
+.movies-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
