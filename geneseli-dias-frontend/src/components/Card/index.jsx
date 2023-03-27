@@ -4,16 +4,12 @@ import "./styles.css";
 
 function Card({ movieData }) {
   const { name } = useParams();
-
   console.log(movieData);
-
-
   return (
-
     <div className="movie-card-wrapper">
       <div className="movie-characters-cards">
         {movieData.map((character) => (
-          <div className="character-card-data" key={character.id}>            
+          <div className="character-card-data" key={character.id}>         
             
               <span className="up"></span>             
               
@@ -25,7 +21,6 @@ function Card({ movieData }) {
               
                 <div className="status">
                   <ul>
-                    {/* <li><strong>Name</strong>: {character.name}</li> */}
                       <li><strong>Height</strong>: {character.height}</li>
                       <li><strong>Birth Year</strong>: {character.birth_year}</li>
                   </ul>

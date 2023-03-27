@@ -1,7 +1,6 @@
 import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import MainPage from "./Pages/MainPage";
-import CharacterDetails from "./Pages/CharacterDetails";
 
 
 
@@ -12,7 +11,6 @@ function App() {
         
         <Switch>
           <Route path="/" exact component={MainPage} />
-          <Route path="/:id" component={CharacterDetails} />
         </Switch>
       </main>
     </div>

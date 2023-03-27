@@ -36,10 +36,9 @@ class SpeciesFilter extends Component {
 
   render() {
     return (
-      <div>
-        <label htmlFor="species">Select a species:</label>
+      <div>       
         <select id="species" onChange={this.handleSpeciesChange} value={this.state.selectedSpecies}>
-          <option value="">-- Please select a species --</option>
+          <option value="">Selecione uma espécie</option>
           {this.state.speciesList.map(species => (
             <option key={species.name} value={species.name}>{species.name}</option>
           ))}

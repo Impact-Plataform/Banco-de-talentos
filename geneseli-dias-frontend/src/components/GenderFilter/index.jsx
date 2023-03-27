@@ -16,12 +16,11 @@ class GenderFilter extends Component {
       gender: event.target.value
     });
   }
-
+  
   render() {
-    return (
-      <div>
-        <label className="title-select-gender"htmlFor="gender-select">Select Gender:</label>
+    return (      
         <select id="gender-select" value={this.state.gender} onChange={this.handleGenderChange}>
+          <option value="">Selecione o Gênero</option>
           <option value="">All</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
@@ -29,7 +28,6 @@ class GenderFilter extends Component {
           <option value="hermaphrodite">Hermaphrodite</option>
           <option value="none">None</option>
         </select>
-      </div>
     );
   }
 }

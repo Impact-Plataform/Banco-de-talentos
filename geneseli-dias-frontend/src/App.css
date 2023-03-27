@@ -26,38 +26,39 @@
   color: white;
 }
 
-.header-title {
-  font-size: 30px;
-  color: #ffe81f;
-  margin-top: 1px;
-  margin-right: 600px;
-  
-}
-
 .logo {
   width: 200px;
   margin-left: 50px;
 }
 
-.title-select-gender {
-  font-size: 23px;
-  color: #ffe81f;
-}
-
 #gender-select {
-  width: 180px;
-  height: 28px;
+  width: 300px;
+  height: 40px;
   background-color: #ffffff;
   border-radius: 5px;
-  font-size: 21px;
-  
+  font-size: 26px;
+  margin-left:800px;
+  margin-top: 20px; 
+  cursor: pointer; 
+  border-color: #ffe81f;  
 }
 
 #gender-select:hover {
-  border-color: #ffe81f;
-  background-color: #FFFAC1;
+  background-color: #FFE855;
 }
 
+#species {
+  width: 300px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-size: 26px;
+  margin-right: 70px;
+  margin-top: 20px; 
+  cursor: pointer; 
+  border-color: #ffe81f; 
+}
 
-
-
+#species:hover {
+  background-color: #FFE855;
+}

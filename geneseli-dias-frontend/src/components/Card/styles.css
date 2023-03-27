@@ -1,20 +1,9 @@
-/* 
-EXCLUIR 
-.movie-characters-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 1rem;
-} */
-
-/*adicionado*/
-
 .character-card-data {
   position: relative;
   height: 320px;
   overflow-y: hidden;
+  margin-top: 60px;
+  margin-left: 25px;
 }
 
 
@@ -25,14 +14,12 @@ EXCLUIR
   flex-direction: column-reverse;
   align-items: center;
   filter: brightness(0.8);
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   cursor: pointer;
   z-index: 0;
   border: 2px solid #fff7b3;
 }
 
-
-/*adicionado*/
 .character-card-data .id {
   font-size: 30px;
 }
@@ -48,13 +35,10 @@ EXCLUIR
   transition: transform 300ms;
 }
 
-/*adicionad*/
 .character-card-data .id {
   font-size: 30px;
   color: red;
 }
-
-
 /* adição para crirar a camada sobreposta*/
  .character-card-data .up {
   position: absolute;
@@ -63,8 +47,6 @@ EXCLUIR
   width: 100%;
   height: 100%;
   z-index: 1;
-  /* background-color: rgba(0,0,0,0.8); */
-  /* cursor: pointer; */
   transition: transform 0.2s;
 }
 
@@ -100,10 +82,7 @@ EXCLUIR
 }
 
 .character-card-data .overlay {
-  /* display: flex; */
   display: contents;
-  /* flex-direction: column;
-  justify-content: center; */
   height: 100%;
   position: absolute;
   width: 100%;
@@ -114,7 +93,6 @@ EXCLUIR
   transform: translate3d(0, 100%, 0);
 }
 
-/*adicionado*/
 .character-card-data .status {
   color: inherit;
   flex-grow: 1;
@@ -128,36 +106,6 @@ EXCLUIR
   font-size: 1.25em;
 }
 
-
-.next-page-btn-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.next-page-btn-container button {
-  margin-right: 2rem;
-  background-color: #ffe81f;
-  border-radius: 10px;
-  padding: 5px;
-  cursor: pointer;
-}
-
-/* .movie-card-data span {
-  filter: brightness(1);
-} */
-
-/* 
-.movie-card-data:hover {
-  transform: scale(1.1);
-  filter: brightness(1);
-} */
-
-/* .movie-card-wrapper {
-  width: 100%;
-  height: 80%;
-} */
-
 .movie-characters-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -170,27 +118,6 @@ EXCLUIR
 .title {
   color: wheat;
 }
-
-/* .movie-card {
-  width: 14rem;
-  height: 21rem;
-  border-radius: 15px;
-  margin-left: 0.5rem;
-  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
-}
-
-.movie-card-content {
-  width: 100%;
-} 
-
- 
-.movie-banner-img {
-  height: 100%;
-  width: 100%;
-  border-radius: 15px;
-  cursor: pointer;
-}  */
-
 .movies-container {
   display: flex;
   flex-direction: row;
