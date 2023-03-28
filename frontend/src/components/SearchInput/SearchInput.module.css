@@ -1,0 +1,12 @@
+@media screen and (max-width: 768px) {
+  form {
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+  }
+
+  input {
+    margin-bottom: 5px;
+    width: 100%;
+  }
+}

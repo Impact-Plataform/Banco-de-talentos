@@ -1,0 +1,84 @@
+:root {
+  --primary: #0d8aa6;
+  --secondary: #00abbd;
+  --tertiary: #0d0d0d;
+  --success: #0099dd;
+  --info: #f5f6fa;
+  --warning: #feeb23;
+  --danger: #e3371e;
+}
+
+.bg-primary,
+.btn-primary {
+  background-color: var(--primary) !important;
+}
+.bg-primary,
+.btn-primary:hover {
+  background-color: var(--warning) !important;
+  color: var(--tertiary) !important;
+}
+.bg-secondary,
+.btn-secondary {
+  background-color: var(--secondary) !important;
+}
+.bg-tertiary,
+.btn-tertiary {
+  background-color: var(--tertiary) !important;
+}
+.bg-success,
+.btn-success {
+  background-color: var(--warning) !important;
+  color: #0d0d0d;
+  font-weight: bold;
+  border-color: var(--tertiary) !important;
+}
+.bg-success,
+.btn-success:hover {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+
+.bg-info,
+.btn-info {
+  background-color: var(--info) !important;
+}
+.bg-warning,
+.btn-warning {
+  background-color: var(--warning) !important;
+  color: #0d0d0d;
+  font-weight: bold;
+  border-color: #feeb23;
+}
+.bg-danger .btn-danger {
+  background-color: var(--danger) !important;
+}
+.nav-link {
+  color: var(--primary) !important ;
+}
+.nav-link:hover {
+  color: var(--warning) !important ;
+}
+
+.card-body {
+  background: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  box-shadow: rgb(40 41 61 / 16%) 0px 10px 20px,
+    rgb(96 97 112 / 16%) 0px 0.5px 2px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  .container-fluid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-fluid form {
+    width: 100%;
+  }
+
+  .col {
+    width: 100%;
+  }
+}

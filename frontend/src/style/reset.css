@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+input,
+select,
+a {
+  font-family: jedi;
+}
+
+h5,
+h1 {
+  font-family: "Michroma", sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+p {
+  font-family: "Courier New", Courier, monospace;
+}
+
+@font-face {
+  font-family: jedi;
+  src: url(../assets/fonts/Starjedi.ttf);
+}

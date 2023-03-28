@@ -1,0 +1,27 @@
+.logo {
+  width: 250px;
+}
+
+.svg {
+  width: 100px;
+}
+
+.container {
+  width: 50%;
+  display: flex;
+}
+.container button {
+  font-family: jedi;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+  }
+  .container button {
+    width: 50%;
+    align-self: center;
+  }
+}
