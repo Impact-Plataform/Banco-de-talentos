@@ -8,7 +8,7 @@ export const HeaderContainer = styled.header`
   height: 8rem;
   background-color: #000;
   border-bottom: 1px solid #fff;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 
   img {
     width: 12rem;

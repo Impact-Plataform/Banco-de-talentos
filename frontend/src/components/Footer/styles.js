@@ -10,7 +10,7 @@ export const FooterContainer = styled.header`
   height: 8rem;
   background-color: #000;
   border-top: 1px solid #fff;
-  margin-top: 5rem;
+  margin-top: 3rem;
 
   @media (max-width: 425px) {
     flex-direction: column;
