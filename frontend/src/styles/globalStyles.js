@@ -14,5 +14,16 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
     background-color: #333;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #dddddd;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ffd700;
   }
 `;
