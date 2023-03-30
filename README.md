@@ -1,10 +1,39 @@
-# `Banco de Talentos Plataforma Impact`
+# Desafio Banco de Talentos Plataforma Impact
 
-## Sobre os desafios
-  Nesse repositório você encontrará duas pastas com cada uma com um arquivo .md contendo a descrição do desafio.
-  Leia atentamente a descrição e siga os passos descritos.
-## Dúvidas?
-Tem alguma dúvida relacionada ao processo? Abra um [issue](https://github.com/Impact-Plataform/Banco-de-talentos/issues) e teremos prazer em ajudar.
+#### Aplicação Web que fornece dados dos personagens de Star Wars da API "SWAPI".
 
-## Obrigado!
-Agradecemos sua participação no desafio. Boa sorte! 😄
+## 🛠️ Tecnologias utilizadas
+
+- ReactJS
+- Javascript
+- Styled-components
+- Vite
+- Axios
+- React Router DOM
+- React-icons
+
+# 📝 Sobre o desafio
+
+O objetivo desse desafio é construir um catalogo com Cards de informações sobre personagens de Star Wars (Um card para cada personagem) e buscar essas informações usando a API pública [SWAPI](https://swapi.dev/).
+
+# 📥 Como instalar e rodar o projeto
+
+1. Abra o terminal e clone o projeto:
+
+`https://github.com/salomaosilval/desafio-plataforma-impact.git`
+
+2. Troque para a branch de desenvolvimento:
+
+`git checkout salomao-da-silva-frontend`
+
+3. Entre na pasta do Frontend:
+
+`cd frontend`
+
+4. Instale as dependências:
+
+`yarn`
+
+5. Execute o projeto:
+
+`yarn dev`
