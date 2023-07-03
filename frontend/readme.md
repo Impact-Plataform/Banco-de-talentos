@@ -2,7 +2,7 @@
 
 ## [Sumary](#sumary) 
 * [About this application](#about-this-application)
-* [Funcionalities](#funcionalities)
+* [Functionalities](#functionalities)
 * [SWAPI](#swapi)
 * [Figma layout Reference](#figma-layout-reference)
 * [Dependencies](#dependencies)
@@ -26,7 +26,7 @@ This application uses react with typescript, css for styles and context API to s
 
 
 
-# [Funcionalities](#sumary)
+# [Functionalities](#sumary)
   * Filter Characters by name
   * Filter By specie, movie or gender
   * See more informations about the character in a modal and at his own informations page.
